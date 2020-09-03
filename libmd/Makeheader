@@ -1,0 +1,139 @@
+##DEBUG=0 (default) assumes RELEASE mode (maximum optimizations) otherwise DEBUG mode is assumded
+DEBUG=0
+
+##Do we want -pg to be included in compilation time (default off; if turned on DEBUGFLAG -g3 is also set)
+PROFILE=0
+ifeq ($(PROFILE),1)
+	DEBUGFLAG=1
+endif
+
+LIBMDDIR?=.
+
+##This is to be used for all modes:
+#Compiler
+CC=g++
+#Comilation message
+MSG=$(shell date) by $(shell whoami)'@'$(shell hostname)
+VER=0.$(shell git -C '$(LIBMDDIR)' rev-list HEAD --count)
+BRANCH=$(shell git -C '$(LIBMDDIR)' rev-parse --abbrev-ref HEAD)
+STD=c++11
+CCWFLAGS=-Wall -Wextra
+THREAD=NOTHREADS
+FTYPE=0
+CCDFLAGS=-D CMSG='"$(MSG)"'
+CCDFLAGS+= -D $(THREAD)
+CCDFLAGS+= -D VER='"$(VER)"'
+CCDFLAGS+= -D BRANCH='"$(BRANCH)"'
+CUSTOM=
+
+ifeq ($(FTYPE),long_double)
+	CCDFLAGS+= -D LIBMD__LONG_DOUBLE__
+else ifeq ($(FTYPE),float)
+	CCDFLAGS+= -D LIBMD__FLOAT__
+endif
+
+ifeq ($(DEBUG),0)
+##This is to be used in RELEASE mode
+    ## Compile with -Werror
+    WERROR=0
+	##Pass libmd errors
+	PASS_ERROR=1
+	##Pass libmd warnings
+	PASS_WARNING=0
+	##libmd debug level
+	DEBUG_LEVEL=0
+	##libmd timer
+	TIMER=0
+	##Throw libmd exceptions 
+	EXCEPTIONS=0
+	##If we want -g as a compile option
+	DEBUGFLAG?=0
+	##Optimizations level
+	CCOPTLEVEL=fast
+	##Link time optizmizations
+	LTO=1
+	##Optimize for native cpu
+    MARCH=1
+	##Create a static build
+    STATIC=0
+	##Strip useless symbols
+    STRIP=0
+	##Disable colored output (if true)
+    BORING=0
+else
+##This is to be used in DEBUG mode
+    WERROR=0
+	PASS_ERROR=1
+	PASS_WARNING=1
+	DEBUG_LEVEL=0
+	TIMER=0
+	EXCEPTIONS=0
+	CCOPTLEVEL=g
+	DEBUGFLAG=1
+	LTO=0
+    MARCH=0
+    STATIC=0
+    STRIP=0
+    BORING=0
+endif
+
+##This defines the thread model (currently none supported)
+CCTHREADFLAG=
+
+##This part injects definitions into the code
+ifeq ($(WERROR),1)
+	CCWFLAGS+= -Werror
+endif
+ifeq ($(PASS_ERROR),1)
+	CCDFLAGS+= -D PASS_ERROR
+endif
+ifeq ($(PASS_WARNING),1)
+	CCDFLAGS+= -D PASS_WARNING
+endif
+ifneq ($(DEBUG_LEVEL),0)
+	CCDFLAGS+= -D DEBUG_LEVEL=$(DEBUG_LEVEL)
+endif
+ifneq ($(TIMER),0)
+	CCDFLAGS+= -D TIMER
+endif
+ifneq ($(DEBUG_LEVEL),0)
+	CCDFLAGS+= -D EXCEPTIONS=$(EXCEPTIONS)
+endif
+ifneq ($(BORING),0)
+	CCDFLAGS+= -D BORING
+endif
+
+##Concatenate everything together
+CCFLAGS=$(CCWFLAGS)
+CCFLAGS+= -std=$(STD)
+ifeq ($(DEBUGFLAG),1)
+	CCFLAGS+= -g3
+endif
+ifneq ($(PROFILE),0)
+	CCFLAGS+= -pg
+endif
+ifneq ($(LTO),0)
+	CCFLAGS+= -flto
+endif
+ifneq ($(MARCH),0)
+	CCFLAGS+= -march=native
+endif
+ifneq ($(STATIC),0)
+	CCFLAGS+= -static
+endif
+ifneq ($(STRIP),0)
+	CCFLAGS+= -s
+endif
+CCFLAGS+= -O$(CCOPTLEVEL)
+CCFLAGS+= $(CCTHREADFLAG)
+CCFLAGS+= $(CCDFLAGS)
+CCFLAGS+=$(CUSTOM)
+
+##And finaly tell the code about yourself
+CCDDFLAGS:=$(CCFLAGS)
+CCDDFLAGS+=$(CUSTOM)
+CCFLAGS+= -D CC='"$(CC) $(CCDDFLAGS)"'
+
+##Make pattern
+%: %.cc
+	$(CC) $(CCFLAGS) -o $@ $<
