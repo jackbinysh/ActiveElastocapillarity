@@ -1,0 +1,529 @@
+\hypertarget{structmp}{}\doxysection{mp$<$ dim $>$ Struct Template Reference}
+\label{structmp}\index{mp$<$ dim $>$@{mp$<$ dim $>$}}
+
+
+This structure defines the Monge patch manifold and its properties.  
+
+
+
+
+{\ttfamily \#include $<$libmd.\+h$>$}
+
+
+
+Collaboration diagram for mp$<$ dim $>$\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structmp_a8edf03f32a1158b6b200112c45afd381_a8edf03f32a1158b6b200112c45afd381}{mp}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structmp_a08440a1cc2f41c677690398276a63ac6_a08440a1cc2f41c677690398276a63ac6}{setmp}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i=\mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9adec67112fb78f6a886ffbf84d7bb596a}{M\+P\+::\+F\+L\+A\+T\+S\+P\+A\+CE}})
+\begin{DoxyCompactList}\small\item\em Picks one of the builtin Monge patches. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structmp_adc249216879c36bb4281c77cfe0e3070_adc249216879c36bb4281c77cfe0e3070}{setmp}} (\mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr}}$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}, dim $>$ \mbox{\hyperlink{structmp_a7f68eaecc3861d8ffbbbf941eea4c375_a7f68eaecc3861d8ffbbbf941eea4c375}{f}}, \mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr}}$<$ \mbox{\hyperlink{structduals}{duals}}$<$ dim $>$, dim $>$ \mbox{\hyperlink{structmp_a6cfde440e01aac636364d3699594ec00_a6cfde440e01aac636364d3699594ec00}{df}})
+\begin{DoxyCompactList}\small\item\em Picks a custom Monge patch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structmp_aec5edb0609b1127ec7df607d43880955_aec5edb0609b1127ec7df607d43880955}{calc}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i, \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x\mbox{[}dim\mbox{]})
+\begin{DoxyCompactList}\small\item\em Calculate geometric information. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structmp_a898dbc8141f959568d1285bed8aabf3d_a898dbc8141f959568d1285bed8aabf3d}{calc}} (\mbox{\hyperlink{structduals}{duals}}$<$ dim $>$ \&z, \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x\mbox{[}dim\mbox{]})
+\begin{DoxyCompactList}\small\item\em Calculate geometric information on the spot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a7f68eaecc3861d8ffbbbf941eea4c375_a7f68eaecc3861d8ffbbbf941eea4c375}{f}} (\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x\mbox{[}dim\mbox{]})
+\begin{DoxyCompactList}\small\item\em Monge patch. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a6cfde440e01aac636364d3699594ec00_a6cfde440e01aac636364d3699594ec00}{df}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu, \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x\mbox{[}dim\mbox{]})
+\begin{DoxyCompactList}\small\item\em Monge patch gradient. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a0a9bbcb3fb4b4e541491bede35d41cab_a0a9bbcb3fb4b4e541491bede35d41cab}{ddf}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu, \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x\mbox{[}dim\mbox{]})
+\begin{DoxyCompactList}\small\item\em Monge patch laplacian. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a19b6d238e61760d2385ed1bf8a244329_a19b6d238e61760d2385ed1bf8a244329}{g}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)
+\begin{DoxyCompactList}\small\item\em Monge patch metric tensor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a34a8c2027ae11ea84efa0dbbbfcc8409_a34a8c2027ae11ea84efa0dbbbfcc8409}{gp}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)
+\begin{DoxyCompactList}\small\item\em Monge patch metric tensor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a2c5825d8f21771e40b120082e50827d2_a2c5825d8f21771e40b120082e50827d2}{ginv}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)
+\begin{DoxyCompactList}\small\item\em Monge patch metric tensor inverse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_abd53fa81c114885220760369e00581e2_abd53fa81c114885220760369e00581e2}{sqrt\+\_\+ginv}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)
+\begin{DoxyCompactList}\small\item\em Square root of Monge patch metric tensor inverse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_aabea07a9716f508691b7ae5e79464d03_aabea07a9716f508691b7ae5e79464d03}{A}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} sigma, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)
+\begin{DoxyCompactList}\small\item\em Monge patch $ A_{\sigma \mu \nu} = \Gamma_{\nu \sigma \mu} $ where $ \Gamma_{\nu \sigma \mu} $ are the Christoffel symbols (of the first kind) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structmp_ad6ec8a5ec8ec1e903b86c9b9ece69409_ad6ec8a5ec8ec1e903b86c9b9ece69409}{patch}}
+\begin{DoxyCompactList}\small\item\em Monge patch type number U\+I\+\_\+\+M\+AX is custom. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}}
+\begin{DoxyCompactList}\small\item\em Monge patch function parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr}}$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}, dim $>$ \mbox{\hyperlink{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}{fmp}}
+\begin{DoxyCompactList}\small\item\em Monge patch function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr}}$<$ \mbox{\hyperlink{structduals}{duals}}$<$ dim $>$, dim $>$ \mbox{\hyperlink{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}{dfmp}}
+\begin{DoxyCompactList}\small\item\em Derivatives of monge function. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structduals}{duals}}$<$ dim $>$ $>$ \mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}
+\begin{DoxyCompactList}\small\item\em Geometric information for particle i in position at position x. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structduals}{duals}}$<$ dim $>$ $>$ \mbox{\hyperlink{structmp_a166c4d14cbf5b00f483c219f9796e7f2_a166c4d14cbf5b00f483c219f9796e7f2}{geometryxp}}
+\begin{DoxyCompactList}\small\item\em Geometric information for particle i in position at position xp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$ui dim$>$\newline
+struct mp$<$ dim $>$}
+
+This structure defines the Monge patch manifold and its properties. 
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00591}{591}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structmp_a8edf03f32a1158b6b200112c45afd381_a8edf03f32a1158b6b200112c45afd381}\label{structmp_a8edf03f32a1158b6b200112c45afd381_a8edf03f32a1158b6b200112c45afd381}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!mp@{mp}}
+\index{mp@{mp}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{mp()}{mp()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::\mbox{\hyperlink{structmp}{mp}}}
+
+
+
+Constructor. 
+
+Constructor for the mp$<$dim$>$ class By default loads a F\+L\+A\+T\+S\+P\+A\+CE Monge patch by calling setmp
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00006}{6}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00012     \mbox{\hyperlink{structmp_a08440a1cc2f41c677690398276a63ac6_a08440a1cc2f41c677690398276a63ac6}{setmp}}();}
+\DoxyCodeLine{00013 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structmp_aabea07a9716f508691b7ae5e79464d03_aabea07a9716f508691b7ae5e79464d03}\label{structmp_aabea07a9716f508691b7ae5e79464d03_aabea07a9716f508691b7ae5e79464d03}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!A@{A}}
+\index{A@{A}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{A()}{A()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::A (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{i,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{sigma,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{mu,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{nu }\end{DoxyParamCaption})}
+
+
+
+Monge patch $ A_{\sigma \mu \nu} = \Gamma_{\nu \sigma \mu} $ where $ \Gamma_{\nu \sigma \mu} $ are the Christoffel symbols (of the first kind) 
+
+Calculates A symbol of the van Zuiden integrator element {\ttfamily sigma mu nu} for particle {\ttfamily i}
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00143}{143}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144 \{}
+\DoxyCodeLine{00148     \textcolor{keywordflow}{return} \mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dx[nu]*\mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dxdy[sigma][mu];}
+\DoxyCodeLine{00149 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structmp_a898dbc8141f959568d1285bed8aabf3d_a898dbc8141f959568d1285bed8aabf3d}\label{structmp_a898dbc8141f959568d1285bed8aabf3d_a898dbc8141f959568d1285bed8aabf3d}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!calc@{calc}}
+\index{calc@{calc}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{calc()}{calc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+void \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::calc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structduals}{duals}}$<$ dim $>$ \&}]{z,  }\item[{\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}}]{x\mbox{[}dim\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Calculate geometric information on the spot. 
+
+Calculates geometric information for particle {\ttfamily i} at position {\ttfamily x} The results are stored in the first argument {\ttfamily z}
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00068}{68}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069 \{}
+\DoxyCodeLine{00074     \mbox{\hyperlink{structduals}{duals<dim>}} y[dim];}
+\DoxyCodeLine{00075     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);}
+\DoxyCodeLine{00076     z=\mbox{\hyperlink{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}{dfmp}}(y,\mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}});}
+\DoxyCodeLine{00077 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structmp_aec5edb0609b1127ec7df607d43880955_aec5edb0609b1127ec7df607d43880955}\label{structmp_aec5edb0609b1127ec7df607d43880955_aec5edb0609b1127ec7df607d43880955}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!calc@{calc}}
+\index{calc@{calc}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{calc()}{calc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+void \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::calc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{i,  }\item[{\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}}]{x\mbox{[}dim\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Calculate geometric information. 
+
+Calculates geometric information for particle {\ttfamily i} at position {\ttfamily x} The results are stored in the geometryx array
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00057}{57}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058 \{}
+\DoxyCodeLine{00063     \mbox{\hyperlink{structduals}{duals<dim>}} y[dim];}
+\DoxyCodeLine{00064     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);}
+\DoxyCodeLine{00065     \mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i]=\mbox{\hyperlink{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}{dfmp}}(y,\mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}});}
+\DoxyCodeLine{00066 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structmp_a0a9bbcb3fb4b4e541491bede35d41cab_a0a9bbcb3fb4b4e541491bede35d41cab}\label{structmp_a0a9bbcb3fb4b4e541491bede35d41cab_a0a9bbcb3fb4b4e541491bede35d41cab}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!ddf@{ddf}}
+\index{ddf@{ddf}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{ddf()}{ddf()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::ddf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{mu,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{nu,  }\item[{\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}}]{x\mbox{[}dim\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Monge patch laplacian. 
+
+Calculates the second derivative in the directions {\ttfamily mu nu} of the(set) Monge function at position {\ttfamily x}
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00097}{97}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098 \{}
+\DoxyCodeLine{00102     \mbox{\hyperlink{structduals}{duals<dim>}} y[dim];}
+\DoxyCodeLine{00103     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);}
+\DoxyCodeLine{00104     \textcolor{keywordflow}{return} \mbox{\hyperlink{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}{fmp}}(y,\mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}}).dxdy[mu][nu];}
+\DoxyCodeLine{00105 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structmp_a6cfde440e01aac636364d3699594ec00_a6cfde440e01aac636364d3699594ec00}\label{structmp_a6cfde440e01aac636364d3699594ec00_a6cfde440e01aac636364d3699594ec00}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!df@{df}}
+\index{df@{df}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{df()}{df()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::df (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{mu,  }\item[{\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}}]{x\mbox{[}dim\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Monge patch gradient. 
+
+Calculates the derivative in direction {\ttfamily mu} of the(set) Monge function at position {\ttfamily x}
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00087}{87}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088 \{}
+\DoxyCodeLine{00092     \mbox{\hyperlink{structduals}{duals<dim>}} y[dim];}
+\DoxyCodeLine{00093     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);}
+\DoxyCodeLine{00094     \textcolor{keywordflow}{return} \mbox{\hyperlink{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}{fmp}}(y,\mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}}).dx[mu];}
+\DoxyCodeLine{00095 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structmp_a7f68eaecc3861d8ffbbbf941eea4c375_a7f68eaecc3861d8ffbbbf941eea4c375}\label{structmp_a7f68eaecc3861d8ffbbbf941eea4c375_a7f68eaecc3861d8ffbbbf941eea4c375}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!f@{f}}
+\index{f@{f}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::f (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}}]{x\mbox{[}dim\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Monge patch. 
+
+Calculates value of the (set) Monge function at position {\ttfamily x}
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00079}{79}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080 \{}
+\DoxyCodeLine{00084     \textcolor{keywordflow}{return} \mbox{\hyperlink{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}{fmp}}(x,\mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}});}
+\DoxyCodeLine{00085 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structmp_a19b6d238e61760d2385ed1bf8a244329_a19b6d238e61760d2385ed1bf8a244329}\label{structmp_a19b6d238e61760d2385ed1bf8a244329_a19b6d238e61760d2385ed1bf8a244329}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!g@{g}}
+\index{g@{g}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{g()}{g()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::g (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{i,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{mu,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{nu }\end{DoxyParamCaption})}
+
+
+
+Monge patch metric tensor. 
+
+Calculates Monge metric tensor element {\ttfamily mu}{\ttfamily nu} for particle {\ttfamily i}
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00107}{107}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108 \{}
+\DoxyCodeLine{00112     \textcolor{keywordflow}{return} \mbox{\hyperlink{mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{kdelta}}(mu,nu)+\mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dx[mu]*\mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dx[nu];}
+\DoxyCodeLine{00113 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mongepatches_8libmd_8cc_source_l00006}{kdelta()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{structmp_a2c5825d8f21771e40b120082e50827d2_a2c5825d8f21771e40b120082e50827d2}\label{structmp_a2c5825d8f21771e40b120082e50827d2_a2c5825d8f21771e40b120082e50827d2}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!ginv@{ginv}}
+\index{ginv@{ginv}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{ginv()}{ginv()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::ginv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{i,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{mu,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{nu }\end{DoxyParamCaption})}
+
+
+
+Monge patch metric tensor inverse. 
+
+Calculates Monge metric tensor inverse element {\ttfamily mu}{\ttfamily nu} for particle {\ttfamily i}
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00123}{123}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124 \{}
+\DoxyCodeLine{00128     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}=1.0;}
+\DoxyCodeLine{00129     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(\mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dx[d],2);}
+\DoxyCodeLine{00130     \textcolor{keywordflow}{return} \mbox{\hyperlink{mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{kdelta}}(mu,nu)-\/(\mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dx[mu]*\mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dx[nu])/\mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}};}
+\DoxyCodeLine{00131 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{box_8libmd_8cc_source_l00064}{det()}}, \mbox{\hyperlink{mongepatches_8libmd_8cc_source_l00006}{kdelta()}}, and \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00274}{pow()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{structmp_a34a8c2027ae11ea84efa0dbbbfcc8409_a34a8c2027ae11ea84efa0dbbbfcc8409}\label{structmp_a34a8c2027ae11ea84efa0dbbbfcc8409_a34a8c2027ae11ea84efa0dbbbfcc8409}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!gp@{gp}}
+\index{gp@{gp}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{gp()}{gp()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::gp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{i,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{mu,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{nu }\end{DoxyParamCaption})}
+
+
+
+Monge patch metric tensor. 
+
+Calculates Monge metric tensor element {\ttfamily mu}{\ttfamily nu} for particle {\ttfamily i} at it\textquotesingle{}s previous position {\ttfamily xp}
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00115}{115}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00116 \{}
+\DoxyCodeLine{00120     \textcolor{keywordflow}{return} \mbox{\hyperlink{mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{kdelta}}(mu,nu)+\mbox{\hyperlink{structmp_a166c4d14cbf5b00f483c219f9796e7f2_a166c4d14cbf5b00f483c219f9796e7f2}{geometryxp}}[i].dx[mu]*\mbox{\hyperlink{structmp_a166c4d14cbf5b00f483c219f9796e7f2_a166c4d14cbf5b00f483c219f9796e7f2}{geometryxp}}[i].dx[nu];}
+\DoxyCodeLine{00121 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mongepatches_8libmd_8cc_source_l00006}{kdelta()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{structmp_adc249216879c36bb4281c77cfe0e3070_adc249216879c36bb4281c77cfe0e3070}\label{structmp_adc249216879c36bb4281c77cfe0e3070_adc249216879c36bb4281c77cfe0e3070}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!setmp@{setmp}}
+\index{setmp@{setmp}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{setmp()}{setmp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+void \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::setmp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr}}$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}, dim $>$}]{f,  }\item[{\mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr}}$<$ \mbox{\hyperlink{structduals}{duals}}$<$ dim $>$, dim $>$}]{df }\end{DoxyParamCaption})}
+
+
+
+Picks a custom Monge patch. 
+
+Sets an externaly defined Monge patch
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00047}{47}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00052     \mbox{\hyperlink{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}{fmp}}=\mbox{\hyperlink{structmp_a7f68eaecc3861d8ffbbbf941eea4c375_a7f68eaecc3861d8ffbbbf941eea4c375}{f}};}
+\DoxyCodeLine{00053     \mbox{\hyperlink{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}{dfmp}}=\mbox{\hyperlink{structmp_a6cfde440e01aac636364d3699594ec00_a6cfde440e01aac636364d3699594ec00}{df}};}
+\DoxyCodeLine{00054     \mbox{\hyperlink{structmp_ad6ec8a5ec8ec1e903b86c9b9ece69409_ad6ec8a5ec8ec1e903b86c9b9ece69409}{patch}}=\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}};}
+\DoxyCodeLine{00055 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00056}{U\+I\+\_\+\+M\+AX}}.
+
+\mbox{\Hypertarget{structmp_a08440a1cc2f41c677690398276a63ac6_a08440a1cc2f41c677690398276a63ac6}\label{structmp_a08440a1cc2f41c677690398276a63ac6_a08440a1cc2f41c677690398276a63ac6}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!setmp@{setmp}}
+\index{setmp@{setmp}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{setmp()}{setmp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+void \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::setmp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{i = {\ttfamily \mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9adec67112fb78f6a886ffbf84d7bb596a}{M\+P\+::\+F\+L\+A\+T\+S\+P\+A\+CE}}} }\end{DoxyParamCaption})}
+
+
+
+Picks one of the builtin Monge patches. 
+
+Sets a builtin Monge patch {\ttfamily i} can be a {\ttfamily ui} or {\ttfamily \mbox{\hyperlink{struct_m_p}{MP}} enum} type e.\+g. {\ttfamily \mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9adec67112fb78f6a886ffbf84d7bb596a}{M\+P\+::\+F\+L\+A\+T\+S\+P\+A\+CE}}} (default e.\+g. {\ttfamily \mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9adec67112fb78f6a886ffbf84d7bb596a}{M\+P\+::\+F\+L\+A\+T\+S\+P\+A\+CE}}} (default).
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00015}{15}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00021     \mbox{\hyperlink{structmp_ad6ec8a5ec8ec1e903b86c9b9ece69409_ad6ec8a5ec8ec1e903b86c9b9ece69409}{patch}}=i;}
+\DoxyCodeLine{00022     \textcolor{keywordflow}{switch}(i)}
+\DoxyCodeLine{00023     \{}
+\DoxyCodeLine{00024         \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9a9755c7ac619c711b933f304b8f907c4a}{MP::MOLLIFIER}}:}
+\DoxyCodeLine{00025             \mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}}.assign(2,1.0);}
+\DoxyCodeLine{00026             \mbox{\hyperlink{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}{fmp}}=\&MOLLIFIER<ldf,dim>;}
+\DoxyCodeLine{00027             \mbox{\hyperlink{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}{dfmp}}=\&MOLLIFIER<duals<dim>,dim>;}
+\DoxyCodeLine{00028         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00029         \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9a57287ee702e8423d46fa6c8229f8f043}{MP::EGGCARTON}}:}
+\DoxyCodeLine{00030             \mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}}.assign(dim+1,1.0);}
+\DoxyCodeLine{00031             \mbox{\hyperlink{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}{fmp}}=\&EGGCARTON<ldf,dim>;}
+\DoxyCodeLine{00032             \mbox{\hyperlink{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}{dfmp}}=\&EGGCARTON<duals<dim>,dim>;}
+\DoxyCodeLine{00033         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00034         \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9a96545e5f2db8005d444fcaa0f9ef2bea}{MP::GAUSSIANBUMP}}:}
+\DoxyCodeLine{00035             \mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}}.assign(2,1.0);}
+\DoxyCodeLine{00036             \mbox{\hyperlink{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}{fmp}}=\&GAUSSIANBUMP<ldf,dim>;}
+\DoxyCodeLine{00037             \mbox{\hyperlink{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}{dfmp}}=\&GAUSSIANBUMP<duals<dim>,dim>;}
+\DoxyCodeLine{00038         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00039         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00040             \mbox{\hyperlink{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}{parameters}}.assign(1,1.0);}
+\DoxyCodeLine{00041             \mbox{\hyperlink{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}{fmp}}=\&FLATSPACE<ldf,dim>;}
+\DoxyCodeLine{00042             \mbox{\hyperlink{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}{dfmp}}=\&FLATSPACE<duals<dim>,dim>;}
+\DoxyCodeLine{00043         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{enums_8libmd_8h_source_l00033}{M\+P\+::\+E\+G\+G\+C\+A\+R\+T\+ON}}, \mbox{\hyperlink{enums_8libmd_8h_source_l00032}{M\+P\+::\+G\+A\+U\+S\+S\+I\+A\+N\+B\+U\+MP}}, and \mbox{\hyperlink{enums_8libmd_8h_source_l00034}{M\+P\+::\+M\+O\+L\+L\+I\+F\+I\+ER}}.
+
+\mbox{\Hypertarget{structmp_abd53fa81c114885220760369e00581e2_abd53fa81c114885220760369e00581e2}\label{structmp_abd53fa81c114885220760369e00581e2_abd53fa81c114885220760369e00581e2}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!sqrt\_ginv@{sqrt\_ginv}}
+\index{sqrt\_ginv@{sqrt\_ginv}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{sqrt\_ginv()}{sqrt\_ginv()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::sqrt\+\_\+ginv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{i,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{mu,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{nu }\end{DoxyParamCaption})}
+
+
+
+Square root of Monge patch metric tensor inverse. 
+
+Calculates the square root of Monge metric tensor inverse element {\ttfamily mu}{\ttfamily nu} for particle {\ttfamily i}
+
+Definition at line \mbox{\hyperlink{mp_8libmd_8cc_source_l00133}{133}} of file \mbox{\hyperlink{mp_8libmd_8cc_source}{mp.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134 \{}
+\DoxyCodeLine{00138     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}=1.0;}
+\DoxyCodeLine{00139     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(\mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dx[d],2);}
+\DoxyCodeLine{00140     \textcolor{keywordflow}{return} \mbox{\hyperlink{mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{kdelta}}(mu,nu)-\/(\mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dx[mu]*\mbox{\hyperlink{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}{geometryx}}[i].dx[nu])/(\mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}+\mbox{\hyperlink{autodiff_8libmd_8cc_af33bda4d5a7fc8ad1679ec339a730045_af33bda4d5a7fc8ad1679ec339a730045}{std::sqrt}}(\mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}));}
+\DoxyCodeLine{00141 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{box_8libmd_8cc_source_l00064}{det()}}, \mbox{\hyperlink{mongepatches_8libmd_8cc_source_l00006}{kdelta()}}, \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00274}{pow()}}, and \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00268}{sqrt()}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}\label{structmp_a4bb9d4749f7a1b32e36e523e31c924bc_a4bb9d4749f7a1b32e36e523e31c924bc}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!dfmp@{dfmp}}
+\index{dfmp@{dfmp}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{dfmp}{dfmp}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr}}$<$\mbox{\hyperlink{structduals}{duals}}$<$dim$>$,dim$>$ \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::dfmp}
+
+
+
+Derivatives of monge function. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00596}{596}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}\label{structmp_aa954dde36b697f4a631008ee600989e1_aa954dde36b697f4a631008ee600989e1}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!fmp@{fmp}}
+\index{fmp@{fmp}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{fmp}{fmp}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr}}$<$\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}},dim$>$ \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::fmp}
+
+
+
+Monge patch function. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00595}{595}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}\label{structmp_aa05130bd0c740b9ddd06f682aabf7817_aa05130bd0c740b9ddd06f682aabf7817}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!geometryx@{geometryx}}
+\index{geometryx@{geometryx}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{geometryx}{geometryx}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+std\+::vector$<$\mbox{\hyperlink{structduals}{duals}}$<$dim$>$ $>$ \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::geometryx}
+
+
+
+Geometric information for particle i in position at position x. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00597}{597}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structmp_a166c4d14cbf5b00f483c219f9796e7f2_a166c4d14cbf5b00f483c219f9796e7f2}\label{structmp_a166c4d14cbf5b00f483c219f9796e7f2_a166c4d14cbf5b00f483c219f9796e7f2}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!geometryxp@{geometryxp}}
+\index{geometryxp@{geometryxp}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{geometryxp}{geometryxp}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+std\+::vector$<$\mbox{\hyperlink{structduals}{duals}}$<$dim$>$ $>$ \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::geometryxp}
+
+
+
+Geometric information for particle i in position at position xp. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00598}{598}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}\label{structmp_a06b120f40591cdd3a42054f4672f20d2_a06b120f40591cdd3a42054f4672f20d2}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!parameters@{parameters}}
+\index{parameters@{parameters}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{parameters}{parameters}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+std\+::vector$<$\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}$>$ \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::parameters}
+
+
+
+Monge patch function parameters. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00594}{594}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structmp_ad6ec8a5ec8ec1e903b86c9b9ece69409_ad6ec8a5ec8ec1e903b86c9b9ece69409}\label{structmp_ad6ec8a5ec8ec1e903b86c9b9ece69409_ad6ec8a5ec8ec1e903b86c9b9ece69409}} 
+\index{mp$<$ dim $>$@{mp$<$ dim $>$}!patch@{patch}}
+\index{patch@{patch}!mp$<$ dim $>$@{mp$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{patch}{patch}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structmp}{mp}}$<$ dim $>$\+::patch}
+
+
+
+Monge patch type number U\+I\+\_\+\+M\+AX is custom. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00593}{593}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h}{libmd.\+h}}\item 
+libmd-\/src/\mbox{\hyperlink{mp_8libmd_8cc}{mp.\+libmd.\+cc}}\end{DoxyCompactItemize}

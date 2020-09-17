@@ -1,0 +1,116 @@
+.TH "variadic_vars< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+variadic_vars< dim > \- This structure stores some cyclic variables for the variadic functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvariadic_vars\fP ()"
+.br
+.RI "Initialize variables (set everyting to zero) "
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.RI "Reset all \fBvariadic_vars\fP to zero\&. "
+.ti -1c
+.RI "void \fBreset\fP (\fBui\fP i)"
+.br
+.RI "Reset a certain \fBvariadic_vars\fP to zero\&. "
+.ti -1c
+.RI "\fBui\fP \fBoperator[]\fP (\fBui\fP i)"
+.br
+.RI "Rotate and return previous for the ith variable\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< \fBui\fP > \fBvvars\fP"
+.br
+.RI "Container of variables\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct variadic_vars< dim >"
+This structure stores some cyclic variables for the variadic functions\&. 
+.PP
+Definition at line 352 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<ui dim> \fBvariadic_vars\fP< dim >::\fBvariadic_vars\fP"
+
+.PP
+Initialize variables (set everyting to zero) Variadic helper variables struct initializer\&. 
+.br
+ Seven variables are initialized to zero\&.
+.PP
+Definition at line 6 of file variadic_vars\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+12     vvars\&.assign(7,0);
+13 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "template<ui dim> \fBui\fP \fBvariadic_vars\fP< dim >::operator[] (\fBui\fP i)"
+
+.PP
+Rotate and return previous for the ith variable\&. The variadic variables change their value everytime they're being read \fCvar=(var+1)dim\fP\&.
+.PP
+Definition at line 15 of file variadic_vars\&.libmd\&.cc\&.
+.PP
+.nf
+16 {
+20     ui retval=vvars[i];
+21     vvars[i]=(vvars[i]+1)%dim;
+22     return retval;
+23 }
+.fi
+.SS "template<ui dim> void \fBvariadic_vars\fP< dim >::reset"
+
+.PP
+Reset all \fBvariadic_vars\fP to zero\&. Reinitizialize the variadic variables\&.
+.PP
+Definition at line 25 of file variadic_vars\&.libmd\&.cc\&.
+.PP
+.nf
+26 {
+30     vvars\&.assign(7,0);
+31 }
+.fi
+.SS "template<ui dim> void \fBvariadic_vars\fP< dim >::reset (\fBui\fP i)"
+
+.PP
+Reset a certain \fBvariadic_vars\fP to zero\&. Reinitizialize variadic variable \fCi\fP\&.
+.PP
+Definition at line 33 of file variadic_vars\&.libmd\&.cc\&.
+.PP
+.nf
+34 {
+38     vvars[i]=0;
+39 }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> std::vector<\fBui\fP> \fBvariadic_vars\fP< dim >::vvars"
+
+.PP
+Container of variables\&. 
+.PP
+Definition at line 354 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

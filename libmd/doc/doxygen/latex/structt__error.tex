@@ -1,0 +1,617 @@
+\hypertarget{structt__error}{}\doxysection{t\+\_\+error Struct Reference}
+\label{structt__error}\index{t\_error@{t\_error}}
+
+
+This structure handles errors/warnings/debug levels.  
+
+
+
+
+{\ttfamily \#include $<$libmd.\+h$>$}
+
+
+
+Collaboration diagram for t\+\_\+error\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structt__error_af212e30a88db8166210667617fff518f_af212e30a88db8166210667617fff518f}{t\+\_\+error}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__error_af86314216790940b591cd4d0849e9824_af86314216790940b591cd4d0849e9824}{$\sim$t\+\_\+error}} ()
+\begin{DoxyCompactList}\small\item\em Destructor (to close the files) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_affcce00de3de6b7ecf900ab71a6107cc_affcce00de3de6b7ecf900ab71a6107cc}{set\+\_\+error\+\_\+file}} (const char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em Sets the error output file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_aa3e1d8a32cf1d271099a369c5a5559f2_aa3e1d8a32cf1d271099a369c5a5559f2}{set\+\_\+warning\+\_\+file}} (const char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em Sets the warning output file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_a988bfb0493cbc3aa3f297df2ea39dc40_a988bfb0493cbc3aa3f297df2ea39dc40}{set\+\_\+debug\+\_\+1\+\_\+file}} (const char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em Sets the debug\mbox{[}1\mbox{]} output file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_a2d8a7aadeae0891e9a78e0b45010b916_a2d8a7aadeae0891e9a78e0b45010b916}{set\+\_\+debug\+\_\+2\+\_\+file}} (const char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em Sets the debug\mbox{[}2\mbox{]} output file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_afd98cb51fe5600a9a40cae19fca8fac8_afd98cb51fe5600a9a40cae19fca8fac8}{set\+\_\+debug\+\_\+3\+\_\+file}} (const char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em Sets the debug\mbox{[}3\mbox{]} output file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_ab51ce2f9542d75914d23b1f90b550c1d_ab51ce2f9542d75914d23b1f90b550c1d}{set\+\_\+debug\+\_\+timer\+\_\+file}} (const char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em Sets the debug\mbox{[}timer\mbox{]} output file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a_ad8cbcad9d1efc6e6d74ee4694b04fa5a}{print\+\_\+error}} (char $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Prints a error to the error output file (for internal use) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_a5c54c0544d5980c5e8424359480a65bc_a5c54c0544d5980c5e8424359480a65bc}{print\+\_\+warning}} (char $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Prints a warning to the warning output file (for internal use) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_a11654cc137c42b1bddb5ed90b09e39e7_a11654cc137c42b1bddb5ed90b09e39e7}{print\+\_\+debug\+\_\+1}} (char $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Prints debug\mbox{[}1\mbox{]} message to the debug\mbox{[}1\mbox{]} output file (for internal use) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_ac0b658091f7db13369b5cae56402df16_ac0b658091f7db13369b5cae56402df16}{print\+\_\+debug\+\_\+2}} (char $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Prints debug\mbox{[}2\mbox{]} message to the debug\mbox{[}2\mbox{]} output file (for internal use) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_a4926e202b9dd7ea1070787edd129d2b5_a4926e202b9dd7ea1070787edd129d2b5}{print\+\_\+debug\+\_\+3}} (char $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Prints debug\mbox{[}3\mbox{]} message to the debug\mbox{[}3\mbox{]} output file (for internal use) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_ad8dea87e3d50536f8eb5687c28974603_ad8dea87e3d50536f8eb5687c28974603}{print\+\_\+debug\+\_\+timer}} (char $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Prints debug\mbox{[}timer\mbox{]} message to the debug\mbox{[}timer\mbox{]} output file (for internal use) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structt__error_af803c2519381179010f51e13fe208320_af803c2519381179010f51e13fe208320}{terminate}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} term)
+\begin{DoxyCompactList}\small\item\em Terminate if termlevel allows it (for internal use) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structt__error_ac26e77277143e6eb52ecca2779f0f047_ac26e77277143e6eb52ecca2779f0f047}{term\+\_\+level}}
+\begin{DoxyCompactList}\small\item\em Terminate level for libmd. The default value is 1. \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_a2fbd8114570fe83bc0cd03b7d768b31c}{error\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em libmd error output file (default stderr) \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{structt__error_ac560c35b31b3861960f1fd8a881fa33b_ac560c35b31b3861960f1fd8a881fa33b}{warning\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em libmd warning output file (default stderr) \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{structt__error_a564dfc9870b1ff33e63154b6a36557e8_a564dfc9870b1ff33e63154b6a36557e8}{debug\+\_\+1\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em libmd debug\mbox{[}1\mbox{]} output file (default stdout) \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_aecaa999dee5eb5ddf4171e4bf68f2524}{debug\+\_\+2\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em libmd debug\mbox{[}2\mbox{]} output file (default stdout) \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_a7a1f1ea05fa525c8005acb15c3892a4a}{debug\+\_\+3\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em libmd debug\mbox{[}3\mbox{]} output file (default stdout) \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{structt__error_a42371d166e6adf303c3251c3ef7ed85c_a42371d166e6adf303c3251c3ef7ed85c}{debug\+\_\+timer\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em libmd debug\mbox{[}timer\mbox{]} output file (default stdout) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This structure handles errors/warnings/debug levels. 
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00104}{104}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structt__error_af212e30a88db8166210667617fff518f_af212e30a88db8166210667617fff518f}\label{structt__error_af212e30a88db8166210667617fff518f_af212e30a88db8166210667617fff518f}} 
+\index{t\_error@{t\_error}!t\_error@{t\_error}}
+\index{t\_error@{t\_error}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{t\_error()}{t\_error()}}
+{\footnotesize\ttfamily t\+\_\+error\+::t\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00013}{13}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014 \{}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{    \#ifdef FE}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{    \#ifdef FE\_ALL\_EXCEPT}}
+\DoxyCodeLine{00017     feenableexcept(FE\_ALL\_EXCEPT);}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{    \#elif defined FE\_EXCEPT}}
+\DoxyCodeLine{00019     feenableexcept(FE\_DIVBYZERO|FE\_INVALID|FE\_OVERFLOW);}
+\DoxyCodeLine{00020 \textcolor{preprocessor}{    \#elif defined FE\_LOW\_EXCEPT}}
+\DoxyCodeLine{00021     feenableexcept(FE\_DIVBYZERO);}
+\DoxyCodeLine{00022 \textcolor{preprocessor}{    \#else}}
+\DoxyCodeLine{00023     feclearexcept(FE\_ALL\_EXCEPT);}
+\DoxyCodeLine{00024 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{00025 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{00026     \mbox{\hyperlink{structt__error_ac26e77277143e6eb52ecca2779f0f047_ac26e77277143e6eb52ecca2779f0f047}{term\_level}}=1;}
+\DoxyCodeLine{00027     \mbox{\hyperlink{structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_a2fbd8114570fe83bc0cd03b7d768b31c}{error\_file}}=stderr;}
+\DoxyCodeLine{00028     \mbox{\hyperlink{structt__error_ac560c35b31b3861960f1fd8a881fa33b_ac560c35b31b3861960f1fd8a881fa33b}{warning\_file}}=stderr;}
+\DoxyCodeLine{00029     \mbox{\hyperlink{structt__error_a564dfc9870b1ff33e63154b6a36557e8_a564dfc9870b1ff33e63154b6a36557e8}{debug\_1\_file}}=stdout;}
+\DoxyCodeLine{00030     \mbox{\hyperlink{structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_aecaa999dee5eb5ddf4171e4bf68f2524}{debug\_2\_file}}=stdout;}
+\DoxyCodeLine{00031     \mbox{\hyperlink{structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_a7a1f1ea05fa525c8005acb15c3892a4a}{debug\_3\_file}}=stdout;}
+\DoxyCodeLine{00032     \mbox{\hyperlink{structt__error_a42371d166e6adf303c3251c3ef7ed85c_a42371d166e6adf303c3251c3ef7ed85c}{debug\_timer\_file}}=stdout;}
+\DoxyCodeLine{00033     \mbox{\hyperlink{error_8libmd_8cc_adb345393f36f6a2a235137949c1dd0ff_adb345393f36f6a2a235137949c1dd0ff}{TicToc}}();}
+\DoxyCodeLine{00034 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00109}{debug\+\_\+1\+\_\+file}}, \mbox{\hyperlink{libmd_8h_source_l00110}{debug\+\_\+2\+\_\+file}}, \mbox{\hyperlink{libmd_8h_source_l00111}{debug\+\_\+3\+\_\+file}}, \mbox{\hyperlink{libmd_8h_source_l00112}{debug\+\_\+timer\+\_\+file}}, \mbox{\hyperlink{libmd_8h_source_l00107}{error\+\_\+file}}, \mbox{\hyperlink{libmd_8h_source_l00106}{term\+\_\+level}}, \mbox{\hyperlink{error_8libmd_8cc_source_l00006}{Tic\+Toc()}}, and \mbox{\hyperlink{libmd_8h_source_l00108}{warning\+\_\+file}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{structt__error_af86314216790940b591cd4d0849e9824_af86314216790940b591cd4d0849e9824}\label{structt__error_af86314216790940b591cd4d0849e9824_af86314216790940b591cd4d0849e9824}} 
+\index{t\_error@{t\_error}!````~t\_error@{$\sim$t\_error}}
+\index{````~t\_error@{$\sim$t\_error}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{$\sim$t\_error()}{~t\_error()}}
+{\footnotesize\ttfamily t\+\_\+error\+::$\sim$t\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor (to close the files) 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00036}{36}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037 \{}
+\DoxyCodeLine{00038     fclose(\mbox{\hyperlink{structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_a2fbd8114570fe83bc0cd03b7d768b31c}{error\_file}});}
+\DoxyCodeLine{00039     fclose(\mbox{\hyperlink{structt__error_ac560c35b31b3861960f1fd8a881fa33b_ac560c35b31b3861960f1fd8a881fa33b}{warning\_file}});}
+\DoxyCodeLine{00040     fclose(\mbox{\hyperlink{structt__error_a564dfc9870b1ff33e63154b6a36557e8_a564dfc9870b1ff33e63154b6a36557e8}{debug\_1\_file}});}
+\DoxyCodeLine{00041     fclose(\mbox{\hyperlink{structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_aecaa999dee5eb5ddf4171e4bf68f2524}{debug\_2\_file}});}
+\DoxyCodeLine{00042     fclose(\mbox{\hyperlink{structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_a7a1f1ea05fa525c8005acb15c3892a4a}{debug\_3\_file}});}
+\DoxyCodeLine{00043     fclose(\mbox{\hyperlink{structt__error_a42371d166e6adf303c3251c3ef7ed85c_a42371d166e6adf303c3251c3ef7ed85c}{debug\_timer\_file}});}
+\DoxyCodeLine{00044 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00109}{debug\+\_\+1\+\_\+file}}, \mbox{\hyperlink{libmd_8h_source_l00110}{debug\+\_\+2\+\_\+file}}, \mbox{\hyperlink{libmd_8h_source_l00111}{debug\+\_\+3\+\_\+file}}, \mbox{\hyperlink{libmd_8h_source_l00112}{debug\+\_\+timer\+\_\+file}}, \mbox{\hyperlink{libmd_8h_source_l00107}{error\+\_\+file}}, and \mbox{\hyperlink{libmd_8h_source_l00108}{warning\+\_\+file}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structt__error_a11654cc137c42b1bddb5ed90b09e39e7_a11654cc137c42b1bddb5ed90b09e39e7}\label{structt__error_a11654cc137c42b1bddb5ed90b09e39e7_a11654cc137c42b1bddb5ed90b09e39e7}} 
+\index{t\_error@{t\_error}!print\_debug\_1@{print\_debug\_1}}
+\index{print\_debug\_1@{print\_debug\_1}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{print\_debug\_1()}{print\_debug\_1()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::print\+\_\+debug\+\_\+1 (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Prints debug\mbox{[}1\mbox{]} message to the debug\mbox{[}1\mbox{]} output file (for internal use) 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00100}{100}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101 \{}
+\DoxyCodeLine{00102     fprintf(\mbox{\hyperlink{structt__error_a564dfc9870b1ff33e63154b6a36557e8_a564dfc9870b1ff33e63154b6a36557e8}{debug\_1\_file}},\textcolor{stringliteral}{"\%s\(\backslash\)n"},buffer);}
+\DoxyCodeLine{00103     \mbox{\hyperlink{structt__error_af803c2519381179010f51e13fe208320_af803c2519381179010f51e13fe208320}{terminate}}(4);}
+\DoxyCodeLine{00104 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00109}{debug\+\_\+1\+\_\+file}}, and \mbox{\hyperlink{error_8libmd_8cc_source_l00124}{terminate()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{structt__error_ac0b658091f7db13369b5cae56402df16_ac0b658091f7db13369b5cae56402df16}\label{structt__error_ac0b658091f7db13369b5cae56402df16_ac0b658091f7db13369b5cae56402df16}} 
+\index{t\_error@{t\_error}!print\_debug\_2@{print\_debug\_2}}
+\index{print\_debug\_2@{print\_debug\_2}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{print\_debug\_2()}{print\_debug\_2()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::print\+\_\+debug\+\_\+2 (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Prints debug\mbox{[}2\mbox{]} message to the debug\mbox{[}2\mbox{]} output file (for internal use) 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00106}{106}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107 \{}
+\DoxyCodeLine{00108     fprintf(\mbox{\hyperlink{structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_aecaa999dee5eb5ddf4171e4bf68f2524}{debug\_2\_file}},\textcolor{stringliteral}{"\%s\(\backslash\)n"},buffer);}
+\DoxyCodeLine{00109     \mbox{\hyperlink{structt__error_af803c2519381179010f51e13fe208320_af803c2519381179010f51e13fe208320}{terminate}}(3);}
+\DoxyCodeLine{00110 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00110}{debug\+\_\+2\+\_\+file}}, and \mbox{\hyperlink{error_8libmd_8cc_source_l00124}{terminate()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{structt__error_a4926e202b9dd7ea1070787edd129d2b5_a4926e202b9dd7ea1070787edd129d2b5}\label{structt__error_a4926e202b9dd7ea1070787edd129d2b5_a4926e202b9dd7ea1070787edd129d2b5}} 
+\index{t\_error@{t\_error}!print\_debug\_3@{print\_debug\_3}}
+\index{print\_debug\_3@{print\_debug\_3}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{print\_debug\_3()}{print\_debug\_3()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::print\+\_\+debug\+\_\+3 (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Prints debug\mbox{[}3\mbox{]} message to the debug\mbox{[}3\mbox{]} output file (for internal use) 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00112}{112}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113 \{}
+\DoxyCodeLine{00114     fprintf(\mbox{\hyperlink{structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_a7a1f1ea05fa525c8005acb15c3892a4a}{debug\_3\_file}},\textcolor{stringliteral}{"\%s\(\backslash\)n"},buffer);}
+\DoxyCodeLine{00115     \mbox{\hyperlink{structt__error_af803c2519381179010f51e13fe208320_af803c2519381179010f51e13fe208320}{terminate}}(2);}
+\DoxyCodeLine{00116 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00111}{debug\+\_\+3\+\_\+file}}, and \mbox{\hyperlink{error_8libmd_8cc_source_l00124}{terminate()}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{structt__error_ad8dea87e3d50536f8eb5687c28974603_ad8dea87e3d50536f8eb5687c28974603}\label{structt__error_ad8dea87e3d50536f8eb5687c28974603_ad8dea87e3d50536f8eb5687c28974603}} 
+\index{t\_error@{t\_error}!print\_debug\_timer@{print\_debug\_timer}}
+\index{print\_debug\_timer@{print\_debug\_timer}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{print\_debug\_timer()}{print\_debug\_timer()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::print\+\_\+debug\+\_\+timer (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Prints debug\mbox{[}timer\mbox{]} message to the debug\mbox{[}timer\mbox{]} output file (for internal use) 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00118}{118}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119 \{}
+\DoxyCodeLine{00120     fprintf(\mbox{\hyperlink{structt__error_a42371d166e6adf303c3251c3ef7ed85c_a42371d166e6adf303c3251c3ef7ed85c}{debug\_timer\_file}},\textcolor{stringliteral}{"\%s\(\backslash\)n"},buffer);}
+\DoxyCodeLine{00121     \mbox{\hyperlink{structt__error_af803c2519381179010f51e13fe208320_af803c2519381179010f51e13fe208320}{terminate}}(5);}
+\DoxyCodeLine{00122 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00112}{debug\+\_\+timer\+\_\+file}}, and \mbox{\hyperlink{error_8libmd_8cc_source_l00124}{terminate()}}.
+
+Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a_ad8cbcad9d1efc6e6d74ee4694b04fa5a}\label{structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a_ad8cbcad9d1efc6e6d74ee4694b04fa5a}} 
+\index{t\_error@{t\_error}!print\_error@{print\_error}}
+\index{print\_error@{print\_error}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{print\_error()}{print\_error()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::print\+\_\+error (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Prints a error to the error output file (for internal use) 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00088}{88}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089 \{}
+\DoxyCodeLine{00090     fprintf(\mbox{\hyperlink{structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_a2fbd8114570fe83bc0cd03b7d768b31c}{error\_file}},\textcolor{stringliteral}{"\%s\(\backslash\)n"},buffer);}
+\DoxyCodeLine{00091     \mbox{\hyperlink{structt__error_af803c2519381179010f51e13fe208320_af803c2519381179010f51e13fe208320}{terminate}}(0);}
+\DoxyCodeLine{00092 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00107}{error\+\_\+file}}, and \mbox{\hyperlink{error_8libmd_8cc_source_l00124}{terminate()}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{structt__error_a5c54c0544d5980c5e8424359480a65bc_a5c54c0544d5980c5e8424359480a65bc}\label{structt__error_a5c54c0544d5980c5e8424359480a65bc_a5c54c0544d5980c5e8424359480a65bc}} 
+\index{t\_error@{t\_error}!print\_warning@{print\_warning}}
+\index{print\_warning@{print\_warning}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{print\_warning()}{print\_warning()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::print\+\_\+warning (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Prints a warning to the warning output file (for internal use) 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00094}{94}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095 \{}
+\DoxyCodeLine{00096     fprintf(\mbox{\hyperlink{structt__error_ac560c35b31b3861960f1fd8a881fa33b_ac560c35b31b3861960f1fd8a881fa33b}{warning\_file}},\textcolor{stringliteral}{"\%s\(\backslash\)n"},buffer);}
+\DoxyCodeLine{00097     \mbox{\hyperlink{structt__error_af803c2519381179010f51e13fe208320_af803c2519381179010f51e13fe208320}{terminate}}(1);}
+\DoxyCodeLine{00098 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{error_8libmd_8cc_source_l00124}{terminate()}}, and \mbox{\hyperlink{libmd_8h_source_l00108}{warning\+\_\+file}}.
+
+Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{structt__error_a988bfb0493cbc3aa3f297df2ea39dc40_a988bfb0493cbc3aa3f297df2ea39dc40}\label{structt__error_a988bfb0493cbc3aa3f297df2ea39dc40_a988bfb0493cbc3aa3f297df2ea39dc40}} 
+\index{t\_error@{t\_error}!set\_debug\_1\_file@{set\_debug\_1\_file}}
+\index{set\_debug\_1\_file@{set\_debug\_1\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{set\_debug\_1\_file()}{set\_debug\_1\_file()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::set\+\_\+debug\+\_\+1\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+Sets the debug\mbox{[}1\mbox{]} output file. 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00060}{60}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061 \{}
+\DoxyCodeLine{00062     \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stdout"})) \mbox{\hyperlink{structt__error_a564dfc9870b1ff33e63154b6a36557e8_a564dfc9870b1ff33e63154b6a36557e8}{debug\_1\_file}}=stdout;}
+\DoxyCodeLine{00063     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stderr"})) \mbox{\hyperlink{structt__error_a564dfc9870b1ff33e63154b6a36557e8_a564dfc9870b1ff33e63154b6a36557e8}{debug\_1\_file}}=stderr;}
+\DoxyCodeLine{00064     \textcolor{keywordflow}{else} \mbox{\hyperlink{structt__error_a564dfc9870b1ff33e63154b6a36557e8_a564dfc9870b1ff33e63154b6a36557e8}{debug\_1\_file}}=fopen(fname,\textcolor{stringliteral}{"w"});}
+\DoxyCodeLine{00065 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00109}{debug\+\_\+1\+\_\+file}}.
+
+\mbox{\Hypertarget{structt__error_a2d8a7aadeae0891e9a78e0b45010b916_a2d8a7aadeae0891e9a78e0b45010b916}\label{structt__error_a2d8a7aadeae0891e9a78e0b45010b916_a2d8a7aadeae0891e9a78e0b45010b916}} 
+\index{t\_error@{t\_error}!set\_debug\_2\_file@{set\_debug\_2\_file}}
+\index{set\_debug\_2\_file@{set\_debug\_2\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{set\_debug\_2\_file()}{set\_debug\_2\_file()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::set\+\_\+debug\+\_\+2\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+Sets the debug\mbox{[}2\mbox{]} output file. 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00067}{67}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068 \{}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stdout"})) \mbox{\hyperlink{structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_aecaa999dee5eb5ddf4171e4bf68f2524}{debug\_2\_file}}=stdout;}
+\DoxyCodeLine{00070     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stderr"})) \mbox{\hyperlink{structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_aecaa999dee5eb5ddf4171e4bf68f2524}{debug\_2\_file}}=stderr;}
+\DoxyCodeLine{00071     \textcolor{keywordflow}{else} \mbox{\hyperlink{structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_aecaa999dee5eb5ddf4171e4bf68f2524}{debug\_2\_file}}=fopen(fname,\textcolor{stringliteral}{"w"});}
+\DoxyCodeLine{00072 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00110}{debug\+\_\+2\+\_\+file}}.
+
+\mbox{\Hypertarget{structt__error_afd98cb51fe5600a9a40cae19fca8fac8_afd98cb51fe5600a9a40cae19fca8fac8}\label{structt__error_afd98cb51fe5600a9a40cae19fca8fac8_afd98cb51fe5600a9a40cae19fca8fac8}} 
+\index{t\_error@{t\_error}!set\_debug\_3\_file@{set\_debug\_3\_file}}
+\index{set\_debug\_3\_file@{set\_debug\_3\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{set\_debug\_3\_file()}{set\_debug\_3\_file()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::set\+\_\+debug\+\_\+3\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+Sets the debug\mbox{[}3\mbox{]} output file. 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00074}{74}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075 \{}
+\DoxyCodeLine{00076     \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stdout"})) \mbox{\hyperlink{structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_a7a1f1ea05fa525c8005acb15c3892a4a}{debug\_3\_file}}=stdout;}
+\DoxyCodeLine{00077     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stderr"})) \mbox{\hyperlink{structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_a7a1f1ea05fa525c8005acb15c3892a4a}{debug\_3\_file}}=stderr;}
+\DoxyCodeLine{00078     \textcolor{keywordflow}{else} \mbox{\hyperlink{structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_a7a1f1ea05fa525c8005acb15c3892a4a}{debug\_3\_file}}=fopen(fname,\textcolor{stringliteral}{"w"});}
+\DoxyCodeLine{00079 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00111}{debug\+\_\+3\+\_\+file}}.
+
+\mbox{\Hypertarget{structt__error_ab51ce2f9542d75914d23b1f90b550c1d_ab51ce2f9542d75914d23b1f90b550c1d}\label{structt__error_ab51ce2f9542d75914d23b1f90b550c1d_ab51ce2f9542d75914d23b1f90b550c1d}} 
+\index{t\_error@{t\_error}!set\_debug\_timer\_file@{set\_debug\_timer\_file}}
+\index{set\_debug\_timer\_file@{set\_debug\_timer\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{set\_debug\_timer\_file()}{set\_debug\_timer\_file()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::set\+\_\+debug\+\_\+timer\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+Sets the debug\mbox{[}timer\mbox{]} output file. 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00081}{81}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082 \{}
+\DoxyCodeLine{00083     \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stdout"})) \mbox{\hyperlink{structt__error_a42371d166e6adf303c3251c3ef7ed85c_a42371d166e6adf303c3251c3ef7ed85c}{debug\_timer\_file}}=stdout;}
+\DoxyCodeLine{00084     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stderr"})) \mbox{\hyperlink{structt__error_a42371d166e6adf303c3251c3ef7ed85c_a42371d166e6adf303c3251c3ef7ed85c}{debug\_timer\_file}}=stderr;}
+\DoxyCodeLine{00085     \textcolor{keywordflow}{else} \mbox{\hyperlink{structt__error_a42371d166e6adf303c3251c3ef7ed85c_a42371d166e6adf303c3251c3ef7ed85c}{debug\_timer\_file}}=fopen(fname,\textcolor{stringliteral}{"w"});}
+\DoxyCodeLine{00086 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00112}{debug\+\_\+timer\+\_\+file}}.
+
+\mbox{\Hypertarget{structt__error_affcce00de3de6b7ecf900ab71a6107cc_affcce00de3de6b7ecf900ab71a6107cc}\label{structt__error_affcce00de3de6b7ecf900ab71a6107cc_affcce00de3de6b7ecf900ab71a6107cc}} 
+\index{t\_error@{t\_error}!set\_error\_file@{set\_error\_file}}
+\index{set\_error\_file@{set\_error\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{set\_error\_file()}{set\_error\_file()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::set\+\_\+error\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+Sets the error output file. 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00046}{46}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047 \{}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stdout"})) \mbox{\hyperlink{structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_a2fbd8114570fe83bc0cd03b7d768b31c}{error\_file}}=stdout;}
+\DoxyCodeLine{00049     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stderr"})) \mbox{\hyperlink{structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_a2fbd8114570fe83bc0cd03b7d768b31c}{error\_file}}=stderr;}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{else} \mbox{\hyperlink{structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_a2fbd8114570fe83bc0cd03b7d768b31c}{error\_file}}=fopen(fname,\textcolor{stringliteral}{"w"});}
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00107}{error\+\_\+file}}.
+
+\mbox{\Hypertarget{structt__error_aa3e1d8a32cf1d271099a369c5a5559f2_aa3e1d8a32cf1d271099a369c5a5559f2}\label{structt__error_aa3e1d8a32cf1d271099a369c5a5559f2_aa3e1d8a32cf1d271099a369c5a5559f2}} 
+\index{t\_error@{t\_error}!set\_warning\_file@{set\_warning\_file}}
+\index{set\_warning\_file@{set\_warning\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{set\_warning\_file()}{set\_warning\_file()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::set\+\_\+warning\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+Sets the warning output file. 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00053}{53}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00055     \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stdout"})) \mbox{\hyperlink{structt__error_ac560c35b31b3861960f1fd8a881fa33b_ac560c35b31b3861960f1fd8a881fa33b}{warning\_file}}=stdout;}
+\DoxyCodeLine{00056     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!strcmp(fname,\textcolor{stringliteral}{"stderr"})) \mbox{\hyperlink{structt__error_ac560c35b31b3861960f1fd8a881fa33b_ac560c35b31b3861960f1fd8a881fa33b}{warning\_file}}=stderr;}
+\DoxyCodeLine{00057     \textcolor{keywordflow}{else} \mbox{\hyperlink{structt__error_ac560c35b31b3861960f1fd8a881fa33b_ac560c35b31b3861960f1fd8a881fa33b}{warning\_file}}=fopen(fname,\textcolor{stringliteral}{"w"});}
+\DoxyCodeLine{00058 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00108}{warning\+\_\+file}}.
+
+\mbox{\Hypertarget{structt__error_af803c2519381179010f51e13fe208320_af803c2519381179010f51e13fe208320}\label{structt__error_af803c2519381179010f51e13fe208320_af803c2519381179010f51e13fe208320}} 
+\index{t\_error@{t\_error}!terminate@{terminate}}
+\index{terminate@{terminate}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}}
+{\footnotesize\ttfamily void t\+\_\+error\+::terminate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{term }\end{DoxyParamCaption})}
+
+
+
+Terminate if termlevel allows it (for internal use) 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00124}{124}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00125 \{}
+\DoxyCodeLine{00126     \textcolor{keywordflow}{if}(term<\mbox{\hyperlink{structt__error_ac26e77277143e6eb52ecca2779f0f047_ac26e77277143e6eb52ecca2779f0f047}{term\_level}}) exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00127 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00106}{term\+\_\+level}}.
+
+Here is the caller graph for this function\+:
+% FIG 8
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structt__error_a564dfc9870b1ff33e63154b6a36557e8_a564dfc9870b1ff33e63154b6a36557e8}\label{structt__error_a564dfc9870b1ff33e63154b6a36557e8_a564dfc9870b1ff33e63154b6a36557e8}} 
+\index{t\_error@{t\_error}!debug\_1\_file@{debug\_1\_file}}
+\index{debug\_1\_file@{debug\_1\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{debug\_1\_file}{debug\_1\_file}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ t\+\_\+error\+::debug\+\_\+1\+\_\+file}
+
+
+
+libmd debug\mbox{[}1\mbox{]} output file (default stdout) 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00109}{109}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_aecaa999dee5eb5ddf4171e4bf68f2524}\label{structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_aecaa999dee5eb5ddf4171e4bf68f2524}} 
+\index{t\_error@{t\_error}!debug\_2\_file@{debug\_2\_file}}
+\index{debug\_2\_file@{debug\_2\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{debug\_2\_file}{debug\_2\_file}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ t\+\_\+error\+::debug\+\_\+2\+\_\+file}
+
+
+
+libmd debug\mbox{[}2\mbox{]} output file (default stdout) 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00110}{110}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_a7a1f1ea05fa525c8005acb15c3892a4a}\label{structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_a7a1f1ea05fa525c8005acb15c3892a4a}} 
+\index{t\_error@{t\_error}!debug\_3\_file@{debug\_3\_file}}
+\index{debug\_3\_file@{debug\_3\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{debug\_3\_file}{debug\_3\_file}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ t\+\_\+error\+::debug\+\_\+3\+\_\+file}
+
+
+
+libmd debug\mbox{[}3\mbox{]} output file (default stdout) 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00111}{111}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structt__error_a42371d166e6adf303c3251c3ef7ed85c_a42371d166e6adf303c3251c3ef7ed85c}\label{structt__error_a42371d166e6adf303c3251c3ef7ed85c_a42371d166e6adf303c3251c3ef7ed85c}} 
+\index{t\_error@{t\_error}!debug\_timer\_file@{debug\_timer\_file}}
+\index{debug\_timer\_file@{debug\_timer\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{debug\_timer\_file}{debug\_timer\_file}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ t\+\_\+error\+::debug\+\_\+timer\+\_\+file}
+
+
+
+libmd debug\mbox{[}timer\mbox{]} output file (default stdout) 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00112}{112}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_a2fbd8114570fe83bc0cd03b7d768b31c}\label{structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_a2fbd8114570fe83bc0cd03b7d768b31c}} 
+\index{t\_error@{t\_error}!error\_file@{error\_file}}
+\index{error\_file@{error\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{error\_file}{error\_file}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ t\+\_\+error\+::error\+\_\+file}
+
+
+
+libmd error output file (default stderr) 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00107}{107}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structt__error_ac26e77277143e6eb52ecca2779f0f047_ac26e77277143e6eb52ecca2779f0f047}\label{structt__error_ac26e77277143e6eb52ecca2779f0f047_ac26e77277143e6eb52ecca2779f0f047}} 
+\index{t\_error@{t\_error}!term\_level@{term\_level}}
+\index{term\_level@{term\_level}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{term\_level}{term\_level}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} t\+\_\+error\+::term\+\_\+level}
+
+
+
+Terminate level for libmd. The default value is 1. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00106}{106}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structt__error_ac560c35b31b3861960f1fd8a881fa33b_ac560c35b31b3861960f1fd8a881fa33b}\label{structt__error_ac560c35b31b3861960f1fd8a881fa33b_ac560c35b31b3861960f1fd8a881fa33b}} 
+\index{t\_error@{t\_error}!warning\_file@{warning\_file}}
+\index{warning\_file@{warning\_file}!t\_error@{t\_error}}
+\doxysubsubsection{\texorpdfstring{warning\_file}{warning\_file}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ t\+\_\+error\+::warning\+\_\+file}
+
+
+
+libmd warning output file (default stderr) 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00108}{108}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h}{libmd.\+h}}\item 
+libmd-\/src/\mbox{\hyperlink{error_8libmd_8cc}{error.\+libmd.\+cc}}\end{DoxyCompactItemize}

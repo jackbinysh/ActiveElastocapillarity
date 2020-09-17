@@ -1,0 +1,188 @@
+\hypertarget{structpairpotentials}{}\doxysection{pairpotentials Struct Reference}
+\label{structpairpotentials}\index{pairpotentials@{pairpotentials}}
+
+
+This structure takes care of pair potentials (who live outside of the class)  
+
+
+
+
+{\ttfamily \#include $<$libmd.\+h$>$}
+
+
+
+Collaboration diagram for pairpotentials\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structpairpotentials_ab76e50aab62cfaa68a09fc58e9e3d333_ab76e50aab62cfaa68a09fc58e9e3d333}{pairpotentials}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}{add}} (\mbox{\hyperlink{libmd_8h_a9b569e89a6a36bb0fdd87a612abedd97_a9b569e89a6a36bb0fdd87a612abedd97}{potentialptr}}$<$ \mbox{\hyperlink{structdual}{dual}} $>$ p)
+\begin{DoxyCompactList}\small\item\em Add a potentials. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structpairpotentials_ac70a0bc9bd954e96f28280ab2c026983_ac70a0bc9bd954e96f28280ab2c026983}{operator()}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} type, \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Pair potential executer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structpairpotentials_a4caa08856a866509f47794b203078164_a4caa08856a866509f47794b203078164}{dr}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} type, \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Pair potential d/dr executer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b569e89a6a36bb0fdd87a612abedd97_a9b569e89a6a36bb0fdd87a612abedd97}{potentialptr}}$<$ \mbox{\hyperlink{structdual}{dual}} $>$ $>$ \mbox{\hyperlink{structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_a8d7d4b77b302f3d235362b7857bbb242}{potentials}}
+\begin{DoxyCompactList}\small\item\em Pair potential vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This structure takes care of pair potentials (who live outside of the class) 
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00262}{262}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structpairpotentials_ab76e50aab62cfaa68a09fc58e9e3d333_ab76e50aab62cfaa68a09fc58e9e3d333}\label{structpairpotentials_ab76e50aab62cfaa68a09fc58e9e3d333_ab76e50aab62cfaa68a09fc58e9e3d333}} 
+\index{pairpotentials@{pairpotentials}!pairpotentials@{pairpotentials}}
+\index{pairpotentials@{pairpotentials}!pairpotentials@{pairpotentials}}
+\doxysubsubsection{\texorpdfstring{pairpotentials()}{pairpotentials()}}
+{\footnotesize\ttfamily pairpotentials\+::pairpotentials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+pairpotentials constuctor. ~\newline
+ Reserves 16 slot in the potentials vector. ~\newline
+ Adds the builtin pairpotentials. ~\newline
+
+
+Definition at line \mbox{\hyperlink{pairpotentials_8libmd_8cc_source_l00006}{6}} of file \mbox{\hyperlink{pairpotentials_8libmd_8cc_source}{pairpotentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00013     \mbox{\hyperlink{structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_a8d7d4b77b302f3d235362b7857bbb242}{potentials}}.reserve(16);}
+\DoxyCodeLine{00014     \mbox{\hyperlink{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}{add}}(COULOMB<dual>);}
+\DoxyCodeLine{00015     \mbox{\hyperlink{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}{add}}(YUKAWA<dual>);}
+\DoxyCodeLine{00016     \mbox{\hyperlink{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}{add}}(HOOKEAN<dual>);}
+\DoxyCodeLine{00017     \mbox{\hyperlink{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}{add}}(LJ<dual>);}
+\DoxyCodeLine{00018     \mbox{\hyperlink{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}{add}}(MORSE<dual>);}
+\DoxyCodeLine{00019     \mbox{\hyperlink{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}{add}}(FORCEDIPOLE<dual>);}
+\DoxyCodeLine{00020     \mbox{\hyperlink{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}{add}}(HOOKEANFORCEDIPOLE<dual>);}
+\DoxyCodeLine{00021     \mbox{\hyperlink{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}{add}}(ANHARMONICSPRING<dual>);}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{pairpotentials_8libmd_8cc_source_l00024}{add()}}, and \mbox{\hyperlink{libmd_8h_source_l00264}{potentials}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}\label{structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_a41a8b85ded4ddaf1896a5d3de69402b8}} 
+\index{pairpotentials@{pairpotentials}!add@{add}}
+\index{add@{add}!pairpotentials@{pairpotentials}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} pairpotentials\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_a9b569e89a6a36bb0fdd87a612abedd97_a9b569e89a6a36bb0fdd87a612abedd97}{potentialptr}}$<$ \mbox{\hyperlink{structdual}{dual}} $>$}]{p }\end{DoxyParamCaption})}
+
+
+
+Add a potentials. 
+
+This function adds a custom potential function {\ttfamily p} to the potentials vector. ~\newline
+
+
+Definition at line \mbox{\hyperlink{pairpotentials_8libmd_8cc_source_l00024}{24}} of file \mbox{\hyperlink{pairpotentials_8libmd_8cc_source}{pairpotentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00029     \mbox{\hyperlink{structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_a8d7d4b77b302f3d235362b7857bbb242}{potentials}}.push\_back(p);}
+\DoxyCodeLine{00030     \textcolor{keywordflow}{return} \mbox{\hyperlink{structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_a8d7d4b77b302f3d235362b7857bbb242}{potentials}}.size()-\/1;}
+\DoxyCodeLine{00031 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00264}{potentials}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{structpairpotentials_a4caa08856a866509f47794b203078164_a4caa08856a866509f47794b203078164}\label{structpairpotentials_a4caa08856a866509f47794b203078164_a4caa08856a866509f47794b203078164}} 
+\index{pairpotentials@{pairpotentials}!dr@{dr}}
+\index{dr@{dr}!pairpotentials@{pairpotentials}}
+\doxysubsubsection{\texorpdfstring{dr()}{dr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} pairpotentials\+::dr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{type,  }\item[{\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Pair potential d/dr executer. 
+
+This function evaluates the derivative of a potential function in {\ttfamily pairpotentials\mbox{[}type\mbox{]}} at {\ttfamily r} with {\ttfamily parameters} ~\newline
+ Make sure that if you use a custom potential function {\ttfamily type} and {\ttfamily potentials} align.
+
+Definition at line \mbox{\hyperlink{pairpotentials_8libmd_8cc_source_l00043}{43}} of file \mbox{\hyperlink{pairpotentials_8libmd_8cc_source}{pairpotentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044 \{}
+\DoxyCodeLine{00049     \mbox{\hyperlink{structdual}{dual}} rdx(r,1.0);}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{return} (\mbox{\hyperlink{structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_a8d7d4b77b302f3d235362b7857bbb242}{potentials}}[type])(rdx,parameters).dx;}
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00264}{potentials}}.
+
+\mbox{\Hypertarget{structpairpotentials_ac70a0bc9bd954e96f28280ab2c026983_ac70a0bc9bd954e96f28280ab2c026983}\label{structpairpotentials_ac70a0bc9bd954e96f28280ab2c026983_ac70a0bc9bd954e96f28280ab2c026983}} 
+\index{pairpotentials@{pairpotentials}!operator()@{operator()}}
+\index{operator()@{operator()}!pairpotentials@{pairpotentials}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} pairpotentials\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{type,  }\item[{\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Pair potential executer. 
+
+This function evaluates a potential function in {\ttfamily pairpotentials\mbox{[}type\mbox{]}} at {\ttfamily r} with {\ttfamily parameters} ~\newline
+ Make sure that if you use a custom potential function {\ttfamily type} and {\ttfamily potentials} align.
+
+Definition at line \mbox{\hyperlink{pairpotentials_8libmd_8cc_source_l00033}{33}} of file \mbox{\hyperlink{pairpotentials_8libmd_8cc_source}{pairpotentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034 \{}
+\DoxyCodeLine{00039     \mbox{\hyperlink{structdual}{dual}} rdx(r,1.0);}
+\DoxyCodeLine{00040     \textcolor{keywordflow}{return} (\mbox{\hyperlink{structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_a8d7d4b77b302f3d235362b7857bbb242}{potentials}}[type])(rdx,parameters).x;}
+\DoxyCodeLine{00041 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00264}{potentials}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_a8d7d4b77b302f3d235362b7857bbb242}\label{structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_a8d7d4b77b302f3d235362b7857bbb242}} 
+\index{pairpotentials@{pairpotentials}!potentials@{potentials}}
+\index{potentials@{potentials}!pairpotentials@{pairpotentials}}
+\doxysubsubsection{\texorpdfstring{potentials}{potentials}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{libmd_8h_a9b569e89a6a36bb0fdd87a612abedd97_a9b569e89a6a36bb0fdd87a612abedd97}{potentialptr}}$<$\mbox{\hyperlink{structdual}{dual}}$>$ $>$ pairpotentials\+::potentials}
+
+
+
+Pair potential vector. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00264}{264}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h}{libmd.\+h}}\item 
+libmd-\/src/\mbox{\hyperlink{pairpotentials_8libmd_8cc}{pairpotentials.\+libmd.\+cc}}\end{DoxyCompactItemize}

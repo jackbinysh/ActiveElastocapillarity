@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structindexer_1_1kdtreedatatype" kind="struct" language="C++" prot="public">
+    <compoundname>indexer::kdtreedatatype</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structindexer_1_1kdtreedatatype_a9f6a2369df776e8ac84b2694c2341997_1a9f6a2369df776e8ac84b2694c2341997" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref> *</type>
+        <definition>ui* indexer&lt; dim &gt;::kdtreedatatype::Idx</definition>
+        <argsstring></argsstring>
+        <name>Idx</name>
+        <briefdescription>
+<para>Indices of particles, ordered by tree-structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="314" column="12" bodyfile="libmd.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structindexer_1_1kdtreedatatype_a3e7056cffcceeb6853994decb2ffad26_1a3e7056cffcceeb6853994decb2ffad26" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui indexer&lt; dim &gt;::kdtreedatatype::DivideByDim[30]</definition>
+        <argsstring>[30]</argsstring>
+        <name>DivideByDim</name>
+        <briefdescription>
+<para>Dimension to divide by at each recursion level (assuming N &lt;= 2^30) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="315" column="12" bodyfile="libmd.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structindexer_1_1kdtreedatatype_a1757e64bc87201a5bc91cdb9749ea481_1a1757e64bc87201a5bc91cdb9749ea481" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>(*</type>
+        <definition>ldf(* indexer&lt; dim &gt;::kdtreedatatype::Pmin)[dim]</definition>
+        <argsstring>)[dim]</argsstring>
+        <name>Pmin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="316" column="9" bodyfile="libmd.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structindexer_1_1kdtreedatatype_aca70a04a88e23b4d4df9993f86f68ceb_1aca70a04a88e23b4d4df9993f86f68ceb" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>((*</type>
+        <definition>ldf((* indexer&lt; dim &gt;::kdtreedatatype::Pmax)[dim]</definition>
+        <argsstring>)[dim]</argsstring>
+        <name>Pmax</name>
+        <briefdescription>
+<para>Minimum and maximum value of each coordinate, for every subtree. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="316" column="9" bodyfile="libmd.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structindexer_1_1kdtreedatatype_ae4995c650fa6bef502b173517bd6b566_1ae4995c650fa6bef502b173517bd6b566" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>indexer&lt; dim &gt;::kdtreedatatype::kdtreedatatype</definition>
+        <argsstring>()</argsstring>
+        <name>kdtreedatatype</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Constructor for <computeroutput>kdtreedatatype</computeroutput>, used by the indexing algorithm <ref refid="structmd_a7a10193ac507980720263dd95d259958_1a7a10193ac507980720263dd95d259958" kindref="member">md&lt;dim&gt;::kdtree()</ref>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="318" column="9" bodyfile="libmd-src/index.libmd.cc" bodystart="28" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="structindexer_1_1kdtreedatatype_a10f515bf7660ba47f8c8b9b99dd67dde_1a10f515bf7660ba47f8c8b9b99dd67dde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>indexer&lt; dim &gt;::kdtreedatatype::~kdtreedatatype</definition>
+        <argsstring>()</argsstring>
+        <name>~kdtreedatatype</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Destructor for <computeroutput>kdtreedatatype</computeroutput>, used by the indexing algorithm <ref refid="structmd_a7a10193ac507980720263dd95d259958_1a7a10193ac507980720263dd95d259958" kindref="member">md&lt;dim&gt;::kdtree()</ref>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="319" column="9" bodyfile="libmd-src/index.libmd.cc" bodystart="38" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>indexer&lt; dim &gt;::kdtreedatatype</label>
+        <link refid="structindexer_1_1kdtreedatatype"/>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="313" column="1" bodyfile="libmd.h" bodystart="312" bodyend="320"/>
+    <listofallmembers>
+      <member refid="structindexer_1_1kdtreedatatype_a3e7056cffcceeb6853994decb2ffad26_1a3e7056cffcceeb6853994decb2ffad26" prot="public" virt="non-virtual"><scope>indexer::kdtreedatatype</scope><name>DivideByDim</name></member>
+      <member refid="structindexer_1_1kdtreedatatype_a9f6a2369df776e8ac84b2694c2341997_1a9f6a2369df776e8ac84b2694c2341997" prot="public" virt="non-virtual"><scope>indexer::kdtreedatatype</scope><name>Idx</name></member>
+      <member refid="structindexer_1_1kdtreedatatype_ae4995c650fa6bef502b173517bd6b566_1ae4995c650fa6bef502b173517bd6b566" prot="public" virt="non-virtual"><scope>indexer::kdtreedatatype</scope><name>kdtreedatatype</name></member>
+      <member refid="structindexer_1_1kdtreedatatype_aca70a04a88e23b4d4df9993f86f68ceb_1aca70a04a88e23b4d4df9993f86f68ceb" prot="public" virt="non-virtual"><scope>indexer::kdtreedatatype</scope><name>Pmax</name></member>
+      <member refid="structindexer_1_1kdtreedatatype_a1757e64bc87201a5bc91cdb9749ea481_1a1757e64bc87201a5bc91cdb9749ea481" prot="public" virt="non-virtual"><scope>indexer::kdtreedatatype</scope><name>Pmin</name></member>
+      <member refid="structindexer_1_1kdtreedatatype_a10f515bf7660ba47f8c8b9b99dd67dde_1a10f515bf7660ba47f8c8b9b99dd67dde" prot="public" virt="non-virtual"><scope>indexer::kdtreedatatype</scope><name>~kdtreedatatype</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

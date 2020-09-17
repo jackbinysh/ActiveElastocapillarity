@@ -1,0 +1,63 @@
+\hypertarget{forces_8md_8libmd_8cc_source}{}\doxysection{forces.\+md.\+libmd.\+cc}
+\label{forces_8md_8libmd_8cc_source}\index{libmd-\/src/md/forces.md.libmd.cc@{libmd-\/src/md/forces.md.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{forces_8md_8libmd_8cc_source_l00001}\mbox{\hyperlink{forces_8md_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{forces_8md_8libmd_8cc_source_l00006}\mbox{\hyperlink{structmd_ad5f3412e14bab3bc31be3610d843d8d0_ad5f3412e14bab3bc31be3610d843d8d0}{00006}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_ad5f3412e14bab3bc31be3610d843d8d0_ad5f3412e14bab3bc31be3610d843d8d0}{md<dim>::thread\_clear\_forces}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i)}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00011     memset(particles[i].F,0,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00012 \}}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{\Hypertarget{forces_8md_8libmd_8cc_source_l00014}\mbox{\hyperlink{structmd_ac3b4dfe4eba7350b266d30517671bdb6_ac3b4dfe4eba7350b266d30517671bdb6}{00014}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_ac3b4dfe4eba7350b266d30517671bdb6_ac3b4dfe4eba7350b266d30517671bdb6}{md<dim>::thread\_calc\_pot\_forces}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i)}
+\DoxyCodeLine{00015 \{}
+\DoxyCodeLine{00019     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} sij: network.skins[i]) \textcolor{keywordflow}{if}(i>sij.neighbor)}
+\DoxyCodeLine{00020     \{}
+\DoxyCodeLine{00021         \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} rsq=distsq(i,sij.neighbor);}
+\DoxyCodeLine{00022         \textcolor{keywordflow}{if}(!network.update or rsq<\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(get\_rco(sij.interaction),2))}
+\DoxyCodeLine{00023         \{}
+\DoxyCodeLine{00024             \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} r=\mbox{\hyperlink{autodiff_8libmd_8cc_af33bda4d5a7fc8ad1679ec339a730045_af33bda4d5a7fc8ad1679ec339a730045}{std::sqrt}}(rsq);}
+\DoxyCodeLine{00025             \mbox{\hyperlink{macros_8libmd_8h_afefca75c5eec58a9b2f18b25a8b649b5_afefca75c5eec58a9b2f18b25a8b649b5}{DEBUG\_3}}(\textcolor{stringliteral}{"r = "} \mbox{\hyperlink{libmd_8h_aeae5d38344bd9746908a939e55a8442e_aeae5d38344bd9746908a939e55a8442e}{F\_LDF}},r);}
+\DoxyCodeLine{00026             \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} dVdr=v.dr(network.library[sij.interaction].potential,r,network.library[sij.interaction].parameters);}
+\DoxyCodeLine{00027             \mbox{\hyperlink{macros_8libmd_8h_afefca75c5eec58a9b2f18b25a8b649b5_afefca75c5eec58a9b2f18b25a8b649b5}{DEBUG\_3}}(\textcolor{stringliteral}{"dV/dr = "} \mbox{\hyperlink{libmd_8h_aeae5d38344bd9746908a939e55a8442e_aeae5d38344bd9746908a939e55a8442e}{F\_LDF}},dVdr);}
+\DoxyCodeLine{00028             \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++)}
+\DoxyCodeLine{00029             \{}
+\DoxyCodeLine{00030                 \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} F\_i=dd(d,i,sij.neighbor)*dVdr/r;}
+\DoxyCodeLine{00031                 particles[i].F[d]+=F\_i;}
+\DoxyCodeLine{00032                 \mbox{\hyperlink{macros_8libmd_8h_afefca75c5eec58a9b2f18b25a8b649b5_afefca75c5eec58a9b2f18b25a8b649b5}{DEBUG\_3}}(\textcolor{stringliteral}{"particles["} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{"].F["} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{"] = "} \mbox{\hyperlink{libmd_8h_aeae5d38344bd9746908a939e55a8442e_aeae5d38344bd9746908a939e55a8442e}{F\_LDF}},i,d,F\_i);}
+\DoxyCodeLine{00033                 particles[sij.neighbor].F[d]-\/=F\_i;}
+\DoxyCodeLine{00034                 \mbox{\hyperlink{macros_8libmd_8h_afefca75c5eec58a9b2f18b25a8b649b5_afefca75c5eec58a9b2f18b25a8b649b5}{DEBUG\_3}}(\textcolor{stringliteral}{"particles["} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{"].F["} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{"] = "} \mbox{\hyperlink{libmd_8h_aeae5d38344bd9746908a939e55a8442e_aeae5d38344bd9746908a939e55a8442e}{F\_LDF}},sij.neighbor,d,-\/F\_i);}
+\DoxyCodeLine{00035             \}}
+\DoxyCodeLine{00036         \}}
+\DoxyCodeLine{00037     \}}
+\DoxyCodeLine{00038 \}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{\Hypertarget{forces_8md_8libmd_8cc_source_l00040}\mbox{\hyperlink{structmd_ae5f5825a2524b24a6ed913caeb90a8b6_ae5f5825a2524b24a6ed913caeb90a8b6}{00040}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_ae5f5825a2524b24a6ed913caeb90a8b6_ae5f5825a2524b24a6ed913caeb90a8b6}{md<dim>::thread\_calc\_ext\_forces}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i)}
+\DoxyCodeLine{00041 \{}
+\DoxyCodeLine{00045     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} ftype: network.forces[i]) f(network.forcelibrary[ftype].externalforce,i,network.forcelibrary[ftype].particles[i],network.forcelibrary[ftype].parameters,(\mbox{\hyperlink{structmd}{md<dim>}}*)\textcolor{keyword}{this});}
+\DoxyCodeLine{00046 \}}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{\Hypertarget{forces_8md_8libmd_8cc_source_l00048}\mbox{\hyperlink{structmd_ac7139593c6d2f8acc2bb478a0a70f1f4_ac7139593c6d2f8acc2bb478a0a70f1f4}{00048}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_ac7139593c6d2f8acc2bb478a0a70f1f4_ac7139593c6d2f8acc2bb478a0a70f1f4}{md<dim>::calc\_forces}}()}
+\DoxyCodeLine{00049 \{}
+\DoxyCodeLine{00053     \textcolor{keywordflow}{if}(network.update and (avars.reindex or test\_index()))}
+\DoxyCodeLine{00054     \{}
+\DoxyCodeLine{00055         \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"regenerating skinlist"});}
+\DoxyCodeLine{00056         index();}
+\DoxyCodeLine{00057     \}}
+\DoxyCodeLine{00058     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"exec is here"});}
+\DoxyCodeLine{00059     avars.export\_force\_calc=\textcolor{keyword}{false};}
+\DoxyCodeLine{00060     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i=0;i<N;i++) thread\_clear\_forces(i);}
+\DoxyCodeLine{00061     recalc\_forces();}
+\DoxyCodeLine{00062 \}}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{\Hypertarget{forces_8md_8libmd_8cc_source_l00064}\mbox{\hyperlink{structmd_a66c65703b4fa3454078571aae0861523_a66c65703b4fa3454078571aae0861523}{00064}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_a66c65703b4fa3454078571aae0861523_a66c65703b4fa3454078571aae0861523}{md<dim>::recalc\_forces}}()}
+\DoxyCodeLine{00065 \{}
+\DoxyCodeLine{00070     \mbox{\hyperlink{macros_8libmd_8h_afefca75c5eec58a9b2f18b25a8b649b5_afefca75c5eec58a9b2f18b25a8b649b5}{DEBUG\_3}}(\textcolor{stringliteral}{"exec is here"});}
+\DoxyCodeLine{00071     \textcolor{keywordflow}{if}(!network.library.empty()) \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i=0;i<N;i++) thread\_calc\_pot\_forces(i);}
+\DoxyCodeLine{00072     \textcolor{keywordflow}{if}(!network.forcelibrary.empty()) \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i=0;i<N;i++) thread\_calc\_ext\_forces(i);}
+\DoxyCodeLine{00073 \}}
+
+\end{DoxyCode}

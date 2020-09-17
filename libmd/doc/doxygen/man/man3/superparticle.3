@@ -1,0 +1,66 @@
+.TH "superparticle" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+superparticle \- This structure introduces 'super_particles' i\&.e\&. particles that consist of (sub_)particles\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::unordered_map< \fBui\fP, \fBui\fP > \fBparticles\fP"
+.br
+.RI "Particles in super particles\&. "
+.ti -1c
+.RI "std::vector< \fBui\fP > \fBbackdoor\fP"
+.br
+.RI "Super particle index to particle id\&. "
+.ti -1c
+.RI "\fBui\fP \fBsptype\fP"
+.br
+.RI "Super particle type\&. "
+.ti -1c
+.RI "bool \fBcenter_bcond\fP"
+.br
+.RI "Use the boundary conditions of its particle calculate about its center of mass\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure introduces 'super_particles' i\&.e\&. particles that consist of (sub_)particles\&. 
+.PP
+Definition at line 211 of file libmd\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "std::vector<\fBui\fP> superparticle::backdoor"
+
+.PP
+Super particle index to particle id\&. 
+.PP
+Definition at line 214 of file libmd\&.h\&.
+.SS "bool superparticle::center_bcond"
+
+.PP
+Use the boundary conditions of its particle calculate about its center of mass\&. 
+.PP
+Definition at line 216 of file libmd\&.h\&.
+.SS "std::unordered_map<\fBui\fP,\fBui\fP> superparticle::particles"
+
+.PP
+Particles in super particles\&. 
+.PP
+Definition at line 213 of file libmd\&.h\&.
+.SS "\fBui\fP superparticle::sptype"
+
+.PP
+Super particle type\&. 
+.PP
+Definition at line 215 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

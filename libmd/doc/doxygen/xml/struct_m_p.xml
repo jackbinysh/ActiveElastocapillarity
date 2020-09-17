@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct_m_p" kind="struct" language="C++" prot="public">
+    <compoundname>MP</compoundname>
+    <includes refid="enums_8libmd_8h" local="no">enums.libmd.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9" prot="public" static="no" strong="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <name>mp</name>
+        <enumvalue id="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9adec67112fb78f6a886ffbf84d7bb596a" prot="public">
+          <name>FLATSPACE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9a96545e5f2db8005d444fcaa0f9ef2bea" prot="public">
+          <name>GAUSSIANBUMP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9a57287ee702e8423d46fa6c8229f8f043" prot="public">
+          <name>EGGCARTON</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9a9755c7ac619c711b933f304b8f907c4a" prot="public">
+          <name>MOLLIFIER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd-src/enums.libmd.h" line="30" column="1" bodyfile="libmd-src/enums.libmd.h" bodystart="29" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Monge patch options. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>MP</label>
+        <link refid="struct_m_p"/>
+      </node>
+    </collaborationgraph>
+    <location file="libmd-src/enums.libmd.h" line="29" column="9" bodyfile="libmd-src/enums.libmd.h" bodystart="29" bodyend="35"/>
+    <listofallmembers>
+      <member refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9a57287ee702e8423d46fa6c8229f8f043" prot="public" virt="non-virtual"><scope>MP</scope><name>EGGCARTON</name></member>
+      <member refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9adec67112fb78f6a886ffbf84d7bb596a" prot="public" virt="non-virtual"><scope>MP</scope><name>FLATSPACE</name></member>
+      <member refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9a96545e5f2db8005d444fcaa0f9ef2bea" prot="public" virt="non-virtual"><scope>MP</scope><name>GAUSSIANBUMP</name></member>
+      <member refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9a9755c7ac619c711b933f304b8f907c4a" prot="public" virt="non-virtual"><scope>MP</scope><name>MOLLIFIER</name></member>
+      <member refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9" prot="public" virt="non-virtual"><scope>MP</scope><name>mp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

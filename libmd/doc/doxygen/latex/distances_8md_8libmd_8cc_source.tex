@@ -1,0 +1,102 @@
+\hypertarget{distances_8md_8libmd_8cc_source}{}\doxysection{distances.\+md.\+libmd.\+cc}
+\label{distances_8md_8libmd_8cc_source}\index{libmd-\/src/md/distances.md.libmd.cc@{libmd-\/src/md/distances.md.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00001}\mbox{\hyperlink{distances_8md_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00006}\mbox{\hyperlink{structmd_af4b990db21034be32837761098e03336_af4b990db21034be32837761098e03336}{00006}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_af4b990db21034be32837761098e03336_af4b990db21034be32837761098e03336}{md<dim>::dap}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} ad)}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00017     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} da;}
+\DoxyCodeLine{00018     \textcolor{keywordflow}{switch}(simbox.bcond[d])}
+\DoxyCodeLine{00019     \{}
+\DoxyCodeLine{00020         \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_a565f9cf3347ba75b9bfc64ec12d69946a975aaa41fc29d28d5513e2907b29f1ce}{BCOND::PERIODIC}}: da=\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(ad)<0.5*simbox.L[d]?ad:ad-\/\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(ad+0.5*simbox.L[d])+\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(ad-\/0.5*simbox.L[d]); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00021         \textcolor{keywordflow}{default}: da=ad; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00022     \}}
+\DoxyCodeLine{00023     \textcolor{keywordflow}{return} da;}
+\DoxyCodeLine{00024 \}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00026}\mbox{\hyperlink{structmd_ae0dbf3df141878e6530b7ba1cf18836d_ae0dbf3df141878e6530b7ba1cf18836d}{00026}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_ae0dbf3df141878e6530b7ba1cf18836d_ae0dbf3df141878e6530b7ba1cf18836d}{md<dim>::distsq}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p1,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p2)}
+\DoxyCodeLine{00027 \{}
+\DoxyCodeLine{00035     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} retval=0.0;}
+\DoxyCodeLine{00036     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) retval+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(dd(d,p1,p2),2);}
+\DoxyCodeLine{00037     \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{00038 \}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00040}\mbox{\hyperlink{structmd_a11612b5f64a62122b5c1e2767d4125f4_a11612b5f64a62122b5c1e2767d4125f4}{00040}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_ae0dbf3df141878e6530b7ba1cf18836d_ae0dbf3df141878e6530b7ba1cf18836d}{md<dim>::distsq}}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x1[dim],\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x2[dim])}
+\DoxyCodeLine{00041 \{}
+\DoxyCodeLine{00048     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} retval=0.0;}
+\DoxyCodeLine{00049     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) retval+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(dd(d,x1,x2),2);}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{00051 \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00053}\mbox{\hyperlink{structmd_aa8d0c1ecf0b5cd3acfda235bf4d7939c_aa8d0c1ecf0b5cd3acfda235bf4d7939c}{00053}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_ae0dbf3df141878e6530b7ba1cf18836d_ae0dbf3df141878e6530b7ba1cf18836d}{md<dim>::distsq}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p1,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x2[dim])}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00061     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} retval=0.0;}
+\DoxyCodeLine{00062     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) retval+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(dd(d,p1,x2),2);}
+\DoxyCodeLine{00063     \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{00064 \}}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00066}\mbox{\hyperlink{structmd_ac7d3a54060a2ddea03e95edd1712b70a_ac7d3a54060a2ddea03e95edd1712b70a}{00066}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_ae0dbf3df141878e6530b7ba1cf18836d_ae0dbf3df141878e6530b7ba1cf18836d}{md<dim>::distsq}}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x1[dim],\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p2)}
+\DoxyCodeLine{00067 \{}
+\DoxyCodeLine{00074     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} retval=0.0;}
+\DoxyCodeLine{00075     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) retval+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(dd(d,x1,p2),2);}
+\DoxyCodeLine{00076     \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{00077 \}}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00079}\mbox{\hyperlink{structmd_aeed418ffbab88202136c2b9ae1cd5a37_aeed418ffbab88202136c2b9ae1cd5a37}{00079}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_aeed418ffbab88202136c2b9ae1cd5a37_aeed418ffbab88202136c2b9ae1cd5a37}{md<dim>::dd}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p1,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p2)}
+\DoxyCodeLine{00080 \{}
+\DoxyCodeLine{00088     \textcolor{keywordflow}{return} dd(d,particles[p1].x,particles[p2].x);}
+\DoxyCodeLine{00089 \}}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00091}\mbox{\hyperlink{structmd_adde7787c69335e330aa9163fb340a40f_adde7787c69335e330aa9163fb340a40f}{00091}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_aeed418ffbab88202136c2b9ae1cd5a37_aeed418ffbab88202136c2b9ae1cd5a37}{md<dim>::dd}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x1[dim],\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x2[dim])}
+\DoxyCodeLine{00092 \{}
+\DoxyCodeLine{00099     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} ddd=0;}
+\DoxyCodeLine{00100     \textcolor{keywordflow}{if} (simbox.useLshear) \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu=0;mu<dim;mu++) \textcolor{comment}{// use box matrix to calculate distances}}
+\DoxyCodeLine{00101     \{}
+\DoxyCodeLine{00102        \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} s=0;}
+\DoxyCodeLine{00103        \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu=0;nu<dim;nu++) s+=simbox.LshearInv[mu][nu]*(x2[nu]-\/x1[nu]);}
+\DoxyCodeLine{00104        \textcolor{keywordflow}{if} (simbox.bcond[mu]==\mbox{\hyperlink{struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_a565f9cf3347ba75b9bfc64ec12d69946a975aaa41fc29d28d5513e2907b29f1ce}{BCOND::PERIODIC}} or simbox.bcond[mu]==\mbox{\hyperlink{struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_a565f9cf3347ba75b9bfc64ec12d69946ae60ceea4da62257e104c5ac6aa720a31}{BCOND::BOXSHEAR}}) s=\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(s)<0.5?s:s-\/\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(s+0.5)+\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(s-\/0.5);}
+\DoxyCodeLine{00105        ddd += simbox.Lshear[d][mu]*s;}
+\DoxyCodeLine{00106     \}}
+\DoxyCodeLine{00107     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00108     \{}
+\DoxyCodeLine{00109         \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} ad=x2[d]-\/x1[d];}
+\DoxyCodeLine{00110         ddd=dap(d,ad);}
+\DoxyCodeLine{00111     \}}
+\DoxyCodeLine{00112     \textcolor{keywordflow}{return} ddd;}
+\DoxyCodeLine{00113 \}}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00115}\mbox{\hyperlink{structmd_aaec8b858142d1a80d0eb072d13989016_aaec8b858142d1a80d0eb072d13989016}{00115}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_aeed418ffbab88202136c2b9ae1cd5a37_aeed418ffbab88202136c2b9ae1cd5a37}{md<dim>::dd}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p1,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x2[dim])}
+\DoxyCodeLine{00116 \{}
+\DoxyCodeLine{00123     \textcolor{keywordflow}{return} dd(d,particles[p1].x,x2);}
+\DoxyCodeLine{00124 \}}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00126}\mbox{\hyperlink{structmd_aa2aafc98e090071ee38cd5eecc91086c_aa2aafc98e090071ee38cd5eecc91086c}{00126}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_aeed418ffbab88202136c2b9ae1cd5a37_aeed418ffbab88202136c2b9ae1cd5a37}{md<dim>::dd}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x1[dim],\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p2)}
+\DoxyCodeLine{00127 \{}
+\DoxyCodeLine{00134     \textcolor{keywordflow}{return} dd(d,x1,particles[p2].x);}
+\DoxyCodeLine{00135 \}}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{\Hypertarget{distances_8md_8libmd_8cc_source_l00137}\mbox{\hyperlink{structmd_a6d7f9c3ed6d212f1b34b2d2e94b7fd33_a6d7f9c3ed6d212f1b34b2d2e94b7fd33}{00137}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmd_a6d7f9c3ed6d212f1b34b2d2e94b7fd33_a6d7f9c3ed6d212f1b34b2d2e94b7fd33}{md<dim>::dv}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p1,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} p2)}
+\DoxyCodeLine{00138 \{}
+\DoxyCodeLine{00147     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} dv = particles[p2].dx[d]-\/particles[p1].dx[d];}
+\DoxyCodeLine{00148     \textcolor{keywordflow}{if} (simbox.useLshear)}
+\DoxyCodeLine{00149     \{}
+\DoxyCodeLine{00150         \textcolor{comment}{// use box matrix to calculate boundary crossings, and adjust relative velocity accordingly}}
+\DoxyCodeLine{00151         \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} j=0;j<dim;j++)}
+\DoxyCodeLine{00152         \{}
+\DoxyCodeLine{00153             \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} s=0,bcross=0;}
+\DoxyCodeLine{00154             \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++)}
+\DoxyCodeLine{00155             \{}
+\DoxyCodeLine{00156                s+=simbox.LshearInv[j][k]*(particles[p2].x[k]-\/particles[p1].x[k]);}
+\DoxyCodeLine{00157             \}}
+\DoxyCodeLine{00158             \textcolor{keywordflow}{if} (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(s) > 0.5 and (simbox.bcond[j]==\mbox{\hyperlink{struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_a565f9cf3347ba75b9bfc64ec12d69946a975aaa41fc29d28d5513e2907b29f1ce}{BCOND::PERIODIC}} or simbox.bcond[j]==\mbox{\hyperlink{struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_a565f9cf3347ba75b9bfc64ec12d69946ae60ceea4da62257e104c5ac6aa720a31}{BCOND::BOXSHEAR}})) bcross = floor(s+.5);}
+\DoxyCodeLine{00159             dv -\/= simbox.vshear[d][j]*bcross;}
+\DoxyCodeLine{00160         \}}
+\DoxyCodeLine{00161     \}}
+\DoxyCodeLine{00162     \textcolor{keywordflow}{return} dv;}
+\DoxyCodeLine{00163 \}}
+
+\end{DoxyCode}

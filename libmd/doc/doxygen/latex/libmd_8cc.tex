@@ -1,0 +1,99 @@
+\hypertarget{libmd_8cc}{}\doxysection{libmd.\+cc File Reference}
+\label{libmd_8cc}\index{libmd.cc@{libmd.cc}}
+{\ttfamily \#include \char`\"{}libmd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/error.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/autodiff.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/potentials.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/particle.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/forces.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/box.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/boundaryconditions.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/bcond.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/interact.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/index.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/pairpotentials.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/externalforces.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/hooks.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/integrators.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/variadic\+\_\+vars.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/md.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/mongepatches.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/autodiff2.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/mp.\+libmd.\+cc\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libmd-\/src/mpmd.\+libmd.\+cc\char`\"{}}\newline
+Include dependency graph for libmd.\+cc\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{libmd_8cc_a36c83aeff015fda6015fc9ebe807cd9e_a36c83aeff015fda6015fc9ebe807cd9e}{\+\_\+\+\_\+libmd\+\_\+cc\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{libmd_8cc_a3626c101e4c01bf6c50dfd8ea0e3a787_a3626c101e4c01bf6c50dfd8ea0e3a787}{\+\_\+\+\_\+libmd\+\_\+\+\_\+info}} ()
+\begin{DoxyCompactList}\small\item\em Basic libmd comilation info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{libmd_8cc_a36c83aeff015fda6015fc9ebe807cd9e_a36c83aeff015fda6015fc9ebe807cd9e}\label{libmd_8cc_a36c83aeff015fda6015fc9ebe807cd9e_a36c83aeff015fda6015fc9ebe807cd9e}} 
+\index{libmd.cc@{libmd.cc}!\_\_libmd\_cc\_\_@{\_\_libmd\_cc\_\_}}
+\index{\_\_libmd\_cc\_\_@{\_\_libmd\_cc\_\_}!libmd.cc@{libmd.cc}}
+\doxysubsubsection{\texorpdfstring{\_\_libmd\_cc\_\_}{\_\_libmd\_cc\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+libmd\+\_\+cc\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8cc_source_l00005}{5}} of file \mbox{\hyperlink{libmd_8cc_source}{libmd.\+cc}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{libmd_8cc_a3626c101e4c01bf6c50dfd8ea0e3a787_a3626c101e4c01bf6c50dfd8ea0e3a787}\label{libmd_8cc_a3626c101e4c01bf6c50dfd8ea0e3a787_a3626c101e4c01bf6c50dfd8ea0e3a787}} 
+\index{libmd.cc@{libmd.cc}!\_\_libmd\_\_info@{\_\_libmd\_\_info}}
+\index{\_\_libmd\_\_info@{\_\_libmd\_\_info}!libmd.cc@{libmd.cc}}
+\doxysubsubsection{\texorpdfstring{\_\_libmd\_\_info()}{\_\_libmd\_\_info()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+libmd\+\_\+\+\_\+info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Basic libmd comilation info. 
+
+This function is designed to give the user an overview of the compilation
+
+Definition at line \mbox{\hyperlink{libmd_8cc_source_l00012}{12}} of file \mbox{\hyperlink{libmd_8cc_source}{libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013 \{}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{    \#ifdef BRANCH}}
+\DoxyCodeLine{00018     printf(\textcolor{stringliteral}{"libmd branch: "} \mbox{\hyperlink{macros_8libmd_8h_ac4360292c60948698503c220fb5418e6_ac4360292c60948698503c220fb5418e6}{IO\_BOLDCYAN}} \textcolor{stringliteral}{"\%s"} \mbox{\hyperlink{macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_ac81982784d97338b81fd2a54340c0b00}{IO\_RESET}} \textcolor{stringliteral}{"\(\backslash\)n"},BRANCH);}
+\DoxyCodeLine{00019 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{00020 \textcolor{preprocessor}{    \#ifdef VER}}
+\DoxyCodeLine{00021     printf(\textcolor{stringliteral}{"libmd branch version: "} \mbox{\hyperlink{macros_8libmd_8h_ac4360292c60948698503c220fb5418e6_ac4360292c60948698503c220fb5418e6}{IO\_BOLDCYAN}} \textcolor{stringliteral}{"\%s"} \mbox{\hyperlink{macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_ac81982784d97338b81fd2a54340c0b00}{IO\_RESET}} \textcolor{stringliteral}{"\(\backslash\)n"},VER);}
+\DoxyCodeLine{00022 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{00023 \textcolor{preprocessor}{    \#ifdef CC}}
+\DoxyCodeLine{00024     printf(\textcolor{stringliteral}{"Compiler: "} \mbox{\hyperlink{macros_8libmd_8h_a6014d06bd9f95ad1ad4ee814fbafd6a2_a6014d06bd9f95ad1ad4ee814fbafd6a2}{IO\_WHITE}} \textcolor{stringliteral}{"\%s"} \mbox{\hyperlink{macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_ac81982784d97338b81fd2a54340c0b00}{IO\_RESET}} \textcolor{stringliteral}{"\(\backslash\)n"},CC);}
+\DoxyCodeLine{00025 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{00026     printf(\textcolor{stringliteral}{"Compiler version: "} \mbox{\hyperlink{macros_8libmd_8h_a6014d06bd9f95ad1ad4ee814fbafd6a2_a6014d06bd9f95ad1ad4ee814fbafd6a2}{IO\_WHITE}} \textcolor{stringliteral}{"\%s"} \mbox{\hyperlink{macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_ac81982784d97338b81fd2a54340c0b00}{IO\_RESET}} \textcolor{stringliteral}{"\(\backslash\)n"},\_\_VERSION\_\_);}
+\DoxyCodeLine{00027     printf(\textcolor{stringliteral}{"Floating point type: "});}
+\DoxyCodeLine{00028 \textcolor{preprocessor}{    \#ifdef LIBMD\_\_LONG\_DOUBLE\_\_}}
+\DoxyCodeLine{00029     printf(\mbox{\hyperlink{macros_8libmd_8h_a646675d34226acbdd68b81479af302a3_a646675d34226acbdd68b81479af302a3}{IO\_BLUE}} \textcolor{stringliteral}{"long double"} \mbox{\hyperlink{macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_ac81982784d97338b81fd2a54340c0b00}{IO\_RESET}} \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{00030 \textcolor{preprocessor}{    \#elif defined LIBMD\_\_FLOAT\_\_}}
+\DoxyCodeLine{00031     printf(\mbox{\hyperlink{macros_8libmd_8h_ad0ec9c08a45f6391257a51c1a05e5955_ad0ec9c08a45f6391257a51c1a05e5955}{IO\_YELLOW}} \textcolor{stringliteral}{"float"} \mbox{\hyperlink{macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_ac81982784d97338b81fd2a54340c0b00}{IO\_RESET}} \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{00032 \textcolor{preprocessor}{    \#else}}
+\DoxyCodeLine{00033     printf(\mbox{\hyperlink{macros_8libmd_8h_a6014d06bd9f95ad1ad4ee814fbafd6a2_a6014d06bd9f95ad1ad4ee814fbafd6a2}{IO\_WHITE}} \textcolor{stringliteral}{"double"} \mbox{\hyperlink{macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_ac81982784d97338b81fd2a54340c0b00}{IO\_RESET}} \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{00034 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{00035     printf(\textcolor{stringliteral}{"Thread option: \%s\(\backslash\)n"},\mbox{\hyperlink{macros_8libmd_8h_a35ac139e879fde741557c3ed45e5b432_a35ac139e879fde741557c3ed45e5b432}{THREAD\_MODEL}});}
+\DoxyCodeLine{00036 \textcolor{preprocessor}{    \#ifdef CMSG}}
+\DoxyCodeLine{00037     printf(\textcolor{stringliteral}{"Compilation message: "} \mbox{\hyperlink{macros_8libmd_8h_ad0ec9c08a45f6391257a51c1a05e5955_ad0ec9c08a45f6391257a51c1a05e5955}{IO\_YELLOW}} \textcolor{stringliteral}{"\%s"} \mbox{\hyperlink{macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_ac81982784d97338b81fd2a54340c0b00}{IO\_RESET}} \textcolor{stringliteral}{"\(\backslash\)n"},CMSG);}
+\DoxyCodeLine{00038 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{00039 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{macros_8libmd_8h_source_l00015}{I\+O\+\_\+\+B\+L\+UE}}, \mbox{\hyperlink{macros_8libmd_8h_source_l00025}{I\+O\+\_\+\+B\+O\+L\+D\+C\+Y\+AN}}, \mbox{\hyperlink{macros_8libmd_8h_source_l00010}{I\+O\+\_\+\+R\+E\+S\+ET}}, \mbox{\hyperlink{macros_8libmd_8h_source_l00018}{I\+O\+\_\+\+W\+H\+I\+TE}}, \mbox{\hyperlink{macros_8libmd_8h_source_l00014}{I\+O\+\_\+\+Y\+E\+L\+L\+OW}}, and \mbox{\hyperlink{macros_8libmd_8h_source_l00128}{T\+H\+R\+E\+A\+D\+\_\+\+M\+O\+D\+EL}}.
+

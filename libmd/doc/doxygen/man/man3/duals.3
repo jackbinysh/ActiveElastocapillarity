@@ -1,0 +1,173 @@
+.TH "duals< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+duals< dim > \- Autodiff for Monge patches\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBduals\fP ()"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBduals\fP (\fBldf\fP a)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBduals\fP (\fBldf\fP a, \fBui\fP i)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBduals\fP< dim > \fBoperator=\fP (\fBduals\fP< dim > a)"
+.br
+.RI "Assign operator\&. "
+.ti -1c
+.RI "template<class X > \fBduals\fP< dim > \fBoperator=\fP (X a)"
+.br
+.RI "Assign foreign type operator\&. "
+.ti -1c
+.RI "template<class X > \fBoperator X\fP ()"
+.br
+.RI "Cast overload\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBldf\fP \fBx\fP"
+.br
+.RI "Function value\&. "
+.ti -1c
+.RI "\fBldf\fP \fBdx\fP [dim]"
+.br
+.RI "First derivatives\&. "
+.ti -1c
+.RI "\fBldf\fP \fBdxdy\fP [dim][dim]"
+.br
+.RI "Second derivatives\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct duals< dim >"
+Autodiff for Monge patches\&. 
+.PP
+Definition at line 575 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<ui dim> \fBduals\fP< dim >::\fBduals\fP"
+
+.PP
+Constructor\&. Default constructor for duals, does nothing\&.
+.PP
+Definition at line 6 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+11 }
+.fi
+.SS "template<ui dim> \fBduals\fP< dim >::\fBduals\fP (\fBldf\fP a)"
+
+.PP
+Constructor\&. Constructor for duals, sets value (\fCx\fP) to \fCa\fP and derivatives to 0\&.
+.PP
+Definition at line 13 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+14 {
+18     x=a;
+19     memset(dx,0,sizeof(dx));
+20     memset(dxdy,0,sizeof(dxdy));
+21 }
+.fi
+.SS "template<ui dim> \fBduals\fP< dim >::\fBduals\fP (\fBldf\fP a, \fBui\fP i)"
+
+.PP
+Constructor\&. Constructor for duals, sets value (\fCx\fP) to \fCa\fP and derivatives to 0, with the exception of the derivative with respect to \fCx[i]\fP, which is set to 1\&.
+.PP
+Definition at line 23 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+24 {
+29     x=a;
+30     memset(dx,0,sizeof(dx));
+31     memset(dxdy,0,sizeof(dxdy));
+32     dx[i]=1\&.0;
+33 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "template<ui dim> template<class X > \fBduals\fP< dim >::operator X"
+
+.PP
+Cast overload\&. Cast operator, returns cast of value (\fCx\fP)\&.
+.PP
+Definition at line 57 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+58 {
+62     return x;
+63 }
+.fi
+.SS "template<ui dim> \fBduals\fP< dim > \fBduals\fP< dim >::operator= (\fBduals\fP< dim > a)"
+
+.PP
+Assign operator\&. Copies \fCG\fP to \fCthis\fP and returns \fC*this\fP\&.
+.PP
+Definition at line 38 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+39 {
+43     x=G\&.x;
+44     memcpy(dx,G\&.dx,sizeof(dx));
+45     memcpy(dxdy,G\&.dxdy,sizeof(dxdy));
+46     return *this;
+47 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim> template<class X > \fBduals\fP< dim > \fBduals\fP< dim >::operator= (X a)"
+
+.PP
+Assign foreign type operator\&. Sets value (\fCx\fP) to \fCa\fP and derivatives to 0 and returns \fC*this\fP\&.
+.PP
+Definition at line 49 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+50 {
+54     return *this=duals<dim>(a);
+55 }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> \fBldf\fP \fBduals\fP< dim >::dx[dim]"
+
+.PP
+First derivatives\&. 
+.PP
+Definition at line 578 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBduals\fP< dim >::dxdy[dim][dim]"
+
+.PP
+Second derivatives\&. 
+.PP
+Definition at line 579 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBduals\fP< dim >::x"
+
+.PP
+Function value\&. 
+.PP
+Definition at line 577 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

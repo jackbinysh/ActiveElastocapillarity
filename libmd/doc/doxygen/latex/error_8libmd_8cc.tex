@@ -1,0 +1,58 @@
+\hypertarget{error_8libmd_8cc}{}\doxysection{libmd-\/src/error.libmd.\+cc File Reference}
+\label{error_8libmd_8cc}\index{libmd-\/src/error.libmd.cc@{libmd-\/src/error.libmd.cc}}
+{\ttfamily \#include \char`\"{}../libmd.\+h\char`\"{}}\newline
+Include dependency graph for error.\+libmd.\+cc\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{error_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{\+\_\+\+\_\+libmd\+\_\+src\+\_\+file\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{error_8libmd_8cc_adb345393f36f6a2a235137949c1dd0ff_adb345393f36f6a2a235137949c1dd0ff}{Tic\+Toc}} ()
+\begin{DoxyCompactList}\small\item\em High precision timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{error_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}\label{error_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}} 
+\index{error.libmd.cc@{error.libmd.cc}!\_\_libmd\_src\_file\_\_@{\_\_libmd\_src\_file\_\_}}
+\index{\_\_libmd\_src\_file\_\_@{\_\_libmd\_src\_file\_\_}!error.libmd.cc@{error.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{\_\_libmd\_src\_file\_\_}{\_\_libmd\_src\_file\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+libmd\+\_\+src\+\_\+file\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00001}{1}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{error_8libmd_8cc_adb345393f36f6a2a235137949c1dd0ff_adb345393f36f6a2a235137949c1dd0ff}\label{error_8libmd_8cc_adb345393f36f6a2a235137949c1dd0ff_adb345393f36f6a2a235137949c1dd0ff}} 
+\index{error.libmd.cc@{error.libmd.cc}!TicToc@{TicToc}}
+\index{TicToc@{TicToc}!error.libmd.cc@{error.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{TicToc()}{TicToc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} Tic\+Toc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+High precision timer. 
+
+
+
+Definition at line \mbox{\hyperlink{error_8libmd_8cc_source_l00006}{6}} of file \mbox{\hyperlink{error_8libmd_8cc_source}{error.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00008     \textcolor{keyword}{static} std::chrono::high\_resolution\_clock::time\_point start,stop;}
+\DoxyCodeLine{00009     start=stop,stop=std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00010     \textcolor{keywordflow}{return} std::chrono::duration<ldf>(stop-\/start).count();}
+\DoxyCodeLine{00011 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 2

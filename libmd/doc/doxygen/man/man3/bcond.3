@@ -1,0 +1,168 @@
+.TH "bcond< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+bcond< dim >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbcond\fP ()"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBui\fP \fBadd\fP (\fBbcondpptr\fP< dim > p, \fBbcondxptr\fP< dim > x)"
+.br
+.RI "Add bcond functions to their respective vectors\&. "
+.ti -1c
+.RI "void \fBoperator()\fP (\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.RI "Periodicity operator\&. "
+.ti -1c
+.RI "void \fBoperator()\fP (\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.RI "Periodictty overloaded operator\&. "
+.ti -1c
+.RI "void \fBoperator()\fP (\fBui\fP k, \fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.RI "Periodicity operator\&. "
+.ti -1c
+.RI "void \fBoperator()\fP (\fBui\fP k, \fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.RI "Periodictty overloaded operator\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< \fBbcondpptr\fP< dim > > \fBbcond_p\fP"
+.br
+.RI "Vector of bcond particle function pointers\&. "
+.ti -1c
+.RI "std::vector< \fBbcondxptr\fP< dim > > \fBbcond_x\fP"
+.br
+.RI "Vector of bcond position function pointers\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct bcond< dim >"
+
+.PP
+Definition at line 165 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<ui dim> \fBbcond\fP< dim >::\fBbcond\fP"
+
+.PP
+Constructor\&. Constructor of the bcond structure
+.PP
+This functions reserves space for the vector of functionpointers, and adds the BCOND_\&.\&.\&. functions in the order defined by the \fBBCOND\fP enum structure\&.
+.PP
+Definition at line 6 of file bcond\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+14     bcond_p\&.reserve(8);
+15     bcond_x\&.reserve(8);
+16     add(BCOND_NONE<dim>,BCOND_NONE<dim>);
+17     add(BCOND_PERIODIC<dim>,BCOND_PERIODIC<dim>);
+18     add(BCOND_HARD<dim>,BCOND_HARD<dim>);
+19     add(BCOND_BOXSHEAR<dim>,BCOND_BOXSHEAR<dim>);
+20 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "template<ui dim> \fBui\fP \fBbcond\fP< dim >::add (\fBbcondpptr\fP< dim > p, \fBbcondxptr\fP< dim > x)"
+
+.PP
+Add bcond functions to their respective vectors\&. This function allows the user to add (costum) boundary condition functions\&.
+.PP
+The first argument \fCbcondpptr<dim> p\fP is for particles and the second argument \fCbcondxptr<dim> x\fP is for points (or positions)\&.
+.PP
+Definition at line 22 of file bcond\&.libmd\&.cc\&.
+.PP
+.nf
+23 {
+30     bcond_p\&.push_back(p);
+31     bcond_x\&.push_back(x);
+32     return bcond_p\&.size();
+33 }
+.fi
+.SS "template<ui dim> void \fBbcond\fP< dim >::operator() (\fBui\fP d, \fBldf\fP x[dim], void * sys)"
+
+.PP
+Periodictty overloaded operator\&. This function applies the by the user defined boundary conditions for certain dimension in simbox\&.bcond[d] to a certain point \fCx\fP in \fCmd<dim\fP system \fCsys\fP\&.
+.PP
+Definition at line 44 of file bcond\&.libmd\&.cc\&.
+.PP
+.nf
+45 {
+50     bcond_x[SYS->simbox\&.bcond[d]](d,x,sys);
+51 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void \fBbcond\fP< dim >::operator() (\fBui\fP d, \fBui\fP i, void * sys)"
+
+.PP
+Periodicity operator\&. This function applies the by the user defined boundary conditions for certain dimension in simbox\&.bcond[d] to a certain particle \fCi\fP in \fCmd<dim\fP system \fCsys\fP\&.
+.PP
+Definition at line 35 of file bcond\&.libmd\&.cc\&.
+.PP
+.nf
+36 {
+41     bcond_p[SYS->simbox\&.bcond[d]](d,i,sys);
+42 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void \fBbcond\fP< dim >::operator() (\fBui\fP k, \fBui\fP d, \fBldf\fP x[dim], void * sys)"
+
+.PP
+Periodictty overloaded operator\&. This function applies the by the user invoked boundary conditions for certain dimension to a certain point \fCx\fP in \fCmd<dim\fP system \fCsys\fP\&.
+.PP
+Definition at line 62 of file bcond\&.libmd\&.cc\&.
+.PP
+.nf
+63 {
+68     bcond_x[k](d,x,sys);
+69 }
+.fi
+.SS "template<ui dim> void \fBbcond\fP< dim >::operator() (\fBui\fP k, \fBui\fP d, \fBui\fP i, void * sys)"
+
+.PP
+Periodicity operator\&. This function applies the by the user invoked boundary conditions for certain dimension to a certain particle \fCi\fP in \fCmd<dim\fP system \fCsys\fP\&.
+.PP
+Definition at line 53 of file bcond\&.libmd\&.cc\&.
+.PP
+.nf
+54 {
+59     bcond_p[k](d,i,sys);
+60 }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> std::vector<\fBbcondpptr\fP<dim> > \fBbcond\fP< dim >::bcond_p"
+
+.PP
+Vector of bcond particle function pointers\&. 
+.PP
+Definition at line 167 of file libmd\&.h\&.
+.SS "template<ui dim> std::vector<\fBbcondxptr\fP<dim> > \fBbcond\fP< dim >::bcond_x"
+
+.PP
+Vector of bcond position function pointers\&. 
+.PP
+Definition at line 168 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

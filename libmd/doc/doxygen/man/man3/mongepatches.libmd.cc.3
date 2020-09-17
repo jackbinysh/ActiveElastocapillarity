@@ -1,0 +1,161 @@
+.TH "libmd-src/mongepatches.libmd.cc" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libmd-src/mongepatches.libmd.cc
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./libmd\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__libmd_src_file__\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBldf\fP \fBkdelta\fP (\fBui\fP i, \fBui\fP j)"
+.br
+.RI "Kronecker delta function\&. "
+.ti -1c
+.RI "template<class X , ui dim> X \fBFLATSPACE\fP (X x[dim], std::vector< \fBldf\fP > &param)"
+.br
+.RI "Flat space Monge function\&. "
+.ti -1c
+.RI "template<class X , ui dim> X \fBGAUSSIANBUMP\fP (X x[dim], std::vector< \fBldf\fP > &param)"
+.br
+.RI "Gaussian bump Monge function\&. "
+.ti -1c
+.RI "template<class X , ui dim> X \fBEGGCARTON\fP (X *x, std::vector< \fBldf\fP > &param)"
+.br
+.ti -1c
+.RI "template<class X , ui dim> X \fBMOLLIFIER\fP (X *x, std::vector< \fBldf\fP > &param)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __libmd_src_file__"
+
+.PP
+Definition at line 1 of file mongepatches\&.libmd\&.cc\&.
+.SH "Function Documentation"
+.PP 
+.SS "template<class X , ui dim> X EGGCARTON (X * x, std::vector< \fBldf\fP > & param)"
+The egg carton Monge patch: \[f(x^{\rho})_{\text{EGGCARTON}} = A \prod^{d}_{\rho=1} \cos \left( K^{\rho} x^{\rho} \right) \] 
+.br
+ This function depends on $d+1$ parameters: 
+.PD 0
+
+.IP "\(bu" 2
+the amplitude $A$  
+.IP "\(bu" 2
+the $d$-dimensional wave vector $K^{\rho}$  
+.PP
+
+.PP
+Definition at line 46 of file mongepatches\&.libmd\&.cc\&.
+.PP
+.nf
+47 {
+57     using std::cos;
+58     X retval=param[0];
+59     for(ui d=0;d<dim;d++) retval*=cos(x[d]*param[d+1]);
+60     return retval;
+61 }
+.fi
+.PP
+References cos()\&.
+.SS "template<class X , ui dim> X FLATSPACE (X x[dim], std::vector< \fBldf\fP > & param)"
+
+.PP
+Flat space Monge function\&. The trivial Monge patch: \[f(x^{\rho})_{\text{FLATSPACE}} = 0 \] 
+.br
+ This function disregards all parameters\&.
+.PP
+Definition at line 15 of file mongepatches\&.libmd\&.cc\&.
+.PP
+.nf
+16 {
+22     (void) x;
+23     (void) param;
+24     return 0\&.0;
+25 }
+.fi
+.SS "template<class X , ui dim> X GAUSSIANBUMP (X x[dim], std::vector< \fBldf\fP > & param)"
+
+.PP
+Gaussian bump Monge function\&. The Gaussian bump Monge patch: \[f(x^{\rho})_{\text{GAUSSIANBUMP}} = A e^{-K x^{\rho}x^{\rho}}\] 
+.br
+ This function depends on two parameters: 
+.PD 0
+
+.IP "\(bu" 2
+the bump amplitude $A$  
+.IP "\(bu" 2
+the bump width $K$ </li 
+.PP
+
+.PP
+Definition at line 27 of file mongepatches\&.libmd\&.cc\&.
+.PP
+.nf
+28 {
+38     using std::pow;
+39     const ldf A=param[0];
+40     const ldf K=param[1];
+41     X retval=0\&.0;
+42     for(ui d=0;d<dim;d++) retval+=pow(x[d],2);
+43     return A*exp(-K*retval);
+44 }
+.fi
+.PP
+References exp(), and pow()\&.
+.SS "\fBldf\fP kdelta (\fBui\fP i, \fBui\fP j)"
+
+.PP
+Kronecker delta function\&. Kronecker delta function: \begin{align}\delta_{ij}=\begin{cases} 1 &\quad i=j\\0&\quad i \neq j\end{cases}\end{align}
+.PP
+Definition at line 6 of file mongepatches\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+12     return (i==j)?1\&.0:0\&.0;
+13 }
+.fi
+.SS "template<class X , ui dim> X MOLLIFIER (X * x, std::vector< \fBldf\fP > & param)"
+The the mollifier Monge patch: \begin{align}f(x^{\rho})_{\text{MOLLIFIER}} = \begin{cases} Ae^{\frac{x^{\rho}x^{\rho}}{x^{\rho}x^{\rho}-K^2}} &\quad \lvert x^{\rho} \rvert < K \\0&\quad \lvert x^{\rho} \rvert \geq K \end{cases} \end{align} 
+.br
+ This function depends on two parameters: 
+.PD 0
+
+.IP "\(bu" 2
+the amplitude $A$  
+.IP "\(bu" 2
+the width $K$  
+.PP
+
+.PP
+Definition at line 63 of file mongepatches\&.libmd\&.cc\&.
+.PP
+.nf
+64 {
+74     const ldf A=param[0];
+75     const ldf Ksq=std::pow(param[1],2);
+76     using std::pow;
+77     using std::exp;
+78     X retval=0\&.0;
+79     for(ui d=0;d<dim;d++) retval+=pow(x[d],2);
+80     return (retval<Ksq)?A*exp(retval/(retval-Ksq)):static_cast<X>(0\&.0);
+81 }
+.fi
+.PP
+References exp(), and pow()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structintegrators" kind="struct" language="C++" prot="public">
+    <compoundname>integrators</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structintegrators_ab59dc99049468eafc9f5b4c5e461077e_1ab59dc99049468eafc9f5b4c5e461077e" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf integrators::h</definition>
+        <argsstring></argsstring>
+        <name>h</name>
+        <briefdescription>
+<para>Timestep size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="287" column="9" bodyfile="libmd.h" bodystart="287" bodyend="-1"/>
+        <referencedby refid="structintegrators_a5e57cd5112f01d098d2d3c5a40fd9a13_1a5e57cd5112f01d098d2d3c5a40fd9a13" compoundref="integrators_8libmd_8cc" startline="6" endline="17">integrators</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structintegrators_ac4b901fdae2c7adf5599cc9a1d1883ae_1ac4b901fdae2c7adf5599cc9a1d1883ae" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_1af8ecdd9d7d0f3cdced7f9a83dc659959" kindref="member">uc</ref></type>
+        <definition>uc integrators::method</definition>
+        <argsstring></argsstring>
+        <name>method</name>
+        <briefdescription>
+<para>Type of integration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="288" column="8" bodyfile="libmd.h" bodystart="288" bodyend="-1"/>
+        <referencedby refid="structintegrators_a5e57cd5112f01d098d2d3c5a40fd9a13_1a5e57cd5112f01d098d2d3c5a40fd9a13" compoundref="integrators_8libmd_8cc" startline="6" endline="17">integrators</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structintegrators_adb070aad7ba3928ed9376568b00bfb49_1adb070aad7ba3928ed9376568b00bfb49" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui integrators::generations</definition>
+        <argsstring></argsstring>
+        <name>generations</name>
+        <briefdescription>
+<para>Maximum generations of timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="289" column="8" bodyfile="libmd.h" bodystart="289" bodyend="-1"/>
+        <referencedby refid="structintegrators_a5e57cd5112f01d098d2d3c5a40fd9a13_1a5e57cd5112f01d098d2d3c5a40fd9a13" compoundref="integrators_8libmd_8cc" startline="6" endline="17">integrators</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structintegrators_a5e57cd5112f01d098d2d3c5a40fd9a13_1a5e57cd5112f01d098d2d3c5a40fd9a13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>integrators::integrators</definition>
+        <argsstring>()</argsstring>
+        <name>integrators</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Integrator constructor <linebreak/>
+ The default integrator is <ref refid="struct_i_n_t_e_g_r_a_t_o_r_aca72c4b4e70e5554ba92d83a6ffa1fbc_1aca72c4b4e70e5554ba92d83a6ffa1fbca35688bfab06ce41823fd436dd67bcd62" kindref="member">INTEGRATOR::VVERLET</ref> <linebreak/>
+ The default timestep is <computeroutput>h=1e-3</computeroutput> <linebreak/>
+ The default number of generations is <computeroutput>generations=10</computeroutput> and only relevant for <ref refid="structmpmd_a8e7d1b7cafc905e283023a6b822cc766_1a8e7d1b7cafc905e283023a6b822cc766" kindref="member">mpmd&lt;dim&gt;::thread_zuiden_protect</ref>. <linebreak/>
+</para>
+        </inbodydescription>
+        <location file="libmd.h" line="291" column="5" bodyfile="libmd-src/integrators.libmd.cc" bodystart="6" bodyend="17"/>
+        <references refid="structintegrators_adb070aad7ba3928ed9376568b00bfb49_1adb070aad7ba3928ed9376568b00bfb49" compoundref="libmd_8h" startline="289">generations</references>
+        <references refid="structintegrators_ab59dc99049468eafc9f5b4c5e461077e_1ab59dc99049468eafc9f5b4c5e461077e" compoundref="libmd_8h" startline="287">h</references>
+        <references refid="structintegrators_ac4b901fdae2c7adf5599cc9a1d1883ae_1ac4b901fdae2c7adf5599cc9a1d1883ae" compoundref="libmd_8h" startline="288">method</references>
+        <references refid="struct_i_n_t_e_g_r_a_t_o_r_aca72c4b4e70e5554ba92d83a6ffa1fbc_1aca72c4b4e70e5554ba92d83a6ffa1fbca35688bfab06ce41823fd436dd67bcd62" compoundref="enums_8libmd_8h" startline="5">INTEGRATOR::VVERLET</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure defines and saves integration metadata. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>integrators</label>
+        <link refid="structintegrators"/>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="286" column="1" bodyfile="libmd.h" bodystart="285" bodyend="292"/>
+    <listofallmembers>
+      <member refid="structintegrators_adb070aad7ba3928ed9376568b00bfb49_1adb070aad7ba3928ed9376568b00bfb49" prot="public" virt="non-virtual"><scope>integrators</scope><name>generations</name></member>
+      <member refid="structintegrators_ab59dc99049468eafc9f5b4c5e461077e_1ab59dc99049468eafc9f5b4c5e461077e" prot="public" virt="non-virtual"><scope>integrators</scope><name>h</name></member>
+      <member refid="structintegrators_a5e57cd5112f01d098d2d3c5a40fd9a13_1a5e57cd5112f01d098d2d3c5a40fd9a13" prot="public" virt="non-virtual"><scope>integrators</scope><name>integrators</name></member>
+      <member refid="structintegrators_ac4b901fdae2c7adf5599cc9a1d1883ae_1ac4b901fdae2c7adf5599cc9a1d1883ae" prot="public" virt="non-virtual"><scope>integrators</scope><name>method</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,824 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="error_8libmd_8cc" kind="file" language="C++">
+    <compoundname>error.libmd.cc</compoundname>
+    <includes refid="libmd_8h" local="yes">../libmd.h</includes>
+    <includedby refid="libmd_8cc" local="yes">libmd.cc</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>list</label>
+      </node>
+      <node id="41">
+        <label>md/index.md.libmd.cc</label>
+        <link refid="index_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>md/hooks.md.libmd.cc</label>
+        <link refid="hooks_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>libmd-src/mongepatches.libmd.cc</label>
+        <link refid="mongepatches_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="15">
+        <label>limits</label>
+      </node>
+      <node id="38">
+        <label>md/interaction.md.libmd.cc</label>
+        <link refid="interaction_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>libmd-src/variadic_vars.libmd.cc</label>
+        <link refid="variadic__vars_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>libmd-src/interact.libmd.cc</label>
+        <link refid="interact_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>md/distances.md.libmd.cc</label>
+        <link refid="distances_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>md/energy.md.libmd.cc</label>
+        <link refid="energy_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libmd-src/pairpotentials.libmd.cc</label>
+        <link refid="pairpotentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>libmd-src/mp.libmd.cc</label>
+        <link refid="mp_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cmath</label>
+      </node>
+      <node id="27">
+        <label>libmd-src/box.libmd.cc</label>
+        <link refid="box_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>md/bonds.md.libmd.cc</label>
+        <link refid="bonds_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libmd-src/integrators.libmd.cc</label>
+        <link refid="integrators_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="23">
+        <label>libmd-src/autodiff.libmd.cc</label>
+        <link refid="autodiff_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>unordered_set</label>
+      </node>
+      <node id="28">
+        <label>libmd-src/boundaryconditions.libmd.cc</label>
+        <link refid="boundaryconditions_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>md/particles.md.libmd.cc</label>
+        <link refid="particles_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>libmd-src/particle.libmd.cc</label>
+        <link refid="particle_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>libmd-src/autodiff2.libmd.cc</label>
+        <link refid="autodiff2_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>libmd-src/bcond.libmd.cc</label>
+        <link refid="bcond_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>libmd-src/potentials.libmd.cc</label>
+        <link refid="potentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>random</label>
+      </node>
+      <node id="21">
+        <label>libmd-src/enums.libmd.h</label>
+        <link refid="enums_8libmd_8h"/>
+      </node>
+      <node id="3">
+        <label>cstdio</label>
+      </node>
+      <node id="48">
+        <label>md/importexport.md.libmd.cc</label>
+        <link refid="importexport_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>md/periodicity.md.libmd.cc</label>
+        <link refid="periodicity_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>libmd-src/index.libmd.cc</label>
+        <link refid="index_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>libmd-src/externalforces.libmd.cc</label>
+        <link refid="externalforces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stack</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="47">
+        <label>md/sp.md.libmd.cc</label>
+        <link refid="sp_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>utility</label>
+      </node>
+      <node id="37">
+        <label>libmd-src/md.libmd.cc</label>
+        <link refid="md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdlib</label>
+      </node>
+      <node id="22">
+        <label>libmd.cc</label>
+        <link refid="libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../libmd.h</label>
+        <link refid="libmd_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>libmd-src/hooks.libmd.cc</label>
+        <link refid="hooks_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>unordered_map</label>
+      </node>
+      <node id="18">
+        <label>chrono</label>
+      </node>
+      <node id="44">
+        <label>md/setget.md.libmd.cc</label>
+        <link refid="setget_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>libmd-src/mpmd.libmd.cc</label>
+        <link refid="mpmd_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>set</label>
+      </node>
+      <node id="16">
+        <label>algorithm</label>
+      </node>
+      <node id="40">
+        <label>md/forces.md.libmd.cc</label>
+        <link refid="forces_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libmd-src/error.libmd.cc</label>
+        <link refid="error_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>md/integrator.md.libmd.cc</label>
+        <link refid="integrator_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cstring</label>
+      </node>
+      <node id="20">
+        <label>libmd-src/macros.libmd.h</label>
+        <link refid="macros_8libmd_8h"/>
+      </node>
+      <node id="26">
+        <label>libmd-src/forces.libmd.cc</label>
+        <link refid="forces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="22">
+        <label>libmd-src/md/index.md.libmd.cc</label>
+        <link refid="index_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>libmd-src/md/hooks.md.libmd.cc</label>
+        <link refid="hooks_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>libmd-src/mongepatches.libmd.cc</label>
+        <link refid="mongepatches_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>libmd-src/md/interaction.md.libmd.cc</label>
+        <link refid="interaction_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libmd-src/variadic_vars.libmd.cc</label>
+        <link refid="variadic__vars_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>libmd-src/interact.libmd.cc</label>
+        <link refid="interact_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>libmd-src/md/distances.md.libmd.cc</label>
+        <link refid="distances_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>libmd-src/md/energy.md.libmd.cc</label>
+        <link refid="energy_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libmd-src/pairpotentials.libmd.cc</label>
+        <link refid="pairpotentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>libmd-src/mp.libmd.cc</label>
+        <link refid="mp_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>libmd-src/box.libmd.cc</label>
+        <link refid="box_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>libmd-src/md/bonds.md.libmd.cc</label>
+        <link refid="bonds_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>libmd-src/integrators.libmd.cc</label>
+        <link refid="integrators_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libmd-src/autodiff.libmd.cc</label>
+        <link refid="autodiff_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>libmd-src/boundaryconditions.libmd.cc</label>
+        <link refid="boundaryconditions_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>libmd-src/md/particles.md.libmd.cc</label>
+        <link refid="particles_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>libmd-src/particle.libmd.cc</label>
+        <link refid="particle_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>libmd-src/autodiff2.libmd.cc</label>
+        <link refid="autodiff2_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libmd-src/bcond.libmd.cc</label>
+        <link refid="bcond_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>libmd-src/potentials.libmd.cc</label>
+        <link refid="potentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>libmd-src/md/importexport.md.libmd.cc</label>
+        <link refid="importexport_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>libmd-src/md/periodicity.md.libmd.cc</label>
+        <link refid="periodicity_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>libmd-src/index.libmd.cc</label>
+        <link refid="index_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>libmd-src/externalforces.libmd.cc</label>
+        <link refid="externalforces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>libmd-src/md/sp.md.libmd.cc</label>
+        <link refid="sp_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>libmd-src/md.libmd.cc</label>
+        <link refid="md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libmd.cc</label>
+        <link refid="libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libmd.h</label>
+        <link refid="libmd_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>libmd-src/hooks.libmd.cc</label>
+        <link refid="hooks_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>libmd-src/md/setget.md.libmd.cc</label>
+        <link refid="setget_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>libmd-src/mpmd.libmd.cc</label>
+        <link refid="mpmd_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>libmd-src/md/forces.md.libmd.cc</label>
+        <link refid="forces_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libmd-src/error.libmd.cc</label>
+        <link refid="error_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>libmd-src/md/integrator.md.libmd.cc</label>
+        <link refid="integrator_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>libmd-src/forces.libmd.cc</label>
+        <link refid="forces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="error_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_1a4384389855e24d346feb2e60f23afb0b" prot="public" static="no">
+        <name>__libmd_src_file__</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd-src/error.libmd.cc" line="1" column="9" bodyfile="libmd-src/error.libmd.cc" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="error_8libmd_8cc_adb345393f36f6a2a235137949c1dd0ff_1adb345393f36f6a2a235137949c1dd0ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf TicToc</definition>
+        <argsstring>()</argsstring>
+        <name>TicToc</name>
+        <briefdescription>
+<para>High precision timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd-src/error.libmd.cc" line="6" column="5" bodyfile="libmd-src/error.libmd.cc" bodystart="6" bodyend="11"/>
+        <referencedby refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" compoundref="error_8libmd_8cc" startline="13" endline="34">t_error::t_error</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="error_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_1a4384389855e24d346feb2e60f23afb0b" refkind="member"><highlight class="preprocessor">#define<sp/>__libmd_src_file__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>libmd_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../libmd.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="libmd_8h_adb345393f36f6a2a235137949c1dd0ff_1adb345393f36f6a2a235137949c1dd0ff" refkind="member"><highlight class="normal"><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/><ref refid="error_8libmd_8cc_adb345393f36f6a2a235137949c1dd0ff_1adb345393f36f6a2a235137949c1dd0ff" kindref="member">TicToc</ref>()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::chrono::high_resolution_clock::time_point<sp/>start,stop;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>start=stop,stop=std::chrono::high_resolution_clock::now();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::chrono::duration&lt;ldf&gt;(stop-start).count();</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" refkind="member"><highlight class="normal"><ref refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" kindref="member">t_error::t_error</ref>()</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>FE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>FE_ALL_EXCEPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>feenableexcept(FE_ALL_EXCEPT);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>defined<sp/>FE_EXCEPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>feenableexcept(FE_DIVBYZERO|FE_INVALID|FE_OVERFLOW);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>defined<sp/>FE_LOW_EXCEPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>feenableexcept(FE_DIVBYZERO);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>feclearexcept(FE_ALL_EXCEPT);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_ac26e77277143e6eb52ecca2779f0f047_1ac26e77277143e6eb52ecca2779f0f047" kindref="member">term_level</ref>=1;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" kindref="member">error_file</ref>=stderr;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" kindref="member">warning_file</ref>=stderr;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" kindref="member">debug_1_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" kindref="member">debug_2_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" kindref="member">debug_3_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" kindref="member">debug_timer_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8libmd_8cc_adb345393f36f6a2a235137949c1dd0ff_1adb345393f36f6a2a235137949c1dd0ff" kindref="member">TicToc</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" refkind="member"><highlight class="normal"><ref refid="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" kindref="member">t_error::~t_error</ref>()</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(<ref refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" kindref="member">error_file</ref>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(<ref refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" kindref="member">warning_file</ref>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(<ref refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" kindref="member">debug_1_file</ref>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(<ref refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" kindref="member">debug_2_file</ref>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(<ref refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" kindref="member">debug_3_file</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(<ref refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" kindref="member">debug_timer_file</ref>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="structt__error_affcce00de3de6b7ecf900ab71a6107cc_1affcce00de3de6b7ecf900ab71a6107cc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_affcce00de3de6b7ecf900ab71a6107cc_1affcce00de3de6b7ecf900ab71a6107cc" kindref="member">t_error::set_error_file</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fname)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stdout&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" kindref="member">error_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stderr&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" kindref="member">error_file</ref>=stderr;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><ref refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" kindref="member">error_file</ref>=fopen(fname,</highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="structt__error_aa3e1d8a32cf1d271099a369c5a5559f2_1aa3e1d8a32cf1d271099a369c5a5559f2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_aa3e1d8a32cf1d271099a369c5a5559f2_1aa3e1d8a32cf1d271099a369c5a5559f2" kindref="member">t_error::set_warning_file</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fname)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stdout&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" kindref="member">warning_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stderr&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" kindref="member">warning_file</ref>=stderr;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><ref refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" kindref="member">warning_file</ref>=fopen(fname,</highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="structt__error_a988bfb0493cbc3aa3f297df2ea39dc40_1a988bfb0493cbc3aa3f297df2ea39dc40" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_a988bfb0493cbc3aa3f297df2ea39dc40_1a988bfb0493cbc3aa3f297df2ea39dc40" kindref="member">t_error::set_debug_1_file</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fname)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stdout&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" kindref="member">debug_1_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stderr&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" kindref="member">debug_1_file</ref>=stderr;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><ref refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" kindref="member">debug_1_file</ref>=fopen(fname,</highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="structt__error_a2d8a7aadeae0891e9a78e0b45010b916_1a2d8a7aadeae0891e9a78e0b45010b916" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_a2d8a7aadeae0891e9a78e0b45010b916_1a2d8a7aadeae0891e9a78e0b45010b916" kindref="member">t_error::set_debug_2_file</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fname)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stdout&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" kindref="member">debug_2_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stderr&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" kindref="member">debug_2_file</ref>=stderr;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><ref refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" kindref="member">debug_2_file</ref>=fopen(fname,</highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="structt__error_afd98cb51fe5600a9a40cae19fca8fac8_1afd98cb51fe5600a9a40cae19fca8fac8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_afd98cb51fe5600a9a40cae19fca8fac8_1afd98cb51fe5600a9a40cae19fca8fac8" kindref="member">t_error::set_debug_3_file</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fname)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stdout&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" kindref="member">debug_3_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stderr&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" kindref="member">debug_3_file</ref>=stderr;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><ref refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" kindref="member">debug_3_file</ref>=fopen(fname,</highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="structt__error_ab51ce2f9542d75914d23b1f90b550c1d_1ab51ce2f9542d75914d23b1f90b550c1d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_ab51ce2f9542d75914d23b1f90b550c1d_1ab51ce2f9542d75914d23b1f90b550c1d" kindref="member">t_error::set_debug_timer_file</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fname)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stdout&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" kindref="member">debug_timer_file</ref>=stdout;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(fname,</highlight><highlight class="stringliteral">&quot;stderr&quot;</highlight><highlight class="normal">))<sp/><ref refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" kindref="member">debug_timer_file</ref>=stderr;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><ref refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" kindref="member">debug_timer_file</ref>=fopen(fname,</highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a_1ad8cbcad9d1efc6e6d74ee4694b04fa5a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a_1ad8cbcad9d1efc6e6d74ee4694b04fa5a" kindref="member">t_error::print_error</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(<ref refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" kindref="member">error_file</ref>,</highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,buffer);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" kindref="member">terminate</ref>(0);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="structt__error_a5c54c0544d5980c5e8424359480a65bc_1a5c54c0544d5980c5e8424359480a65bc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_a5c54c0544d5980c5e8424359480a65bc_1a5c54c0544d5980c5e8424359480a65bc" kindref="member">t_error::print_warning</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(<ref refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" kindref="member">warning_file</ref>,</highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,buffer);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" kindref="member">terminate</ref>(1);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="structt__error_a11654cc137c42b1bddb5ed90b09e39e7_1a11654cc137c42b1bddb5ed90b09e39e7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_a11654cc137c42b1bddb5ed90b09e39e7_1a11654cc137c42b1bddb5ed90b09e39e7" kindref="member">t_error::print_debug_1</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(<ref refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" kindref="member">debug_1_file</ref>,</highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,buffer);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" kindref="member">terminate</ref>(4);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="structt__error_ac0b658091f7db13369b5cae56402df16_1ac0b658091f7db13369b5cae56402df16" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_ac0b658091f7db13369b5cae56402df16_1ac0b658091f7db13369b5cae56402df16" kindref="member">t_error::print_debug_2</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(<ref refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" kindref="member">debug_2_file</ref>,</highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,buffer);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" kindref="member">terminate</ref>(3);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="structt__error_a4926e202b9dd7ea1070787edd129d2b5_1a4926e202b9dd7ea1070787edd129d2b5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_a4926e202b9dd7ea1070787edd129d2b5_1a4926e202b9dd7ea1070787edd129d2b5" kindref="member">t_error::print_debug_3</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(<ref refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" kindref="member">debug_3_file</ref>,</highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,buffer);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" kindref="member">terminate</ref>(2);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="structt__error_ad8dea87e3d50536f8eb5687c28974603_1ad8dea87e3d50536f8eb5687c28974603" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_ad8dea87e3d50536f8eb5687c28974603_1ad8dea87e3d50536f8eb5687c28974603" kindref="member">t_error::print_debug_timer</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(<ref refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" kindref="member">debug_timer_file</ref>,</highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,buffer);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" kindref="member">terminate</ref>(5);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" kindref="member">t_error::terminate</ref>(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>term)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(term&lt;<ref refid="structt__error_ac26e77277143e6eb52ecca2779f0f047_1ac26e77277143e6eb52ecca2779f0f047" kindref="member">term_level</ref>)<sp/>exit(EXIT_FAILURE);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="libmd-src/error.libmd.cc"/>
+  </compounddef>
+</doxygen>

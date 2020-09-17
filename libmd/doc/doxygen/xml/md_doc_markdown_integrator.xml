@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md_doc_markdown_integrator" kind="page">
+    <compoundname>md_doc_markdown_integrator</compoundname>
+    <title>Integrators</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="md_doc_markdown_integrator_1md-integrator">
+<title>Integrators in libmd</title>
+<para>In libmd there are integrators for flat space (discussed here) and integrators for <ulink url="#md-integrator">curved space</ulink>. All integrators in libmd are symplectic, see <ulink url="#md-int-ref">1</ulink> and <ulink url="#md-int-ref">2</ulink>. Symplectic integrators are integrators that preserve the Lagrangian symmetries. Therefore integration methods like explicit Euler or Runge-Kutta are not used.</para>
+<sect2 id="md_doc_markdown_integrator_1md-integratorflat">
+<title>Flat space integrators</title>
+<para>For flat space molecular dynamics two integrators are provided:</para>
+<para><itemizedlist>
+<listitem><para><ulink url="#md-symeul">Symplectic Euler</ulink> (also called semi-implicit Euler, semi-explicit Euler, Euler–Cromer, and Newton–Størmer–Verlet)</para>
+</listitem><listitem><para><ulink url="#md-vverlet">Velocity Verlet</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para>These</para>
+<sect3 id="md_doc_markdown_integrator_1md-symeul">
+<title>Symplectic Euler</title>
+<para>Symplectic Euler is a first order method of the form <formula id="0">\begin{align*} \dot{x}^{\mu}_{i+1} &amp;= \dot{x}^{\mu}_{i}+\tfrac{h}{m_i}F^{\mu}_{i} \\ x^{\mu}_{i+1} &amp;= x^{\mu}_{i}+h\dot{x}^{\mu}_{i+1} \end{align*}</formula> where <formula id="1">$h$</formula> is a timestep.</para>
+</sect3>
+<sect3 id="md_doc_markdown_integrator_1md-vverlet">
+<title>Velocity Verlet</title>
+<para>Velocity Verlet is a second order method of the form <formula id="2">\begin{align} x^{\mu}_{i+1} &amp;= x^{\mu}_{i} + h \dot{x}^{\mu}_{i} + \tfrac{h^2}{2 m} F^{\mu}_{i} \\ \dot{x}^{\mu}_{i+1} &amp;= \dot{x}^{\mu}_{i} + \tfrac{h^2}{2 m} (F^{\mu}_{i}+F^{\mu}_{i+1}) \end{align}</formula> where <formula id="1">$h$</formula> is a time step.</para>
+</sect3>
+</sect2>
+<sect2 id="md_doc_markdown_integrator_1md-integrators">
+<title>Integrators structure</title>
+<para>Integrators in libmd can be controlled with the integrate structure in <computeroutput><ref refid="structmd_a649701c926568a12bc6fef1e182bdf23_1a649701c926568a12bc6fef1e182bdf23" kindref="member">md&lt;dim&gt;::integrator</ref></computeroutput> of type <computeroutput><ref refid="structintegrators" kindref="compound">integrators</ref></computeroutput>. For flat space two objects are relevant:<itemizedlist>
+<listitem><para><computeroutput><ref refid="structintegrators_ab59dc99049468eafc9f5b4c5e461077e_1ab59dc99049468eafc9f5b4c5e461077e" kindref="member">integrators::h</ref></computeroutput> the time step</para>
+</listitem><listitem><para><computeroutput><ref refid="structintegrators_ac4b901fdae2c7adf5599cc9a1d1883ae_1ac4b901fdae2c7adf5599cc9a1d1883ae" kindref="member">integrators::method</ref></computeroutput> the integration method</para>
+</listitem></itemizedlist>
+</para>
+<para>The time step controls the time evolution. As a rule of thumb the time steps shouldn&apos;t be to big because the velocities will arbitrarily rise as the potentials give too large energies, as particles end up where they shouldn&apos;t be (due to errors). A time step should not be to large as floating point errors will accumulate creating an error and/or barely any evolution takes place. Keep in mind that the physics should not be dependent on the choice of time step, it it does, than the time step is probably too small or too large. If the time step is not to small and not to large the symplecticity of the integrator will ensure the Lagrangian symmetries are preserved. The default time step size is <formula id="3">$h=10^{-3}$</formula>.</para>
+<para>The flat space integration methods supported by libmd are enumerated in <ref refid="struct_i_n_t_e_g_r_a_t_o_r_aca72c4b4e70e5554ba92d83a6ffa1fbc_1aca72c4b4e70e5554ba92d83a6ffa1fbc" kindref="member">INTEGRATOR::integrator</ref>. The default method is velocity Verlet.</para>
+<sect3 id="md_doc_markdown_integrator_1md-int-ref">
+<title>References</title>
+<para><orderedlist>
+<listitem><para><ulink url="http://dx.doi.org/10.1017/S096249290100006X">Discrete mechanics and variational integrators JE Marsden, M West - Acta Numerica 2001, 2001 - Cambridge Univ Press</ulink></para>
+</listitem><listitem><para><ulink url="http://dx.doi.org/10.1145/1185657.1185669">Discrete geometric mechanics for variational time integrator nt-refs A Stern, M Desbrun - ACM SIGGRAPH 2006 Courses, 2006</ulink> </para>
+</listitem></orderedlist>
+</para>
+</sect3>
+</sect2>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

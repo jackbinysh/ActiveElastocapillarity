@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="integrator_8md" kind="file" language="Markdown">
+    <compoundname>integrator.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">Integrators<sp/></highlight></codeline>
+<codeline><highlight class="normal">============</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Integrators<sp/>in<sp/>libmd<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{#md-integrator}</highlight></codeline>
+<codeline><highlight class="normal">=====================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>libmd<sp/>there<sp/>are<sp/>integrators<sp/>for<sp/>flat<sp/>space<sp/>(discussed<sp/>here)<sp/>and<sp/>integrators<sp/>for<sp/>[curved<sp/>space](#md-integrator).<sp/></highlight></codeline>
+<codeline><highlight class="normal">All<sp/>integrators<sp/>in<sp/>libmd<sp/>are<sp/>symplectic,<sp/>see<sp/>[1](#md-int-ref)<sp/>and<sp/>[2](#md-int-ref).<sp/></highlight></codeline>
+<codeline><highlight class="normal">Symplectic<sp/>integrators<sp/>are<sp/>integrators<sp/>that<sp/>preserve<sp/>the<sp/>Lagrangian<sp/>symmetries.</highlight></codeline>
+<codeline><highlight class="normal">Therefore<sp/>integration<sp/>methods<sp/>like<sp/>explicit<sp/>Euler<sp/>or<sp/>Runge-Kutta<sp/>are<sp/>not<sp/>used.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Flat<sp/>space<sp/>integrators<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{#md-integratorflat}</highlight></codeline>
+<codeline><highlight class="normal">-------------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>flat<sp/>space<sp/>molecular<sp/>dynamics<sp/>two<sp/>integrators<sp/>are<sp/>provided:<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[Symplectic<sp/>Euler](#md-symeul)<sp/>(also<sp/>called<sp/>semi-implicit<sp/>Euler,<sp/>semi-explicit<sp/>Euler,<sp/>Euler–Cromer,<sp/>and<sp/>Newton–Størmer–Verlet)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[Velocity<sp/>Verlet](#md-vverlet)<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">These<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Symplectic<sp/>Euler<sp/><sp/><sp/><sp/><sp/><sp/><sp/>{#md-symeul}</highlight></codeline>
+<codeline><highlight class="normal">Symplectic<sp/>Euler<sp/>is<sp/>a<sp/>first<sp/>order<sp/>method<sp/>of<sp/>the<sp/>form</highlight></codeline>
+<codeline><highlight class="normal">\f{align*}{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>\dot{x}^{\mu}_{i+1}<sp/>&amp;=<sp/>\dot{x}^{\mu}_{i}+\tfrac{h}{m_i}F^{\mu}_{i}<sp/>\\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>x^{\mu}_{i+1}<sp/>&amp;=<sp/>x^{\mu}_{i}+h\dot{x}^{\mu}_{i+1}</highlight></codeline>
+<codeline><highlight class="normal">\f}</highlight></codeline>
+<codeline><highlight class="normal">where<sp/>\f$h\f$<sp/>is<sp/>a<sp/>timestep.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Velocity<sp/>Verlet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{#md-vverlet}</highlight></codeline>
+<codeline><highlight class="normal">Velocity<sp/>Verlet<sp/>is<sp/>a<sp/>second<sp/>order<sp/>method<sp/>of<sp/>the<sp/>form</highlight></codeline>
+<codeline><highlight class="normal">\f{align}{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>x^{\mu}_{i+1}<sp/>&amp;=<sp/>x^{\mu}_{i}<sp/>+<sp/>h<sp/>\dot{x}^{\mu}_{i}<sp/>+<sp/>\tfrac{h^2}{2<sp/>m}<sp/>F^{\mu}_{i}<sp/>\\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>\dot{x}^{\mu}_{i+1}<sp/>&amp;=<sp/>\dot{x}^{\mu}_{i}<sp/>+<sp/>\tfrac{h^2}{2<sp/>m}<sp/>(F^{\mu}_{i}+F^{\mu}_{i+1})</highlight></codeline>
+<codeline><highlight class="normal">\f}</highlight></codeline>
+<codeline><highlight class="normal">where<sp/>\f$h\f$<sp/>is<sp/>a<sp/>time<sp/>step.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Integrators<sp/>structure<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{#md-integrators}</highlight></codeline>
+<codeline><highlight class="normal">-------------------</highlight></codeline>
+<codeline><highlight class="normal">Integrators<sp/>in<sp/>libmd<sp/>can<sp/>be<sp/>controlled<sp/>with<sp/>the<sp/>integrate<sp/>structure<sp/>in<sp/>&lt;tt&gt;md&lt;dim&gt;::integrator&lt;/tt&gt;<sp/>of<sp/>type<sp/>&lt;tt&gt;#integrators&lt;/tt&gt;.</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>flat<sp/>space<sp/>two<sp/>objects<sp/>are<sp/>relevant:</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>&lt;tt&gt;integrators::h&lt;/tt&gt;<sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>time<sp/>step</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>&lt;tt&gt;integrators::method&lt;/tt&gt;<sp/><sp/><sp/><sp/><sp/>the<sp/>integration<sp/>method</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>time<sp/>step<sp/>controls<sp/>the<sp/>time<sp/>evolution.</highlight></codeline>
+<codeline><highlight class="normal">As<sp/>a<sp/>rule<sp/>of<sp/>thumb<sp/>the<sp/>time<sp/>steps<sp/>shouldn&apos;t<sp/>be<sp/>to<sp/>big<sp/>because<sp/>the<sp/>velocities<sp/>will<sp/>arbitrarily<sp/>rise<sp/>as<sp/>the<sp/>potentials<sp/>give<sp/>too<sp/>large<sp/>energies,<sp/>as<sp/>particles<sp/>end<sp/>up<sp/>where<sp/>they<sp/>shouldn&apos;t<sp/>be<sp/>(due<sp/>to<sp/>errors).<sp/></highlight></codeline>
+<codeline><highlight class="normal">A<sp/>time<sp/>step<sp/>should<sp/>not<sp/>be<sp/>to<sp/>large<sp/>as<sp/>floating<sp/>point<sp/>errors<sp/>will<sp/>accumulate<sp/>creating<sp/>an<sp/>error<sp/>and/or<sp/>barely<sp/>any<sp/>evolution<sp/>takes<sp/>place.</highlight></codeline>
+<codeline><highlight class="normal">Keep<sp/>in<sp/>mind<sp/>that<sp/>the<sp/>physics<sp/>should<sp/>not<sp/>be<sp/>dependent<sp/>on<sp/>the<sp/>choice<sp/>of<sp/>time<sp/>step,<sp/>it<sp/>it<sp/>does,<sp/>than<sp/>the<sp/>time<sp/>step<sp/>is<sp/>probably<sp/>too<sp/>small<sp/>or<sp/>too<sp/>large.<sp/></highlight></codeline>
+<codeline><highlight class="normal">If<sp/>the<sp/>time<sp/>step<sp/>is<sp/>not<sp/>to<sp/>small<sp/>and<sp/>not<sp/>to<sp/>large<sp/>the<sp/>symplecticity<sp/>of<sp/>the<sp/>integrator<sp/>will<sp/>ensure<sp/>the<sp/>Lagrangian<sp/>symmetries<sp/>are<sp/>preserved.<sp/></highlight></codeline>
+<codeline><highlight class="normal">The<sp/>default<sp/>time<sp/>step<sp/>size<sp/>is<sp/>\f$h=10^{-3}\f$.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>flat<sp/>space<sp/>integration<sp/>methods<sp/>supported<sp/>by<sp/>libmd<sp/>are<sp/>enumerated<sp/>in<sp/>#INTEGRATOR::integrator.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>default<sp/>method<sp/>is<sp/>velocity<sp/>Verlet.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>References<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{#md-int-ref}</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>[Discrete<sp/>mechanics<sp/>and<sp/>variational<sp/>integrators<sp/>JE<sp/>Marsden,<sp/>M<sp/>West<sp/>-<sp/>Acta<sp/>Numerica<sp/>2001,<sp/>2001<sp/>-<sp/>Cambridge<sp/>Univ<sp/>Press](http://dx.doi.org/10.1017/S096249290100006X)</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[Discrete<sp/>geometric<sp/>mechanics<sp/>for<sp/>variational<sp/>time<sp/>integrator<sp/>nt-refs<sp/>A<sp/>Stern,<sp/>M<sp/>Desbrun<sp/>-<sp/>ACM<sp/>SIGGRAPH<sp/>2006<sp/>Courses,<sp/>2006](http://dx.doi.org/10.1145/1185657.1185669)</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="doc/markdown/integrator.md"/>
+  </compounddef>
+</doxygen>

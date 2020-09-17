@@ -1,0 +1,45 @@
+\hypertarget{periodicity_8md_8libmd_8cc_source}{}\doxysection{periodicity.\+md.\+libmd.\+cc}
+\label{periodicity_8md_8libmd_8cc_source}\index{libmd-\/src/md/periodicity.md.libmd.cc@{libmd-\/src/md/periodicity.md.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{periodicity_8md_8libmd_8cc_source_l00001}\mbox{\hyperlink{periodicity_8md_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{periodicity_8md_8libmd_8cc_source_l00006}\mbox{\hyperlink{structmd_a1d26b450a1187048455396a00c361be4_a1d26b450a1187048455396a00c361be4}{00006}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_a1d26b450a1187048455396a00c361be4_a1d26b450a1187048455396a00c361be4}{md<dim>::thread\_periodicity}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i)}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00013     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) boundary(d,i,\textcolor{keyword}{this});}
+\DoxyCodeLine{00014 \}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{\Hypertarget{periodicity_8md_8libmd_8cc_source_l00016}\mbox{\hyperlink{structmd_a5a6d17288575ff5183960eaaf56266f9_a5a6d17288575ff5183960eaaf56266f9}{00016}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_a1d26b450a1187048455396a00c361be4_a1d26b450a1187048455396a00c361be4}{md<dim>::thread\_periodicity}}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim])}
+\DoxyCodeLine{00017 \{}
+\DoxyCodeLine{00023     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) boundary(d,x,\textcolor{keyword}{this});}
+\DoxyCodeLine{00024 \}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{\Hypertarget{periodicity_8md_8libmd_8cc_source_l00026}\mbox{\hyperlink{structmd_a0395ea5f8b917457f3775b59da0b3734_a0395ea5f8b917457f3775b59da0b3734}{00026}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_a0395ea5f8b917457f3775b59da0b3734_a0395ea5f8b917457f3775b59da0b3734}{md<dim>::periodicity}}()}
+\DoxyCodeLine{00027 \{}
+\DoxyCodeLine{00036     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i=0;i<N;i++) \textcolor{keywordflow}{if}(!particles[i].fix)}
+\DoxyCodeLine{00037     \{}
+\DoxyCodeLine{00038         \textcolor{keywordflow}{if}(particles[i].usepbcond) \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) boundary(particles[i].pbc[d],d,i,\textcolor{keyword}{this});}
+\DoxyCodeLine{00039         \textcolor{keywordflow}{else} \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) boundary(d,i,\textcolor{keyword}{this});}
+\DoxyCodeLine{00040     \}}
+\DoxyCodeLine{00041 \}}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{\Hypertarget{periodicity_8md_8libmd_8cc_source_l00043}\mbox{\hyperlink{structmd_a9b5ff183b3beb9c9411291a23bc0b80b_a9b5ff183b3beb9c9411291a23bc0b80b}{00043}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_a9b5ff183b3beb9c9411291a23bc0b80b_a9b5ff183b3beb9c9411291a23bc0b80b}{md<dim>::update\_boundaries}}()}
+\DoxyCodeLine{00044 \{}
+\DoxyCodeLine{00054     \textcolor{comment}{// update box matrix for shear}}
+\DoxyCodeLine{00055     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} j=0;j<dim;j++) \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0; k<dim; k++)}
+\DoxyCodeLine{00056     \{}
+\DoxyCodeLine{00057         simbox.Lshear[j][k] += simbox.vshear[j][k]*integrator.h;}
+\DoxyCodeLine{00058         \textcolor{comment}{// shift by appropriate box lengths so that the off-\/diagonal entries are in the range -\/L[j][j]/2 to L[j][j]/2 consistent with the positions}}
+\DoxyCodeLine{00059         \textcolor{keywordflow}{if} (j != k \&\& (simbox.bcond[j]==\mbox{\hyperlink{struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_a565f9cf3347ba75b9bfc64ec12d69946a975aaa41fc29d28d5513e2907b29f1ce}{BCOND::PERIODIC}} || simbox.bcond[j]==\mbox{\hyperlink{struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_a565f9cf3347ba75b9bfc64ec12d69946ae60ceea4da62257e104c5ac6aa720a31}{BCOND::BOXSHEAR}}))}
+\DoxyCodeLine{00060         \{}
+\DoxyCodeLine{00061             \textcolor{keywordflow}{while}(simbox.Lshear[j][k]>simbox.Lshear[j][j]/2.) simbox.Lshear[j][k]-\/=simbox.Lshear[j][j];}
+\DoxyCodeLine{00062             \textcolor{keywordflow}{while}(simbox.Lshear[j][k]<-\/simbox.Lshear[j][j]/2.) simbox.Lshear[j][k]+=simbox.Lshear[j][j];}
+\DoxyCodeLine{00063         \}}
+\DoxyCodeLine{00064     \}}
+\DoxyCodeLine{00065     simbox.invert\_box();}
+\DoxyCodeLine{00066 \}}
+
+\end{DoxyCode}

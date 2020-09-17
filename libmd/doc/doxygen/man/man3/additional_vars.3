@@ -1,0 +1,90 @@
+.TH "additional_vars< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+additional_vars< dim > \- This structure stores additional variables\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBui\fP \fBnoftypedamping\fP =\fBUI_MAX\fP"
+.br
+.RI "This variable stores the number of the ftype that damps/drags the system\&. "
+.ti -1c
+.RI "\fBui\fP \fBnoftypelangevin\fP =\fBUI_MAX\fP"
+.br
+.RI "This variable stores the number of the ftype that adds temperature to the system\&. "
+.ti -1c
+.RI "bool \fBexport_force_calc\fP =false"
+.br
+.RI "This variable tells export_force if the forces have been calculated for this output\&. "
+.ti -1c
+.RI "bool \fBreindex\fP =true"
+.br
+.RI "This variable tells if the system needs to be reindexed\&. "
+.ti -1c
+.RI "\fBldf\fP \fBoverdamped_gamma\fP =1\&.0"
+.br
+.RI "This variable defines the damping coefficient $\gamma$ for overdamped dynamics\&. "
+.ti -1c
+.RI "\fBui\fP \fBoverdamped_pre_integrator\fP =\fBINTEGRATOR::VVERLET\fP"
+.br
+.RI "This variable stores the integrator used before the overdamped regime\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct additional_vars< dim >"
+This structure stores additional variables\&. 
+.PP
+Definition at line 364 of file libmd\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> bool \fBadditional_vars\fP< dim >::export_force_calc =false"
+
+.PP
+This variable tells export_force if the forces have been calculated for this output\&. 
+.PP
+Definition at line 368 of file libmd\&.h\&.
+.SS "template<ui dim> \fBui\fP \fBadditional_vars\fP< dim >::noftypedamping =\fBUI_MAX\fP"
+
+.PP
+This variable stores the number of the ftype that damps/drags the system\&. 
+.PP
+Definition at line 366 of file libmd\&.h\&.
+.SS "template<ui dim> \fBui\fP \fBadditional_vars\fP< dim >::noftypelangevin =\fBUI_MAX\fP"
+
+.PP
+This variable stores the number of the ftype that adds temperature to the system\&. 
+.PP
+Definition at line 367 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBadditional_vars\fP< dim >::overdamped_gamma =1\&.0"
+
+.PP
+This variable defines the damping coefficient $\gamma$ for overdamped dynamics\&. 
+.PP
+Definition at line 370 of file libmd\&.h\&.
+.SS "template<ui dim> \fBui\fP \fBadditional_vars\fP< dim >::overdamped_pre_integrator =\fBINTEGRATOR::VVERLET\fP"
+
+.PP
+This variable stores the integrator used before the overdamped regime\&. 
+.PP
+Definition at line 371 of file libmd\&.h\&.
+.SS "template<ui dim> bool \fBadditional_vars\fP< dim >::reindex =true"
+
+.PP
+This variable tells if the system needs to be reindexed\&. 
+.PP
+Definition at line 369 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structt__hook" kind="struct" language="C++" prot="public">
+    <compoundname>t_hook</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt__hook_aad3b3d1f0d94d1898081d47d886c9bec_1aad3b3d1f0d94d1898081d47d886c9bec" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="libmd_8h_a45997a38178962fd1ae543a6b308d196_1a45997a38178962fd1ae543a6b308d196" kindref="member">hookptr</ref>&lt; dim &gt; &gt;</type>
+        <definition>std::vector&lt;hookptr&lt;dim&gt; &gt; t_hook&lt; dim &gt;::hooks</definition>
+        <argsstring></argsstring>
+        <name>hooks</name>
+        <briefdescription>
+<para>Vector containing pointer to all the hooks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="329" column="17" bodyfile="libmd.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structt__hook_a7472894ffced163e7336e5ed6d39b9cd_1a7472894ffced163e7336e5ed6d39b9cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui t_hook&lt; dim &gt;::add</definition>
+        <argsstring>(hookptr&lt; dim &gt; p)</argsstring>
+        <name>add</name>
+        <param>
+          <type><ref refid="libmd_8h_a45997a38178962fd1ae543a6b308d196_1a45997a38178962fd1ae543a6b308d196" kindref="member">hookptr</ref>&lt; dim &gt;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Add an element to the hook pointer vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function allows the user to add an userdefined hook which is pointed at by <computeroutput>p</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="331" column="8" bodyfile="libmd-src/hooks.libmd.cc" bodystart="6" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structt__hook_afef5e30fe43c85d1249d2668d1fcb17f_1afef5e30fe43c85d1249d2668d1fcb17f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_hook&lt; dim &gt;::operator()</definition>
+        <argsstring>(ui idx, std::vector&lt; ldf &gt; &amp;parameters, void *sys)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>idx</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>sys</declname>
+        </param>
+        <briefdescription>
+<para>Run a hook by calling the hookpointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function calculates a certain hook <computeroutput>hooks[idx]</computeroutput> <linebreak/>
+ The sys pointer is typically a void pointer to the md or mpmd system (which is cast back by using the macro SYS).</para>
+        </inbodydescription>
+        <location file="libmd.h" line="332" column="10" bodyfile="libmd-src/hooks.libmd.cc" bodystart="15" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure is the hook launchpad. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; hookptr&lt; dim &gt; &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; hookptr&lt; dim &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>t_hook&lt; dim &gt;</label>
+        <link refid="structt__hook"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+hooks</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="328" column="1" bodyfile="libmd.h" bodystart="327" bodyend="333"/>
+    <listofallmembers>
+      <member refid="structt__hook_a7472894ffced163e7336e5ed6d39b9cd_1a7472894ffced163e7336e5ed6d39b9cd" prot="public" virt="non-virtual"><scope>t_hook</scope><name>add</name></member>
+      <member refid="structt__hook_aad3b3d1f0d94d1898081d47d886c9bec_1aad3b3d1f0d94d1898081d47d886c9bec" prot="public" virt="non-virtual"><scope>t_hook</scope><name>hooks</name></member>
+      <member refid="structt__hook_afef5e30fe43c85d1249d2668d1fcb17f_1afef5e30fe43c85d1249d2668d1fcb17f" prot="public" virt="non-virtual"><scope>t_hook</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+digraph "indexer&lt; dim &gt;::celldatatype"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{indexer\< dim \>::celldatatype\n|+ Q\l+ nCells\l+ totNeighbors\l+ CellSize\l+ IndexDelta\l+ OutsideBox\l|+ celldatatype()\l+ ~celldatatype()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [color="grey25",fontsize="12",style="solid",label=" +Cells" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node2 [label="{std::vector\< ui \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="orange",fontsize="12",style="solid",label=" \< ui \>" ,fontname="Helvetica"];
+  Node3 [label="{std::vector\< T \>\n||}",height=0.2,width=0.4,color="grey75",tooltip="STL class."];
+  Node4 -> Node3 [color="grey25",fontsize="12",style="solid",label=" +elements" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node4 [label="{T\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+}

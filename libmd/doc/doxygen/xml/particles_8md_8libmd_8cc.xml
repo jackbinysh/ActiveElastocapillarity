@@ -1,0 +1,846 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="particles_8md_8libmd_8cc" kind="file" language="C++">
+    <compoundname>particles.md.libmd.cc</compoundname>
+    <includes refid="libmd_8h" local="yes">../../libmd.h</includes>
+    <includedby refid="md_8libmd_8cc" local="yes">libmd-src/md.libmd.cc</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>list</label>
+      </node>
+      <node id="42">
+        <label>md/index.md.libmd.cc</label>
+        <link refid="index_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>md/hooks.md.libmd.cc</label>
+        <link refid="hooks_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>libmd-src/mongepatches.libmd.cc</label>
+        <link refid="mongepatches_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="15">
+        <label>limits</label>
+      </node>
+      <node id="39">
+        <label>md/interaction.md.libmd.cc</label>
+        <link refid="interaction_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>libmd-src/variadic_vars.libmd.cc</label>
+        <link refid="variadic__vars_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>libmd-src/interact.libmd.cc</label>
+        <link refid="interact_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>md/distances.md.libmd.cc</label>
+        <link refid="distances_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>md/energy.md.libmd.cc</label>
+        <link refid="energy_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>libmd-src/pairpotentials.libmd.cc</label>
+        <link refid="pairpotentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>libmd-src/mp.libmd.cc</label>
+        <link refid="mp_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cmath</label>
+      </node>
+      <node id="28">
+        <label>libmd-src/box.libmd.cc</label>
+        <link refid="box_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>md/bonds.md.libmd.cc</label>
+        <link refid="bonds_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>libmd-src/integrators.libmd.cc</label>
+        <link refid="integrators_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="24">
+        <label>libmd-src/autodiff.libmd.cc</label>
+        <link refid="autodiff_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>unordered_set</label>
+      </node>
+      <node id="29">
+        <label>libmd-src/boundaryconditions.libmd.cc</label>
+        <link refid="boundaryconditions_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libmd-src/md/particles.md.libmd.cc</label>
+        <link refid="particles_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>libmd-src/particle.libmd.cc</label>
+        <link refid="particle_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>libmd-src/autodiff2.libmd.cc</label>
+        <link refid="autodiff2_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>libmd-src/bcond.libmd.cc</label>
+        <link refid="bcond_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>libmd-src/potentials.libmd.cc</label>
+        <link refid="potentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>random</label>
+      </node>
+      <node id="21">
+        <label>libmd-src/enums.libmd.h</label>
+        <link refid="enums_8libmd_8h"/>
+      </node>
+      <node id="3">
+        <label>cstdio</label>
+      </node>
+      <node id="48">
+        <label>md/importexport.md.libmd.cc</label>
+        <link refid="importexport_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>md/periodicity.md.libmd.cc</label>
+        <link refid="periodicity_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libmd-src/index.libmd.cc</label>
+        <link refid="index_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>libmd-src/externalforces.libmd.cc</label>
+        <link refid="externalforces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stack</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="47">
+        <label>md/sp.md.libmd.cc</label>
+        <link refid="sp_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>utility</label>
+      </node>
+      <node id="38">
+        <label>libmd-src/md.libmd.cc</label>
+        <link refid="md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdlib</label>
+      </node>
+      <node id="22">
+        <label>libmd.cc</label>
+        <link refid="libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../../libmd.h</label>
+        <link refid="libmd_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libmd-src/hooks.libmd.cc</label>
+        <link refid="hooks_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>unordered_map</label>
+      </node>
+      <node id="18">
+        <label>chrono</label>
+      </node>
+      <node id="45">
+        <label>md/setget.md.libmd.cc</label>
+        <link refid="setget_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>libmd-src/mpmd.libmd.cc</label>
+        <link refid="mpmd_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>set</label>
+      </node>
+      <node id="16">
+        <label>algorithm</label>
+      </node>
+      <node id="41">
+        <label>md/forces.md.libmd.cc</label>
+        <link refid="forces_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>libmd-src/error.libmd.cc</label>
+        <link refid="error_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>md/integrator.md.libmd.cc</label>
+        <link refid="integrator_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cstring</label>
+      </node>
+      <node id="20">
+        <label>libmd-src/macros.libmd.h</label>
+        <link refid="macros_8libmd_8h"/>
+      </node>
+      <node id="27">
+        <label>libmd-src/forces.libmd.cc</label>
+        <link refid="forces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="23">
+        <label>libmd-src/md/index.md.libmd.cc</label>
+        <link refid="index_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>libmd-src/md/hooks.md.libmd.cc</label>
+        <link refid="hooks_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>libmd-src/mongepatches.libmd.cc</label>
+        <link refid="mongepatches_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>libmd-src/md/interaction.md.libmd.cc</label>
+        <link refid="interaction_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libmd-src/variadic_vars.libmd.cc</label>
+        <link refid="variadic__vars_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>libmd-src/interact.libmd.cc</label>
+        <link refid="interact_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>libmd-src/md/distances.md.libmd.cc</label>
+        <link refid="distances_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>libmd-src/md/energy.md.libmd.cc</label>
+        <link refid="energy_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libmd-src/pairpotentials.libmd.cc</label>
+        <link refid="pairpotentials_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>libmd-src/mp.libmd.cc</label>
+        <link refid="mp_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>libmd-src/box.libmd.cc</label>
+        <link refid="box_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>libmd-src/md/bonds.md.libmd.cc</label>
+        <link refid="bonds_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>libmd-src/integrators.libmd.cc</label>
+        <link refid="integrators_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>libmd-src/autodiff.libmd.cc</label>
+        <link refid="autodiff_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>libmd-src/boundaryconditions.libmd.cc</label>
+        <link refid="boundaryconditions_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libmd-src/md/particles.md.libmd.cc</label>
+        <link refid="particles_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>libmd-src/particle.libmd.cc</label>
+        <link refid="particle_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libmd-src/autodiff2.libmd.cc</label>
+        <link refid="autodiff2_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>libmd-src/bcond.libmd.cc</label>
+        <link refid="bcond_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>libmd-src/potentials.libmd.cc</label>
+        <link refid="potentials_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>libmd-src/md/importexport.md.libmd.cc</label>
+        <link refid="importexport_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>libmd-src/md/periodicity.md.libmd.cc</label>
+        <link refid="periodicity_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>libmd-src/index.libmd.cc</label>
+        <link refid="index_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>libmd-src/externalforces.libmd.cc</label>
+        <link refid="externalforces_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>libmd-src/md/sp.md.libmd.cc</label>
+        <link refid="sp_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libmd-src/md.libmd.cc</label>
+        <link refid="md_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libmd.cc</label>
+        <link refid="libmd_8cc"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libmd.h</label>
+        <link refid="libmd_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>libmd-src/hooks.libmd.cc</label>
+        <link refid="hooks_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>libmd-src/md/setget.md.libmd.cc</label>
+        <link refid="setget_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>libmd-src/mpmd.libmd.cc</label>
+        <link refid="mpmd_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>libmd-src/md/forces.md.libmd.cc</label>
+        <link refid="forces_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>libmd-src/error.libmd.cc</label>
+        <link refid="error_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>libmd-src/md/integrator.md.libmd.cc</label>
+        <link refid="integrator_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>libmd-src/forces.libmd.cc</label>
+        <link refid="forces_8libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="particles_8md_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_1a4384389855e24d346feb2e60f23afb0b" prot="public" static="no">
+        <name>__libmd_src_file__</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd-src/md/particles.md.libmd.cc" line="1" column="9" bodyfile="libmd-src/md/particles.md.libmd.cc" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="particles_8md_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_1a4384389855e24d346feb2e60f23afb0b" refkind="member"><highlight class="preprocessor">#define<sp/>__libmd_src_file__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>libmd_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../../libmd.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="structmd_a44e8c07db19776f7a34d56f0dc90509b_1a44e8c07db19776f7a34d56f0dc90509b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/><ref refid="structmd_a44e8c07db19776f7a34d56f0dc90509b_1a44e8c07db19776f7a34d56f0dc90509b" kindref="member">md&lt;dim&gt;::add_particle</ref>(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>mass,<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>ptype,</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fixed)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>avars.export_force_calc=</highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>N++;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>particles.push_back(<ref refid="structparticle" kindref="compound">particle&lt;dim&gt;</ref>(mass,ptype,fixed));</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>network.spid.push_back(<ref refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" kindref="member">UI_MAX</ref>);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>network.skins.resize(N);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>network.forces.resize(N);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>lib:<sp/>network.forcelibrary)<sp/>lib.particles.resize(N);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>avars.reindex=</highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>N-1;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="structmd_a07ee32afeb6884e33b59dcfe57eb75c6_1a07ee32afeb6884e33b59dcfe57eb75c6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/><ref refid="structmd_a44e8c07db19776f7a34d56f0dc90509b_1a44e8c07db19776f7a34d56f0dc90509b" kindref="member">md&lt;dim&gt;::add_particle</ref>(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>x[dim],<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>mass,<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>ptype,</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fixed)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>tempx[dim];</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(tempx,x,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>i=add_particle(mass,ptype,fixed);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_1acbe5e8b99e25562e699538dea76d37fa" kindref="member">DEBUG_2</ref>(</highlight><highlight class="stringliteral">&quot;created<sp/>particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;<sp/>with<sp/>given<sp/>position&quot;</highlight><highlight class="normal">,i);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(particles[i].x,tempx,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(particles[i].dx,0,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="structmd_a24ba844ff0b1f6cc22f0f98213c75f11_1a24ba844ff0b1f6cc22f0f98213c75f11" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/><ref refid="structmd_a44e8c07db19776f7a34d56f0dc90509b_1a44e8c07db19776f7a34d56f0dc90509b" kindref="member">md&lt;dim&gt;::add_particle</ref>(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>x[dim],<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>dx[dim],<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>mass,<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>ptype,</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fixed)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>tempx[dim],tempdx[dim];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(tempx,x,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(tempdx,dx,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>i=add_particle(mass,ptype,fixed);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_1acbe5e8b99e25562e699538dea76d37fa" kindref="member">DEBUG_2</ref>(</highlight><highlight class="stringliteral">&quot;created<sp/>particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;<sp/>with<sp/>given<sp/>position<sp/>and<sp/>velocity&quot;</highlight><highlight class="normal">,i);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(particles[i].x,tempx,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(particles[i].dx,tempdx,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="structmd_ac670af5743a66c26305555b403bc78ca_1ac670af5743a66c26305555b403bc78ca" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/><ref refid="structmd_a44e8c07db19776f7a34d56f0dc90509b_1a44e8c07db19776f7a34d56f0dc90509b" kindref="member">md&lt;dim&gt;::add_particle</ref>(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>x[dim],<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>dx[dim],<ref refid="libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_1af8ecdd9d7d0f3cdced7f9a83dc659959" kindref="member">uc</ref><sp/><ref refid="structbcond" kindref="compound">bcond</ref>[dim],<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>mass,<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>ptype,</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fixed,</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bconded)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>tempx[dim],tempdx[dim];</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_1af8ecdd9d7d0f3cdced7f9a83dc659959" kindref="member">uc</ref><sp/>tempbcond[dim];</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(tempx,x,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(tempdx,dx,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(tempbcond,<ref refid="structbcond" kindref="compound">bcond</ref>,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_1af8ecdd9d7d0f3cdced7f9a83dc659959" kindref="member">uc</ref>));</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>i=add_particle(mass,ptype,fixed);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>particles[i].usepbcond=bconded;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_1acbe5e8b99e25562e699538dea76d37fa" kindref="member">DEBUG_2</ref>(</highlight><highlight class="stringliteral">&quot;created<sp/>particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;<sp/>with<sp/>given<sp/>position,<sp/>velocity<sp/>and<sp/>bconds&quot;</highlight><highlight class="normal">,i);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(particles[i].x,tempx,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(particles[i].dx,tempdx,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>));</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(particles[i].<ref refid="structbcond" kindref="compound">bcond</ref>,tempbcond,dim*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_1af8ecdd9d7d0f3cdced7f9a83dc659959" kindref="member">uc</ref>));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="structmd_a8f9f008ef44668edcc81465ee6fc633d_1a8f9f008ef44668edcc81465ee6fc633d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structmd_a8f9f008ef44668edcc81465ee6fc633d_1a8f9f008ef44668edcc81465ee6fc633d" kindref="member">md&lt;dim&gt;::rem_particle</ref>(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>i)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_1acbe5e8b99e25562e699538dea76d37fa" kindref="member">DEBUG_2</ref>(</highlight><highlight class="stringliteral">&quot;removing<sp/>particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,i);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(network.spid[i]&lt;<ref refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" kindref="member">UI_MAX</ref>)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>network.superparticles[network.spid[i]].particles.erase(i);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>j,<sp/>k,<sp/>p;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&lt;<sp/>N-1)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>swap<sp/>particle<sp/>to<sp/>delete<sp/>with<sp/>last<sp/>particle,<sp/>to<sp/>prevent<sp/>changing<sp/>index<sp/>of<sp/>all<sp/>particles<sp/>after<sp/>particlenr,<sp/>and<sp/>then<sp/>delete<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iter_swap(particles.begin()+i,<sp/>particles.rbegin());</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>update<sp/>the<sp/>network</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iter_swap(network.skins.begin()+i,<sp/>network.skins.rbegin());</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iter_swap(network.forces.begin()+i,<sp/>network.forces.rbegin());</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Modify<sp/>skins</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>network.skins[i].size()-1;<sp/>j<sp/>&lt;<sp/><ref refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" kindref="member">UI_MAX</ref>;<sp/>j--)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/>p<sp/>=<sp/>network.skins[i][j].neighbor;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p<sp/>==<sp/>i)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p<sp/>=<sp/>N-1;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(k<sp/>=<sp/>network.skins[p].size()-1;<sp/>k<sp/>&lt;<sp/><ref refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" kindref="member">UI_MAX</ref><sp/>&amp;&amp;<sp/>network.skins[p][k].neighbor<sp/>!=<sp/>N-1;<sp/>k--);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(k<sp/>&gt;<sp/>N)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><ref refid="macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_1a4d48c340b3c83579a8d58cb20a320f84" kindref="member">ERROR</ref>(</highlight><highlight class="stringliteral">&quot;(formerly)<sp/>last<sp/>particle<sp/>not<sp/>found<sp/>in<sp/>skinlist<sp/>of<sp/>particle<sp/>#%d&quot;</highlight><highlight class="normal">,<sp/>p);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>network.skins[p][k].neighbor<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Modify<sp/>superparticle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((network.spid[i]<sp/>=<sp/>network.spid[N-1])<sp/>&lt;<sp/><ref refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" kindref="member">UI_MAX</ref>)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>network.superparticles[network.spid[i]].particles.find(N-1);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(it<sp/>==<sp/>network.superparticles[network.spid[i]].particles.end())</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><ref refid="macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_1a4d48c340b3c83579a8d58cb20a320f84" kindref="member">ERROR</ref>(</highlight><highlight class="stringliteral">&quot;particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;<sp/>not<sp/>found<sp/>in<sp/>superparticle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/>N-1,<sp/>network.spid[i]);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>network.superparticles[network.spid[i]].particles[i]<sp/>=<sp/>it-&gt;second;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>network.superparticles[network.spid[i]].backdoor[it-&gt;second]<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>network.superparticles[network.spid[i]].particles.erase(it);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ftype:network.forcelibrary)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ftype.particles.empty())<sp/>iter_swap(ftype.particles.begin()+i,ftype.particles.rbegin());</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ftype:network.forcelibrary)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ftype.particles.empty())</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ftype.particles.pop_back();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(j=0;j&lt;N-1;j++)<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(k=ftype.particles[j].size()-1;k&lt;<ref refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" kindref="member">UI_MAX</ref>;k--)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ftype.particles[j][k]==i)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iter_swap(ftype.particles[j].begin()+k,ftype.particles[j].rbegin());</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ftype.particles[j].pop_back();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i&lt;N-1)<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ftype:network.forcelibrary)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ftype.particles.empty())<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(j=0;j&lt;N-1;j++)<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(k=ftype.particles[j].size()-1;k&lt;<ref refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" kindref="member">UI_MAX</ref>;k--)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ftype.particles[j][k]==N-1)<sp/>ftype.particles[j][k]=i;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Modify<sp/>skins</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>network.skins[N-1].size()-1;<sp/>j<sp/>&lt;<sp/><ref refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" kindref="member">UI_MAX</ref>;<sp/>j--)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/>p<sp/>=<sp/>network.skins[N-1][j].neighbor;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(k<sp/>=<sp/>network.skins[p].size()-1;<sp/>k<sp/>&lt;<sp/><ref refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" kindref="member">UI_MAX</ref><sp/>&amp;&amp;<sp/>network.skins[p][k].neighbor<sp/>!=<sp/>i;<sp/>k--);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(k<sp/>&gt;<sp/>N)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><ref refid="macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_1a4d48c340b3c83579a8d58cb20a320f84" kindref="member">ERROR</ref>(</highlight><highlight class="stringliteral">&quot;particle<sp/>to<sp/>be<sp/>deleted<sp/>not<sp/>found<sp/>in<sp/>skinlist<sp/>of<sp/>particle<sp/>#%d&quot;</highlight><highlight class="normal">,<sp/>p);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iter_swap(network.skins[p].begin()+k,<sp/>network.skins[p].rbegin());</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>network.skins[p].pop_back();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remove<sp/>last<sp/>particle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>N--;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>particles.pop_back();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>network.skins.pop_back();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>network.forces.pop_back();</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>network.spid.pop_back();</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>avars.reindex=</highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="structmd_af422857393efc3ab9e748f12efc87f4d_1af422857393efc3ab9e748f12efc87f4d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structmd_af422857393efc3ab9e748f12efc87f4d_1af422857393efc3ab9e748f12efc87f4d" kindref="member">md&lt;dim&gt;::fix_particle</ref>(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>i,</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fix)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_1acbe5e8b99e25562e699538dea76d37fa" kindref="member">DEBUG_2</ref>(</highlight><highlight class="stringliteral">&quot;%sfixing<sp/>particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,fix?</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">:</highlight><highlight class="stringliteral">&quot;un&quot;</highlight><highlight class="normal">,i);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>particles[i].fix=fix;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156" refid="structmd_abbcc719c7c9820380432e5f1c0dc25c6_1abbcc719c7c9820380432e5f1c0dc25c6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/><ref refid="structmd_abbcc719c7c9820380432e5f1c0dc25c6_1abbcc719c7c9820380432e5f1c0dc25c6" kindref="member">md&lt;dim&gt;::clone_particle</ref>(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>i,<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>x[dim])</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_1acbe5e8b99e25562e699538dea76d37fa" kindref="member">DEBUG_2</ref>(</highlight><highlight class="stringliteral">&quot;cloning<sp/>particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,i);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>retval=add_particle();</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>particles[retval]=particles[i];</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>translate_particle(retval,x);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>network.forces[retval]=network.forces[i];</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>j:network.forces[i])<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!network.forcelibrary[j].particles.empty())<sp/>network.forcelibrary[j].particles[retval]=network.forcelibrary[j].particles[i];</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>f:network.forcelibrary)<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>u:f.particles)<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>v:u)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(v==i)<sp/>u.push_back(retval);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retval;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="structmd_ab7ca8226b0ce940a1da8554fe6de0daf_1ab7ca8226b0ce940a1da8554fe6de0daf" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structmd_ab7ca8226b0ce940a1da8554fe6de0daf_1ab7ca8226b0ce940a1da8554fe6de0daf" kindref="member">md&lt;dim&gt;::translate_particle</ref>(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>i,<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>x[dim])</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_1acbe5e8b99e25562e699538dea76d37fa" kindref="member">DEBUG_2</ref>(</highlight><highlight class="stringliteral">&quot;translating<sp/>particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,i);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>avars.export_force_calc=</highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>d=0;d&lt;dim;d++)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>particles[i].x[d]+=x[d];</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>particles[i].xp[d]+=x[d];</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>thread_periodicity(i);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>avars.reindex=</highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="structmd_a49ad95110ab2d8da99612f85cc0352d1_1a49ad95110ab2d8da99612f85cc0352d1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structmd_a49ad95110ab2d8da99612f85cc0352d1_1a49ad95110ab2d8da99612f85cc0352d1" kindref="member">md&lt;dim&gt;::drift_particle</ref>(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>i,<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>dx[dim])</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_1acbe5e8b99e25562e699538dea76d37fa" kindref="member">DEBUG_2</ref>(</highlight><highlight class="stringliteral">&quot;drifting<sp/>particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,i);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>d=0;d&lt;dim;d++)<sp/>particles[i].dx[d]+=dx[d];</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="structmd_a5cacfed9b123e805170870e8aed6790c_1a5cacfed9b123e805170870e8aed6790c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;ui<sp/>dim&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structmd_a5cacfed9b123e805170870e8aed6790c_1a5cacfed9b123e805170870e8aed6790c" kindref="member">md&lt;dim&gt;::heat_particle</ref>(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>i,<ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>lambda)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_1acbe5e8b99e25562e699538dea76d37fa" kindref="member">DEBUG_2</ref>(</highlight><highlight class="stringliteral">&quot;heating<sp/>particle<sp/>#&quot;</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a0912422c5c51b0116165d1714a0a56a7_1a0912422c5c51b0116165d1714a0a56a7" kindref="member">F_UI</ref><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,i);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref><sp/>d=0;d&lt;dim;d++)<sp/>particles[i].dx[d]*=lambda;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="libmd-src/md/particles.md.libmd.cc"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,172 @@
+\hypertarget{particles_8md_8libmd_8cc_source}{}\doxysection{particles.\+md.\+libmd.\+cc}
+\label{particles_8md_8libmd_8cc_source}\index{libmd-\/src/md/particles.md.libmd.cc@{libmd-\/src/md/particles.md.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00001}\mbox{\hyperlink{particles_8md_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00006}\mbox{\hyperlink{structmd_a44e8c07db19776f7a34d56f0dc90509b_a44e8c07db19776f7a34d56f0dc90509b}{00006}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structmd_a44e8c07db19776f7a34d56f0dc90509b_a44e8c07db19776f7a34d56f0dc90509b}{md<dim>::add\_particle}}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} mass,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} ptype,\textcolor{keywordtype}{bool} fixed)}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00013     avars.export\_force\_calc=\textcolor{keyword}{true};}
+\DoxyCodeLine{00014     N++;}
+\DoxyCodeLine{00015     particles.push\_back(\mbox{\hyperlink{structparticle}{particle<dim>}}(mass,ptype,fixed));}
+\DoxyCodeLine{00016     network.spid.push\_back(\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}});}
+\DoxyCodeLine{00017     network.skins.resize(N);}
+\DoxyCodeLine{00018     network.forces.resize(N);}
+\DoxyCodeLine{00019     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} lib: network.forcelibrary) lib.particles.resize(N);}
+\DoxyCodeLine{00020     avars.reindex=\textcolor{keyword}{true};}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{return} N-\/1;}
+\DoxyCodeLine{00022 \}}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00024}\mbox{\hyperlink{structmd_a07ee32afeb6884e33b59dcfe57eb75c6_a07ee32afeb6884e33b59dcfe57eb75c6}{00024}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structmd_a44e8c07db19776f7a34d56f0dc90509b_a44e8c07db19776f7a34d56f0dc90509b}{md<dim>::add\_particle}}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim],\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} mass,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} ptype,\textcolor{keywordtype}{bool} fixed)}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00031     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} tempx[dim];}
+\DoxyCodeLine{00032     memcpy(tempx,x,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00033     \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i=add\_particle(mass,ptype,fixed);}
+\DoxyCodeLine{00034     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"created particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{" with given position"},i);}
+\DoxyCodeLine{00035     memcpy(particles[i].x,tempx,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00036     memset(particles[i].dx,0,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00037     \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{00038 \}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00040}\mbox{\hyperlink{structmd_a24ba844ff0b1f6cc22f0f98213c75f11_a24ba844ff0b1f6cc22f0f98213c75f11}{00040}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structmd_a44e8c07db19776f7a34d56f0dc90509b_a44e8c07db19776f7a34d56f0dc90509b}{md<dim>::add\_particle}}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim],\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} dx[dim],\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} mass,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} ptype,\textcolor{keywordtype}{bool} fixed)}
+\DoxyCodeLine{00041 \{}
+\DoxyCodeLine{00046     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} tempx[dim],tempdx[dim];}
+\DoxyCodeLine{00047     memcpy(tempx,x,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00048     memcpy(tempdx,dx,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00049     \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i=add\_particle(mass,ptype,fixed);}
+\DoxyCodeLine{00050     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"created particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{" with given position and velocity"},i);}
+\DoxyCodeLine{00051     memcpy(particles[i].x,tempx,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00052     memcpy(particles[i].dx,tempdx,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00053     \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{00054 \}}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00056}\mbox{\hyperlink{structmd_ac670af5743a66c26305555b403bc78ca_ac670af5743a66c26305555b403bc78ca}{00056}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structmd_a44e8c07db19776f7a34d56f0dc90509b_a44e8c07db19776f7a34d56f0dc90509b}{md<dim>::add\_particle}}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim],\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} dx[dim],\mbox{\hyperlink{libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_af8ecdd9d7d0f3cdced7f9a83dc659959}{uc}} \mbox{\hyperlink{structbcond}{bcond}}[dim],\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} mass,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} ptype,\textcolor{keywordtype}{bool} fixed,\textcolor{keywordtype}{bool} bconded)}
+\DoxyCodeLine{00057 \{}
+\DoxyCodeLine{00062     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} tempx[dim],tempdx[dim];}
+\DoxyCodeLine{00063     \mbox{\hyperlink{libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_af8ecdd9d7d0f3cdced7f9a83dc659959}{uc}} tempbcond[dim];}
+\DoxyCodeLine{00064     memcpy(tempx,x,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00065     memcpy(tempdx,dx,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00066     memcpy(tempbcond,\mbox{\hyperlink{structbcond}{bcond}},dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_af8ecdd9d7d0f3cdced7f9a83dc659959}{uc}}));}
+\DoxyCodeLine{00067     \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i=add\_particle(mass,ptype,fixed);}
+\DoxyCodeLine{00068     particles[i].usepbcond=bconded;}
+\DoxyCodeLine{00069     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"created particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{" with given position, velocity and bconds"},i);}
+\DoxyCodeLine{00070     memcpy(particles[i].x,tempx,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00071     memcpy(particles[i].dx,tempdx,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00072     memcpy(particles[i].\mbox{\hyperlink{structbcond}{bcond}},tempbcond,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_af8ecdd9d7d0f3cdced7f9a83dc659959}{uc}}));}
+\DoxyCodeLine{00073     \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{00074 \}}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00076}\mbox{\hyperlink{structmd_a8f9f008ef44668edcc81465ee6fc633d_a8f9f008ef44668edcc81465ee6fc633d}{00076}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_a8f9f008ef44668edcc81465ee6fc633d_a8f9f008ef44668edcc81465ee6fc633d}{md<dim>::rem\_particle}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i)}
+\DoxyCodeLine{00077 \{}
+\DoxyCodeLine{00082     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"removing particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{""},i);}
+\DoxyCodeLine{00083     \textcolor{keywordflow}{if}(network.spid[i]<\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}})}
+\DoxyCodeLine{00084         network.superparticles[network.spid[i]].particles.erase(i);}
+\DoxyCodeLine{00085     \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} j, k, p;}
+\DoxyCodeLine{00086     \textcolor{keywordflow}{if} (i < N-\/1)}
+\DoxyCodeLine{00087     \{   \textcolor{comment}{// swap particle to delete with last particle, to prevent changing index of all particles after particlenr, and then delete it}}
+\DoxyCodeLine{00088         iter\_swap(particles.begin()+i, particles.rbegin());}
+\DoxyCodeLine{00089         \textcolor{comment}{// update the network}}
+\DoxyCodeLine{00090         iter\_swap(network.skins.begin()+i, network.skins.rbegin());}
+\DoxyCodeLine{00091         iter\_swap(network.forces.begin()+i, network.forces.rbegin());}
+\DoxyCodeLine{00092         \textcolor{comment}{// Modify skins}}
+\DoxyCodeLine{00093         \textcolor{keywordflow}{for} (j = network.skins[i].size()-\/1; j < \mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}}; j-\/-\/)}
+\DoxyCodeLine{00094         \{   p = network.skins[i][j].neighbor;}
+\DoxyCodeLine{00095             \textcolor{keywordflow}{if} (p == i)}
+\DoxyCodeLine{00096                 p = N-\/1;}
+\DoxyCodeLine{00097             \textcolor{keywordflow}{for} (k = network.skins[p].size()-\/1; k < \mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}} \&\& network.skins[p][k].neighbor != N-\/1; k-\/-\/);}
+\DoxyCodeLine{00098             \textcolor{keywordflow}{if} (k > N)}
+\DoxyCodeLine{00099             \{   \mbox{\hyperlink{macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_a4d48c340b3c83579a8d58cb20a320f84}{ERROR}}(\textcolor{stringliteral}{"(formerly) last particle not found in skinlist of particle \#\%d"}, p);}
+\DoxyCodeLine{00100                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00101             \}}
+\DoxyCodeLine{00102             network.skins[p][k].neighbor = i;}
+\DoxyCodeLine{00103         \}}
+\DoxyCodeLine{00104         \textcolor{comment}{// Modify superparticle}}
+\DoxyCodeLine{00105         \textcolor{keywordflow}{if} ((network.spid[i] = network.spid[N-\/1]) < \mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}})}
+\DoxyCodeLine{00106         \{   \textcolor{keyword}{auto} it = network.superparticles[network.spid[i]].particles.find(N-\/1);}
+\DoxyCodeLine{00107             \textcolor{keywordflow}{if} (it == network.superparticles[network.spid[i]].particles.end())}
+\DoxyCodeLine{00108             \{   \mbox{\hyperlink{macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_a4d48c340b3c83579a8d58cb20a320f84}{ERROR}}(\textcolor{stringliteral}{"particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{" not found in superparticle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{""}, N-\/1, network.spid[i]);}
+\DoxyCodeLine{00109                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00110             \}}
+\DoxyCodeLine{00111             network.superparticles[network.spid[i]].particles[i] = it-\/>second;}
+\DoxyCodeLine{00112             network.superparticles[network.spid[i]].backdoor[it-\/>second] = i;}
+\DoxyCodeLine{00113             network.superparticles[network.spid[i]].particles.erase(it);}
+\DoxyCodeLine{00114         \}}
+\DoxyCodeLine{00115         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} ftype:network.forcelibrary) \textcolor{keywordflow}{if}(!ftype.particles.empty()) iter\_swap(ftype.particles.begin()+i,ftype.particles.rbegin());}
+\DoxyCodeLine{00116     \}}
+\DoxyCodeLine{00117     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} ftype:network.forcelibrary) \textcolor{keywordflow}{if}(!ftype.particles.empty())}
+\DoxyCodeLine{00118     \{}
+\DoxyCodeLine{00119         ftype.particles.pop\_back();}
+\DoxyCodeLine{00120         \textcolor{keywordflow}{for}(j=0;j<N-\/1;j++) \textcolor{keywordflow}{for}(k=ftype.particles[j].size()-\/1;k<\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}};k-\/-\/) \textcolor{keywordflow}{if}(ftype.particles[j][k]==i)}
+\DoxyCodeLine{00121         \{}
+\DoxyCodeLine{00122             iter\_swap(ftype.particles[j].begin()+k,ftype.particles[j].rbegin());}
+\DoxyCodeLine{00123             ftype.particles[j].pop\_back();}
+\DoxyCodeLine{00124         \}}
+\DoxyCodeLine{00125     \}}
+\DoxyCodeLine{00126     \textcolor{keywordflow}{if}(i<N-\/1) \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} ftype:network.forcelibrary) \textcolor{keywordflow}{if}(!ftype.particles.empty()) \textcolor{keywordflow}{for}(j=0;j<N-\/1;j++) \textcolor{keywordflow}{for}(k=ftype.particles[j].size()-\/1;k<\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}};k-\/-\/) \textcolor{keywordflow}{if}(ftype.particles[j][k]==N-\/1) ftype.particles[j][k]=i;}
+\DoxyCodeLine{00127     \textcolor{comment}{// Modify skins}}
+\DoxyCodeLine{00128     \textcolor{keywordflow}{for} (j = network.skins[N-\/1].size()-\/1; j < \mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}}; j-\/-\/)}
+\DoxyCodeLine{00129     \{   p = network.skins[N-\/1][j].neighbor;}
+\DoxyCodeLine{00130         \textcolor{keywordflow}{for} (k = network.skins[p].size()-\/1; k < \mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}} \&\& network.skins[p][k].neighbor != i; k-\/-\/);}
+\DoxyCodeLine{00131         \textcolor{keywordflow}{if} (k > N)}
+\DoxyCodeLine{00132         \{   \mbox{\hyperlink{macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_a4d48c340b3c83579a8d58cb20a320f84}{ERROR}}(\textcolor{stringliteral}{"particle to be deleted not found in skinlist of particle \#\%d"}, p);}
+\DoxyCodeLine{00133             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00134         \}}
+\DoxyCodeLine{00135         iter\_swap(network.skins[p].begin()+k, network.skins[p].rbegin());}
+\DoxyCodeLine{00136         network.skins[p].pop\_back();}
+\DoxyCodeLine{00137     \}}
+\DoxyCodeLine{00138     \textcolor{comment}{// Remove last particle}}
+\DoxyCodeLine{00139     N-\/-\/;}
+\DoxyCodeLine{00140     particles.pop\_back();}
+\DoxyCodeLine{00141     network.skins.pop\_back();}
+\DoxyCodeLine{00142     network.forces.pop\_back();}
+\DoxyCodeLine{00143     network.spid.pop\_back();}
+\DoxyCodeLine{00144     avars.reindex=\textcolor{keyword}{true};}
+\DoxyCodeLine{00145 \}}
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00147}\mbox{\hyperlink{structmd_af422857393efc3ab9e748f12efc87f4d_af422857393efc3ab9e748f12efc87f4d}{00147}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_af422857393efc3ab9e748f12efc87f4d_af422857393efc3ab9e748f12efc87f4d}{md<dim>::fix\_particle}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\textcolor{keywordtype}{bool} fix)}
+\DoxyCodeLine{00148 \{}
+\DoxyCodeLine{00152     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"\%sfixing particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{""},fix?\textcolor{stringliteral}{""}:\textcolor{stringliteral}{"un"},i);}
+\DoxyCodeLine{00153     particles[i].fix=fix;}
+\DoxyCodeLine{00154 \}}
+\DoxyCodeLine{00155 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00156}\mbox{\hyperlink{structmd_abbcc719c7c9820380432e5f1c0dc25c6_abbcc719c7c9820380432e5f1c0dc25c6}{00156}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structmd_abbcc719c7c9820380432e5f1c0dc25c6_abbcc719c7c9820380432e5f1c0dc25c6}{md<dim>::clone\_particle}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim])}
+\DoxyCodeLine{00157 \{}
+\DoxyCodeLine{00163     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"cloning particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{""},i);}
+\DoxyCodeLine{00164     \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} retval=add\_particle();}
+\DoxyCodeLine{00165     particles[retval]=particles[i];}
+\DoxyCodeLine{00166     translate\_particle(retval,x);}
+\DoxyCodeLine{00167     network.forces[retval]=network.forces[i];}
+\DoxyCodeLine{00168     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} j:network.forces[i]) \textcolor{keywordflow}{if}(!network.forcelibrary[j].particles.empty()) network.forcelibrary[j].particles[retval]=network.forcelibrary[j].particles[i];}
+\DoxyCodeLine{00169     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} f:network.forcelibrary) \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} u:f.particles) \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} v:u) \textcolor{keywordflow}{if}(v==i) u.push\_back(retval);}
+\DoxyCodeLine{00170     \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{00171 \}}
+\DoxyCodeLine{00172 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00173}\mbox{\hyperlink{structmd_ab7ca8226b0ce940a1da8554fe6de0daf_ab7ca8226b0ce940a1da8554fe6de0daf}{00173}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_ab7ca8226b0ce940a1da8554fe6de0daf_ab7ca8226b0ce940a1da8554fe6de0daf}{md<dim>::translate\_particle}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim])}
+\DoxyCodeLine{00174 \{}
+\DoxyCodeLine{00178     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"translating particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{""},i);}
+\DoxyCodeLine{00179     avars.export\_force\_calc=\textcolor{keyword}{true};}
+\DoxyCodeLine{00180     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++)}
+\DoxyCodeLine{00181     \{}
+\DoxyCodeLine{00182         particles[i].x[d]+=x[d];}
+\DoxyCodeLine{00183         particles[i].xp[d]+=x[d];}
+\DoxyCodeLine{00184     \}}
+\DoxyCodeLine{00185     thread\_periodicity(i);}
+\DoxyCodeLine{00186     avars.reindex=\textcolor{keyword}{true};}
+\DoxyCodeLine{00187 \}}
+\DoxyCodeLine{00188 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00189}\mbox{\hyperlink{structmd_a49ad95110ab2d8da99612f85cc0352d1_a49ad95110ab2d8da99612f85cc0352d1}{00189}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_a49ad95110ab2d8da99612f85cc0352d1_a49ad95110ab2d8da99612f85cc0352d1}{md<dim>::drift\_particle}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} dx[dim])}
+\DoxyCodeLine{00190 \{}
+\DoxyCodeLine{00194     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"drifting particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{""},i);}
+\DoxyCodeLine{00195     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) particles[i].dx[d]+=dx[d];}
+\DoxyCodeLine{00196 \}}
+\DoxyCodeLine{00197 }
+\DoxyCodeLine{\Hypertarget{particles_8md_8libmd_8cc_source_l00198}\mbox{\hyperlink{structmd_a5cacfed9b123e805170870e8aed6790c_a5cacfed9b123e805170870e8aed6790c}{00198}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmd_a5cacfed9b123e805170870e8aed6790c_a5cacfed9b123e805170870e8aed6790c}{md<dim>::heat\_particle}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} lambda)}
+\DoxyCodeLine{00199 \{}
+\DoxyCodeLine{00203     \mbox{\hyperlink{macros_8libmd_8h_acbe5e8b99e25562e699538dea76d37fa_acbe5e8b99e25562e699538dea76d37fa}{DEBUG\_2}}(\textcolor{stringliteral}{"heating particle \#"} \mbox{\hyperlink{libmd_8h_a0912422c5c51b0116165d1714a0a56a7_a0912422c5c51b0116165d1714a0a56a7}{F\_UI}} \textcolor{stringliteral}{""},i);}
+\DoxyCodeLine{00204     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) particles[i].dx[d]*=lambda;}
+\DoxyCodeLine{00205 \}}
+
+\end{DoxyCode}

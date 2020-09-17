@@ -1,0 +1,196 @@
+.TH "box< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+box< dim > \- This structure contains information about the simulation box\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbox\fP ()"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "void \fBshear_boundary\fP (\fBui\fP i, \fBui\fP j, \fBldf\fP velocity)"
+.br
+.RI "Set up boundary shear velocity in direction i of boundary with normal direction j\&. "
+.ti -1c
+.RI "void \fBskew_boundary\fP (\fBui\fP i, \fBui\fP j, \fBldf\fP displacement)"
+.br
+.RI "Skew the simulation box by moving boundary with normal direction j by amount 'displacement' in direction i\&. "
+.ti -1c
+.RI "void \fBinvert_box\fP ()"
+.br
+.RI "Invert the Lshear[][] box matrix\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBldf\fP \fBL\fP [dim]"
+.br
+.RI "Box size\&. "
+.ti -1c
+.RI "bool \fBuseLshear\fP"
+.br
+.RI "Use sheared box matrix\&. "
+.ti -1c
+.RI "\fBldf\fP \fBvshear\fP [dim][dim]"
+.br
+.RI "Shear velocity vshear[i][j] is shear velocity in direction i of boundary with normal in direction j\&. currently vshear[i][i] != 0 results in undefined behaviour\&. "
+.ti -1c
+.RI "\fBldf\fP \fBLshear\fP [dim][dim]"
+.br
+.RI "Box matrix that is updated at each time step\&. Used to compute distances for shear, in lieu of simbox\&.L\&. "
+.ti -1c
+.RI "\fBldf\fP \fBLshearInv\fP [dim][dim]"
+.br
+.RI "Inverse of Lshear[][]\&. "
+.ti -1c
+.RI "\fBuc\fP \fBbcond\fP [dim]"
+.br
+.RI "Boundary conditions in different dimensions NONE/PERIODIC/HARD/BOXSHEAR\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct box< dim >"
+This structure contains information about the simulation box\&. 
+.PP
+Definition at line 150 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<ui dim> \fBbox\fP< dim >::\fBbox\fP"
+
+.PP
+Constructor\&. Constructer for the system box\&. Assigns memory to the arrays that store the box size, boundary conditions, and shear conditions, all of which depend on the dimension \fCdim\fP\&.
+.PP
+Definition at line 8 of file box\&.libmd\&.cc\&.
+.PP
+.nf
+9 {
+15     memset(bcond,0,dim*sizeof(uc));
+16     for(ui d=0;d<dim;d++) L[d]=10\&.0;
+17     memset(vshear,0,dim*dim*sizeof(ldf));
+18     memset(Lshear,0,dim*dim*sizeof(ldf));
+19     memset(LshearInv,0,dim*dim*sizeof(ldf));
+20     for(ui d=0;d<dim;d++) Lshear[d][d]=L[d],LshearInv[d][d]=1\&.0/L[d];
+21     useLshear=false;
+22 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "template<ui dim> void \fBbox\fP< dim >::invert_box"
+
+.PP
+Invert the Lshear[][] box matrix\&. Invert the system box \fCmatrix\fP \fBbox<dim>::Lshear\fP and store the result in \fC\fBbox<dim>::LshearInv\fP\fP\&.
+.PP
+Definition at line 158 of file box\&.libmd\&.cc\&.
+.PP
+.nf
+159 {
+164     ldf d = det(Lshear, LshearInv);
+165     if (std::abs(d) < mxinv_eps) {
+166         ERROR("singular matrix encountered during box matrix inversion");
+167         exit(EXIT_FAILURE);
+168     }
+169 }
+.fi
+.PP
+References abs(), det(), ERROR, and mxinv_eps\&.
+.SS "template<ui dim> void \fBbox\fP< dim >::shear_boundary (\fBui\fP i, \fBui\fP j, \fBldf\fP velocity)"
+
+.PP
+Set up boundary shear velocity in direction i of boundary with normal direction j\&. Apply a dynamic shear to the boundary normal to spatial dimension \fCj\fP by shear speed \fCvelocity\fP in direction \fCi\fP\&. Requires $i\neq j$\&.
+.PP
+Definition at line 24 of file box\&.libmd\&.cc\&.
+.PP
+.nf
+25 {
+30     if(i==j)
+31     {
+32         ERROR("shear velocity must be perpendicular to boundary");
+33         exit(EXIT_FAILURE);
+34     }
+35     vshear[i][j]=velocity;
+36     for(ui d=0;d<dim;d++) Lshear[d][d]=L[d],LshearInv[d][d]=1\&.0/L[d];
+37     useLshear=true;
+38     bcond[j]=BCOND::BOXSHEAR;
+39 }
+.fi
+.PP
+References BCOND::BOXSHEAR, and ERROR\&.
+.SS "template<ui dim> void \fBbox\fP< dim >::skew_boundary (\fBui\fP i, \fBui\fP j, \fBldf\fP displacement)"
+
+.PP
+Skew the simulation box by moving boundary with normal direction j by amount 'displacement' in direction i\&. Apply a static shear by displacing the boundary normal to spatial dimension \fCj\fP in direction \fCi\fP by an amount \fCdisplacement\fP\&. Requires $i\neq j$\&. The boundary conditions in dimension j must be set to BOXSHEAR (set by default) or HARD; particle dynamics do not respect the shear if PERIODIC is used\&.
+.PP
+Definition at line 41 of file box\&.libmd\&.cc\&.
+.PP
+.nf
+42 {
+50     if(i==j)
+51     {
+52         ERROR("shear displacement must be perpendicular to boundary");
+53         exit(EXIT_FAILURE);
+54     }
+55     memset(Lshear,0,dim*dim*sizeof(ldf));
+56     for(ui d=0;d<dim;d++) Lshear[d][d]=L[d];
+57     Lshear[i][j]=displacement;
+58     useLshear=true;
+59     bcond[j]=BCOND::BOXSHEAR;
+60     invert_box();
+61 }
+.fi
+.PP
+References BCOND::BOXSHEAR, and ERROR\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> \fBuc\fP \fBbox\fP< dim >::\fBbcond\fP[dim]"
+
+.PP
+Boundary conditions in different dimensions NONE/PERIODIC/HARD/BOXSHEAR\&. 
+.PP
+Definition at line 157 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBbox\fP< dim >::L[dim]"
+
+.PP
+Box size\&. 
+.PP
+Definition at line 152 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBbox\fP< dim >::Lshear[dim][dim]"
+
+.PP
+Box matrix that is updated at each time step\&. Used to compute distances for shear, in lieu of simbox\&.L\&. 
+.PP
+Definition at line 155 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBbox\fP< dim >::LshearInv[dim][dim]"
+
+.PP
+Inverse of Lshear[][]\&. 
+.PP
+Definition at line 156 of file libmd\&.h\&.
+.SS "template<ui dim> bool \fBbox\fP< dim >::useLshear"
+
+.PP
+Use sheared box matrix\&. 
+.PP
+Definition at line 153 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBbox\fP< dim >::vshear[dim][dim]"
+
+.PP
+Shear velocity vshear[i][j] is shear velocity in direction i of boundary with normal in direction j\&. currently vshear[i][i] != 0 results in undefined behaviour\&. 
+.PP
+Definition at line 154 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

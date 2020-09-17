@@ -1,0 +1,43 @@
+\hypertarget{externalforces_8libmd_8cc_source}{}\doxysection{externalforces.\+libmd.\+cc}
+\label{externalforces_8libmd_8cc_source}\index{libmd-\/src/externalforces.libmd.cc@{libmd-\/src/externalforces.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{externalforces_8libmd_8cc_source_l00001}\mbox{\hyperlink{externalforces_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{externalforces_8libmd_8cc_source_l00006}\mbox{\hyperlink{structforcetype_af79fc09be50c4021511300f86b150462_af79fc09be50c4021511300f86b150462}{00006}} \mbox{\hyperlink{structforcetype_af79fc09be50c4021511300f86b150462_af79fc09be50c4021511300f86b150462}{forcetype::forcetype}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} noexternalforce,std::vector<ldf> \&param)}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00014     \mbox{\hyperlink{structforcetype_a577e697b04f3a02bc6dd84e5c95eff46_a577e697b04f3a02bc6dd84e5c95eff46}{externalforce}}=noexternalforce;}
+\DoxyCodeLine{00015     \mbox{\hyperlink{structforcetype_a94d2d4c899b3eec0942d8ac97e1bb0e5_a94d2d4c899b3eec0942d8ac97e1bb0e5}{parameters}}=param;}
+\DoxyCodeLine{00016 \}}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{\Hypertarget{externalforces_8libmd_8cc_source_l00018}\mbox{\hyperlink{structforcetype_adeb24b464e1967ff9c50a0e950337f6f_adeb24b464e1967ff9c50a0e950337f6f}{00018}} \mbox{\hyperlink{structforcetype_af79fc09be50c4021511300f86b150462_af79fc09be50c4021511300f86b150462}{forcetype::forcetype}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} noexternalforce,std::vector<std::vector<ui>> \&plist,std::vector<ldf> \&param)}
+\DoxyCodeLine{00019 \{}
+\DoxyCodeLine{00026     \mbox{\hyperlink{structforcetype_a577e697b04f3a02bc6dd84e5c95eff46_a577e697b04f3a02bc6dd84e5c95eff46}{externalforce}}=noexternalforce;}
+\DoxyCodeLine{00027     \mbox{\hyperlink{structforcetype_a4d782a9545463e77479735375ff59b8f_a4d782a9545463e77479735375ff59b8f}{particles}}=plist;}
+\DoxyCodeLine{00028     \mbox{\hyperlink{structforcetype_a94d2d4c899b3eec0942d8ac97e1bb0e5_a94d2d4c899b3eec0942d8ac97e1bb0e5}{parameters}}=param;}
+\DoxyCodeLine{00029 \}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{\Hypertarget{externalforces_8libmd_8cc_source_l00031}\mbox{\hyperlink{structexternalforces_a2c64201093453180e1205e6cffd7c387_a2c64201093453180e1205e6cffd7c387}{00031}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structexternalforces_a2c64201093453180e1205e6cffd7c387_a2c64201093453180e1205e6cffd7c387}{externalforces<dim>::externalforces}}()}
+\DoxyCodeLine{00032 \{}
+\DoxyCodeLine{00037     extforces.reserve(8);}
+\DoxyCodeLine{00038     add(DAMPING<dim>);}
+\DoxyCodeLine{00039     add(DISSIPATION<dim>);}
+\DoxyCodeLine{00040     add(LANGEVIN<dim>);}
+\DoxyCodeLine{00041     add(LANGEVIN\_MP<dim>);}
+\DoxyCodeLine{00042 \}}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{\Hypertarget{externalforces_8libmd_8cc_source_l00044}\mbox{\hyperlink{structexternalforces_a81e85285b5d21febef146fe13bdb50a5_a81e85285b5d21febef146fe13bdb50a5}{00044}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structexternalforces_a81e85285b5d21febef146fe13bdb50a5_a81e85285b5d21febef146fe13bdb50a5}{externalforces<dim>::add}}(\mbox{\hyperlink{libmd_8h_ab1124464203265bb807f6c210d35fe1f_ab1124464203265bb807f6c210d35fe1f}{extforceptr<dim>}} p)}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00049     extforces.push\_back(p);}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{return} extforces.size()-\/1;}
+\DoxyCodeLine{00051 \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{\Hypertarget{externalforces_8libmd_8cc_source_l00053}\mbox{\hyperlink{structexternalforces_a4b07232d90c5611b30b7ee80f485a526_a4b07232d90c5611b30b7ee80f485a526}{00053}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structexternalforces_a4b07232d90c5611b30b7ee80f485a526_a4b07232d90c5611b30b7ee80f485a526}{externalforces<dim>::operator()}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} type,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,std::vector<ui> \&particles,std::vector<ldf> \&parameters,\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00059     extforces[type](i,particles,parameters,sys);}
+\DoxyCodeLine{00060 \}}
+
+\end{DoxyCode}

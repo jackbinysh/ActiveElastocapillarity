@@ -1,0 +1,317 @@
+\hypertarget{structinteract}{}\doxysection{interact Struct Reference}
+\label{structinteract}\index{interact@{interact}}
+
+
+This structure stores all interactions and their types.  
+
+
+
+
+{\ttfamily \#include $<$libmd.\+h$>$}
+
+
+
+Collaboration diagram for interact\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structinteract_a0b34548f605a0ce39da27ee02987b4c2_a0b34548f605a0ce39da27ee02987b4c2}{interact}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+std\+::pair$<$ \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$ \mbox{\hyperlink{structinteract_a76024164f4222520891100ca4ee5a08a_a76024164f4222520891100ca4ee5a08a}{hash}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} type1, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} type2)
+\begin{DoxyCompactList}\small\item\em Hash function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structinteract_a6f86d9c3df947bdd657c44390abab72c_a6f86d9c3df947bdd657c44390abab72c}{probe}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} type1, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} type2)
+\begin{DoxyCompactList}\small\item\em Check if a typeinteraction exists between two types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structinteract_a5310ce4f5bb32fe441521a78abcc7784_a5310ce4f5bb32fe441521a78abcc7784}{update}}
+\begin{DoxyCompactList}\small\item\em Should we update the network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structinteract_ae41b540ed77b26480e6c6c7f484608db_ae41b540ed77b26480e6c6c7f484608db}{rco}}
+\begin{DoxyCompactList}\small\item\em Default R\+\_\+cutoff radius. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structinteract_a16ae78138343a7a5ff3f57687f8172b4_a16ae78138343a7a5ff3f57687f8172b4}{ssz}}
+\begin{DoxyCompactList}\small\item\em Skin radius. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$ $>$ \mbox{\hyperlink{structinteract_af42b3400b9c0c05d638b9792f478cf9f_af42b3400b9c0c05d638b9792f478cf9f}{forces}}
+\begin{DoxyCompactList}\small\item\em List of external forces acting on the particles. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structforcetype}{forcetype}} $>$ \mbox{\hyperlink{structinteract_a491c9e96c205a615dd48e8b647454039_a491c9e96c205a615dd48e8b647454039}{forcelibrary}}
+\begin{DoxyCompactList}\small\item\em Library of external forces. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structinteractionneighbor}{interactionneighbor}} $>$ $>$ \mbox{\hyperlink{structinteract_a84a5ad2021a291fda168fe844f9101e7_a84a5ad2021a291fda168fe844f9101e7}{skins}}
+\begin{DoxyCompactList}\small\item\em Particle skin by index (array of vector) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structinteractiontype}{interactiontype}} $>$ \mbox{\hyperlink{structinteract_ac5e537a47260fa1f480711abcd010f3f_ac5e537a47260fa1f480711abcd010f3f}{library}}
+\begin{DoxyCompactList}\small\item\em This is the interaction library. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$ \mbox{\hyperlink{structinteract_ad2e1bd1f153d755e33a79fc2690a4bd7_ad2e1bd1f153d755e33a79fc2690a4bd7}{free\+\_\+library\+\_\+slots}}
+\begin{DoxyCompactList}\small\item\em Stores free library slots. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::pair$<$ \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$ \mbox{\hyperlink{structinteract_a8bad844c287888aadf5e3166a6786cf5_a8bad844c287888aadf5e3166a6786cf5}{lookup}}
+\begin{DoxyCompactList}\small\item\em This is the interaction lookup device. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$ \mbox{\hyperlink{structinteract_aabbe16f4de75ee8aea0c85184095af48_aabbe16f4de75ee8aea0c85184095af48}{spid}}
+\begin{DoxyCompactList}\small\item\em Super particle identifier array. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structsuperparticle}{superparticle}} $>$ \mbox{\hyperlink{structinteract_a38a3de4df5591f57d3fef145124d2e66_a38a3de4df5591f57d3fef145124d2e66}{superparticles}}
+\begin{DoxyCompactList}\small\item\em Actual super particle array. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structsuperparticletype}{superparticletype}} $>$ \mbox{\hyperlink{structinteract_a481721e7e08c9a7c1442cae21127dc16_a481721e7e08c9a7c1442cae21127dc16}{sptypes}}
+\begin{DoxyCompactList}\small\item\em Super particle type array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This structure stores all interactions and their types. 
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00226}{226}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structinteract_a0b34548f605a0ce39da27ee02987b4c2_a0b34548f605a0ce39da27ee02987b4c2}\label{structinteract_a0b34548f605a0ce39da27ee02987b4c2_a0b34548f605a0ce39da27ee02987b4c2}} 
+\index{interact@{interact}!interact@{interact}}
+\index{interact@{interact}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{interact()}{interact()}}
+{\footnotesize\ttfamily interact\+::interact (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructor for interact. Sets {\ttfamily update} to {\ttfamily true} and both {\ttfamily rco} and {\ttfamily ssz} to 1.
+
+Definition at line \mbox{\hyperlink{interact_8libmd_8cc_source_l00028}{28}} of file \mbox{\hyperlink{interact_8libmd_8cc_source}{interact.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029 \{}
+\DoxyCodeLine{00034     \mbox{\hyperlink{structinteract_a5310ce4f5bb32fe441521a78abcc7784_a5310ce4f5bb32fe441521a78abcc7784}{update}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{00035     \mbox{\hyperlink{structinteract_ae41b540ed77b26480e6c6c7f484608db_ae41b540ed77b26480e6c6c7f484608db}{rco}}=\mbox{\hyperlink{structinteract_a16ae78138343a7a5ff3f57687f8172b4_a16ae78138343a7a5ff3f57687f8172b4}{ssz}}=1.0;}
+\DoxyCodeLine{00036 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00229}{rco}}, \mbox{\hyperlink{libmd_8h_source_l00230}{ssz}}, and \mbox{\hyperlink{libmd_8h_source_l00228}{update}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structinteract_a76024164f4222520891100ca4ee5a08a_a76024164f4222520891100ca4ee5a08a}\label{structinteract_a76024164f4222520891100ca4ee5a08a_a76024164f4222520891100ca4ee5a08a}} 
+\index{interact@{interact}!hash@{hash}}
+\index{hash@{hash}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
+{\footnotesize\ttfamily std\+::pair$<$ \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$ interact\+::hash (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{type1,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{type2 }\end{DoxyParamCaption})}
+
+
+
+Hash function. 
+
+Returns a pair containing {\ttfamily type1} and {\ttfamily type2} with the largest of the two as the first.
+
+Definition at line \mbox{\hyperlink{interact_8libmd_8cc_source_l00038}{38}} of file \mbox{\hyperlink{interact_8libmd_8cc_source}{interact.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039 \{}
+\DoxyCodeLine{00043     \textcolor{keywordflow}{return} (type2>type1)?std::pair<ui,ui>(type2,type1):std::pair<\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}},\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}>(type1,type2);}
+\DoxyCodeLine{00044 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{structinteract_a6f86d9c3df947bdd657c44390abab72c_a6f86d9c3df947bdd657c44390abab72c}\label{structinteract_a6f86d9c3df947bdd657c44390abab72c_a6f86d9c3df947bdd657c44390abab72c}} 
+\index{interact@{interact}!probe@{probe}}
+\index{probe@{probe}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{probe()}{probe()}}
+{\footnotesize\ttfamily bool interact\+::probe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{type1,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{type2 }\end{DoxyParamCaption})}
+
+
+
+Check if a typeinteraction exists between two types. 
+
+Returns whether there is an interaction associated with {\ttfamily type1} and {\ttfamily type2}.
+
+Definition at line \mbox{\hyperlink{interact_8libmd_8cc_source_l00046}{46}} of file \mbox{\hyperlink{interact_8libmd_8cc_source}{interact.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047 \{}
+\DoxyCodeLine{00051     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{bool}\textcolor{keyword}{>}(\mbox{\hyperlink{structinteract_a8bad844c287888aadf5e3166a6786cf5_a8bad844c287888aadf5e3166a6786cf5}{lookup}}.count(\mbox{\hyperlink{structinteract_a76024164f4222520891100ca4ee5a08a_a76024164f4222520891100ca4ee5a08a}{hash}}(type1,type2)));}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{interact_8libmd_8cc_source_l00038}{hash()}}, and \mbox{\hyperlink{libmd_8h_source_l00236}{lookup}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structinteract_a491c9e96c205a615dd48e8b647454039_a491c9e96c205a615dd48e8b647454039}\label{structinteract_a491c9e96c205a615dd48e8b647454039_a491c9e96c205a615dd48e8b647454039}} 
+\index{interact@{interact}!forcelibrary@{forcelibrary}}
+\index{forcelibrary@{forcelibrary}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{forcelibrary}{forcelibrary}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structforcetype}{forcetype}}$>$ interact\+::forcelibrary}
+
+
+
+Library of external forces. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00232}{232}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_af42b3400b9c0c05d638b9792f478cf9f_af42b3400b9c0c05d638b9792f478cf9f}\label{structinteract_af42b3400b9c0c05d638b9792f478cf9f_af42b3400b9c0c05d638b9792f478cf9f}} 
+\index{interact@{interact}!forces@{forces}}
+\index{forces@{forces}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{forces}{forces}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}$>$ $>$ interact\+::forces}
+
+
+
+List of external forces acting on the particles. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00231}{231}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_ad2e1bd1f153d755e33a79fc2690a4bd7_ad2e1bd1f153d755e33a79fc2690a4bd7}\label{structinteract_ad2e1bd1f153d755e33a79fc2690a4bd7_ad2e1bd1f153d755e33a79fc2690a4bd7}} 
+\index{interact@{interact}!free\_library\_slots@{free\_library\_slots}}
+\index{free\_library\_slots@{free\_library\_slots}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{free\_library\_slots}{free\_library\_slots}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+set$<$\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}$>$ interact\+::free\+\_\+library\+\_\+slots}
+
+
+
+Stores free library slots. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00235}{235}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_ac5e537a47260fa1f480711abcd010f3f_ac5e537a47260fa1f480711abcd010f3f}\label{structinteract_ac5e537a47260fa1f480711abcd010f3f_ac5e537a47260fa1f480711abcd010f3f}} 
+\index{interact@{interact}!library@{library}}
+\index{library@{library}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{library}{library}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structinteractiontype}{interactiontype}}$>$ interact\+::library}
+
+
+
+This is the interaction library. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00234}{234}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_a8bad844c287888aadf5e3166a6786cf5_a8bad844c287888aadf5e3166a6786cf5}\label{structinteract_a8bad844c287888aadf5e3166a6786cf5_a8bad844c287888aadf5e3166a6786cf5}} 
+\index{interact@{interact}!lookup@{lookup}}
+\index{lookup@{lookup}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{lookup}{lookup}}
+{\footnotesize\ttfamily std\+::map$<$std\+::pair$<$\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}},\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}$>$,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}$>$ interact\+::lookup}
+
+
+
+This is the interaction lookup device. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00236}{236}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_ae41b540ed77b26480e6c6c7f484608db_ae41b540ed77b26480e6c6c7f484608db}\label{structinteract_ae41b540ed77b26480e6c6c7f484608db_ae41b540ed77b26480e6c6c7f484608db}} 
+\index{interact@{interact}!rco@{rco}}
+\index{rco@{rco}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{rco}{rco}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} interact\+::rco}
+
+
+
+Default R\+\_\+cutoff radius. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00229}{229}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_a84a5ad2021a291fda168fe844f9101e7_a84a5ad2021a291fda168fe844f9101e7}\label{structinteract_a84a5ad2021a291fda168fe844f9101e7_a84a5ad2021a291fda168fe844f9101e7}} 
+\index{interact@{interact}!skins@{skins}}
+\index{skins@{skins}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{skins}{skins}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{structinteractionneighbor}{interactionneighbor}}$>$ $>$ interact\+::skins}
+
+
+
+Particle skin by index (array of vector) 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00233}{233}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_aabbe16f4de75ee8aea0c85184095af48_aabbe16f4de75ee8aea0c85184095af48}\label{structinteract_aabbe16f4de75ee8aea0c85184095af48_aabbe16f4de75ee8aea0c85184095af48}} 
+\index{interact@{interact}!spid@{spid}}
+\index{spid@{spid}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{spid}{spid}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}$>$ interact\+::spid}
+
+
+
+Super particle identifier array. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00237}{237}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_a481721e7e08c9a7c1442cae21127dc16_a481721e7e08c9a7c1442cae21127dc16}\label{structinteract_a481721e7e08c9a7c1442cae21127dc16_a481721e7e08c9a7c1442cae21127dc16}} 
+\index{interact@{interact}!sptypes@{sptypes}}
+\index{sptypes@{sptypes}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{sptypes}{sptypes}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structsuperparticletype}{superparticletype}}$>$ interact\+::sptypes}
+
+
+
+Super particle type array. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00239}{239}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_a16ae78138343a7a5ff3f57687f8172b4_a16ae78138343a7a5ff3f57687f8172b4}\label{structinteract_a16ae78138343a7a5ff3f57687f8172b4_a16ae78138343a7a5ff3f57687f8172b4}} 
+\index{interact@{interact}!ssz@{ssz}}
+\index{ssz@{ssz}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{ssz}{ssz}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} interact\+::ssz}
+
+
+
+Skin radius. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00230}{230}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_a38a3de4df5591f57d3fef145124d2e66_a38a3de4df5591f57d3fef145124d2e66}\label{structinteract_a38a3de4df5591f57d3fef145124d2e66_a38a3de4df5591f57d3fef145124d2e66}} 
+\index{interact@{interact}!superparticles@{superparticles}}
+\index{superparticles@{superparticles}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{superparticles}{superparticles}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structsuperparticle}{superparticle}}$>$ interact\+::superparticles}
+
+
+
+Actual super particle array. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00238}{238}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteract_a5310ce4f5bb32fe441521a78abcc7784_a5310ce4f5bb32fe441521a78abcc7784}\label{structinteract_a5310ce4f5bb32fe441521a78abcc7784_a5310ce4f5bb32fe441521a78abcc7784}} 
+\index{interact@{interact}!update@{update}}
+\index{update@{update}!interact@{interact}}
+\doxysubsubsection{\texorpdfstring{update}{update}}
+{\footnotesize\ttfamily bool interact\+::update}
+
+
+
+Should we update the network. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00228}{228}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h}{libmd.\+h}}\item 
+libmd-\/src/\mbox{\hyperlink{interact_8libmd_8cc}{interact.\+libmd.\+cc}}\end{DoxyCompactItemize}

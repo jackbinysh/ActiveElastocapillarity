@@ -1,0 +1,493 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structmp" kind="struct" language="C++" prot="public">
+    <compoundname>mp</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmp_ad6ec8a5ec8ec1e903b86c9b9ece69409_1ad6ec8a5ec8ec1e903b86c9b9ece69409" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui mp&lt; dim &gt;::patch</definition>
+        <argsstring></argsstring>
+        <name>patch</name>
+        <briefdescription>
+<para>Monge patch type number UI_MAX is custom. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="593" column="8" bodyfile="libmd.h" bodystart="593" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmp_a06b120f40591cdd3a42054f4672f20d2_1a06b120f40591cdd3a42054f4672f20d2" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt;</type>
+        <definition>std::vector&lt;ldf&gt; mp&lt; dim &gt;::parameters</definition>
+        <argsstring></argsstring>
+        <name>parameters</name>
+        <briefdescription>
+<para>Monge patch function parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="594" column="17" bodyfile="libmd.h" bodystart="594" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmp_aa954dde36b697f4a631008ee600989e1_1aa954dde36b697f4a631008ee600989e1" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_1a9a9e79dbea056167398a2d694c43ff3a" kindref="member">fmpptr</ref>&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>, dim &gt;</type>
+        <definition>fmpptr&lt;ldf,dim&gt; mp&lt; dim &gt;::fmp</definition>
+        <argsstring></argsstring>
+        <name>fmp</name>
+        <briefdescription>
+<para>Monge patch function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="595" column="12" bodyfile="libmd.h" bodystart="595" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmp_a4bb9d4749f7a1b32e36e523e31c924bc_1a4bb9d4749f7a1b32e36e523e31c924bc" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_1a9a9e79dbea056167398a2d694c43ff3a" kindref="member">fmpptr</ref>&lt; <ref refid="structduals" kindref="compound">duals</ref>&lt; dim &gt;, dim &gt;</type>
+        <definition>fmpptr&lt;duals&lt;dim&gt;,dim&gt; mp&lt; dim &gt;::dfmp</definition>
+        <argsstring></argsstring>
+        <name>dfmp</name>
+        <briefdescription>
+<para>Derivatives of monge function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="596" column="12" bodyfile="libmd.h" bodystart="596" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmp_aa05130bd0c740b9ddd06f682aabf7817_1aa05130bd0c740b9ddd06f682aabf7817" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structduals" kindref="compound">duals</ref>&lt; dim &gt; &gt;</type>
+        <definition>std::vector&lt;duals&lt;dim&gt; &gt; mp&lt; dim &gt;::geometryx</definition>
+        <argsstring></argsstring>
+        <name>geometryx</name>
+        <briefdescription>
+<para>Geometric information for particle i in position at position x. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="597" column="17" bodyfile="libmd.h" bodystart="597" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmp_a166c4d14cbf5b00f483c219f9796e7f2_1a166c4d14cbf5b00f483c219f9796e7f2" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structduals" kindref="compound">duals</ref>&lt; dim &gt; &gt;</type>
+        <definition>std::vector&lt;duals&lt;dim&gt; &gt; mp&lt; dim &gt;::geometryxp</definition>
+        <argsstring></argsstring>
+        <name>geometryxp</name>
+        <briefdescription>
+<para>Geometric information for particle i in position at position xp. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="598" column="17" bodyfile="libmd.h" bodystart="598" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmp_a8edf03f32a1158b6b200112c45afd381_1a8edf03f32a1158b6b200112c45afd381" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mp&lt; dim &gt;::mp</definition>
+        <argsstring>()</argsstring>
+        <name>mp</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Constructor for the mp&lt;dim&gt; class By default loads a FLATSPACE Monge patch by calling setmp</para>
+        </inbodydescription>
+        <location file="libmd.h" line="600" column="5" bodyfile="libmd-src/mp.libmd.cc" bodystart="6" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structmp_a08440a1cc2f41c677690398276a63ac6_1a08440a1cc2f41c677690398276a63ac6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mp&lt; dim &gt;::setmp</definition>
+        <argsstring>(ui i=MP::FLATSPACE)</argsstring>
+        <name>setmp</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+          <defval><ref refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9adec67112fb78f6a886ffbf84d7bb596a" kindref="member">MP::FLATSPACE</ref></defval>
+        </param>
+        <briefdescription>
+<para>Picks one of the builtin Monge patches. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Sets a builtin Monge patch <computeroutput>i</computeroutput> can be a <computeroutput>ui</computeroutput> or <computeroutput><ref refid="struct_m_p" kindref="compound">MP</ref> enum</computeroutput> type e.g. <computeroutput><ref refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9adec67112fb78f6a886ffbf84d7bb596a" kindref="member">MP::FLATSPACE</ref></computeroutput> (default e.g. <computeroutput><ref refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9adec67112fb78f6a886ffbf84d7bb596a" kindref="member">MP::FLATSPACE</ref></computeroutput> (default).</para>
+        </inbodydescription>
+        <location file="libmd.h" line="602" column="10" bodyfile="libmd-src/mp.libmd.cc" bodystart="15" bodyend="45"/>
+        <references refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9a57287ee702e8423d46fa6c8229f8f043" compoundref="enums_8libmd_8h" startline="33">MP::EGGCARTON</references>
+        <references refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9a96545e5f2db8005d444fcaa0f9ef2bea" compoundref="enums_8libmd_8h" startline="32">MP::GAUSSIANBUMP</references>
+        <references refid="struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_1a8b6b43a623ba90f509955017b7ef85c9a9755c7ac619c711b933f304b8f907c4a" compoundref="enums_8libmd_8h" startline="34">MP::MOLLIFIER</references>
+      </memberdef>
+      <memberdef kind="function" id="structmp_adc249216879c36bb4281c77cfe0e3070_1adc249216879c36bb4281c77cfe0e3070" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mp&lt; dim &gt;::setmp</definition>
+        <argsstring>(fmpptr&lt; ldf, dim &gt; f, fmpptr&lt; duals&lt; dim &gt;, dim &gt; df)</argsstring>
+        <name>setmp</name>
+        <param>
+          <type><ref refid="libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_1a9a9e79dbea056167398a2d694c43ff3a" kindref="member">fmpptr</ref>&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref>, dim &gt;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_1a9a9e79dbea056167398a2d694c43ff3a" kindref="member">fmpptr</ref>&lt; <ref refid="structduals" kindref="compound">duals</ref>&lt; dim &gt;, dim &gt;</type>
+          <declname>df</declname>
+        </param>
+        <briefdescription>
+<para>Picks a custom Monge patch. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Sets an externaly defined Monge patch</para>
+        </inbodydescription>
+        <location file="libmd.h" line="603" column="10" bodyfile="libmd-src/mp.libmd.cc" bodystart="47" bodyend="55"/>
+        <references refid="libmd_8h_a027c70e4468b8d7fb673dec474df6902_1a027c70e4468b8d7fb673dec474df6902" compoundref="libmd_8h" startline="56">UI_MAX</references>
+      </memberdef>
+      <memberdef kind="function" id="structmp_aec5edb0609b1127ec7df607d43880955_1aec5edb0609b1127ec7df607d43880955" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mp&lt; dim &gt;::calc</definition>
+        <argsstring>(ui i, ldf x[dim])</argsstring>
+        <name>calc</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>x</declname>
+          <array>[dim]</array>
+        </param>
+        <briefdescription>
+<para>Calculate geometric information. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates geometric information for particle <computeroutput>i</computeroutput> at position <computeroutput>x</computeroutput> The results are stored in the geometryx array</para>
+        </inbodydescription>
+        <location file="libmd.h" line="604" column="10" bodyfile="libmd-src/mp.libmd.cc" bodystart="57" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="structmp_a898dbc8141f959568d1285bed8aabf3d_1a898dbc8141f959568d1285bed8aabf3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mp&lt; dim &gt;::calc</definition>
+        <argsstring>(duals&lt; dim &gt; &amp;z, ldf x[dim])</argsstring>
+        <name>calc</name>
+        <param>
+          <type><ref refid="structduals" kindref="compound">duals</ref>&lt; dim &gt; &amp;</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>x</declname>
+          <array>[dim]</array>
+        </param>
+        <briefdescription>
+<para>Calculate geometric information on the spot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates geometric information for particle <computeroutput>i</computeroutput> at position <computeroutput>x</computeroutput> The results are stored in the first argument <computeroutput>z</computeroutput></para>
+        </inbodydescription>
+        <location file="libmd.h" line="605" column="10" bodyfile="libmd-src/mp.libmd.cc" bodystart="68" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="structmp_a7f68eaecc3861d8ffbbbf941eea4c375_1a7f68eaecc3861d8ffbbbf941eea4c375" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf mp&lt; dim &gt;::f</definition>
+        <argsstring>(ldf x[dim])</argsstring>
+        <name>f</name>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>x</declname>
+          <array>[dim]</array>
+        </param>
+        <briefdescription>
+<para>Monge patch. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates value of the (set) Monge function at position <computeroutput>x</computeroutput></para>
+        </inbodydescription>
+        <location file="libmd.h" line="606" column="9" bodyfile="libmd-src/mp.libmd.cc" bodystart="79" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="structmp_a6cfde440e01aac636364d3699594ec00_1a6cfde440e01aac636364d3699594ec00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf mp&lt; dim &gt;::df</definition>
+        <argsstring>(ui mu, ldf x[dim])</argsstring>
+        <name>df</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>x</declname>
+          <array>[dim]</array>
+        </param>
+        <briefdescription>
+<para>Monge patch gradient. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates the derivative in direction <computeroutput>mu</computeroutput> of the(set) Monge function at position <computeroutput>x</computeroutput></para>
+        </inbodydescription>
+        <location file="libmd.h" line="607" column="9" bodyfile="libmd-src/mp.libmd.cc" bodystart="87" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="structmp_a0a9bbcb3fb4b4e541491bede35d41cab_1a0a9bbcb3fb4b4e541491bede35d41cab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf mp&lt; dim &gt;::ddf</definition>
+        <argsstring>(ui mu, ui nu, ldf x[dim])</argsstring>
+        <name>ddf</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>nu</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>x</declname>
+          <array>[dim]</array>
+        </param>
+        <briefdescription>
+<para>Monge patch laplacian. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates the second derivative in the directions <computeroutput>mu nu</computeroutput> of the(set) Monge function at position <computeroutput>x</computeroutput></para>
+        </inbodydescription>
+        <location file="libmd.h" line="608" column="9" bodyfile="libmd-src/mp.libmd.cc" bodystart="97" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="structmp_a19b6d238e61760d2385ed1bf8a244329_1a19b6d238e61760d2385ed1bf8a244329" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf mp&lt; dim &gt;::g</definition>
+        <argsstring>(ui i, ui mu, ui nu)</argsstring>
+        <name>g</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>nu</declname>
+        </param>
+        <briefdescription>
+<para>Monge patch metric tensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates Monge metric tensor element <computeroutput>mu</computeroutput><computeroutput>nu</computeroutput> for particle <computeroutput>i</computeroutput></para>
+        </inbodydescription>
+        <location file="libmd.h" line="609" column="9" bodyfile="libmd-src/mp.libmd.cc" bodystart="107" bodyend="113"/>
+        <references refid="mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_1ae7f557e30beb3ab5663c7560989a9e8d" compoundref="mongepatches_8libmd_8cc" startline="6" endline="13">kdelta</references>
+      </memberdef>
+      <memberdef kind="function" id="structmp_a34a8c2027ae11ea84efa0dbbbfcc8409_1a34a8c2027ae11ea84efa0dbbbfcc8409" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf mp&lt; dim &gt;::gp</definition>
+        <argsstring>(ui i, ui mu, ui nu)</argsstring>
+        <name>gp</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>nu</declname>
+        </param>
+        <briefdescription>
+<para>Monge patch metric tensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates Monge metric tensor element <computeroutput>mu</computeroutput><computeroutput>nu</computeroutput> for particle <computeroutput>i</computeroutput> at it&apos;s previous position <computeroutput>xp</computeroutput></para>
+        </inbodydescription>
+        <location file="libmd.h" line="610" column="9" bodyfile="libmd-src/mp.libmd.cc" bodystart="115" bodyend="121"/>
+        <references refid="mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_1ae7f557e30beb3ab5663c7560989a9e8d" compoundref="mongepatches_8libmd_8cc" startline="6" endline="13">kdelta</references>
+      </memberdef>
+      <memberdef kind="function" id="structmp_a2c5825d8f21771e40b120082e50827d2_1a2c5825d8f21771e40b120082e50827d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf mp&lt; dim &gt;::ginv</definition>
+        <argsstring>(ui i, ui mu, ui nu)</argsstring>
+        <name>ginv</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>nu</declname>
+        </param>
+        <briefdescription>
+<para>Monge patch metric tensor inverse. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates Monge metric tensor inverse element <computeroutput>mu</computeroutput><computeroutput>nu</computeroutput> for particle <computeroutput>i</computeroutput></para>
+        </inbodydescription>
+        <location file="libmd.h" line="611" column="9" bodyfile="libmd-src/mp.libmd.cc" bodystart="123" bodyend="131"/>
+        <references refid="box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_1a40b2bff2b597ae82496372ce80675e68" compoundref="box_8libmd_8cc" startline="64" endline="114">det</references>
+        <references refid="mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_1ae7f557e30beb3ab5663c7560989a9e8d" compoundref="mongepatches_8libmd_8cc" startline="6" endline="13">kdelta</references>
+        <references refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" compoundref="autodiff_8libmd_8cc" startline="274" endline="277">pow</references>
+      </memberdef>
+      <memberdef kind="function" id="structmp_abd53fa81c114885220760369e00581e2_1abd53fa81c114885220760369e00581e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf mp&lt; dim &gt;::sqrt_ginv</definition>
+        <argsstring>(ui i, ui mu, ui nu)</argsstring>
+        <name>sqrt_ginv</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>nu</declname>
+        </param>
+        <briefdescription>
+<para>Square root of Monge patch metric tensor inverse. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates the square root of Monge metric tensor inverse element <computeroutput>mu</computeroutput><computeroutput>nu</computeroutput> for particle <computeroutput>i</computeroutput></para>
+        </inbodydescription>
+        <location file="libmd.h" line="612" column="9" bodyfile="libmd-src/mp.libmd.cc" bodystart="133" bodyend="141"/>
+        <references refid="box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_1a40b2bff2b597ae82496372ce80675e68" compoundref="box_8libmd_8cc" startline="64" endline="114">det</references>
+        <references refid="mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_1ae7f557e30beb3ab5663c7560989a9e8d" compoundref="mongepatches_8libmd_8cc" startline="6" endline="13">kdelta</references>
+        <references refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" compoundref="autodiff_8libmd_8cc" startline="274" endline="277">pow</references>
+        <references refid="autodiff_8libmd_8cc_af33bda4d5a7fc8ad1679ec339a730045_1af33bda4d5a7fc8ad1679ec339a730045" compoundref="autodiff_8libmd_8cc" startline="268" endline="272">sqrt</references>
+      </memberdef>
+      <memberdef kind="function" id="structmp_aabea07a9716f508691b7ae5e79464d03_1aabea07a9716f508691b7ae5e79464d03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf mp&lt; dim &gt;::A</definition>
+        <argsstring>(ui i, ui sigma, ui mu, ui nu)</argsstring>
+        <name>A</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>sigma</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>nu</declname>
+        </param>
+        <briefdescription>
+<para>Monge patch <formula id="65">$ A_{\sigma \mu \nu} = \Gamma_{\nu \sigma \mu} $</formula> where <formula id="66">$ \Gamma_{\nu \sigma \mu} $</formula> are the Christoffel symbols (of the first kind) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calculates A symbol of the van Zuiden integrator element <computeroutput>sigma mu nu</computeroutput> for particle <computeroutput>i</computeroutput></para>
+        </inbodydescription>
+        <location file="libmd.h" line="613" column="9" bodyfile="libmd-src/mp.libmd.cc" bodystart="143" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure defines the Monge patch manifold and its properties. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="1">
+        <label>mp&lt; dim &gt;</label>
+        <link refid="structmp"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+parameters</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+geometryx</edgelabel>
+          <edgelabel>+geometryxp</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::vector&lt; duals&lt; dim &gt; &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; duals&lt; dim &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; ldf &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; ldf &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="592" column="1" bodyfile="libmd.h" bodystart="591" bodyend="614"/>
+    <listofallmembers>
+      <member refid="structmp_aabea07a9716f508691b7ae5e79464d03_1aabea07a9716f508691b7ae5e79464d03" prot="public" virt="non-virtual"><scope>mp</scope><name>A</name></member>
+      <member refid="structmp_aec5edb0609b1127ec7df607d43880955_1aec5edb0609b1127ec7df607d43880955" prot="public" virt="non-virtual"><scope>mp</scope><name>calc</name></member>
+      <member refid="structmp_a898dbc8141f959568d1285bed8aabf3d_1a898dbc8141f959568d1285bed8aabf3d" prot="public" virt="non-virtual"><scope>mp</scope><name>calc</name></member>
+      <member refid="structmp_a0a9bbcb3fb4b4e541491bede35d41cab_1a0a9bbcb3fb4b4e541491bede35d41cab" prot="public" virt="non-virtual"><scope>mp</scope><name>ddf</name></member>
+      <member refid="structmp_a6cfde440e01aac636364d3699594ec00_1a6cfde440e01aac636364d3699594ec00" prot="public" virt="non-virtual"><scope>mp</scope><name>df</name></member>
+      <member refid="structmp_a4bb9d4749f7a1b32e36e523e31c924bc_1a4bb9d4749f7a1b32e36e523e31c924bc" prot="public" virt="non-virtual"><scope>mp</scope><name>dfmp</name></member>
+      <member refid="structmp_a7f68eaecc3861d8ffbbbf941eea4c375_1a7f68eaecc3861d8ffbbbf941eea4c375" prot="public" virt="non-virtual"><scope>mp</scope><name>f</name></member>
+      <member refid="structmp_aa954dde36b697f4a631008ee600989e1_1aa954dde36b697f4a631008ee600989e1" prot="public" virt="non-virtual"><scope>mp</scope><name>fmp</name></member>
+      <member refid="structmp_a19b6d238e61760d2385ed1bf8a244329_1a19b6d238e61760d2385ed1bf8a244329" prot="public" virt="non-virtual"><scope>mp</scope><name>g</name></member>
+      <member refid="structmp_aa05130bd0c740b9ddd06f682aabf7817_1aa05130bd0c740b9ddd06f682aabf7817" prot="public" virt="non-virtual"><scope>mp</scope><name>geometryx</name></member>
+      <member refid="structmp_a166c4d14cbf5b00f483c219f9796e7f2_1a166c4d14cbf5b00f483c219f9796e7f2" prot="public" virt="non-virtual"><scope>mp</scope><name>geometryxp</name></member>
+      <member refid="structmp_a2c5825d8f21771e40b120082e50827d2_1a2c5825d8f21771e40b120082e50827d2" prot="public" virt="non-virtual"><scope>mp</scope><name>ginv</name></member>
+      <member refid="structmp_a34a8c2027ae11ea84efa0dbbbfcc8409_1a34a8c2027ae11ea84efa0dbbbfcc8409" prot="public" virt="non-virtual"><scope>mp</scope><name>gp</name></member>
+      <member refid="structmp_a8edf03f32a1158b6b200112c45afd381_1a8edf03f32a1158b6b200112c45afd381" prot="public" virt="non-virtual"><scope>mp</scope><name>mp</name></member>
+      <member refid="structmp_a06b120f40591cdd3a42054f4672f20d2_1a06b120f40591cdd3a42054f4672f20d2" prot="public" virt="non-virtual"><scope>mp</scope><name>parameters</name></member>
+      <member refid="structmp_ad6ec8a5ec8ec1e903b86c9b9ece69409_1ad6ec8a5ec8ec1e903b86c9b9ece69409" prot="public" virt="non-virtual"><scope>mp</scope><name>patch</name></member>
+      <member refid="structmp_a08440a1cc2f41c677690398276a63ac6_1a08440a1cc2f41c677690398276a63ac6" prot="public" virt="non-virtual"><scope>mp</scope><name>setmp</name></member>
+      <member refid="structmp_adc249216879c36bb4281c77cfe0e3070_1adc249216879c36bb4281c77cfe0e3070" prot="public" virt="non-virtual"><scope>mp</scope><name>setmp</name></member>
+      <member refid="structmp_abd53fa81c114885220760369e00581e2_1abd53fa81c114885220760369e00581e2" prot="public" virt="non-virtual"><scope>mp</scope><name>sqrt_ginv</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

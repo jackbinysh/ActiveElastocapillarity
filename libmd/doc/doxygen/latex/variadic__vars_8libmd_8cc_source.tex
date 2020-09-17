@@ -1,0 +1,33 @@
+\hypertarget{variadic__vars_8libmd_8cc_source}{}\doxysection{variadic\+\_\+vars.\+libmd.\+cc}
+\label{variadic__vars_8libmd_8cc_source}\index{libmd-\/src/variadic\_vars.libmd.cc@{libmd-\/src/variadic\_vars.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{variadic__vars_8libmd_8cc_source_l00001}\mbox{\hyperlink{variadic__vars_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{variadic__vars_8libmd_8cc_source_l00006}\mbox{\hyperlink{structvariadic__vars_a2abd5e42bc821ab0e5e9b45e7c72598f_a2abd5e42bc821ab0e5e9b45e7c72598f}{00006}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structvariadic__vars_a2abd5e42bc821ab0e5e9b45e7c72598f_a2abd5e42bc821ab0e5e9b45e7c72598f}{variadic\_vars<dim>::variadic\_vars}}()}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00012     vvars.assign(7,0);}
+\DoxyCodeLine{00013 \}}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{\Hypertarget{variadic__vars_8libmd_8cc_source_l00015}\mbox{\hyperlink{structvariadic__vars_a0967d0fe3595befa87bb938cdcaf385c_a0967d0fe3595befa87bb938cdcaf385c}{00015}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structvariadic__vars_a0967d0fe3595befa87bb938cdcaf385c_a0967d0fe3595befa87bb938cdcaf385c}{variadic\_vars<dim>::operator[]}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i)}
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00020     \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} retval=vvars[i];}
+\DoxyCodeLine{00021     vvars[i]=(vvars[i]+1)\%dim;}
+\DoxyCodeLine{00022     \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{00023 \}}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{\Hypertarget{variadic__vars_8libmd_8cc_source_l00025}\mbox{\hyperlink{structvariadic__vars_ad38b9ca78be9785659b20f7d8317932b_ad38b9ca78be9785659b20f7d8317932b}{00025}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structvariadic__vars_ad38b9ca78be9785659b20f7d8317932b_ad38b9ca78be9785659b20f7d8317932b}{variadic\_vars<dim>::reset}}()}
+\DoxyCodeLine{00026 \{}
+\DoxyCodeLine{00030     vvars.assign(7,0);}
+\DoxyCodeLine{00031 \}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{\Hypertarget{variadic__vars_8libmd_8cc_source_l00033}\mbox{\hyperlink{structvariadic__vars_a7802e7a7fc736cef4fbb60e929b3d9dc_a7802e7a7fc736cef4fbb60e929b3d9dc}{00033}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structvariadic__vars_ad38b9ca78be9785659b20f7d8317932b_ad38b9ca78be9785659b20f7d8317932b}{variadic\_vars<dim>::reset}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i)}
+\DoxyCodeLine{00034 \{}
+\DoxyCodeLine{00038     vvars[i]=0;}
+\DoxyCodeLine{00039 \}}
+\DoxyCodeLine{00040 }
+
+\end{DoxyCode}

@@ -1,0 +1,25 @@
+var structt__error =
+[
+    [ "t_error", "structt__error_af212e30a88db8166210667617fff518f.html#af212e30a88db8166210667617fff518f", null ],
+    [ "~t_error", "structt__error_af86314216790940b591cd4d0849e9824.html#af86314216790940b591cd4d0849e9824", null ],
+    [ "print_debug_1", "structt__error_a11654cc137c42b1bddb5ed90b09e39e7.html#a11654cc137c42b1bddb5ed90b09e39e7", null ],
+    [ "print_debug_2", "structt__error_ac0b658091f7db13369b5cae56402df16.html#ac0b658091f7db13369b5cae56402df16", null ],
+    [ "print_debug_3", "structt__error_a4926e202b9dd7ea1070787edd129d2b5.html#a4926e202b9dd7ea1070787edd129d2b5", null ],
+    [ "print_debug_timer", "structt__error_ad8dea87e3d50536f8eb5687c28974603.html#ad8dea87e3d50536f8eb5687c28974603", null ],
+    [ "print_error", "structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a.html#ad8cbcad9d1efc6e6d74ee4694b04fa5a", null ],
+    [ "print_warning", "structt__error_a5c54c0544d5980c5e8424359480a65bc.html#a5c54c0544d5980c5e8424359480a65bc", null ],
+    [ "set_debug_1_file", "structt__error_a988bfb0493cbc3aa3f297df2ea39dc40.html#a988bfb0493cbc3aa3f297df2ea39dc40", null ],
+    [ "set_debug_2_file", "structt__error_a2d8a7aadeae0891e9a78e0b45010b916.html#a2d8a7aadeae0891e9a78e0b45010b916", null ],
+    [ "set_debug_3_file", "structt__error_afd98cb51fe5600a9a40cae19fca8fac8.html#afd98cb51fe5600a9a40cae19fca8fac8", null ],
+    [ "set_debug_timer_file", "structt__error_ab51ce2f9542d75914d23b1f90b550c1d.html#ab51ce2f9542d75914d23b1f90b550c1d", null ],
+    [ "set_error_file", "structt__error_affcce00de3de6b7ecf900ab71a6107cc.html#affcce00de3de6b7ecf900ab71a6107cc", null ],
+    [ "set_warning_file", "structt__error_aa3e1d8a32cf1d271099a369c5a5559f2.html#aa3e1d8a32cf1d271099a369c5a5559f2", null ],
+    [ "terminate", "structt__error_af803c2519381179010f51e13fe208320.html#af803c2519381179010f51e13fe208320", null ],
+    [ "debug_1_file", "structt__error_a564dfc9870b1ff33e63154b6a36557e8.html#a564dfc9870b1ff33e63154b6a36557e8", null ],
+    [ "debug_2_file", "structt__error_aecaa999dee5eb5ddf4171e4bf68f2524.html#aecaa999dee5eb5ddf4171e4bf68f2524", null ],
+    [ "debug_3_file", "structt__error_a7a1f1ea05fa525c8005acb15c3892a4a.html#a7a1f1ea05fa525c8005acb15c3892a4a", null ],
+    [ "debug_timer_file", "structt__error_a42371d166e6adf303c3251c3ef7ed85c.html#a42371d166e6adf303c3251c3ef7ed85c", null ],
+    [ "error_file", "structt__error_a2fbd8114570fe83bc0cd03b7d768b31c.html#a2fbd8114570fe83bc0cd03b7d768b31c", null ],
+    [ "term_level", "structt__error_ac26e77277143e6eb52ecca2779f0f047.html#ac26e77277143e6eb52ecca2779f0f047", null ],
+    [ "warning_file", "structt__error_ac560c35b31b3861960f1fd8a881fa33b.html#ac560c35b31b3861960f1fd8a881fa33b", null ]
+];

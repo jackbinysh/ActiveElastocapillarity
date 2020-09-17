@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structindexer" kind="struct" language="C++" prot="public">
+    <compoundname>indexer</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+    <innerclass refid="structindexer_1_1celldatatype" prot="public">indexer::celldatatype</innerclass>
+    <innerclass refid="structindexer_1_1kdtreedatatype" prot="public">indexer::kdtreedatatype</innerclass>
+    <templateparamlist>
+      <param>
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structindexer_acc5e1b4942d6cb935bfb179e7c4987d7_1acc5e1b4942d6cb935bfb179e7c4987d7" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_1af8ecdd9d7d0f3cdced7f9a83dc659959" kindref="member">uc</ref></type>
+        <definition>uc indexer&lt; dim &gt;::method</definition>
+        <argsstring></argsstring>
+        <name>method</name>
+        <briefdescription>
+<para>Method of indexing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="297" column="8" bodyfile="libmd.h" bodystart="297" bodyend="-1"/>
+        <referencedby refid="structindexer_a6e22728a0f3f78b2b16a8794fe6a8e6c_1a6e22728a0f3f78b2b16a8794fe6a8e6c" compoundref="index_8libmd_8cc" startline="50" endline="56">indexer&lt; dim &gt;::indexer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structindexer_a8e4cf5894562307abb88b874a98b711f_1a8e4cf5894562307abb88b874a98b711f" prot="public" static="no" mutable="no">
+        <type><ref refid="structindexer_1_1celldatatype" kindref="compound">celldatatype</ref></type>
+        <definition>celldatatype indexer&lt; dim &gt;::celldata</definition>
+        <argsstring></argsstring>
+        <name>celldata</name>
+        <briefdescription>
+<para>Cell data object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="311" column="18" bodyfile="libmd.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structindexer_abe3ceabb96a215e8131a07dbec0593e0_1abe3ceabb96a215e8131a07dbec0593e0" prot="public" static="no" mutable="no">
+        <type><ref refid="structindexer_1_1kdtreedatatype" kindref="compound">kdtreedatatype</ref></type>
+        <definition>kdtreedatatype indexer&lt; dim &gt;::kdtreedata</definition>
+        <argsstring></argsstring>
+        <name>kdtreedata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="321" column="20" bodyfile="libmd.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structindexer_a6e22728a0f3f78b2b16a8794fe6a8e6c_1a6e22728a0f3f78b2b16a8794fe6a8e6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>indexer&lt; dim &gt;::indexer</definition>
+        <argsstring>()</argsstring>
+        <name>indexer</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Constructor for indexer struct. Initializes <computeroutput>method</computeroutput> to <computeroutput><ref refid="struct_i_n_d_e_x_a4ee2ed52ee6dd3e482fc53a8db54065f_1a4ee2ed52ee6dd3e482fc53a8db54065fa486e0599b24dbb8e029fc21ed530ec97" kindref="member">INDEX::CELL</ref></computeroutput> (<ref refid="structmd_af99c7ccc16292d4c1cdb07bd0c9ac895_1af99c7ccc16292d4c1cdb07bd0c9ac895" kindref="member">md&lt;dim&gt;::cell()</ref>).</para>
+        </inbodydescription>
+        <location file="libmd.h" line="323" column="5" bodyfile="libmd-src/index.libmd.cc" bodystart="50" bodyend="56"/>
+        <references refid="struct_i_n_d_e_x_a4ee2ed52ee6dd3e482fc53a8db54065f_1a4ee2ed52ee6dd3e482fc53a8db54065fa486e0599b24dbb8e029fc21ed530ec97" compoundref="enums_8libmd_8h" startline="8">INDEX::CELL</references>
+        <references refid="structindexer_acc5e1b4942d6cb935bfb179e7c4987d7_1acc5e1b4942d6cb935bfb179e7c4987d7" compoundref="libmd_8h" startline="297">indexer&lt; dim &gt;::method</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure is specific for the indexer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="6">
+        <label>T</label>
+      </node>
+      <node id="5">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>indexer&lt; dim &gt;::kdtreedatatype</label>
+        <link refid="structindexer_1_1kdtreedatatype"/>
+      </node>
+      <node id="4">
+        <label>std::vector&lt; ui &gt;</label>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; ui &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>indexer&lt; dim &gt;</label>
+        <link refid="structindexer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+kdtreedata</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+celldata</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>indexer&lt; dim &gt;::celldatatype</label>
+        <link refid="structindexer_1_1celldatatype"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+Cells</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="296" column="1" bodyfile="libmd.h" bodystart="295" bodyend="324"/>
+    <listofallmembers>
+      <member refid="structindexer_a8e4cf5894562307abb88b874a98b711f_1a8e4cf5894562307abb88b874a98b711f" prot="public" virt="non-virtual"><scope>indexer</scope><name>celldata</name></member>
+      <member refid="structindexer_a6e22728a0f3f78b2b16a8794fe6a8e6c_1a6e22728a0f3f78b2b16a8794fe6a8e6c" prot="public" virt="non-virtual"><scope>indexer</scope><name>indexer</name></member>
+      <member refid="structindexer_abe3ceabb96a215e8131a07dbec0593e0_1abe3ceabb96a215e8131a07dbec0593e0" prot="public" virt="non-virtual"><scope>indexer</scope><name>kdtreedata</name></member>
+      <member refid="structindexer_acc5e1b4942d6cb935bfb179e7c4987d7_1acc5e1b4942d6cb935bfb179e7c4987d7" prot="public" virt="non-virtual"><scope>indexer</scope><name>method</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

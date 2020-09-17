@@ -1,0 +1,781 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="libmd_8cc" kind="file" language="C++">
+    <compoundname>libmd.cc</compoundname>
+    <includes refid="libmd_8h" local="yes">libmd.h</includes>
+    <includes refid="error_8libmd_8cc" local="yes">libmd-src/error.libmd.cc</includes>
+    <includes refid="autodiff_8libmd_8cc" local="yes">libmd-src/autodiff.libmd.cc</includes>
+    <includes refid="potentials_8libmd_8cc" local="yes">libmd-src/potentials.libmd.cc</includes>
+    <includes refid="particle_8libmd_8cc" local="yes">libmd-src/particle.libmd.cc</includes>
+    <includes refid="forces_8libmd_8cc" local="yes">libmd-src/forces.libmd.cc</includes>
+    <includes refid="box_8libmd_8cc" local="yes">libmd-src/box.libmd.cc</includes>
+    <includes refid="boundaryconditions_8libmd_8cc" local="yes">libmd-src/boundaryconditions.libmd.cc</includes>
+    <includes refid="bcond_8libmd_8cc" local="yes">libmd-src/bcond.libmd.cc</includes>
+    <includes refid="interact_8libmd_8cc" local="yes">libmd-src/interact.libmd.cc</includes>
+    <includes refid="index_8libmd_8cc" local="yes">libmd-src/index.libmd.cc</includes>
+    <includes refid="pairpotentials_8libmd_8cc" local="yes">libmd-src/pairpotentials.libmd.cc</includes>
+    <includes refid="externalforces_8libmd_8cc" local="yes">libmd-src/externalforces.libmd.cc</includes>
+    <includes refid="hooks_8libmd_8cc" local="yes">libmd-src/hooks.libmd.cc</includes>
+    <includes refid="integrators_8libmd_8cc" local="yes">libmd-src/integrators.libmd.cc</includes>
+    <includes refid="variadic__vars_8libmd_8cc" local="yes">libmd-src/variadic_vars.libmd.cc</includes>
+    <includes refid="md_8libmd_8cc" local="yes">libmd-src/md.libmd.cc</includes>
+    <includes refid="mongepatches_8libmd_8cc" local="yes">libmd-src/mongepatches.libmd.cc</includes>
+    <includes refid="autodiff2_8libmd_8cc" local="yes">libmd-src/autodiff2.libmd.cc</includes>
+    <includes refid="mp_8libmd_8cc" local="yes">libmd-src/mp.libmd.cc</includes>
+    <includes refid="mpmd_8libmd_8cc" local="yes">libmd-src/mpmd.libmd.cc</includes>
+    <includedby refid="libmd_8h" local="yes">libmd.h</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>list</label>
+      </node>
+      <node id="41">
+        <label>md/index.md.libmd.cc</label>
+        <link refid="index_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>md/hooks.md.libmd.cc</label>
+        <link refid="hooks_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>libmd-src/mongepatches.libmd.cc</label>
+        <link refid="mongepatches_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="15">
+        <label>limits</label>
+      </node>
+      <node id="38">
+        <label>md/interaction.md.libmd.cc</label>
+        <link refid="interaction_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>libmd-src/variadic_vars.libmd.cc</label>
+        <link refid="variadic__vars_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>libmd-src/interact.libmd.cc</label>
+        <link refid="interact_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>md/distances.md.libmd.cc</label>
+        <link refid="distances_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>md/energy.md.libmd.cc</label>
+        <link refid="energy_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libmd-src/pairpotentials.libmd.cc</label>
+        <link refid="pairpotentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>libmd-src/mp.libmd.cc</label>
+        <link refid="mp_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cmath</label>
+      </node>
+      <node id="27">
+        <label>libmd-src/box.libmd.cc</label>
+        <link refid="box_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>md/bonds.md.libmd.cc</label>
+        <link refid="bonds_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libmd-src/integrators.libmd.cc</label>
+        <link refid="integrators_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="23">
+        <label>libmd-src/autodiff.libmd.cc</label>
+        <link refid="autodiff_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>unordered_set</label>
+      </node>
+      <node id="28">
+        <label>libmd-src/boundaryconditions.libmd.cc</label>
+        <link refid="boundaryconditions_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>md/particles.md.libmd.cc</label>
+        <link refid="particles_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>libmd-src/particle.libmd.cc</label>
+        <link refid="particle_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>libmd-src/autodiff2.libmd.cc</label>
+        <link refid="autodiff2_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>libmd-src/bcond.libmd.cc</label>
+        <link refid="bcond_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>libmd-src/potentials.libmd.cc</label>
+        <link refid="potentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>random</label>
+      </node>
+      <node id="21">
+        <label>libmd-src/enums.libmd.h</label>
+        <link refid="enums_8libmd_8h"/>
+      </node>
+      <node id="3">
+        <label>cstdio</label>
+      </node>
+      <node id="48">
+        <label>md/importexport.md.libmd.cc</label>
+        <link refid="importexport_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>md/periodicity.md.libmd.cc</label>
+        <link refid="periodicity_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>libmd-src/index.libmd.cc</label>
+        <link refid="index_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>libmd-src/externalforces.libmd.cc</label>
+        <link refid="externalforces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stack</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="47">
+        <label>md/sp.md.libmd.cc</label>
+        <link refid="sp_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>utility</label>
+      </node>
+      <node id="37">
+        <label>libmd-src/md.libmd.cc</label>
+        <link refid="md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdlib</label>
+      </node>
+      <node id="1">
+        <label>libmd.cc</label>
+        <link refid="libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libmd.h</label>
+        <link refid="libmd_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>libmd-src/hooks.libmd.cc</label>
+        <link refid="hooks_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>unordered_map</label>
+      </node>
+      <node id="18">
+        <label>chrono</label>
+      </node>
+      <node id="44">
+        <label>md/setget.md.libmd.cc</label>
+        <link refid="setget_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>libmd-src/mpmd.libmd.cc</label>
+        <link refid="mpmd_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>set</label>
+      </node>
+      <node id="16">
+        <label>algorithm</label>
+      </node>
+      <node id="40">
+        <label>md/forces.md.libmd.cc</label>
+        <link refid="forces_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>libmd-src/error.libmd.cc</label>
+        <link refid="error_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>md/integrator.md.libmd.cc</label>
+        <link refid="integrator_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cstring</label>
+      </node>
+      <node id="20">
+        <label>libmd-src/macros.libmd.h</label>
+        <link refid="macros_8libmd_8h"/>
+      </node>
+      <node id="26">
+        <label>libmd-src/forces.libmd.cc</label>
+        <link refid="forces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="22">
+        <label>libmd-src/md/index.md.libmd.cc</label>
+        <link refid="index_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>libmd-src/md/hooks.md.libmd.cc</label>
+        <link refid="hooks_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>libmd-src/mongepatches.libmd.cc</label>
+        <link refid="mongepatches_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>libmd-src/md/interaction.md.libmd.cc</label>
+        <link refid="interaction_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libmd-src/variadic_vars.libmd.cc</label>
+        <link refid="variadic__vars_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>libmd-src/interact.libmd.cc</label>
+        <link refid="interact_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>libmd-src/md/distances.md.libmd.cc</label>
+        <link refid="distances_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>libmd-src/md/energy.md.libmd.cc</label>
+        <link refid="energy_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libmd-src/pairpotentials.libmd.cc</label>
+        <link refid="pairpotentials_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>libmd-src/mp.libmd.cc</label>
+        <link refid="mp_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>libmd-src/box.libmd.cc</label>
+        <link refid="box_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>libmd-src/md/bonds.md.libmd.cc</label>
+        <link refid="bonds_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>libmd-src/integrators.libmd.cc</label>
+        <link refid="integrators_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libmd-src/autodiff.libmd.cc</label>
+        <link refid="autodiff_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libmd-src/boundaryconditions.libmd.cc</label>
+        <link refid="boundaryconditions_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>libmd-src/md/particles.md.libmd.cc</label>
+        <link refid="particles_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>libmd-src/particle.libmd.cc</label>
+        <link refid="particle_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libmd-src/autodiff2.libmd.cc</label>
+        <link refid="autodiff2_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>libmd-src/bcond.libmd.cc</label>
+        <link refid="bcond_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>libmd-src/potentials.libmd.cc</label>
+        <link refid="potentials_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>libmd-src/md/importexport.md.libmd.cc</label>
+        <link refid="importexport_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>libmd-src/md/periodicity.md.libmd.cc</label>
+        <link refid="periodicity_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>libmd-src/index.libmd.cc</label>
+        <link refid="index_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>libmd-src/externalforces.libmd.cc</label>
+        <link refid="externalforces_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>libmd-src/md/sp.md.libmd.cc</label>
+        <link refid="sp_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>libmd-src/md.libmd.cc</label>
+        <link refid="md_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libmd.cc</label>
+        <link refid="libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libmd.h</label>
+        <link refid="libmd_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>libmd-src/hooks.libmd.cc</label>
+        <link refid="hooks_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>libmd-src/md/setget.md.libmd.cc</label>
+        <link refid="setget_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>libmd-src/mpmd.libmd.cc</label>
+        <link refid="mpmd_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>libmd-src/md/forces.md.libmd.cc</label>
+        <link refid="forces_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>libmd-src/error.libmd.cc</label>
+        <link refid="error_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>libmd-src/md/integrator.md.libmd.cc</label>
+        <link refid="integrator_8md_8libmd_8cc"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>libmd-src/forces.libmd.cc</label>
+        <link refid="forces_8libmd_8cc"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="libmd_8cc_a36c83aeff015fda6015fc9ebe807cd9e_1a36c83aeff015fda6015fc9ebe807cd9e" prot="public" static="no">
+        <name>__libmd_cc__</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.cc" line="5" column="9" bodyfile="libmd.cc" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="libmd_8cc_a3626c101e4c01bf6c50dfd8ea0e3a787_1a3626c101e4c01bf6c50dfd8ea0e3a787" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void __libmd__info</definition>
+        <argsstring>()</argsstring>
+        <name>__libmd__info</name>
+        <briefdescription>
+<para>Basic libmd comilation info. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function is designed to give the user an overview of the compilation</para>
+        </inbodydescription>
+        <location file="libmd.cc" line="12" column="6" bodyfile="libmd.cc" bodystart="12" bodyend="39"/>
+        <references refid="macros_8libmd_8h_a646675d34226acbdd68b81479af302a3_1a646675d34226acbdd68b81479af302a3" compoundref="macros_8libmd_8h" startline="15">IO_BLUE</references>
+        <references refid="macros_8libmd_8h_ac4360292c60948698503c220fb5418e6_1ac4360292c60948698503c220fb5418e6" compoundref="macros_8libmd_8h" startline="25">IO_BOLDCYAN</references>
+        <references refid="macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_1ac81982784d97338b81fd2a54340c0b00" compoundref="macros_8libmd_8h" startline="10">IO_RESET</references>
+        <references refid="macros_8libmd_8h_a6014d06bd9f95ad1ad4ee814fbafd6a2_1a6014d06bd9f95ad1ad4ee814fbafd6a2" compoundref="macros_8libmd_8h" startline="18">IO_WHITE</references>
+        <references refid="macros_8libmd_8h_ad0ec9c08a45f6391257a51c1a05e5955_1ad0ec9c08a45f6391257a51c1a05e5955" compoundref="macros_8libmd_8h" startline="14">IO_YELLOW</references>
+        <references refid="macros_8libmd_8h_a35ac139e879fde741557c3ed45e5b432_1a35ac139e879fde741557c3ed45e5b432" compoundref="macros_8libmd_8h" startline="128">THREAD_MODEL</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/><sp/>Begin<sp/>of<sp/>LIBRARY<sp/>source<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight><highlight class="preprocessor">#ifndef<sp/>__libmd_cc__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="libmd_8cc_a36c83aeff015fda6015fc9ebe807cd9e_1a36c83aeff015fda6015fc9ebe807cd9e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__libmd_cc__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>libmd_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#warning<sp/>&apos;#include<sp/>&quot;libmd/libmd.cc&quot;&apos;<sp/>is<sp/>deprecated<sp/>use<sp/>&apos;#include<sp/>&quot;libmd/libmd.h&quot;&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="libmd_8h" kindref="compound">libmd.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="libmd_8h_a3626c101e4c01bf6c50dfd8ea0e3a787_1a3626c101e4c01bf6c50dfd8ea0e3a787" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="libmd_8cc_a3626c101e4c01bf6c50dfd8ea0e3a787_1a3626c101e4c01bf6c50dfd8ea0e3a787" kindref="member">__libmd__info</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>BRANCH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;libmd<sp/>branch:<sp/>&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac4360292c60948698503c220fb5418e6_1ac4360292c60948698503c220fb5418e6" kindref="member">IO_BOLDCYAN</ref><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_1ac81982784d97338b81fd2a54340c0b00" kindref="member">IO_RESET</ref><sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">,BRANCH);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>VER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;libmd<sp/>branch<sp/>version:<sp/>&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac4360292c60948698503c220fb5418e6_1ac4360292c60948698503c220fb5418e6" kindref="member">IO_BOLDCYAN</ref><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_1ac81982784d97338b81fd2a54340c0b00" kindref="member">IO_RESET</ref><sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">,VER);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>CC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Compiler:<sp/>&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_a6014d06bd9f95ad1ad4ee814fbafd6a2_1a6014d06bd9f95ad1ad4ee814fbafd6a2" kindref="member">IO_WHITE</ref><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_1ac81982784d97338b81fd2a54340c0b00" kindref="member">IO_RESET</ref><sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">,CC);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Compiler<sp/>version:<sp/>&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_a6014d06bd9f95ad1ad4ee814fbafd6a2_1a6014d06bd9f95ad1ad4ee814fbafd6a2" kindref="member">IO_WHITE</ref><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_1ac81982784d97338b81fd2a54340c0b00" kindref="member">IO_RESET</ref><sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">,__VERSION__);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Floating<sp/>point<sp/>type:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>LIBMD__LONG_DOUBLE__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(<ref refid="macros_8libmd_8h_a646675d34226acbdd68b81479af302a3_1a646675d34226acbdd68b81479af302a3" kindref="member">IO_BLUE</ref><sp/></highlight><highlight class="stringliteral">&quot;long<sp/>double&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_1ac81982784d97338b81fd2a54340c0b00" kindref="member">IO_RESET</ref><sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>defined<sp/>LIBMD__FLOAT__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(<ref refid="macros_8libmd_8h_ad0ec9c08a45f6391257a51c1a05e5955_1ad0ec9c08a45f6391257a51c1a05e5955" kindref="member">IO_YELLOW</ref><sp/></highlight><highlight class="stringliteral">&quot;float&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_1ac81982784d97338b81fd2a54340c0b00" kindref="member">IO_RESET</ref><sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(<ref refid="macros_8libmd_8h_a6014d06bd9f95ad1ad4ee814fbafd6a2_1a6014d06bd9f95ad1ad4ee814fbafd6a2" kindref="member">IO_WHITE</ref><sp/></highlight><highlight class="stringliteral">&quot;double&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_1ac81982784d97338b81fd2a54340c0b00" kindref="member">IO_RESET</ref><sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Thread<sp/>option:<sp/>%s\n&quot;</highlight><highlight class="normal">,<ref refid="macros_8libmd_8h_a35ac139e879fde741557c3ed45e5b432_1a35ac139e879fde741557c3ed45e5b432" kindref="member">THREAD_MODEL</ref>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>CMSG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Compilation<sp/>message:<sp/>&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ad0ec9c08a45f6391257a51c1a05e5955_1ad0ec9c08a45f6391257a51c1a05e5955" kindref="member">IO_YELLOW</ref><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"><sp/><ref refid="macros_8libmd_8h_ac81982784d97338b81fd2a54340c0b00_1ac81982784d97338b81fd2a54340c0b00" kindref="member">IO_RESET</ref><sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">,CMSG);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="error_8libmd_8cc" kindref="compound">libmd-src/error.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>structure<sp/>that<sp/>handles<sp/>errors/warnings/debug<sp/>levels</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="autodiff_8libmd_8cc" kindref="compound">libmd-src/autodiff.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>automatic<sp/>differentation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="potentials_8libmd_8cc" kindref="compound">libmd-src/potentials.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>has<sp/>all<sp/>the<sp/>builtin<sp/>pairpotential<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="particle_8libmd_8cc" kindref="compound">libmd-src/particle.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>particle<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="forces_8libmd_8cc" kindref="compound">libmd-src/forces.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>has<sp/>all<sp/>the<sp/>builtin<sp/>externalforces<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="box_8libmd_8cc" kindref="compound">libmd-src/box.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>box<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="boundaryconditions_8libmd_8cc" kindref="compound">libmd-src/boundaryconditions.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>periodicity<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="bcond_8libmd_8cc" kindref="compound">libmd-src/bcond.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>periodicity<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="interact_8libmd_8cc" kindref="compound">libmd-src/interact.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>interact<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="index_8libmd_8cc" kindref="compound">libmd-src/index.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>takes<sp/>care<sp/>of<sp/>indexing<sp/>algorithms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pairpotentials_8libmd_8cc" kindref="compound">libmd-src/pairpotentials.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>pairpotential<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="externalforces_8libmd_8cc" kindref="compound">libmd-src/externalforces.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>externalforces<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="hooks_8libmd_8cc" kindref="compound">libmd-src/hooks.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implemente<sp/>the<sp/>hook<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="integrators_8libmd_8cc" kindref="compound">libmd-src/integrators.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>integration<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="variadic__vars_8libmd_8cc" kindref="compound">libmd-src/variadic_vars.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>variadic_vars<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="md_8libmd_8cc" kindref="compound">libmd-src/md.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>md<sp/>structure<sp/>which<sp/>takes<sp/>care<sp/>of<sp/>molecular<sp/>dynamics<sp/>in<sp/>flat<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mongepatches_8libmd_8cc" kindref="compound">libmd-src/mongepatches.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>has<sp/>all<sp/>the<sp/>builtin<sp/>monge<sp/>patch<sp/>functions<sp/>and<sp/>derivatives</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="autodiff2_8libmd_8cc" kindref="compound">libmd-src/autodiff2.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>automatic<sp/>differentation<sp/>for<sp/>Monge<sp/>patches</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mp_8libmd_8cc" kindref="compound">libmd-src/mp.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>mp<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mpmd_8libmd_8cc" kindref="compound">libmd-src/mpmd.libmd.cc</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&lt;<sp/>This<sp/>file<sp/>implements<sp/>the<sp/>mpmd<sp/>structure<sp/>which<sp/>takes<sp/>care<sp/>of<sp/>molecular<sp/>dynamics<sp/>on<sp/>monge<sp/>patches</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>End<sp/>of<sp/>LIBRARY<sp/>source<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//</highlight></codeline>
+    </programlisting>
+    <location file="libmd.cc"/>
+  </compounddef>
+</doxygen>

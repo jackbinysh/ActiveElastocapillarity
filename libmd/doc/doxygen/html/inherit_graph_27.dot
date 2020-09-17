@@ -1,0 +1,10 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node0 [label="superparticle",height=0.2,width=0.4,color="black",URL="$structsuperparticle.html",tooltip="This structure introduces \"super_particles\" i.e. particles that consist of (sub_)particles."];
+}

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structinteractionneighbor" kind="struct" language="C++" prot="public">
+    <compoundname>interactionneighbor</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structinteractionneighbor_a8a7a87a5baf3f17681168c65a37f3a71_1a8a7a87a5baf3f17681168c65a37f3a71" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui interactionneighbor::neighbor</definition>
+        <argsstring></argsstring>
+        <name>neighbor</name>
+        <briefdescription>
+<para>Neighbor number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="193" column="8" bodyfile="libmd.h" bodystart="193" bodyend="-1"/>
+        <referencedby refid="structinteractionneighbor_a137af796dfd322dda515ae925ab7fef2_1a137af796dfd322dda515ae925ab7fef2" compoundref="interact_8libmd_8cc" startline="18" endline="26">interactionneighbor</referencedby>
+        <referencedby refid="structmd_af4e3c55b8f17dfb069af504e6a2c750c_1af4e3c55b8f17dfb069af504e6a2c750c" compoundref="index_8md_8libmd_8cc" startline="382" endline="413">md&lt; dim &gt;::skinner</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structinteractionneighbor_a7251de19fa2a1ae8f242e9d33c458096_1a7251de19fa2a1ae8f242e9d33c458096" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui interactionneighbor::interaction</definition>
+        <argsstring></argsstring>
+        <name>interaction</name>
+        <briefdescription>
+<para>Interaction number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="194" column="8" bodyfile="libmd.h" bodystart="194" bodyend="-1"/>
+        <referencedby refid="structinteractionneighbor_a137af796dfd322dda515ae925ab7fef2_1a137af796dfd322dda515ae925ab7fef2" compoundref="interact_8libmd_8cc" startline="18" endline="26">interactionneighbor</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structinteractionneighbor_a137af796dfd322dda515ae925ab7fef2_1a137af796dfd322dda515ae925ab7fef2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>interactionneighbor::interactionneighbor</definition>
+        <argsstring>(ui noneighbor, ui nointeraction)</argsstring>
+        <name>interactionneighbor</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>noneighbor</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>nointeraction</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Constructor for interactionneighbor. Sets <computeroutput>neighbor</computeroutput> to <computeroutput>noneighbor</computeroutput> and <computeroutput>interaction</computeroutput> to <computeroutput>nointeraction</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="196" column="5" bodyfile="libmd-src/interact.libmd.cc" bodystart="18" bodyend="26"/>
+        <references refid="structinteractionneighbor_a7251de19fa2a1ae8f242e9d33c458096_1a7251de19fa2a1ae8f242e9d33c458096" compoundref="libmd_8h" startline="194">interaction</references>
+        <references refid="structinteractionneighbor_a8a7a87a5baf3f17681168c65a37f3a71_1a8a7a87a5baf3f17681168c65a37f3a71" compoundref="libmd_8h" startline="193">neighbor</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This struct saves the neighboring particle number and the interaction type library number. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>interactionneighbor</label>
+        <link refid="structinteractionneighbor"/>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="192" column="1" bodyfile="libmd.h" bodystart="191" bodyend="197"/>
+    <listofallmembers>
+      <member refid="structinteractionneighbor_a7251de19fa2a1ae8f242e9d33c458096_1a7251de19fa2a1ae8f242e9d33c458096" prot="public" virt="non-virtual"><scope>interactionneighbor</scope><name>interaction</name></member>
+      <member refid="structinteractionneighbor_a137af796dfd322dda515ae925ab7fef2_1a137af796dfd322dda515ae925ab7fef2" prot="public" virt="non-virtual"><scope>interactionneighbor</scope><name>interactionneighbor</name></member>
+      <member refid="structinteractionneighbor_a8a7a87a5baf3f17681168c65a37f3a71_1a8a7a87a5baf3f17681168c65a37f3a71" prot="public" virt="non-virtual"><scope>interactionneighbor</scope><name>neighbor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

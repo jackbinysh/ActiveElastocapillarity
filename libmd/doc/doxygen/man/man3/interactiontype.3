@@ -1,0 +1,93 @@
+.TH "interactiontype" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+interactiontype \- This structure saves the particle type interactions and calculates the the potentials\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBinteractiontype\fP (\fBui\fP ppot, std::vector< \fBldf\fP > &param, \fBldf\fP Rco, \fBldf\fP Vco)"
+.br
+.RI "Constructor\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBui\fP \fBpotential\fP"
+.br
+.RI "Type of potential\&. "
+.ti -1c
+.RI "std::vector< \fBldf\fP > \fBparameters\fP"
+.br
+.RI "Parameters of potential\&. "
+.ti -1c
+.RI "\fBldf\fP \fBrco\fP"
+.br
+.RI "R_cuttoff radius\&. "
+.ti -1c
+.RI "\fBldf\fP \fBvco\fP"
+.br
+.RI "Cuttoff potential energy\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure saves the particle type interactions and calculates the the potentials\&. 
+.PP
+Definition at line 180 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "interactiontype::interactiontype (\fBui\fP ppot, std::vector< \fBldf\fP > & param, \fBldf\fP Rco, \fBldf\fP Vco)"
+
+.PP
+Constructor\&. Constructor for interactiontype\&. Sets \fCpotential\fP to \fCppot\fP, \fCparameters\fP to \fC&param\fP and \fCvco\fP to \fCVco\fP\&.
+.PP
+Definition at line 6 of file interact\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+12     potential=ppot;
+13     parameters=param;
+14     rco=Rco;
+15     vco=Vco;
+16 }
+.fi
+.PP
+References parameters, potential, rco, and vco\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "std::vector<\fBldf\fP> interactiontype::parameters"
+
+.PP
+Parameters of potential\&. 
+.PP
+Definition at line 183 of file libmd\&.h\&.
+.SS "\fBui\fP interactiontype::potential"
+
+.PP
+Type of potential\&. 
+.PP
+Definition at line 182 of file libmd\&.h\&.
+.SS "\fBldf\fP interactiontype::rco"
+
+.PP
+R_cuttoff radius\&. 
+.PP
+Definition at line 184 of file libmd\&.h\&.
+.SS "\fBldf\fP interactiontype::vco"
+
+.PP
+Cuttoff potential energy\&. 
+.PP
+Definition at line 185 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

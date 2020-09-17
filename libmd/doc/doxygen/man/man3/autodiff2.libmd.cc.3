@@ -1,0 +1,1057 @@
+.TH "libmd-src/autodiff2.libmd.cc" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libmd-src/autodiff2.libmd.cc
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./libmd\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__libmd_src_file__\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<ui dim> bool \fBoperator==\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> bool \fBoperator!=\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> bool \fBoperator<=\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> bool \fBoperator>=\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> bool \fBoperator<\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> bool \fBoperator>\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator==\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator!=\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator<=\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator>=\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator<\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator>\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator==\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator!=\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator<=\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator>=\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator<\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > bool \fBoperator>\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBoperator\-\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBoperator+\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBoperator\-\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBoperator*\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBoperator/\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBoperator+=\fP (\fBduals\fP< dim > &F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBoperator\-=\fP (\fBduals\fP< dim > &F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBoperator*=\fP (\fBduals\fP< dim > &F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBoperator/=\fP (\fBduals\fP< dim > &F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator+\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator\-\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator*\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator/\fP (\fBduals\fP< dim > F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator+\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator\-\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator*\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator/\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator+=\fP (\fBduals\fP< dim > &F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator\-=\fP (\fBduals\fP< dim > &F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator*=\fP (\fBduals\fP< dim > &F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBoperator/=\fP (\fBduals\fP< dim > &F, X a)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBsqrt\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBpow\fP (\fBduals\fP< dim > F, X n)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBexp\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim, class X > \fBduals\fP< dim > \fBpow\fP (X a, \fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBpow\fP (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBlog\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBsin\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBcos\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBtan\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBsinh\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBcosh\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBtanh\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBasin\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBacos\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBatan\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBasinh\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBacosh\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBatanh\fP (\fBduals\fP< dim > F)"
+.br
+.ti -1c
+.RI "template<ui dim> \fBduals\fP< dim > \fBabs\fP (\fBduals\fP< dim > F)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __libmd_src_file__"
+
+.PP
+Definition at line 1 of file autodiff2\&.libmd\&.cc\&.
+.SH "Function Documentation"
+.PP 
+.SS "template<ui dim> \fBduals\fP<dim> abs (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 536 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+537 {
+538     return F\&.x<0\&.0?-F:F;
+539 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> acos (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 476 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+477 {
+478     duals<dim> H(std::acos(F\&.x));
+479     const ldf z1=std::pow(1\&.0-std::pow(F\&.x,2),-0\&.5),z2=std::pow(1\&.0-std::pow(F\&.x,2),-1\&.5);
+480     for(ui i=0;i<dim;i++)
+481     {
+482         H\&.dx[i]=-F\&.dx[i]*z1;
+483         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=-F\&.dxdy[i][j]*z1-F\&.dx[i]*F\&.dx[j]*F\&.x*z2;
+484     }
+485     return H;
+486 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, pow(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> acosh (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 512 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+513 {
+514     duals<dim> H(std::acosh(F\&.x));
+515     const ldf z1=std::pow(std::pow(F\&.x,2)-1\&.0,-0\&.5),z2=-std::pow(std::pow(F\&.x,2)-1\&.0,-1\&.5);
+516     for(ui i=0;i<dim;i++)
+517     {
+518         H\&.dx[i]=F\&.dx[i]*z1;
+519         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=F\&.dxdy[i][j]*z1+F\&.dx[i]*F\&.dx[j]*F\&.x*z2;
+520     }
+521     return H;
+522 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, pow(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> asin (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 464 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+465 {
+466     duals<dim> H(std::asin(F\&.x));
+467     const ldf z1=std::pow(1\&.0-std::pow(F\&.x,2),-0\&.5),z2=std::pow(1\&.0-std::pow(F\&.x,2),-1\&.5);
+468     for(ui i=0;i<dim;i++)
+469     {
+470         H\&.dx[i]=F\&.dx[i]*z1;
+471         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=F\&.dxdy[i][j]*z1+F\&.dx[i]*F\&.dx[j]*F\&.x*z2;
+472     }
+473     return H;
+474 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, pow(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> asinh (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 500 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+501 {
+502     duals<dim> H(std::asinh(F\&.x));
+503     const ldf z1=std::pow(1\&.0+std::pow(F\&.x,2),-0\&.5),z2=-std::pow(1\&.0+std::pow(F\&.x,2),-1\&.5);
+504     for (ui i=0;i<dim;i++)
+505     {
+506         H\&.dx[i]=F\&.dx[i]*z1;
+507         for (ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=F\&.dxdy[i][j]*z1+F\&.dx[i]*F\&.dx[j]*F\&.x*z2;
+508     }
+509     return H;
+510 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, pow(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> atan (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 488 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+489 {
+490     duals<dim> H(std::atan(F\&.x));
+491     const ldf z=1\&.0/(1\&.0+std::pow(F\&.x,2));
+492     for (ui i=0;i<dim;i++)
+493     {
+494         H\&.dx[i]=F\&.dx[i]*z;
+495         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=(F\&.dxdy[i][j]-F\&.dx[i]*F\&.dx[j]*2\&.0*F\&.x*z)*z;
+496     }
+497     return H;
+498 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, pow(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> atanh (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 524 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+525 {
+526     duals<dim> H(std::atanh(F\&.x));
+527     const ldf z = 1\&.0/(1\&.0-std::pow(F\&.x,2));
+528     for(ui i=0;i<dim;i++)
+529     {
+530         H\&.dx[i]=F\&.dx[i]*z;
+531         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=(F\&.dxdy[i][j]+F\&.dx[i]*F\&.dx[j]*2\&.0*F\&.x*z)*z;
+532     }
+533     return H;
+534 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, pow(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> cos (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 404 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+405 {
+406     const ldf cf=std::cos(F\&.x),sf=std::sin(F\&.x);
+407     duals<dim> H(cf);
+408     for(ui i=0;i<dim;i++)
+409     {
+410         H\&.dx[i]=-F\&.dx[i]*sf;
+411         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=-F\&.dxdy[i][j]*sf-F\&.dx[i]*F\&.dx[j]*cf;
+412     }
+413     return H;
+414 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, sin(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> cosh (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 440 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+441 {
+442     const ldf cf=std::cosh(F\&.x),sf=std::sinh(F\&.x);
+443     duals<dim> H(cf);
+444     for(ui i=0;i<dim;i++)
+445     {
+446         H\&.dx[i]=F\&.dx[i]*sf;
+447         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=F\&.dxdy[i][j]*sf+F\&.dx[i]*F\&.dx[j]*cf;
+448     }
+449     return H;
+450 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, sinh(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> exp (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 344 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+345 {
+346     const ldf z=std::exp(F\&.x);
+347     duals<dim> H(z);
+348     for(ui i=0;i<dim;i++)
+349     {
+350         H\&.dx[i]=F\&.dx[i]*z;
+351         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=(F\&.dxdy[i][j]+F\&.dx[i]*F\&.dx[j])*z;
+352     }
+353     return H;
+354 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> log (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 380 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+381 {
+382     duals<dim> H(std::log(F\&.x));
+383     const ldf f2=std::pow(F\&.x,2);
+384     for(ui i=0;i<dim;i++)
+385     {
+386         H\&.dx[i]=F\&.dx[i]/F\&.x;
+387         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=(F\&.dxdy[i][j]*F\&.x-F\&.dx[i]*F\&.dx[j])/f2;
+388     }
+389     return H;
+390 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, pow(), and duals< dim >::x\&.
+.SS "template<ui dim> bool operator!= (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 73 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+74 {
+75     return F\&.x!=G\&.x;
+76 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator!= (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 103 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+104 {
+105     return F\&.x!=a;
+106 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator!= (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 133 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+134 {
+135     return a!=F\&.x;
+136 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> operator* (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 188 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+189 {
+190     duals<dim> H(F\&.x*G\&.x);
+191     for(ui i=0;i<dim;i++)
+192     {
+193         H\&.dx[i]=F\&.dx[i]*G\&.x+F\&.x*G\&.dx[i];
+194         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=F\&.x*G\&.dxdy[i][j]+F\&.dx[i]*G\&.dx[j]+F\&.dx[j]*G\&.dx[i]+F\&.dxdy[i][j]*G\&.x;
+195     }
+196     return H;
+197 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator* (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 246 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+247 {
+248     F\&.x*=a;
+249     for(ui i=0;i<dim;i++)
+250     {
+251         F\&.dx[i]*=a;
+252         for(ui j=0;j<dim;j++) F\&.dxdy[i][j]*=a;
+253     }
+254     return F;
+255 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator* (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 278 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+279 {
+280     return F*a;
+281 }
+.fi
+.SS "template<ui dim> \fBduals\fP<dim> operator*= (\fBduals\fP< dim > & F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 221 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+222 {
+223     return F=F*G;
+224 }
+.fi
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator*= (\fBduals\fP< dim > & F, X a)"
+
+.PP
+Definition at line 307 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+308 {
+309     return F=F*a;
+310 }
+.fi
+.SS "template<ui dim> \fBduals\fP<dim> operator+ (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 166 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+167 {
+168     duals<dim> H(F\&.x+G\&.x);
+169     for(ui i=0;i<dim;i++)
+170     {
+171         H\&.dx[i]=F\&.dx[i]+G\&.dx[i];
+172         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=F\&.dxdy[i][j]+G\&.dxdy[i][j];
+173     }
+174     return H;
+175 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator+ (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 234 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+235 {
+236     F\&.x+=a;
+237     return F;
+238 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator+ (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 268 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+269 {
+270     return F+a;
+271 }
+.fi
+.SS "template<ui dim> \fBduals\fP<dim> operator+= (\fBduals\fP< dim > & F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 211 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+212 {
+213     return F=F+G;
+214 }
+.fi
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator+= (\fBduals\fP< dim > & F, X a)"
+
+.PP
+Definition at line 295 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+296 {
+297     F\&.x+=a;
+298     return F;
+299 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> operator\- (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 161 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+162 {
+163     return F*(-1\&.0);
+164 }
+.fi
+.SS "template<ui dim> \fBduals\fP<dim> operator\- (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 177 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+178 {
+179     duals<dim> H(F\&.x-G\&.x);
+180     for (ui i=0;i<dim; i++)
+181     {
+182         H\&.dx[i]=F\&.dx[i]-G\&.dx[i];
+183         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=F\&.dxdy[i][j]-G\&.dxdy[i][j];
+184     }
+185     return H;
+186 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator\- (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 240 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+241 {
+242     F\&.x-=a;
+243     return F;
+244 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator\- (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 273 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+274 {
+275     return (-F)+a;
+276 }
+.fi
+.SS "template<ui dim> \fBduals\fP<dim> operator\-= (\fBduals\fP< dim > & F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 216 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+217 {
+218     return F=F-G;
+219 }
+.fi
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator\-= (\fBduals\fP< dim > & F, X a)"
+
+.PP
+Definition at line 301 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+302 {
+303     F\&.x-=a;
+304     return F;
+305 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> operator/ (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 199 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+200 {
+201     duals<dim>H(F\&.x/G\&.x);
+202     const ldf g2=std::pow(G\&.x,2),g3=std::pow(G\&.x,3);
+203     for(ui i=0;i<dim;i++)
+204     {
+205         H\&.dx[i]=(F\&.dx[i]*G\&.x-F\&.x*G\&.dx[i])/g2;
+206         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=(2\&.0*F\&.x*G\&.dx[i]*G\&.dx[j]-G\&.x*(F\&.x*G\&.dxdy[i][j]+F\&.dx[i]*G\&.dx[j]+F\&.dx[j]*G\&.dx[i]-G\&.x*F\&.dxdy[i][j]))/g3;
+207     }
+208     return H;
+209 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, pow(), and duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator/ (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 257 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+258 {
+259     F\&.x/=a;
+260     for(ui i=0;i<dim;i++)
+261     {
+262         F\&.dx[i]/=a;
+263         for(ui j=0;j<dim;j++) F\&.dxdy[i][j]/=a;
+264     }
+265     return F;
+266 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator/ (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 283 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+284 {
+285     duals<dim> H(a/F\&.x);
+286     const ldf f2=std::pow(F\&.x,2),f3=std::pow(F\&.x,3);
+287     for(ui i=0;i<dim;i++)
+288     {
+289         H\&.dx[i]=-a*F\&.dx[i]/f2;
+290         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=a*(2\&.0*F\&.dx[i]*F\&.dx[j]-F\&.x*F\&.dxdy[i][j])/f3;
+291     }
+292     return H;
+293 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, pow(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> operator/= (\fBduals\fP< dim > & F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 226 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+227 {
+228     return F=F/G;
+229 }
+.fi
+.SS "template<ui dim, class X > \fBduals\fP<dim> operator/= (\fBduals\fP< dim > & F, X a)"
+
+.PP
+Definition at line 312 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+313 {
+314     return F=F/a;
+315 }
+.fi
+.SS "template<ui dim> bool operator< (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 88 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+89 {
+90     return F\&.x<G\&.x;
+91 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator< (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 118 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+119 {
+120     return F\&.x<a;
+121 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator< (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 148 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+149 {
+150     return a<F\&.x;
+151 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim> bool operator<= (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 78 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+79 {
+80     return F\&.x<=G\&.x;
+81 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator<= (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 108 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+109 {
+110     return F\&.x<=a;
+111 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator<= (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 138 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+139 {
+140     return a<=F\&.x;
+141 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim> bool operator== (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 68 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+69 {
+70     return F\&.x==G\&.x;
+71 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator== (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 98 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+99 {
+100     return F\&.x==a;
+101 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator== (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 128 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+129 {
+130     return a==F\&.x;
+131 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim> bool operator> (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 93 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+94 {
+95     return F\&.x>G\&.x;
+96 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator> (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 123 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+124 {
+125     return F\&.x>a;
+126 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator> (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 153 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+154 {
+155     return a>F\&.x;
+156 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim> bool operator>= (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 83 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+84 {
+85     return F\&.x>=G\&.x;
+86 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator>= (\fBduals\fP< dim > F, X a)"
+
+.PP
+Definition at line 113 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+114 {
+115     return F\&.x>=a;
+116 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim, class X > bool operator>= (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 143 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+144 {
+145     return a>=F\&.x;
+146 }
+.fi
+.PP
+References duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> pow (\fBduals\fP< dim > F, \fBduals\fP< dim > G)"
+
+.PP
+Definition at line 368 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+369 {
+370     const ldf z=std::pow(F\&.x,G\&.x),lf=std::log(F\&.x);
+371     duals<dim> H(z);
+372     for(ui i=0;i<dim;i++)
+373     {
+374         H\&.dx[i]=(G\&.dx[i]*lf+F\&.dx[i]*G\&.x/F\&.x)*z;
+375         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=((G\&.dx[i]*lf+F\&.dx[i]*G\&.x/F\&.x)*(G\&.dx[j]*lf+F\&.dx[j]*G\&.x/F\&.x)+G\&.dxdy[i][j]*lf+(F\&.dx[i]*G\&.dx[j]+F\&.dx[j]*G\&.dx[i]+F\&.dxdy[i][j]*G\&.x-F\&.dx[i]*F\&.dx[j]*G\&.x/F\&.x)/F\&.x)*z;
+376     }
+377     return H;
+378 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, log(), pow(), and duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> pow (\fBduals\fP< dim > F, X n)"
+
+.PP
+Definition at line 332 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+333 {
+334     duals<dim> H(std::pow(F\&.x,n));
+335     const ldf z1=std::pow(F\&.x,n-1),z2=std::pow(F\&.x,n-2);
+336     for(ui i=0;i<dim;i++)
+337     {
+338         H\&.dx[i]=F\&.dx[i]*n*z1;
+339         for (ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=n*(F\&.dxdy[i][j]*F\&.x+(n-1)*F\&.dx[i]*F\&.dx[j])*z2;
+340     }
+341     return H;
+342 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim, class X > \fBduals\fP<dim> pow (X a, \fBduals\fP< dim > F)"
+
+.PP
+Definition at line 356 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+357 {
+358     const ldf z=std::pow(a,F\&.x),la=std::log(a);
+359     duals<dim> H(z);
+360     for(ui i=0;i<dim;i++)
+361     {
+362         H\&.dx[i]=F\&.dx[i]*la*z;
+363         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=(F\&.dxdy[i][j]+F\&.dx[i]*F\&.dx[j]*la)*la*z;
+364     }
+365     return H;
+366 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, log(), pow(), and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> sin (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 392 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+393 {
+394     const ldf sf=std::sin(F\&.x),cf=std::cos(F\&.x);
+395     duals<dim> H(sf);
+396     for(ui i=0;i<dim;i++)
+397     {
+398         H\&.dx[i]=F\&.dx[i]*cf;
+399         for (ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=F\&.dxdy[i][j]*cf-F\&.dx[i]*F\&.dx[j]*sf;
+400     }
+401     return H;
+402 }
+.fi
+.PP
+References cos(), duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> sinh (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 428 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+429 {
+430     const ldf sf=std::sinh(F\&.x),cf=std::cosh(F\&.x);
+431     duals<dim> H(sf);
+432     for(ui i=0;i<dim;i++)
+433     {
+434         H\&.dx[i]=F\&.dx[i]*cf;
+435         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=F\&.dxdy[i][j]*cf+F\&.dx[i]*F\&.dx[j]*sf;
+436     }
+437     return H;
+438 }
+.fi
+.PP
+References cosh(), duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> sqrt (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 320 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+321 {
+322     const ldf r=std::sqrt(F\&.x);
+323     duals<dim> H(r);
+324     for(ui i=0;i<dim;i++)
+325     {
+326         H\&.dx[i]=F\&.dx[i]/2\&.0/r;
+327         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=(F\&.dxdy[i][j]-F\&.dx[i]*F\&.dx[j]/2\&.0/F\&.x)/2\&.0/r;
+328     }
+329     return H;
+330 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> tan (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 416 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+417 {
+418     const ldf tf=std::tan(F\&.x);
+419     duals<dim> H(tf);
+420     for(ui i=0;i<dim;i++)
+421     {
+422         H\&.dx[i]=F\&.dx[i]*(1\&.0+tf*tf);
+423         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=(F\&.dxdy[i][j]+F\&.dx[i]*F\&.dx[j]*2\&.0*tf)*(1\&.0+tf*tf);
+424     }
+425     return H;
+426 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SS "template<ui dim> \fBduals\fP<dim> tanh (\fBduals\fP< dim > F)"
+
+.PP
+Definition at line 452 of file autodiff2\&.libmd\&.cc\&.
+.PP
+.nf
+453 {
+454     const ldf tf=std::tanh(F\&.x);
+455     duals<dim> H(tf);
+456     for(ui i=0;i<dim;i++)
+457     {
+458         H\&.dx[i]=F\&.dx[i]*(1\&.0-tf*tf);
+459         for(ui j=i;j<dim;j++) H\&.dxdy[i][j]=H\&.dxdy[j][i]=(F\&.dxdy[i][j]-F\&.dx[i]*F\&.dx[j]*2\&.0*tf)*(1\&.0-tf*tf);
+460     }
+461     return H;
+462 }
+.fi
+.PP
+References duals< dim >::dx, duals< dim >::dxdy, and duals< dim >::x\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

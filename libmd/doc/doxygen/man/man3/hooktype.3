@@ -1,0 +1,77 @@
+.TH "hooktype" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hooktype \- This structure defines what hooks ought to be called with what parameters\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBhooktype\fP (\fBui\fP nohook, std::vector< \fBldf\fP > &param)"
+.br
+.RI "Constructor\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBui\fP \fBhook\fP"
+.br
+.RI "Hooktype\&. "
+.ti -1c
+.RI "std::vector< \fBldf\fP > \fBparameters\fP"
+.br
+.RI "Hook parameters\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure defines what hooks ought to be called with what parameters\&. 
+.PP
+Definition at line 336 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "hooktype::hooktype (\fBui\fP nohook, std::vector< \fBldf\fP > & param)"
+
+.PP
+Constructor\&. This is the hooktype constructor\&. 
+.br
+ It expects the hooktype number: \fCnohook\fP which should be aligned with the \fBt_hook<dim>::hooks\fP vector\&. 
+.br
+ Additionally it need parameters for the hook given by \fCparam\fP\&. 
+.br
+
+.PP
+Definition at line 24 of file hooks\&.libmd\&.cc\&.
+.PP
+.nf
+25 {
+31     hook=nohook;
+32     parameters=param;
+33 }
+.fi
+.PP
+References hook, and parameters\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBui\fP hooktype::hook"
+
+.PP
+Hooktype\&. 
+.PP
+Definition at line 338 of file libmd\&.h\&.
+.SS "std::vector<\fBldf\fP> hooktype::parameters"
+
+.PP
+Hook parameters\&. 
+.PP
+Definition at line 339 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="superparticles_8md" kind="file" language="Markdown">
+    <compoundname>superparticles.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">Superparticles<sp/></highlight></codeline>
+<codeline><highlight class="normal">============</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Superparticles<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{#md-superparticles}</highlight></codeline>
+<codeline><highlight class="normal">=============</highlight></codeline>
+<codeline><highlight class="normal">A<sp/>superparticle<sp/>is<sp/>a<sp/>collection<sp/>of<sp/></highlight></codeline>
+<codeline><highlight class="normal">particles<sp/>that<sp/>can<sp/>be<sp/>referenced<sp/>and<sp/>cloned<sp/>as<sp/>if<sp/>it<sp/>were<sp/>a<sp/>single<sp/>particle.<sp/></highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="doc/markdown/superparticles.md"/>
+  </compounddef>
+</doxygen>

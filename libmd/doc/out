@@ -1,0 +1,1 @@
+(sed -u -e "/PROJECT_NUMBER         =/ s/= .*/= -0./" Doxyfile) | doxygen -

@@ -1,0 +1,51 @@
+\hypertarget{mongepatches_8libmd_8cc_source}{}\doxysection{mongepatches.\+libmd.\+cc}
+\label{mongepatches_8libmd_8cc_source}\index{libmd-\/src/mongepatches.libmd.cc@{libmd-\/src/mongepatches.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mongepatches_8libmd_8cc_source_l00001}\mbox{\hyperlink{mongepatches_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{mongepatches_8libmd_8cc_source_l00006}\mbox{\hyperlink{libmd_8h_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{00006}} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{kdelta}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} j)}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00012     \textcolor{keywordflow}{return} (i==j)?1.0:0.0;}
+\DoxyCodeLine{00013 \}}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{\Hypertarget{mongepatches_8libmd_8cc_source_l00015}\mbox{\hyperlink{libmd_8h_aff1e3346fa380e633ebcc47d00905431_aff1e3346fa380e633ebcc47d00905431}{00015}} \textcolor{keyword}{template}<\textcolor{keyword}{class} X,ui dim> X \mbox{\hyperlink{mongepatches_8libmd_8cc_aff1e3346fa380e633ebcc47d00905431_aff1e3346fa380e633ebcc47d00905431}{FLATSPACE}}(X x[dim],std::vector<ldf> \&param)}
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00022     (void) x;}
+\DoxyCodeLine{00023     (void) param;}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{return} 0.0;}
+\DoxyCodeLine{00025 \}}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{\Hypertarget{mongepatches_8libmd_8cc_source_l00027}\mbox{\hyperlink{libmd_8h_ac3b9677e3fcde78947e0e86b9cc72fc4_ac3b9677e3fcde78947e0e86b9cc72fc4}{00027}} \textcolor{keyword}{template}<\textcolor{keyword}{class} X,ui dim> X \mbox{\hyperlink{mongepatches_8libmd_8cc_ac3b9677e3fcde78947e0e86b9cc72fc4_ac3b9677e3fcde78947e0e86b9cc72fc4}{GAUSSIANBUMP}}(X x[dim],std::vector<ldf> \&param)}
+\DoxyCodeLine{00028 \{}
+\DoxyCodeLine{00038     \textcolor{keyword}{using} \mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}};}
+\DoxyCodeLine{00039     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} A=param[0];}
+\DoxyCodeLine{00040     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} K=param[1];}
+\DoxyCodeLine{00041     X retval=0.0;}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) retval+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{pow}}(x[d],2);}
+\DoxyCodeLine{00043     \textcolor{keywordflow}{return} A*\mbox{\hyperlink{autodiff_8libmd_8cc_ade909d25ab24d31221b8640c8c6e58c3_ade909d25ab24d31221b8640c8c6e58c3}{exp}}(-\/K*retval);}
+\DoxyCodeLine{00044 \}}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{\Hypertarget{mongepatches_8libmd_8cc_source_l00046}\mbox{\hyperlink{mongepatches_8libmd_8cc_a7e124d9554d14ed2794809c926722ab1_a7e124d9554d14ed2794809c926722ab1}{00046}} \textcolor{keyword}{template}<\textcolor{keyword}{class} X,ui dim> X \mbox{\hyperlink{mongepatches_8libmd_8cc_a7e124d9554d14ed2794809c926722ab1_a7e124d9554d14ed2794809c926722ab1}{EGGCARTON}}(X *x,std::vector<ldf> \&param)}
+\DoxyCodeLine{00047 \{}
+\DoxyCodeLine{00057     \textcolor{keyword}{using} \mbox{\hyperlink{autodiff_8libmd_8cc_ad7bdaf61a457836d313298fa3b23aa23_ad7bdaf61a457836d313298fa3b23aa23}{std::cos}};}
+\DoxyCodeLine{00058     X retval=param[0];}
+\DoxyCodeLine{00059     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) retval*=\mbox{\hyperlink{autodiff_8libmd_8cc_ad7bdaf61a457836d313298fa3b23aa23_ad7bdaf61a457836d313298fa3b23aa23}{cos}}(x[d]*param[d+1]);}
+\DoxyCodeLine{00060     \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{00061 \}}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{\Hypertarget{mongepatches_8libmd_8cc_source_l00063}\mbox{\hyperlink{mongepatches_8libmd_8cc_a0d7247077c47e777d4aab1d88b4a69de_a0d7247077c47e777d4aab1d88b4a69de}{00063}} \textcolor{keyword}{template}<\textcolor{keyword}{class} X,ui dim> X \mbox{\hyperlink{mongepatches_8libmd_8cc_a0d7247077c47e777d4aab1d88b4a69de_a0d7247077c47e777d4aab1d88b4a69de}{MOLLIFIER}}(X *x,std::vector<ldf> \&param)}
+\DoxyCodeLine{00064 \{}
+\DoxyCodeLine{00074     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} A=param[0];}
+\DoxyCodeLine{00075     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} Ksq=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(param[1],2);}
+\DoxyCodeLine{00076     \textcolor{keyword}{using} \mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}};}
+\DoxyCodeLine{00077     \textcolor{keyword}{using} \mbox{\hyperlink{autodiff_8libmd_8cc_ade909d25ab24d31221b8640c8c6e58c3_ade909d25ab24d31221b8640c8c6e58c3}{std::exp}};}
+\DoxyCodeLine{00078     X retval=0.0;}
+\DoxyCodeLine{00079     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) retval+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{pow}}(x[d],2);}
+\DoxyCodeLine{00080     \textcolor{keywordflow}{return} (retval<Ksq)?A*\mbox{\hyperlink{autodiff_8libmd_8cc_ade909d25ab24d31221b8640c8c6e58c3_ade909d25ab24d31221b8640c8c6e58c3}{exp}}(retval/(retval-\/Ksq)):\textcolor{keyword}{static\_cast<}X\textcolor{keyword}{>}(0.0);}
+\DoxyCodeLine{00081 \}}
+
+\end{DoxyCode}

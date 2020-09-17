@@ -1,0 +1,155 @@
+.TH "particle< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+particle< dim > \- This structure contains all the information for a single particle\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBparticle\fP (\fBldf\fP mass=1\&.0, \fBui\fP ptype=0, bool fixed=false, bool pbconded=false)"
+.br
+.RI "Constructor\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBldf\fP \fBm\fP"
+.br
+.RI "Mass\&. "
+.ti -1c
+.RI "\fBldf\fP \fBx\fP [dim]"
+.br
+.RI "Position\&. "
+.ti -1c
+.RI "\fBldf\fP \fBxp\fP [dim]"
+.br
+.RI "Previous particle position\&. "
+.ti -1c
+.RI "\fBldf\fP \fBxsk\fP [dim]"
+.br
+.RI "Position when building the skinlist\&. "
+.ti -1c
+.RI "\fBldf\fP \fBdx\fP [dim]"
+.br
+.RI "Velocity\&. "
+.ti -1c
+.RI "\fBldf\fP \fBF\fP [dim]"
+.br
+.RI "Forces on particle\&. "
+.ti -1c
+.RI "\fBui\fP \fBtype\fP"
+.br
+.RI "This particle has type number\&. "
+.ti -1c
+.RI "bool \fBfix\fP"
+.br
+.RI "Can this particle move\&. "
+.ti -1c
+.RI "bool \fBusepbcond\fP"
+.br
+.RI "Use per particle boundary conditions\&. "
+.ti -1c
+.RI "\fBuc\fP \fBpbc\fP [dim]"
+.br
+.RI "Particle boundary conditions\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct particle< dim >"
+This structure contains all the information for a single particle\&. 
+.PP
+Definition at line 133 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<ui dim> \fBparticle\fP< dim >::\fBparticle\fP (\fBldf\fP mass = \fC1\&.0\fP, \fBui\fP ptype = \fC0\fP, bool fixed = \fCfalse\fP, bool pbconded = \fCfalse\fP)"
+
+.PP
+Constructor\&. Constructor for particle<dim> structure\&. Only sets particle mass, particle type, and whether or not the particle position is fixed\&.
+.PP
+Definition at line 6 of file particle\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+13     m=mass;
+14     type=ptype;
+15     fix=fixed;
+16     usepbcond=pbconded;
+17 }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> \fBldf\fP \fBparticle\fP< dim >::dx[dim]"
+
+.PP
+Velocity\&. 
+.PP
+Definition at line 139 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBparticle\fP< dim >::F[dim]"
+
+.PP
+Forces on particle\&. 
+.PP
+Definition at line 140 of file libmd\&.h\&.
+.SS "template<ui dim> bool \fBparticle\fP< dim >::fix"
+
+.PP
+Can this particle move\&. 
+.PP
+Definition at line 142 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBparticle\fP< dim >::m"
+
+.PP
+Mass\&. 
+.PP
+Definition at line 135 of file libmd\&.h\&.
+.SS "template<ui dim> \fBuc\fP \fBparticle\fP< dim >::pbc[dim]"
+
+.PP
+Particle boundary conditions\&. 
+.PP
+Definition at line 144 of file libmd\&.h\&.
+.SS "template<ui dim> \fBui\fP \fBparticle\fP< dim >::type"
+
+.PP
+This particle has type number\&. 
+.PP
+Definition at line 141 of file libmd\&.h\&.
+.SS "template<ui dim> bool \fBparticle\fP< dim >::usepbcond"
+
+.PP
+Use per particle boundary conditions\&. 
+.PP
+Definition at line 143 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBparticle\fP< dim >::x[dim]"
+
+.PP
+Position\&. 
+.PP
+Definition at line 136 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBparticle\fP< dim >::xp[dim]"
+
+.PP
+Previous particle position\&. 
+.PP
+Definition at line 137 of file libmd\&.h\&.
+.SS "template<ui dim> \fBldf\fP \fBparticle\fP< dim >::xsk[dim]"
+
+.PP
+Position when building the skinlist\&. 
+.PP
+Definition at line 138 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

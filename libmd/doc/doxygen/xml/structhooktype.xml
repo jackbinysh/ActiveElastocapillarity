@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhooktype" kind="struct" language="C++" prot="public">
+    <compoundname>hooktype</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhooktype_ad81d7b738ac51aac9892391afc1d13cf_1ad81d7b738ac51aac9892391afc1d13cf" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui hooktype::hook</definition>
+        <argsstring></argsstring>
+        <name>hook</name>
+        <briefdescription>
+<para>Hooktype. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="338" column="8" bodyfile="libmd.h" bodystart="338" bodyend="-1"/>
+        <referencedby refid="structhooktype_a03ed28bf76315c4f4ffeb2bde7755e44_1a03ed28bf76315c4f4ffeb2bde7755e44" compoundref="hooks_8libmd_8cc" startline="24" endline="33">hooktype</referencedby>
+        <referencedby refid="structmd_af8e8b1c94af7332930937f8652c56be1_1af8e8b1c94af7332930937f8652c56be1" compoundref="hooks_8md_8libmd_8cc" startline="62" endline="68">md&lt; dim &gt;::run_hooks</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhooktype_a7a1dbb49e6b7c670bcde4785d06f0dda_1a7a1dbb49e6b7c670bcde4785d06f0dda" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt;</type>
+        <definition>std::vector&lt;ldf&gt; hooktype::parameters</definition>
+        <argsstring></argsstring>
+        <name>parameters</name>
+        <briefdescription>
+<para>Hook parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="339" column="17" bodyfile="libmd.h" bodystart="339" bodyend="-1"/>
+        <referencedby refid="structhooktype_a03ed28bf76315c4f4ffeb2bde7755e44_1a03ed28bf76315c4f4ffeb2bde7755e44" compoundref="hooks_8libmd_8cc" startline="24" endline="33">hooktype</referencedby>
+        <referencedby refid="structmd_af8e8b1c94af7332930937f8652c56be1_1af8e8b1c94af7332930937f8652c56be1" compoundref="hooks_8md_8libmd_8cc" startline="62" endline="68">md&lt; dim &gt;::run_hooks</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structhooktype_a03ed28bf76315c4f4ffeb2bde7755e44_1a03ed28bf76315c4f4ffeb2bde7755e44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hooktype::hooktype</definition>
+        <argsstring>(ui nohook, std::vector&lt; ldf &gt; &amp;param)</argsstring>
+        <name>hooktype</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>nohook</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This is the hooktype constructor. <linebreak/>
+ It expects the hooktype number: <computeroutput>nohook</computeroutput> which should be aligned with the <ref refid="structt__hook_aad3b3d1f0d94d1898081d47d886c9bec_1aad3b3d1f0d94d1898081d47d886c9bec" kindref="member">t_hook&lt;dim&gt;::hooks</ref> vector. <linebreak/>
+ Additionally it need parameters for the hook given by <computeroutput>param</computeroutput>. <linebreak/>
+</para>
+        </inbodydescription>
+        <location file="libmd.h" line="341" column="5" bodyfile="libmd-src/hooks.libmd.cc" bodystart="24" bodyend="33"/>
+        <references refid="structhooktype_ad81d7b738ac51aac9892391afc1d13cf_1ad81d7b738ac51aac9892391afc1d13cf" compoundref="libmd_8h" startline="338">hook</references>
+        <references refid="structhooktype_a7a1dbb49e6b7c670bcde4785d06f0dda_1a7a1dbb49e6b7c670bcde4785d06f0dda" compoundref="libmd_8h" startline="339">parameters</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure defines what hooks ought to be called with what parameters. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>hooktype</label>
+        <link refid="structhooktype"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+parameters</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; ldf &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; ldf &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="337" column="1" bodyfile="libmd.h" bodystart="336" bodyend="342"/>
+    <listofallmembers>
+      <member refid="structhooktype_ad81d7b738ac51aac9892391afc1d13cf_1ad81d7b738ac51aac9892391afc1d13cf" prot="public" virt="non-virtual"><scope>hooktype</scope><name>hook</name></member>
+      <member refid="structhooktype_a03ed28bf76315c4f4ffeb2bde7755e44_1a03ed28bf76315c4f4ffeb2bde7755e44" prot="public" virt="non-virtual"><scope>hooktype</scope><name>hooktype</name></member>
+      <member refid="structhooktype_a7a1dbb49e6b7c670bcde4785d06f0dda_1a7a1dbb49e6b7c670bcde4785d06f0dda" prot="public" virt="non-virtual"><scope>hooktype</scope><name>parameters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

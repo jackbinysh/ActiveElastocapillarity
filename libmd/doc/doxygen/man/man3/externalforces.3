@@ -1,0 +1,107 @@
+.TH "externalforces< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+externalforces< dim > \- This structure takes care of additional (external) forces acting on particles\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBexternalforces\fP ()"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBui\fP \fBadd\fP (\fBextforceptr\fP< dim > p)"
+.br
+.RI "Add an external force function\&. "
+.ti -1c
+.RI "void \fBoperator()\fP (\fBui\fP type, \fBui\fP i, std::vector< \fBui\fP > &particles, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Execute external force function\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< \fBextforceptr\fP< dim > > \fBextforces\fP"
+.br
+.RI "External forces function container\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct externalforces< dim >"
+This structure takes care of additional (external) forces acting on particles\&. 
+.PP
+Definition at line 274 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<ui dim> \fBexternalforces\fP< dim >::\fBexternalforces\fP"
+
+.PP
+Constructor\&. This is the externalforces<dim> constuctor\&. 
+.br
+ It reserves 8 slots in the extforces vector and adds the builtin externalforces\&. 
+.br
+
+.PP
+Definition at line 31 of file externalforces\&.libmd\&.cc\&.
+.PP
+.nf
+32 {
+37     extforces\&.reserve(8);
+38     add(DAMPING<dim>);
+39     add(DISSIPATION<dim>);
+40     add(LANGEVIN<dim>);
+41     add(LANGEVIN_MP<dim>);
+42 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "template<ui dim> \fBui\fP \fBexternalforces\fP< dim >::add (\fBextforceptr\fP< dim > p)"
+
+.PP
+Add an external force function\&. This function allows the user to add an userdefined external force which is pointed at by \fCp\fP\&.
+.PP
+Definition at line 44 of file externalforces\&.libmd\&.cc\&.
+.PP
+.nf
+45 {
+49     extforces\&.push_back(p);
+50     return extforces\&.size()-1;
+51 }
+.fi
+.SS "template<ui dim> void \fBexternalforces\fP< dim >::operator() (\fBui\fP type, \fBui\fP i, std::vector< \fBui\fP > & particles, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Execute external force function\&. This function calculates a certain external force \fCextforces[type]\fP for particle \fCi\fP with interacting particle list \fCparticles\fP\&. 
+.br
+ The sys pointer is typically a void pointer to the md or mpmd system (which is cast back by using the macro SYS)\&.
+.PP
+Definition at line 53 of file externalforces\&.libmd\&.cc\&.
+.PP
+.nf
+54 {
+59     extforces[type](i,particles,parameters,sys);
+60 }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> std::vector<\fBextforceptr\fP<dim> > \fBexternalforces\fP< dim >::extforces"
+
+.PP
+External forces function container\&. 
+.PP
+Definition at line 276 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

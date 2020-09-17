@@ -1,0 +1,1041 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="potentials_8libmd_8cc" kind="file" language="C++">
+    <compoundname>potentials.libmd.cc</compoundname>
+    <includes refid="libmd_8h" local="yes">../libmd.h</includes>
+    <includedby refid="libmd_8cc" local="yes">libmd.cc</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>list</label>
+      </node>
+      <node id="41">
+        <label>md/index.md.libmd.cc</label>
+        <link refid="index_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>md/hooks.md.libmd.cc</label>
+        <link refid="hooks_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>libmd-src/mongepatches.libmd.cc</label>
+        <link refid="mongepatches_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="15">
+        <label>limits</label>
+      </node>
+      <node id="38">
+        <label>md/interaction.md.libmd.cc</label>
+        <link refid="interaction_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>libmd-src/variadic_vars.libmd.cc</label>
+        <link refid="variadic__vars_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>libmd-src/interact.libmd.cc</label>
+        <link refid="interact_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>md/distances.md.libmd.cc</label>
+        <link refid="distances_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>md/energy.md.libmd.cc</label>
+        <link refid="energy_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libmd-src/pairpotentials.libmd.cc</label>
+        <link refid="pairpotentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>libmd-src/mp.libmd.cc</label>
+        <link refid="mp_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cmath</label>
+      </node>
+      <node id="27">
+        <label>libmd-src/box.libmd.cc</label>
+        <link refid="box_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>md/bonds.md.libmd.cc</label>
+        <link refid="bonds_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libmd-src/integrators.libmd.cc</label>
+        <link refid="integrators_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="24">
+        <label>libmd-src/autodiff.libmd.cc</label>
+        <link refid="autodiff_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>unordered_set</label>
+      </node>
+      <node id="28">
+        <label>libmd-src/boundaryconditions.libmd.cc</label>
+        <link refid="boundaryconditions_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>md/particles.md.libmd.cc</label>
+        <link refid="particles_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>libmd-src/particle.libmd.cc</label>
+        <link refid="particle_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>libmd-src/autodiff2.libmd.cc</label>
+        <link refid="autodiff2_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>libmd-src/bcond.libmd.cc</label>
+        <link refid="bcond_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libmd-src/potentials.libmd.cc</label>
+        <link refid="potentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>random</label>
+      </node>
+      <node id="21">
+        <label>libmd-src/enums.libmd.h</label>
+        <link refid="enums_8libmd_8h"/>
+      </node>
+      <node id="3">
+        <label>cstdio</label>
+      </node>
+      <node id="48">
+        <label>md/importexport.md.libmd.cc</label>
+        <link refid="importexport_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>md/periodicity.md.libmd.cc</label>
+        <link refid="periodicity_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>libmd-src/index.libmd.cc</label>
+        <link refid="index_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>libmd-src/externalforces.libmd.cc</label>
+        <link refid="externalforces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stack</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="47">
+        <label>md/sp.md.libmd.cc</label>
+        <link refid="sp_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>utility</label>
+      </node>
+      <node id="37">
+        <label>libmd-src/md.libmd.cc</label>
+        <link refid="md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdlib</label>
+      </node>
+      <node id="22">
+        <label>libmd.cc</label>
+        <link refid="libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../libmd.h</label>
+        <link refid="libmd_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>libmd-src/hooks.libmd.cc</label>
+        <link refid="hooks_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>unordered_map</label>
+      </node>
+      <node id="18">
+        <label>chrono</label>
+      </node>
+      <node id="44">
+        <label>md/setget.md.libmd.cc</label>
+        <link refid="setget_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>libmd-src/mpmd.libmd.cc</label>
+        <link refid="mpmd_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>set</label>
+      </node>
+      <node id="16">
+        <label>algorithm</label>
+      </node>
+      <node id="40">
+        <label>md/forces.md.libmd.cc</label>
+        <link refid="forces_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>libmd-src/error.libmd.cc</label>
+        <link refid="error_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>md/integrator.md.libmd.cc</label>
+        <link refid="integrator_8md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cstring</label>
+      </node>
+      <node id="20">
+        <label>libmd-src/macros.libmd.h</label>
+        <link refid="macros_8libmd_8h"/>
+      </node>
+      <node id="26">
+        <label>libmd-src/forces.libmd.cc</label>
+        <link refid="forces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="23">
+        <label>libmd-src/md/index.md.libmd.cc</label>
+        <link refid="index_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>libmd-src/md/hooks.md.libmd.cc</label>
+        <link refid="hooks_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>libmd-src/mongepatches.libmd.cc</label>
+        <link refid="mongepatches_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>libmd-src/md/interaction.md.libmd.cc</label>
+        <link refid="interaction_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libmd-src/variadic_vars.libmd.cc</label>
+        <link refid="variadic__vars_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>libmd-src/interact.libmd.cc</label>
+        <link refid="interact_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>libmd-src/md/distances.md.libmd.cc</label>
+        <link refid="distances_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>libmd-src/md/energy.md.libmd.cc</label>
+        <link refid="energy_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>libmd-src/pairpotentials.libmd.cc</label>
+        <link refid="pairpotentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>libmd-src/mp.libmd.cc</label>
+        <link refid="mp_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>libmd-src/box.libmd.cc</label>
+        <link refid="box_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>libmd-src/md/bonds.md.libmd.cc</label>
+        <link refid="bonds_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>libmd-src/integrators.libmd.cc</label>
+        <link refid="integrators_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libmd-src/autodiff.libmd.cc</label>
+        <link refid="autodiff_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>libmd-src/boundaryconditions.libmd.cc</label>
+        <link refid="boundaryconditions_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>libmd-src/md/particles.md.libmd.cc</label>
+        <link refid="particles_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>libmd-src/particle.libmd.cc</label>
+        <link refid="particle_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>libmd-src/autodiff2.libmd.cc</label>
+        <link refid="autodiff2_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libmd-src/bcond.libmd.cc</label>
+        <link refid="bcond_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libmd-src/potentials.libmd.cc</label>
+        <link refid="potentials_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>libmd-src/md/importexport.md.libmd.cc</label>
+        <link refid="importexport_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>libmd-src/md/periodicity.md.libmd.cc</label>
+        <link refid="periodicity_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>libmd-src/index.libmd.cc</label>
+        <link refid="index_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>libmd-src/externalforces.libmd.cc</label>
+        <link refid="externalforces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>libmd-src/md/sp.md.libmd.cc</label>
+        <link refid="sp_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>libmd-src/md.libmd.cc</label>
+        <link refid="md_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libmd.cc</label>
+        <link refid="libmd_8cc"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libmd.h</label>
+        <link refid="libmd_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>libmd-src/hooks.libmd.cc</label>
+        <link refid="hooks_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>libmd-src/md/setget.md.libmd.cc</label>
+        <link refid="setget_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libmd-src/mpmd.libmd.cc</label>
+        <link refid="mpmd_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>libmd-src/md/forces.md.libmd.cc</label>
+        <link refid="forces_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>libmd-src/error.libmd.cc</label>
+        <link refid="error_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>libmd-src/md/integrator.md.libmd.cc</label>
+        <link refid="integrator_8md_8libmd_8cc"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>libmd-src/forces.libmd.cc</label>
+        <link refid="forces_8libmd_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="potentials_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_1a4384389855e24d346feb2e60f23afb0b" prot="public" static="no">
+        <name>__libmd_src_file__</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd-src/potentials.libmd.cc" line="1" column="9" bodyfile="libmd-src/potentials.libmd.cc" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="potentials_8libmd_8cc_ad848edbfe46941489261f84096adb972_1ad848edbfe46941489261f84096adb972" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type>X</type>
+        <definition>X COULOMB</definition>
+        <argsstring>(X r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>COULOMB</name>
+        <param>
+          <type>X</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>Coulomb potential functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Coulomb potential: <formula id="49">\[V_{\text{COULOMB}}(r)=\frac{q}{r}\]</formula> <linebreak/>
+ This function depends on one parameter: <itemizedlist>
+<listitem>
+<para>The charge coupling between two partilces: <formula id="50">$q$</formula>  </para>
+</listitem>
+</itemizedlist>
+</para>
+        </inbodydescription>
+        <location file="libmd-src/potentials.libmd.cc" line="6" column="14" bodyfile="libmd-src/potentials.libmd.cc" bodystart="6" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="potentials_8libmd_8cc_af54e62e12e037d8b70bfd88d71fe23a9_1af54e62e12e037d8b70bfd88d71fe23a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type>X</type>
+        <definition>X YUKAWA</definition>
+        <argsstring>(X r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>YUKAWA</name>
+        <param>
+          <type>X</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>Yukawa potential functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Yukawa potential: <formula id="51">\[V_{\text{YUKAWA}}(r)=\frac{b}{r e^{kr}}\]</formula> <linebreak/>
+ This function depends on two parameters: <itemizedlist>
+<listitem>
+<para>the coupling strength between two partilces <formula id="24">$b$</formula>  </para>
+</listitem>
+<listitem>
+<para>the Yukawa reciprocal length scale <formula id="52">$k$</formula>  </para>
+</listitem>
+</itemizedlist>
+</para>
+        </inbodydescription>
+        <location file="libmd-src/potentials.libmd.cc" line="20" column="14" bodyfile="libmd-src/potentials.libmd.cc" bodystart="20" bodyend="34"/>
+        <references refid="autodiff_8libmd_8cc_ade909d25ab24d31221b8640c8c6e58c3_1ade909d25ab24d31221b8640c8c6e58c3" compoundref="autodiff_8libmd_8cc" startline="279" endline="283">exp</references>
+      </memberdef>
+      <memberdef kind="function" id="potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_1a82eec3e4535cd60b73051cf9970be606" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type>X</type>
+        <definition>X HOOKEAN</definition>
+        <argsstring>(X r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>HOOKEAN</name>
+        <param>
+          <type>X</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>Hookean potential functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Hookian potential (Harmonic spring potential): <formula id="53">\[V_{\text{HOOKEAN}}(r)=\tfrac{1}{2}k{(r-r_0)}^2\]</formula> <linebreak/>
+ This function depends on two parameters: <itemizedlist>
+<listitem>
+<para>the spring constant <formula id="52">$k$</formula>  </para>
+</listitem>
+<listitem>
+<para>the spring&apos;s rest length <formula id="54">$r_0$</formula>  </para>
+</listitem>
+</itemizedlist>
+</para>
+        </inbodydescription>
+        <location file="libmd-src/potentials.libmd.cc" line="36" column="14" bodyfile="libmd-src/potentials.libmd.cc" bodystart="36" bodyend="50"/>
+        <references refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" compoundref="autodiff_8libmd_8cc" startline="274" endline="277">pow</references>
+        <referencedby refid="libmd_8h_a60601f0c510687b04a3ae288ba5f4565_1a60601f0c510687b04a3ae288ba5f4565" compoundref="potentials_8libmd_8cc" startline="93" endline="105">HOOKEANFORCEDIPOLE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="potentials_8libmd_8cc_a2d9694d9eebcc0fcc8245d5fe107ab44_1a2d9694d9eebcc0fcc8245d5fe107ab44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type>X</type>
+        <definition>X LJ</definition>
+        <argsstring>(X r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>LJ</name>
+        <param>
+          <type>X</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>The famous Lennard-Jones potential functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>The famous Lenard-Jones potential: <formula id="55">\[V_{\text{LJ}}(r)=4 \epsilon \left({\left( \frac{\sigma}{r} \right)}^{12} - {\left( \frac{\sigma}{r} \right)}^6 \right) \]</formula> <linebreak/>
+ This function depends on two parameters: <itemizedlist>
+<listitem>
+<para>the coupling constant <formula id="56">$\epsilon$</formula>  </para>
+</listitem>
+<listitem>
+<para>the characteristic length scale <formula id="57">$\sigma$</formula>  </para>
+</listitem>
+</itemizedlist>
+</para>
+        </inbodydescription>
+        <location file="libmd-src/potentials.libmd.cc" line="52" column="14" bodyfile="libmd-src/potentials.libmd.cc" bodystart="52" bodyend="66"/>
+        <references refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" compoundref="autodiff_8libmd_8cc" startline="274" endline="277">pow</references>
+      </memberdef>
+      <memberdef kind="function" id="potentials_8libmd_8cc_a3f9ca49430b0d735c6547b4c36d3fe29_1a3f9ca49430b0d735c6547b4c36d3fe29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type>X</type>
+        <definition>X MORSE</definition>
+        <argsstring>(X r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>MORSE</name>
+        <param>
+          <type>X</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>Morse potential functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Morse potential: <formula id="58">\[V_{\text{MORSE}}(r)=d{\left(1-e^{a(r_e-r)}\right)}^2\]</formula> <linebreak/>
+ This function depends on three parameters: <itemizedlist>
+<listitem>
+<para>the dissociation energy <formula id="10">$d$</formula>  </para>
+</listitem>
+<listitem>
+<para>the width <formula id="59">$a$</formula>  </para>
+</listitem>
+<listitem>
+<para>the equilibrium bond distance <formula id="60">$r_e$</formula>  </para>
+</listitem>
+</itemizedlist>
+</para>
+        </inbodydescription>
+        <location file="libmd-src/potentials.libmd.cc" line="68" column="14" bodyfile="libmd-src/potentials.libmd.cc" bodystart="68" bodyend="84"/>
+        <references refid="autodiff_8libmd_8cc_ade909d25ab24d31221b8640c8c6e58c3_1ade909d25ab24d31221b8640c8c6e58c3" compoundref="autodiff_8libmd_8cc" startline="279" endline="283">exp</references>
+        <references refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" compoundref="autodiff_8libmd_8cc" startline="274" endline="277">pow</references>
+      </memberdef>
+      <memberdef kind="function" id="potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_1a082699d879383d5964f469bd32984224" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type>X</type>
+        <definition>X FORCEDIPOLE</definition>
+        <argsstring>(X r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>FORCEDIPOLE</name>
+        <param>
+          <type>X</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>Force dipole potential functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd-src/potentials.libmd.cc" line="86" column="14" bodyfile="libmd-src/potentials.libmd.cc" bodystart="86" bodyend="91"/>
+        <referencedby refid="libmd_8h_a60601f0c510687b04a3ae288ba5f4565_1a60601f0c510687b04a3ae288ba5f4565" compoundref="potentials_8libmd_8cc" startline="93" endline="105">HOOKEANFORCEDIPOLE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="potentials_8libmd_8cc_a60601f0c510687b04a3ae288ba5f4565_1a60601f0c510687b04a3ae288ba5f4565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type>X</type>
+        <definition>X HOOKEANFORCEDIPOLE</definition>
+        <argsstring>(X r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>HOOKEANFORCEDIPOLE</name>
+        <param>
+          <type>X</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>Hookean force dipole potential functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd-src/potentials.libmd.cc" line="93" column="14" bodyfile="libmd-src/potentials.libmd.cc" bodystart="93" bodyend="105"/>
+        <references refid="autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_1aef1f4db2bbc91c997fdc24226ea63d52" compoundref="autodiff_8libmd_8cc" startline="364" endline="367">abs</references>
+        <references refid="potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_1a082699d879383d5964f469bd32984224" compoundref="potentials_8libmd_8cc" startline="86" endline="91">FORCEDIPOLE</references>
+        <references refid="potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_1a82eec3e4535cd60b73051cf9970be606" compoundref="potentials_8libmd_8cc" startline="36" endline="50">HOOKEAN</references>
+      </memberdef>
+      <memberdef kind="function" id="potentials_8libmd_8cc_a3bc06782c0bafd9eb6e5e63a37a3fbad_1a3bc06782c0bafd9eb6e5e63a37a3fbad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type>X</type>
+        <definition>X ANHARMONICSPRING</definition>
+        <argsstring>(X r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>ANHARMONICSPRING</name>
+        <param>
+          <type>X</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>Anharmonic spring potential functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Anharmoninc spring: <formula id="61">\[V_{\text{ANHARMONICSPRING}}(r)=\tfrac{k}{\alpha}{\lvert r-r_0 \rvert}^{\alpha}\]</formula> <linebreak/>
+ This function depends on three parameters: <itemizedlist>
+<listitem>
+<para>the &apos;spring&apos; constant <formula id="52">$k$</formula>  </para>
+</listitem>
+<listitem>
+<para>the &apos;spring&apos; rest length <formula id="54">$r_0$</formula>  </para>
+</listitem>
+<listitem>
+<para>the exponent <formula id="62">$\alpha$</formula>  </para>
+</listitem>
+</itemizedlist>
+</para>
+        </inbodydescription>
+        <location file="libmd-src/potentials.libmd.cc" line="107" column="14" bodyfile="libmd-src/potentials.libmd.cc" bodystart="107" bodyend="123"/>
+        <references refid="autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_1aef1f4db2bbc91c997fdc24226ea63d52" compoundref="autodiff_8libmd_8cc" startline="364" endline="367">abs</references>
+        <references refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" compoundref="autodiff_8libmd_8cc" startline="274" endline="277">pow</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="potentials_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_1a4384389855e24d346feb2e60f23afb0b" refkind="member"><highlight class="preprocessor">#define<sp/>__libmd_src_file__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>libmd_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../libmd.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="libmd_8h_ad848edbfe46941489261f84096adb972_1ad848edbfe46941489261f84096adb972" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>X&gt;<sp/>X<sp/><ref refid="potentials_8libmd_8cc_ad848edbfe46941489261f84096adb972_1ad848edbfe46941489261f84096adb972" kindref="member">COULOMB</ref>(X<sp/>r,std::vector&lt;ldf&gt;<sp/>&amp;parameters)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>q=parameters[0];</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>q/r;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="libmd_8h_af54e62e12e037d8b70bfd88d71fe23a9_1af54e62e12e037d8b70bfd88d71fe23a9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>X&gt;<sp/>X<sp/><ref refid="potentials_8libmd_8cc_af54e62e12e037d8b70bfd88d71fe23a9_1af54e62e12e037d8b70bfd88d71fe23a9" kindref="member">YUKAWA</ref>(X<sp/>r,std::vector&lt;ldf&gt;<sp/>&amp;parameters)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>b=parameters[0];</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>k=parameters[1];</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>b/(r*<ref refid="autodiff_8libmd_8cc_ade909d25ab24d31221b8640c8c6e58c3_1ade909d25ab24d31221b8640c8c6e58c3" kindref="member">exp</ref>(k*r));</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="libmd_8h_a82eec3e4535cd60b73051cf9970be606_1a82eec3e4535cd60b73051cf9970be606" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>X&gt;<sp/>X<sp/><ref refid="potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_1a82eec3e4535cd60b73051cf9970be606" kindref="member">HOOKEAN</ref>(X<sp/>r,std::vector&lt;ldf&gt;<sp/>&amp;parameters)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>k=parameters[0];</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>r0=parameters[1];</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>k/2.0*<ref refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" kindref="member">pow</ref>(r-r0,2);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="libmd_8h_a2d9694d9eebcc0fcc8245d5fe107ab44_1a2d9694d9eebcc0fcc8245d5fe107ab44" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>X&gt;<sp/>X<sp/><ref refid="potentials_8libmd_8cc_a2d9694d9eebcc0fcc8245d5fe107ab44_1a2d9694d9eebcc0fcc8245d5fe107ab44" kindref="member">LJ</ref>(X<sp/>r,std::vector&lt;ldf&gt;<sp/>&amp;parameters)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>e=parameters[0];</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>s=parameters[1];</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>4.0*e*(<ref refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" kindref="member">pow</ref>(s/r,12)-<ref refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" kindref="member">pow</ref>(s/r,6));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="libmd_8h_a3f9ca49430b0d735c6547b4c36d3fe29_1a3f9ca49430b0d735c6547b4c36d3fe29" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>X&gt;<sp/>X<sp/><ref refid="potentials_8libmd_8cc_a3f9ca49430b0d735c6547b4c36d3fe29_1a3f9ca49430b0d735c6547b4c36d3fe29" kindref="member">MORSE</ref>(X<sp/>r,std::vector&lt;ldf&gt;<sp/>&amp;parameters)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>d=parameters[0];</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>a=parameters[1];</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>re=parameters[2];</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>d*<ref refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" kindref="member">pow</ref>(1.0-<ref refid="autodiff_8libmd_8cc_ade909d25ab24d31221b8640c8c6e58c3_1ade909d25ab24d31221b8640c8c6e58c3" kindref="member">exp</ref>(a*(re-r)),2);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="libmd_8h_a082699d879383d5964f469bd32984224_1a082699d879383d5964f469bd32984224" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>X&gt;<sp/>X<sp/><ref refid="potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_1a082699d879383d5964f469bd32984224" kindref="member">FORCEDIPOLE</ref>(X<sp/>r,std::vector&lt;ldf&gt;<sp/>&amp;parameters)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>exerts<sp/>a<sp/>constant<sp/>force<sp/>f<sp/>=<sp/>parameters[0].<sp/>Positive<sp/>force<sp/>=&gt;<sp/>extension<sp/>of<sp/>dipole</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>f<sp/>=<sp/>parameters[0];</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-f*r;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="libmd_8h_a60601f0c510687b04a3ae288ba5f4565_1a60601f0c510687b04a3ae288ba5f4565" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>X&gt;<sp/>X<sp/><ref refid="potentials_8libmd_8cc_a60601f0c510687b04a3ae288ba5f4565_1a60601f0c510687b04a3ae288ba5f4565" kindref="member">HOOKEANFORCEDIPOLE</ref>(X<sp/>r,std::vector&lt;ldf&gt;<sp/>&amp;parameters)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;ldf&gt;<sp/>sprparams(parameters.begin(),parameters.begin()+2);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;ldf&gt;<sp/>fdparams(parameters.begin()+2,parameters.begin()+3);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parameters.size()<sp/>==<sp/>3)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_1a82eec3e4535cd60b73051cf9970be606" kindref="member">HOOKEAN</ref>(r,<sp/>sprparams)<sp/>+<sp/><ref refid="potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_1a082699d879383d5964f469bd32984224" kindref="member">FORCEDIPOLE</ref>(r,<sp/>fdparams);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>threshold<sp/>exists:<sp/>force<sp/>dipole<sp/>kicks<sp/>in<sp/>when<sp/>force<sp/>due<sp/>to<sp/>spring<sp/>extension/compression<sp/>is<sp/>larger<sp/>than<sp/>threshold.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>positive<sp/>f<sp/>=&gt;<sp/>threshold<sp/>is<sp/>in<sp/>extension;<sp/>negative<sp/>f<sp/>=&gt;<sp/>threshold<sp/>is<sp/>in<sp/>compression.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>threshold<sp/>must<sp/>be<sp/>positive<sp/>for<sp/>this<sp/>interpretation<sp/>to<sp/>hold.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>threshold<sp/>=<sp/>parameters[3];</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_1a82eec3e4535cd60b73051cf9970be606" kindref="member">HOOKEAN</ref>(r,<sp/>sprparams)<sp/>+<sp/>(sprparams[0]*(r-sprparams[1])*fdparams[0]/<ref refid="autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_1aef1f4db2bbc91c997fdc24226ea63d52" kindref="member">std::abs</ref>(fdparams[0])<sp/>&gt;<sp/>threshold)*<ref refid="potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_1a082699d879383d5964f469bd32984224" kindref="member">FORCEDIPOLE</ref>(r,<sp/>fdparams);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="libmd_8h_a3bc06782c0bafd9eb6e5e63a37a3fbad_1a3bc06782c0bafd9eb6e5e63a37a3fbad" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>X&gt;<sp/>X<sp/><ref refid="potentials_8libmd_8cc_a3bc06782c0bafd9eb6e5e63a37a3fbad_1a3bc06782c0bafd9eb6e5e63a37a3fbad" kindref="member">ANHARMONICSPRING</ref>(X<sp/>r,std::vector&lt;ldf&gt;<sp/>&amp;parameters)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>k=parameters[0];</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>r0=parameters[1];</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref><sp/>alpha=parameters[2];</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(k/alpha)*<ref refid="autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_1a4fd9e414f0c7ab2098dcea6c6de318d9" kindref="member">pow</ref>(<ref refid="autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_1aef1f4db2bbc91c997fdc24226ea63d52" kindref="member">abs</ref>(r-r0),alpha);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="libmd-src/potentials.libmd.cc"/>
+  </compounddef>
+</doxygen>

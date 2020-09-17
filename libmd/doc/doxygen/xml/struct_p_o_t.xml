@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct_p_o_t" kind="struct" language="C++" prot="public">
+    <compoundname>POT</compoundname>
+    <includes refid="enums_8libmd_8h" local="no">enums.libmd.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0" prot="public" static="no" strong="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <name>pot</name>
+        <enumvalue id="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0a8728188b5c3f783e3f9a80f000877a56" prot="public">
+          <name>COULOMB</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0ac820ec8e3cb97081da06f88f18f3a390" prot="public">
+          <name>YUKAWA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0a1aef82e1cdd2746810e5360f230e9994" prot="public">
+          <name>HOOKEAN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0af562e190ace4ee15c9c565b6e18c00a3" prot="public">
+          <name>LJ</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0a4d34b0646514fbe72261873b16655615" prot="public">
+          <name>MORSE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0a34605846d9f62790831acbdcb6a3f3cd" prot="public">
+          <name>FORCEDIPOLE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0af0a2d2a31baaf192c2250ed6fd7efba2" prot="public">
+          <name>HOOKEANFORCEDIPOLE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0aa2bd1d96c777a065f06eebecc9c9e26b" prot="public">
+          <name>ANHARMONICSPRING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd-src/enums.libmd.h" line="10" column="1" bodyfile="libmd-src/enums.libmd.h" bodystart="9" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>POT</label>
+        <link refid="struct_p_o_t"/>
+      </node>
+    </collaborationgraph>
+    <location file="libmd-src/enums.libmd.h" line="9" column="10" bodyfile="libmd-src/enums.libmd.h" bodystart="9" bodyend="19"/>
+    <listofallmembers>
+      <member refid="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0aa2bd1d96c777a065f06eebecc9c9e26b" prot="public" virt="non-virtual"><scope>POT</scope><name>ANHARMONICSPRING</name></member>
+      <member refid="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0a8728188b5c3f783e3f9a80f000877a56" prot="public" virt="non-virtual"><scope>POT</scope><name>COULOMB</name></member>
+      <member refid="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0a34605846d9f62790831acbdcb6a3f3cd" prot="public" virt="non-virtual"><scope>POT</scope><name>FORCEDIPOLE</name></member>
+      <member refid="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0a1aef82e1cdd2746810e5360f230e9994" prot="public" virt="non-virtual"><scope>POT</scope><name>HOOKEAN</name></member>
+      <member refid="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0af0a2d2a31baaf192c2250ed6fd7efba2" prot="public" virt="non-virtual"><scope>POT</scope><name>HOOKEANFORCEDIPOLE</name></member>
+      <member refid="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0af562e190ace4ee15c9c565b6e18c00a3" prot="public" virt="non-virtual"><scope>POT</scope><name>LJ</name></member>
+      <member refid="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0a4d34b0646514fbe72261873b16655615" prot="public" virt="non-virtual"><scope>POT</scope><name>MORSE</name></member>
+      <member refid="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0" prot="public" virt="non-virtual"><scope>POT</scope><name>pot</name></member>
+      <member refid="struct_p_o_t_a5b5bcf993bbc4ea93398fabf9f8b78f0_1a5b5bcf993bbc4ea93398fabf9f8b78f0ac820ec8e3cb97081da06f88f18f3a390" prot="public" virt="non-virtual"><scope>POT</scope><name>YUKAWA</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,9 @@
+digraph "box&lt; dim &gt;"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{box\< dim \>\n|+ L\l+ useLshear\l+ vshear\l+ Lshear\l+ LshearInv\l+ bcond\l|+ box()\l+ shear_boundary()\l+ skew_boundary()\l+ invert_box()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This structure contains information about the simulation box."];
+}

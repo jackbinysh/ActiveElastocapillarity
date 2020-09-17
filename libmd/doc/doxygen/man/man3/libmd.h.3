@@ -1,0 +1,1048 @@
+.TH "libmd.h" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libmd.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstdio>\fP
+.br
+\fC#include <cstdlib>\fP
+.br
+\fC#include <cmath>\fP
+.br
+\fC#include <cstring>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <map>\fP
+.br
+\fC#include <unordered_map>\fP
+.br
+\fC#include <list>\fP
+.br
+\fC#include <stack>\fP
+.br
+\fC#include <set>\fP
+.br
+\fC#include <unordered_set>\fP
+.br
+\fC#include <utility>\fP
+.br
+\fC#include <limits>\fP
+.br
+\fC#include <algorithm>\fP
+.br
+\fC#include <functional>\fP
+.br
+\fC#include <chrono>\fP
+.br
+\fC#include <random>\fP
+.br
+\fC#include 'libmd\-src/macros\&.libmd\&.h'\fP
+.br
+\fC#include 'libmd\-src/enums\&.libmd\&.h'\fP
+.br
+\fC#include 'libmd\&.cc'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBt_error\fP"
+.br
+.RI "This structure handles errors/warnings/debug levels\&. "
+.ti -1c
+.RI "struct \fBparticle< dim >\fP"
+.br
+.RI "This structure contains all the information for a single particle\&. "
+.ti -1c
+.RI "struct \fBbox< dim >\fP"
+.br
+.RI "This structure contains information about the simulation box\&. "
+.ti -1c
+.RI "struct \fBbcond< dim >\fP"
+.br
+.ti -1c
+.RI "struct \fBinteractiontype\fP"
+.br
+.RI "This structure saves the particle type interactions and calculates the the potentials\&. "
+.ti -1c
+.RI "struct \fBinteractionneighbor\fP"
+.br
+.RI "This struct saves the neighboring particle number and the interaction type library number\&. "
+.ti -1c
+.RI "struct \fBforcetype\fP"
+.br
+.RI "This structure saves the external force functions and calculates them\&. "
+.ti -1c
+.RI "struct \fBsuperparticle\fP"
+.br
+.RI "This structure introduces 'super_particles' i\&.e\&. particles that consist of (sub_)particles\&. "
+.ti -1c
+.RI "struct \fBsuperparticletype\fP"
+.br
+.RI "This structure caries a lookup device for a specific super particle type\&. "
+.ti -1c
+.RI "struct \fBinteract\fP"
+.br
+.RI "This structure stores all interactions and their types\&. "
+.ti -1c
+.RI "struct \fBdual\fP"
+.br
+.RI "This structure automatically differentiates first order\&. "
+.ti -1c
+.RI "struct \fBpairpotentials\fP"
+.br
+.RI "This structure takes care of pair potentials (who live outside of the class) "
+.ti -1c
+.RI "struct \fBexternalforces< dim >\fP"
+.br
+.RI "This structure takes care of additional (external) forces acting on particles\&. "
+.ti -1c
+.RI "struct \fBintegrators\fP"
+.br
+.RI "This structure defines and saves integration metadata\&. "
+.ti -1c
+.RI "struct \fBindexer< dim >\fP"
+.br
+.RI "This structure is specific for the indexer\&. "
+.ti -1c
+.RI "struct \fBindexer< dim >::celldatatype\fP"
+.br
+.ti -1c
+.RI "struct \fBindexer< dim >::kdtreedatatype\fP"
+.br
+.ti -1c
+.RI "struct \fBt_hook< dim >\fP"
+.br
+.RI "This structure is the hook launchpad\&. "
+.ti -1c
+.RI "struct \fBhooktype\fP"
+.br
+.RI "This structure defines what hooks ought to be called with what parameters\&. "
+.ti -1c
+.RI "struct \fBhooker< dim >\fP"
+.br
+.RI "This structure implements the hooks with the hooktypes\&. "
+.ti -1c
+.RI "struct \fBvariadic_vars< dim >\fP"
+.br
+.RI "This structure stores some cyclic variables for the variadic functions\&. "
+.ti -1c
+.RI "struct \fBadditional_vars< dim >\fP"
+.br
+.RI "This structure stores additional variables\&. "
+.ti -1c
+.RI "struct \fBmd< dim >\fP"
+.br
+.RI "This structure defines the molecular dynamics simulation\&. "
+.ti -1c
+.RI "struct \fBduals< dim >\fP"
+.br
+.RI "Autodiff for Monge patches\&. "
+.ti -1c
+.RI "struct \fBmp< dim >\fP"
+.br
+.RI "This structure defines the Monge patch manifold and its properties\&. "
+.ti -1c
+.RI "struct \fBmpmd< dim >\fP"
+.br
+.RI "This structure takes care of Monge patch molecular dynamics simulations\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBF_LDF\fP   '%\&.17lg'"
+.br
+.ti -1c
+.RI "#define \fBF_LDFs\fP   '%lg'"
+.br
+.ti -1c
+.RI "#define \fBF_UI\fP   '%u'"
+.br
+.ti -1c
+.RI "#define \fBF_UC\fP   '%c'"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef double \fBldf\fP"
+.br
+.ti -1c
+.RI "typedef unsigned int \fBui\fP"
+.br
+.ti -1c
+.RI "typedef unsigned char \fBuc\fP"
+.br
+.ti -1c
+.RI "template<ui dim> using \fBbcondpptr\fP = void(*)(\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.RI "Function pointer to particle bcond function is now called perodicitypptr\&. "
+.ti -1c
+.RI "template<ui dim> using \fBbcondxptr\fP = void(*)(\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.RI "Function pointer to position bcond function is now called perodicityxptr\&. "
+.ti -1c
+.RI "template<class X > using \fBpotentialptr\fP = X(*)(X, std::vector< \fBldf\fP > &)"
+.br
+.RI "Function pointer to potential functions is now called potentialptr\&. "
+.ti -1c
+.RI "template<ui dim> using \fBextforceptr\fP = void(*)(\fBui\fP, std::vector< \fBui\fP > &, std::vector< \fBldf\fP > &, void *)"
+.br
+.RI "Function pointer to external force functions is now called extforceptr\&. "
+.ti -1c
+.RI "template<class X , ui dim> using \fBfmpptr\fP = X(*)(X x[dim], std::vector< \fBldf\fP > &param)"
+.br
+.RI "Monge patch function pointer\&. "
+.ti -1c
+.RI "template<ui dim> using \fBhookptr\fP = void(*)(std::vector< \fBldf\fP > &, void *)"
+.br
+.RI "Function pointer to external force functions is now called extforceptr\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fB__libmd__info\fP ()"
+.br
+.RI "Basic libmd comilation info\&. "
+.ti -1c
+.RI "\fBldf\fP \fBTicToc\fP ()"
+.br
+.RI "High precision timer\&. "
+.ti -1c
+.RI "template<ui dim> \fBldf\fP \fBdotprod\fP (\fBldf\fP A[], \fBldf\fP B[])"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_NONE\fP (\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_NONE\fP (\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_PERIODIC\fP (\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_PERIODIC\fP (\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_HARD\fP (\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_HARD\fP (\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_BOXSHEAR\fP (\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_BOXSHEAR\fP (\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.ti -1c
+.RI "template<class X > X \fBCOULOMB\fP (X r, std::vector< \fBldf\fP > &parameters)"
+.br
+.RI "Coulomb potential functions\&. "
+.ti -1c
+.RI "template<class X > X \fBYUKAWA\fP (X r, std::vector< \fBldf\fP > &parameters)"
+.br
+.RI "Yukawa potential functions\&. "
+.ti -1c
+.RI "template<class X > X \fBHOOKEAN\fP (X r, std::vector< \fBldf\fP > &parameters)"
+.br
+.RI "Hookean potential functions\&. "
+.ti -1c
+.RI "template<class X > X \fBLJ\fP (X r, std::vector< \fBldf\fP > &parameters)"
+.br
+.RI "The famous Lennard-Jones potential functions\&. "
+.ti -1c
+.RI "template<class X > X \fBMORSE\fP (X r, std::vector< \fBldf\fP > &parameters)"
+.br
+.RI "Morse potential functions\&. "
+.ti -1c
+.RI "template<class X > X \fBFORCEDIPOLE\fP (X r, std::vector< \fBldf\fP > &parameters)"
+.br
+.RI "Force dipole potential functions\&. "
+.ti -1c
+.RI "template<class X > X \fBHOOKEANFORCEDIPOLE\fP (X r, std::vector< \fBldf\fP > &parameters)"
+.br
+.RI "Hookean force dipole potential functions\&. "
+.ti -1c
+.RI "template<class X > X \fBANHARMONICSPRING\fP (X r, std::vector< \fBldf\fP > &parameters)"
+.br
+.RI "Anharmonic spring potential functions\&. "
+.ti -1c
+.RI "template<ui dim> void \fBnoise_gen\fP (\fBldf\fP noise[dim], \fBui\fP seed=0U)"
+.br
+.RI "Fill an array with Gaussian distributed random variables ( $\mu=0$, $\sigma=1$) "
+.ti -1c
+.RI "template<ui dim> void \fBDAMPING\fP (\fBui\fP i, std::vector< \fBui\fP > &particles, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Damping external force functions\&. "
+.ti -1c
+.RI "template<ui dim> void \fBDISSIPATION\fP (\fBui\fP i, std::vector< \fBui\fP > &particles, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Dissipation external force functions\&. "
+.ti -1c
+.RI "template<ui dim> void \fBLANGEVIN\fP (\fBui\fP i, std::vector< \fBui\fP > &particles, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Thermal noise external force functions\&. "
+.ti -1c
+.RI "template<ui dim> void \fBLANGEVIN_MP\fP (\fBui\fP i, std::vector< \fBui\fP > &particles, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Thermal noise with curvature external force functions\&. "
+.ti -1c
+.RI "\fBldf\fP \fBkdelta\fP (\fBui\fP i, \fBui\fP j)"
+.br
+.RI "Kronecker delta function\&. "
+.ti -1c
+.RI "template<class X , ui dim> X \fBFLATSPACE\fP (X x[dim], std::vector< \fBldf\fP > &param)"
+.br
+.RI "Flat space Monge function\&. "
+.ti -1c
+.RI "template<class X , ui dim> X \fBGAUSSIANBUMP\fP (X x[dim], std::vector< \fBldf\fP > &param)"
+.br
+.RI "Gaussian bump Monge function\&. "
+.ti -1c
+.RI "template<class X , ui dim> X \fBEGGCARTON\fP (X x[dim], std::vector< \fBldf\fP > &param)"
+.br
+.RI "Egg carton bump Monge function\&. "
+.ti -1c
+.RI "template<class X , ui dim> X \fBMOLLIFIER\fP (X x[dim], std::vector< \fBldf\fP > &param)"
+.br
+.RI "Mollifier bump Monge function\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const \fBui\fP \fBUI_MAX\fP =std::numeric_limits<\fBui\fP>::max()"
+.br
+.ti -1c
+.RI "struct \fBt_error\fP \fBerror\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define F_LDF   '%\&.17lg'"
+
+.PP
+Definition at line 45 of file libmd\&.h\&.
+.SS "#define F_LDFs   '%lg'"
+
+.PP
+Definition at line 46 of file libmd\&.h\&.
+.SS "#define F_UC   '%c'"
+
+.PP
+Definition at line 52 of file libmd\&.h\&.
+.SS "#define F_UI   '%u'"
+
+.PP
+Definition at line 50 of file libmd\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "template<ui dim> using \fBbcondpptr\fP =  void (*)(\fBui\fP d,\fBui\fP i,void *sys)"
+
+.PP
+Function pointer to particle bcond function is now called perodicitypptr\&. 
+.PP
+Definition at line 96 of file libmd\&.h\&.
+.SS "template<ui dim> using \fBbcondxptr\fP =  void (*)(\fBui\fP d,\fBldf\fP x[dim],void *sys)"
+
+.PP
+Function pointer to position bcond function is now called perodicityxptr\&. 
+.PP
+Definition at line 97 of file libmd\&.h\&.
+.SS "template<ui dim> using \fBextforceptr\fP =  void (*)(\fBui\fP,std::vector<\fBui\fP> &,std::vector<\fBldf\fP> &,void *)"
+
+.PP
+Function pointer to external force functions is now called extforceptr\&. 
+.PP
+Definition at line 99 of file libmd\&.h\&.
+.SS "template<class X , ui dim> using \fBfmpptr\fP =  X (*)(X x[dim],std::vector<\fBldf\fP> &param)"
+
+.PP
+Monge patch function pointer\&. 
+.PP
+Definition at line 100 of file libmd\&.h\&.
+.SS "template<ui dim> using \fBhookptr\fP =  void (*)(std::vector<\fBldf\fP> &,void *)"
+
+.PP
+Function pointer to external force functions is now called extforceptr\&. 
+.PP
+Definition at line 101 of file libmd\&.h\&.
+.SS "typedef double \fBldf\fP"
+
+.PP
+Definition at line 44 of file libmd\&.h\&.
+.SS "template<class X > using \fBpotentialptr\fP =  X (*)(X,std::vector<\fBldf\fP> &)"
+
+.PP
+Function pointer to potential functions is now called potentialptr\&. 
+.PP
+Definition at line 98 of file libmd\&.h\&.
+.SS "typedef unsigned char \fBuc\fP"
+
+.PP
+Definition at line 51 of file libmd\&.h\&.
+.SS "typedef unsigned int \fBui\fP"
+
+.PP
+Definition at line 49 of file libmd\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void __libmd__info ()"
+
+.PP
+Basic libmd comilation info\&. This function is designed to give the user an overview of the compilation
+.PP
+Definition at line 12 of file libmd\&.cc\&.
+.PP
+.nf
+13 {
+17     #ifdef BRANCH
+18     printf("libmd branch: " IO_BOLDCYAN "%s" IO_RESET "\n",BRANCH);
+19     #endif
+20     #ifdef VER
+21     printf("libmd branch version: " IO_BOLDCYAN "%s" IO_RESET "\n",VER);
+22     #endif
+23     #ifdef CC
+24     printf("Compiler: " IO_WHITE "%s" IO_RESET "\n",CC);
+25     #endif
+26     printf("Compiler version: " IO_WHITE "%s" IO_RESET "\n",__VERSION__);
+27     printf("Floating point type: ");
+28     #ifdef LIBMD__LONG_DOUBLE__
+29     printf(IO_BLUE "long double" IO_RESET "\n");
+30     #elif defined LIBMD__FLOAT__
+31     printf(IO_YELLOW "float" IO_RESET "\n");
+32     #else
+33     printf(IO_WHITE "double" IO_RESET "\n");
+34     #endif
+35     printf("Thread option: %s\n",THREAD_MODEL);
+36     #ifdef CMSG
+37     printf("Compilation message: " IO_YELLOW "%s" IO_RESET "\n",CMSG);
+38     #endif
+39 }
+.fi
+.PP
+References IO_BLUE, IO_BOLDCYAN, IO_RESET, IO_WHITE, IO_YELLOW, and THREAD_MODEL\&.
+.SS "template<class X > X ANHARMONICSPRING (X r, std::vector< \fBldf\fP > & parameters)"
+
+.PP
+Anharmonic spring potential functions\&. Anharmoninc spring: \[V_{\text{ANHARMONICSPRING}}(r)=\tfrac{k}{\alpha}{\lvert r-r_0 \rvert}^{\alpha}\] 
+.br
+ This function depends on three parameters: 
+.PD 0
+
+.IP "\(bu" 2
+the 'spring' constant $k$  
+.IP "\(bu" 2
+the 'spring' rest length $r_0$  
+.IP "\(bu" 2
+the exponent $\alpha$  
+.PP
+
+.PP
+Definition at line 107 of file potentials\&.libmd\&.cc\&.
+.PP
+.nf
+108 {
+119     const ldf k=parameters[0];
+120     const ldf r0=parameters[1];
+121     const ldf alpha=parameters[2];
+122     return (k/alpha)*pow(abs(r-r0),alpha);
+123 }
+.fi
+.PP
+References abs(), and pow()\&.
+.SS "template<ui dim> void BCOND_BOXSHEAR (\fBui\fP d, \fBldf\fP x[dim], void * sys)"
+Periodicity function to be called if dimension \fCd\fP has sheared boundary conditions\&.
+.PP
+Checks if point \fCx\fP is outside the boundary perpendicular to dimension \fCd\fP and, if so, updates its position according to the box shear matrices stored in \fCsimbox\&.Lshear\fP and \fCsimbox\&.vshear\fP\&. The particle position
+.PP
+Definition at line 184 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+185 {
+195     const ldf boundaryCrossing=std::round(x[d]/SYS->simbox\&.L[d]);
+196     if((int)boundaryCrossing) for(ui k=0;k<dim;k++) x[k]-=SYS->simbox\&.Lshear[k][d]*boundaryCrossing;
+197 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void BCOND_BOXSHEAR (\fBui\fP d, \fBui\fP i, void * sys)"
+Periodicity function to be called if dimension \fCd\fP has sheared boundary conditions\&.
+.PP
+Checks if particle \fCi\fP has crossed the boundary perpendicular to dimension \fCd\fP and, if so, updates its position and velocity according to the box shear matrices stored in \fCsimbox\&.Lshear\fP and \fCsimbox\&.vshear\fP\&. The particle position
+.PP
+Definition at line 164 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+165 {
+175     const ldf boundaryCrossing=std::round(SYS->particles[i]\&.x[d]/SYS->simbox\&.L[d]);
+176     if((int)boundaryCrossing) for(ui k=0;k<dim;k++)
+177     {
+178         SYS->particles[i]\&.x[k]-=SYS->simbox\&.Lshear[k][d]*boundaryCrossing;
+179         SYS->particles[i]\&.xp[k]-=SYS->simbox\&.Lshear[k][d]*boundaryCrossing;
+180         SYS->particles[i]\&.dx[k]-=SYS->simbox\&.vshear[k][d]*boundaryCrossing;
+181     }
+182 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void BCOND_HARD (\fBui\fP d, \fBldf\fP x[dim], void * sys)"
+Periodicity function to be called if dimension \fCd\fP has hard boundary conditions\&.
+.PP
+Checks if point \fCx\fP is outside the boundary perpendicular to dimension \fCd\fP and, if so, updates its position to respect a hard wall reflection\&. The particle position is mirrored across the boundary wall\&. 
+.br
+ This function correctly takes into account skewed boundary conditions, and uses the box matrices \fCsimbox\&.Lshear\fP and \fCsimbox\&.vshear\fP to calculate the reflections if \fCsimbox\&.useLshear\fP is \fCtrue\fP\&.
+.PP
+Definition at line 119 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+120 {
+134     if (SYS->simbox\&.useLshear)
+135     {
+136         ldf s=0;
+137         for (ui k=0;k<dim;k++) s+=SYS->simbox\&.LshearInv[d][k]*x[k];
+138         if (std::abs(s) > 0\&.5) // particle has hit the hard boundary as distorted by the shear
+139         {
+140             if (std::abs(s) > 1\&.) { WARNING("dynamics led to particle displacement bigger than box size; hard boundary reflections undefined"); }
+141             ldf nhat[dim];
+142             ldf nlen=0\&.,xperp=0\&.,x0perp;
+143             // the normal vector to the box boundary in dimension d is the dth row of LshearInv
+144             for (ui k=0;k<dim;k++) nlen += SYS->simbox\&.LshearInv[d][k]*SYS->simbox\&.LshearInv[d][k];
+145             nlen = sqrt(nlen);
+146             // projection of velocity and position perpendicular to boundary wall
+147             for (ui k=0;k<dim;k++) {
+148                 nhat[k] = SYS->simbox\&.LshearInv[d][k]/nlen;
+149                 xperp += nhat[k]*x[k];
+150             }
+151             x0perp = nhat[d]*SYS->simbox\&.Lshear[d][d]*0\&.5*(s > 0\&.? 1\&.:-1\&.);
+152 
+153             // subtract perpendicular component twice to get reflected velocity
+154             for (ui k=0;k<dim;k++) x[k] -= 2\&.0*(xperp-x0perp)*nhat[k]; // reflection about a plane passing through point set by x0perp
+155         }
+156     }
+157     else
+158     {
+159         const ldf xnew=SYS->simbox\&.L[d]*(std::abs(x[d]/SYS->simbox\&.L[d]+0\&.5-2\&.0*floor(x[d]/(2\&.0*SYS->simbox\&.L[d])+0\&.75))-0\&.5);
+160         x[d]=xnew;
+161     }
+162 }
+.fi
+.PP
+References abs(), sqrt(), SYS, and WARNING\&.
+.SS "template<ui dim> void BCOND_HARD (\fBui\fP d, \fBui\fP i, void * sys)"
+Periodicity function to be called if dimension \fCd\fP has hard boundary conditions\&.
+.PP
+Checks if particle \fCi\fP has crossed the boundary perpendicular to dimension \fCd\fP and, if so, updates its position and velocity to respect a hard wall reflection\&. The particle position is mirrored across the boundary wall, whereas its velocity component perpendicular to the boundary wall is reversed\&. 
+.br
+ This function correctly takes into account skewed boundary conditions, and uses the box matrices \fCsimbox\&.Lshear\fP and \fCsimbox\&.vshear\fP to calculate the reflections if \fCsimbox\&.useLshear\fP is \fCtrue\fP\&.
+.PP
+Definition at line 61 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+62 {
+77     if (SYS->simbox\&.useLshear)
+78     {
+79         ldf s=0;
+80         for (ui k=0;k<dim;k++) s+=SYS->simbox\&.LshearInv[d][k]*SYS->particles[i]\&.x[k];
+81         if (std::abs(s) > 0\&.5) // particle has hit the hard boundary as distorted by the shear
+82         {
+83             if (std::abs(s) > 1\&.) { WARNING("dynamics led to particle displacement bigger than box size; hard boundary reflections undefined"); }
+84             ldf nhat[dim];
+85             ldf nlen=0\&.,vperp=0\&.,xperp=0\&.,x0perp;
+86 
+87             // the normal vector to the box boundary in dimension d is the dth row of LshearInv
+88             for (ui k=0;k<dim;k++) nlen += SYS->simbox\&.LshearInv[d][k]*SYS->simbox\&.LshearInv[d][k];
+89             nlen = sqrt(nlen);
+90 
+91             // projection of velocity and position perpendicular to boundary wall
+92             for (ui k=0;k<dim;k++) {
+93                 nhat[k] = SYS->simbox\&.LshearInv[d][k]/nlen;
+94                 vperp += nhat[k]*SYS->particles[i]\&.dx[k];
+95                 xperp += nhat[k]*SYS->particles[i]\&.x[k];
+96             }
+97 
+98             x0perp = nhat[d]*SYS->simbox\&.Lshear[d][d]*0\&.5*(s > 0\&.? 1\&.:-1\&.);
+99 
+100             // subtract perpendicular component twice to get reflected velocity
+101             for (ui k=0;k<dim;k++)
+102             {
+103                 SYS->particles[i]\&.dx[k] -= 2\&.0*vperp*nhat[k];
+104                 SYS->particles[i]\&.x[k] -= 2\&.0*(xperp-x0perp)*nhat[k]; // reflection about a plane passing through point set by x0perp
+105                 SYS->particles[i]\&.xp[k] += 2\&.0*(xperp-x0perp)*nhat[k];
+106             }
+107         }
+108     }
+109     else
+110     {
+111         const ldf xnew=SYS->simbox\&.L[d]*(std::abs(SYS->particles[i]\&.x[d]/SYS->simbox\&.L[d]+0\&.5-2\&.0*floor(SYS->particles[i]\&.x[d]/(2\&.0*SYS->simbox\&.L[d])+0\&.75))-0\&.5);
+112         const ldf sign=(((int)std::round(SYS->particles[i]\&.x[d]/SYS->simbox\&.L[d]))%2?-1\&.0:1\&.0);
+113         SYS->particles[i]\&.xp[d]+=sign*(xnew-SYS->particles[i]\&.x[d]);
+114         SYS->particles[i]\&.x[d]=xnew;
+115         SYS->particles[i]\&.dx[d]*=sign;
+116     }
+117 }
+.fi
+.PP
+References abs(), sqrt(), SYS, and WARNING\&.
+.SS "template<ui dim> void BCOND_NONE (\fBui\fP d, \fBldf\fP x[dim], void * sys)"
+Periodicity function to be called if dimension \fCd\fP has no boundary conditions\&.
+.PP
+This function does nothing
+.PP
+Definition at line 19 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+20 {
+27     (void) d;
+28     (void) x;
+29     (void) sys;
+30 }
+.fi
+.SS "template<ui dim> void BCOND_NONE (\fBui\fP d, \fBui\fP i, void * sys)"
+Periodicity function to be called if dimension \fCd\fP has no boundary conditions\&.
+.PP
+This function does nothing
+.PP
+Definition at line 6 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+14     (void) d;
+15     (void) i;
+16     (void) sys;
+17 }
+.fi
+.SS "template<ui dim> void BCOND_PERIODIC (\fBui\fP d, \fBldf\fP x[dim], void * sys)"
+Periodicity function to be called if dimension \fCd\fP has periodic boundary conditions\&.
+.PP
+Checks if point \fCx\fP is outside the boundary perpendicular to dimension \fCd\fP and, if so, shifts its coordinate in that dimension by multiples of \fCsimbox\&.L[d]\fP so that it is within the bounds \fC(-simbox\&.L[d]/2,simbox\&.L[d]/2)\fP\&.
+.PP
+Definition at line 47 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+48 {
+57     const ldf dx=SYS->simbox\&.L[d]*std::round(x[d]/SYS->simbox\&.L[d]);
+58     x[d]-=dx;
+59 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void BCOND_PERIODIC (\fBui\fP d, \fBui\fP i, void * sys)"
+Periodicity function to be called if dimension \fCd\fP has periodic boundary conditions\&.
+.PP
+Checks if particle \fCi\fP has crossed the boundary perpendicular to dimension \fCd\fP and, if so, shifts its coordinate in that dimension by multiples of \fCsimbox\&.L[d]\fP so that it is within the bounds \fC(-simbox\&.L[d]/2,simbox\&.L[d]/2)\fP\&.
+.PP
+Definition at line 32 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+33 {
+42     const ldf dx=SYS->simbox\&.L[d]*std::round(SYS->particles[i]\&.x[d]/SYS->simbox\&.L[d]);
+43     SYS->particles[i]\&.xp[d]-=dx;
+44     SYS->particles[i]\&.x[d]-=dx;
+45 }
+.fi
+.PP
+References SYS\&.
+.SS "template<class X > X COULOMB (X r, std::vector< \fBldf\fP > & parameters)"
+
+.PP
+Coulomb potential functions\&. Coulomb potential: \[V_{\text{COULOMB}}(r)=\frac{q}{r}\] 
+.br
+ This function depends on one parameter: 
+.PD 0
+
+.IP "\(bu" 2
+The charge coupling between two partilces: $q$  
+.PP
+
+.PP
+Definition at line 6 of file potentials\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+16     const ldf q=parameters[0];
+17     return q/r;
+18 }
+.fi
+.SS "template<ui dim> void DAMPING (\fBui\fP i, std::vector< \fBui\fP > & particles, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Damping external force functions\&. This external damping force takes the form: \[F^{\mu}_{\text{DAMPING}}(\dot{x}^{\mu})=-\gamma \dot{x}^{\mu}\] 
+.br
+ This function depends on one parameter: 
+.PD 0
+
+.IP "\(bu" 2
+the damping constant $\gamma$  
+.PP
+
+.PP
+Definition at line 21 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+22 {
+31     (void) particles;
+32     ldf gamma=parameters[0];
+33     for(ui d=0;d<dim;d++) SYS->particles[i]\&.F[d]-=gamma*SYS->particles[i]\&.dx[d];
+34 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void DISSIPATION (\fBui\fP i, std::vector< \fBui\fP > & particles, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Dissipation external force functions\&. This external dissipation force takes the form: \[F^{\mu}_{\text{DISSIPATION}}(\dot{x}^{\mu})=b \dot{x}_j^{\mu} - \dot{x}_i^{\mu}\] 
+.br
+ Here the \fCj\fPth particle is given in the particles std::vector
+.br
+ This function depends on one parameter: 
+.PD 0
+
+.IP "\(bu" 2
+the damping constant $b$  
+.PP
+
+.PP
+Definition at line 36 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+37 {
+47     ldf b=parameters[0];
+48     for(auto it: particles) for(ui d=0;d<dim;d++) SYS->particles[i]\&.F[d]+=b*(SYS->dv(d,i,it));
+49 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> \fBldf\fP dotprod (\fBldf\fP A[], \fBldf\fP B[])"
+Computes the dot product of \fCA[]\fP and \fCB[]\fP, assumed to both be of size \fCdim\fP\&.
+.PP
+Definition at line 58 of file index\&.libmd\&.cc\&.
+.PP
+.nf
+59 {
+63     ldf x = 0;
+64     for (ui d = 0; d < dim; d++)
+65         x += A[d]*B[d];
+66     return x;
+67 }
+.fi
+.SS "template<class X , ui dim> X EGGCARTON (X x[dim], std::vector< \fBldf\fP > & param)"
+
+.PP
+Egg carton bump Monge function\&. 
+.SS "template<class X , ui dim> X FLATSPACE (X x[dim], std::vector< \fBldf\fP > & param)"
+
+.PP
+Flat space Monge function\&. The trivial Monge patch: \[f(x^{\rho})_{\text{FLATSPACE}} = 0 \] 
+.br
+ This function disregards all parameters\&.
+.PP
+Definition at line 15 of file mongepatches\&.libmd\&.cc\&.
+.PP
+.nf
+16 {
+22     (void) x;
+23     (void) param;
+24     return 0\&.0;
+25 }
+.fi
+.SS "template<class X > X FORCEDIPOLE (X r, std::vector< \fBldf\fP > & parameters)"
+
+.PP
+Force dipole potential functions\&. 
+.PP
+Definition at line 86 of file potentials\&.libmd\&.cc\&.
+.PP
+.nf
+87 {
+88     // exerts a constant force f = parameters[0]\&. Positive force => extension of dipole
+89     const ldf f = parameters[0];
+90     return -f*r;
+91 }
+.fi
+.SS "template<class X , ui dim> X GAUSSIANBUMP (X x[dim], std::vector< \fBldf\fP > & param)"
+
+.PP
+Gaussian bump Monge function\&. The Gaussian bump Monge patch: \[f(x^{\rho})_{\text{GAUSSIANBUMP}} = A e^{-K x^{\rho}x^{\rho}}\] 
+.br
+ This function depends on two parameters: 
+.PD 0
+
+.IP "\(bu" 2
+the bump amplitude $A$  
+.IP "\(bu" 2
+the bump width $K$ </li 
+.PP
+
+.PP
+Definition at line 27 of file mongepatches\&.libmd\&.cc\&.
+.PP
+.nf
+28 {
+38     using std::pow;
+39     const ldf A=param[0];
+40     const ldf K=param[1];
+41     X retval=0\&.0;
+42     for(ui d=0;d<dim;d++) retval+=pow(x[d],2);
+43     return A*exp(-K*retval);
+44 }
+.fi
+.PP
+References exp(), and pow()\&.
+.SS "template<class X > X HOOKEAN (X r, std::vector< \fBldf\fP > & parameters)"
+
+.PP
+Hookean potential functions\&. Hookian potential (Harmonic spring potential): \[V_{\text{HOOKEAN}}(r)=\tfrac{1}{2}k{(r-r_0)}^2\] 
+.br
+ This function depends on two parameters: 
+.PD 0
+
+.IP "\(bu" 2
+the spring constant $k$  
+.IP "\(bu" 2
+the spring's rest length $r_0$  
+.PP
+
+.PP
+Definition at line 36 of file potentials\&.libmd\&.cc\&.
+.PP
+.nf
+37 {
+47     const ldf k=parameters[0];
+48     const ldf r0=parameters[1];
+49     return k/2\&.0*pow(r-r0,2);
+50 }
+.fi
+.PP
+References pow()\&.
+.SS "template<class X > X HOOKEANFORCEDIPOLE (X r, std::vector< \fBldf\fP > & parameters)"
+
+.PP
+Hookean force dipole potential functions\&. 
+.PP
+Definition at line 93 of file potentials\&.libmd\&.cc\&.
+.PP
+.nf
+94 {
+95     std::vector<ldf> sprparams(parameters\&.begin(),parameters\&.begin()+2);
+96     std::vector<ldf> fdparams(parameters\&.begin()+2,parameters\&.begin()+3);
+97 
+98     if (parameters\&.size() == 3) return HOOKEAN(r, sprparams) + FORCEDIPOLE(r, fdparams);
+99 
+100     // if threshold exists: force dipole kicks in when force due to spring extension/compression is larger than threshold\&.
+101     // positive f => threshold is in extension; negative f => threshold is in compression\&.
+102     // threshold must be positive for this interpretation to hold\&.
+103     const ldf threshold = parameters[3];
+104     return HOOKEAN(r, sprparams) + (sprparams[0]*(r-sprparams[1])*fdparams[0]/std::abs(fdparams[0]) > threshold)*FORCEDIPOLE(r, fdparams);
+105 }
+.fi
+.PP
+References abs(), FORCEDIPOLE(), and HOOKEAN()\&.
+.SS "\fBldf\fP kdelta (\fBui\fP i, \fBui\fP j)"
+
+.PP
+Kronecker delta function\&. Kronecker delta function: \begin{align}\delta_{ij}=\begin{cases} 1 &\quad i=j\\0&\quad i \neq j\end{cases}\end{align}
+.PP
+Definition at line 6 of file mongepatches\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+12     return (i==j)?1\&.0:0\&.0;
+13 }
+.fi
+.SS "template<ui dim> void LANGEVIN (\fBui\fP i, std::vector< \fBui\fP > & particles, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Thermal noise external force functions\&. This external Langevin force takes the form: \[F^{\mu}_{\text{LANGEVIN}}(\dot{x}^{\mu})=\sqrt{\left(2 \gamma k_B T\right)} \hat{\xi}(t)\] 
+.br
+ This function depends on one parameter: 
+.PD 0
+
+.IP "\(bu" 2
+the temperature $k_B T$  
+.IP "\(bu" 2
+the damping constant $\gamma$  
+.PP
+
+.PP
+Definition at line 51 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+52 {
+62     (void) particles;
+63     const ldf KbT=parameters[0];
+64     const ldf gamma=parameters[1];
+65     const ldf factor=sqrt(2\&.0*gamma*KbT/SYS->integrator\&.h);
+66     ldf noise[dim];
+67     noise_gen<dim>(noise);
+68     for(ui d=0;d<dim;d++) SYS->particles[i]\&.F[d]+=factor*noise[d];
+69 }
+.fi
+.PP
+References sqrt(), and SYS\&.
+.SS "template<ui dim> void LANGEVIN_MP (\fBui\fP i, std::vector< \fBui\fP > & particles, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Thermal noise with curvature external force functions\&. This external Langevin force takes the form: \[F^{\mu}_{\text{LANGEVIN}}(\dot{x}^{\mu})=\sqrt{\left(2 \gamma k_B T\right)} \hat{\xi}(t)\] 
+.br
+ This function depends on one parameter: 
+.PD 0
+
+.IP "\(bu" 2
+the temperature $k_B T$  
+.IP "\(bu" 2
+the damping constant $\gamma$  
+.PP
+
+.PP
+Definition at line 72 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+73 {
+83     (void) particles;
+84     const ldf KbT=parameters[0];
+85     const ldf gamma=parameters[1];
+86     const ldf factor=sqrt(2\&.0*gamma*KbT/SYS->integrator\&.h);
+87     ldf noise[dim],metric_noise[dim]={};
+88     noise_gen<dim>(noise);
+89     for(ui mu=0;mu<dim;mu++) for(ui nu=0;nu<dim;nu++) metric_noise[mu]+=MP_SYS->patch\&.sqrt_ginv(i,mu,nu)*noise[nu];
+90     for(ui d=0;d<dim;d++) SYS->particles[i]\&.F[d]+=factor*metric_noise[d];
+91 }
+.fi
+.PP
+References MP_SYS, sqrt(), and SYS\&.
+.SS "template<class X > X LJ (X r, std::vector< \fBldf\fP > & parameters)"
+
+.PP
+The famous Lennard-Jones potential functions\&. The famous Lenard-Jones potential: \[V_{\text{LJ}}(r)=4 \epsilon \left({\left( \frac{\sigma}{r} \right)}^{12} - {\left( \frac{\sigma}{r} \right)}^6 \right) \] 
+.br
+ This function depends on two parameters: 
+.PD 0
+
+.IP "\(bu" 2
+the coupling constant $\epsilon$  
+.IP "\(bu" 2
+the characteristic length scale $\sigma$  
+.PP
+
+.PP
+Definition at line 52 of file potentials\&.libmd\&.cc\&.
+.PP
+.nf
+53 {
+63     const ldf e=parameters[0];
+64     const ldf s=parameters[1];
+65     return 4\&.0*e*(pow(s/r,12)-pow(s/r,6));
+66 }
+.fi
+.PP
+References pow()\&.
+.SS "template<class X , ui dim> X MOLLIFIER (X x[dim], std::vector< \fBldf\fP > & param)"
+
+.PP
+Mollifier bump Monge function\&. 
+.SS "template<class X > X MORSE (X r, std::vector< \fBldf\fP > & parameters)"
+
+.PP
+Morse potential functions\&. Morse potential: \[V_{\text{MORSE}}(r)=d{\left(1-e^{a(r_e-r)}\right)}^2\] 
+.br
+ This function depends on three parameters: 
+.PD 0
+
+.IP "\(bu" 2
+the dissociation energy $d$  
+.IP "\(bu" 2
+the width $a$  
+.IP "\(bu" 2
+the equilibrium bond distance $r_e$  
+.PP
+
+.PP
+Definition at line 68 of file potentials\&.libmd\&.cc\&.
+.PP
+.nf
+69 {
+80     const ldf d=parameters[0];
+81     const ldf a=parameters[1];
+82     const ldf re=parameters[2];
+83     return d*pow(1\&.0-exp(a*(re-r)),2);
+84 }
+.fi
+.PP
+References exp(), and pow()\&.
+.SS "template<ui dim> void noise_gen (\fBldf\fP noise[dim], \fBui\fP seed = \fC0U\fP)"
+
+.PP
+Fill an array with Gaussian distributed random variables ( $\mu=0$, $\sigma=1$) This function fills \fCnoise[dim]\fP with random Gaussian variables (provided \fCnoise[dim]\fP exists)\&. The seed can be set by the second argument \fCseed\fP which has default value 0U (which is neglected) To set the seed call \fCnoise_gen<dim>(nullptr,seed)\fP By the default the seed is randomly set by the random device
+.PP
+Definition at line 6 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+14     static std::random_device rd;
+15     static std::mt19937 mt(rd());
+16     static std::normal_distribution<ldf> normal(0\&.0,1\&.0);
+17     if(seed) mt\&.seed(seed);
+18     if(noise) for(ui d=0;d<dim;d++) noise[d]=normal(mt);
+19 }
+.fi
+.SS "\fBldf\fP TicToc ()"
+
+.PP
+High precision timer\&. 
+.PP
+Definition at line 6 of file error\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+8     static std::chrono::high_resolution_clock::time_point start,stop;
+9     start=stop,stop=std::chrono::high_resolution_clock::now();
+10     return std::chrono::duration<ldf>(stop-start)\&.count();
+11 }
+.fi
+.SS "template<class X > X YUKAWA (X r, std::vector< \fBldf\fP > & parameters)"
+
+.PP
+Yukawa potential functions\&. Yukawa potential: \[V_{\text{YUKAWA}}(r)=\frac{b}{r e^{kr}}\] 
+.br
+ This function depends on two parameters: 
+.PD 0
+
+.IP "\(bu" 2
+the coupling strength between two partilces $b$  
+.IP "\(bu" 2
+the Yukawa reciprocal length scale $k$  
+.PP
+
+.PP
+Definition at line 20 of file potentials\&.libmd\&.cc\&.
+.PP
+.nf
+21 {
+31     const ldf b=parameters[0];
+32     const ldf k=parameters[1];
+33     return b/(r*exp(k*r));
+34 }
+.fi
+.PP
+References exp()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "struct \fBt_error\fP error"
+
+.SS "const \fBui\fP UI_MAX =std::numeric_limits<\fBui\fP>::max()"
+
+.PP
+Definition at line 56 of file libmd\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

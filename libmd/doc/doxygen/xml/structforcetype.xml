@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structforcetype" kind="struct" language="C++" prot="public">
+    <compoundname>forcetype</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structforcetype_a577e697b04f3a02bc6dd84e5c95eff46_1a577e697b04f3a02bc6dd84e5c95eff46" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui forcetype::externalforce</definition>
+        <argsstring></argsstring>
+        <name>externalforce</name>
+        <briefdescription>
+<para>External force type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="202" column="8" bodyfile="libmd.h" bodystart="202" bodyend="-1"/>
+        <referencedby refid="structforcetype_af79fc09be50c4021511300f86b150462_1af79fc09be50c4021511300f86b150462" compoundref="externalforces_8libmd_8cc" startline="6" endline="16">forcetype</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structforcetype_a4d782a9545463e77479735375ff59b8f_1a4d782a9545463e77479735375ff59b8f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; <ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;ui&gt; &gt; forcetype::particles</definition>
+        <argsstring></argsstring>
+        <name>particles</name>
+        <briefdescription>
+<para>Interacting particle list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="203" column="17" bodyfile="libmd.h" bodystart="203" bodyend="-1"/>
+        <referencedby refid="structforcetype_adeb24b464e1967ff9c50a0e950337f6f_1adeb24b464e1967ff9c50a0e950337f6f" compoundref="externalforces_8libmd_8cc" startline="18" endline="29">forcetype</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structforcetype_a94d2d4c899b3eec0942d8ac97e1bb0e5_1a94d2d4c899b3eec0942d8ac97e1bb0e5" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt;</type>
+        <definition>std::vector&lt;ldf&gt; forcetype::parameters</definition>
+        <argsstring></argsstring>
+        <name>parameters</name>
+        <briefdescription>
+<para>Parameters for the external force. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="204" column="17" bodyfile="libmd.h" bodystart="204" bodyend="-1"/>
+        <referencedby refid="structforcetype_af79fc09be50c4021511300f86b150462_1af79fc09be50c4021511300f86b150462" compoundref="externalforces_8libmd_8cc" startline="6" endline="16">forcetype</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structforcetype_af79fc09be50c4021511300f86b150462_1af79fc09be50c4021511300f86b150462" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>forcetype::forcetype</definition>
+        <argsstring>(ui noexternalforce, std::vector&lt; ldf &gt; &amp;param)</argsstring>
+        <name>forcetype</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>noexternalforce</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This is the forcetype constructor. <linebreak/>
+ It expects the externalforce number: <computeroutput>noexternalforce</computeroutput> which should be aligned with the <ref refid="structexternalforces_ab72d961fef069e67f5b9138a08338490_1ab72d961fef069e67f5b9138a08338490" kindref="member">externalforces&lt;dim&gt;::extforces</ref> vector. <linebreak/>
+ Additionally it need parameters for the external force given by <computeroutput>param</computeroutput>. <linebreak/>
+ Optionally an interacting particle list can be given.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="206" column="5" bodyfile="libmd-src/externalforces.libmd.cc" bodystart="6" bodyend="16"/>
+        <references refid="structforcetype_a577e697b04f3a02bc6dd84e5c95eff46_1a577e697b04f3a02bc6dd84e5c95eff46" compoundref="libmd_8h" startline="202">externalforce</references>
+        <references refid="structforcetype_a94d2d4c899b3eec0942d8ac97e1bb0e5_1a94d2d4c899b3eec0942d8ac97e1bb0e5" compoundref="libmd_8h" startline="204">parameters</references>
+      </memberdef>
+      <memberdef kind="function" id="structforcetype_adeb24b464e1967ff9c50a0e950337f6f_1adeb24b464e1967ff9c50a0e950337f6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>forcetype::forcetype</definition>
+        <argsstring>(ui noexternalforce, std::vector&lt; std::vector&lt; ui &gt;&gt; &amp;plist, std::vector&lt; ldf &gt; &amp;param)</argsstring>
+        <name>forcetype</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>noexternalforce</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; <ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref> &gt;&gt; &amp;</type>
+          <declname>plist</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This is the forcetype constructor. <linebreak/>
+ It expects the externalforce number: <computeroutput>noexternalforce</computeroutput> which should be aligned with the <ref refid="structexternalforces_ab72d961fef069e67f5b9138a08338490_1ab72d961fef069e67f5b9138a08338490" kindref="member">externalforces&lt;dim&gt;::extforces</ref> vector. <linebreak/>
+ Additionally it need parameters for the external force given by <computeroutput>param</computeroutput>. <linebreak/>
+ Optionally an interacting particle list can be given.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="207" column="5" bodyfile="libmd-src/externalforces.libmd.cc" bodystart="18" bodyend="29"/>
+        <references refid="structforcetype_a577e697b04f3a02bc6dd84e5c95eff46_1a577e697b04f3a02bc6dd84e5c95eff46" compoundref="libmd_8h" startline="202">externalforce</references>
+        <references refid="structforcetype_a94d2d4c899b3eec0942d8ac97e1bb0e5_1a94d2d4c899b3eec0942d8ac97e1bb0e5" compoundref="libmd_8h" startline="204">parameters</references>
+        <references refid="structforcetype_a4d782a9545463e77479735375ff59b8f_1a4d782a9545463e77479735375ff59b8f" compoundref="libmd_8h" startline="203">particles</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure saves the external force functions and calculates them. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="1">
+        <label>forcetype</label>
+        <link refid="structforcetype"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+parameters</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+particles</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::vector&lt; std::vector&lt; ui &gt; &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; std::vector&lt; ui &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; ldf &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; ldf &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="201" column="1" bodyfile="libmd.h" bodystart="200" bodyend="208"/>
+    <listofallmembers>
+      <member refid="structforcetype_a577e697b04f3a02bc6dd84e5c95eff46_1a577e697b04f3a02bc6dd84e5c95eff46" prot="public" virt="non-virtual"><scope>forcetype</scope><name>externalforce</name></member>
+      <member refid="structforcetype_af79fc09be50c4021511300f86b150462_1af79fc09be50c4021511300f86b150462" prot="public" virt="non-virtual"><scope>forcetype</scope><name>forcetype</name></member>
+      <member refid="structforcetype_adeb24b464e1967ff9c50a0e950337f6f_1adeb24b464e1967ff9c50a0e950337f6f" prot="public" virt="non-virtual"><scope>forcetype</scope><name>forcetype</name></member>
+      <member refid="structforcetype_a94d2d4c899b3eec0942d8ac97e1bb0e5_1a94d2d4c899b3eec0942d8ac97e1bb0e5" prot="public" virt="non-virtual"><scope>forcetype</scope><name>parameters</name></member>
+      <member refid="structforcetype_a4d782a9545463e77479735375ff59b8f_1a4d782a9545463e77479735375ff59b8f" prot="public" virt="non-virtual"><scope>forcetype</scope><name>particles</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

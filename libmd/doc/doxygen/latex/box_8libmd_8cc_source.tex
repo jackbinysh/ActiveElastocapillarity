@@ -1,0 +1,141 @@
+\hypertarget{box_8libmd_8cc_source}{}\doxysection{box.\+libmd.\+cc}
+\label{box_8libmd_8cc_source}\index{libmd-\/src/box.libmd.cc@{libmd-\/src/box.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{box_8libmd_8cc_source_l00001}\mbox{\hyperlink{box_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{box_8libmd_8cc_source_l00006}\mbox{\hyperlink{box_8libmd_8cc_ace215f31f28f0e6769853d07f36afc3f_ace215f31f28f0e6769853d07f36afc3f}{00006}} \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{box_8libmd_8cc_ace215f31f28f0e6769853d07f36afc3f_ace215f31f28f0e6769853d07f36afc3f}{mxinv\_eps}}=\mbox{\hyperlink{autodiff_8libmd_8cc_af33bda4d5a7fc8ad1679ec339a730045_af33bda4d5a7fc8ad1679ec339a730045}{sqrt}}(std::numeric\_limits<ldf>::epsilon()); \textcolor{comment}{// matrix inversion cutoff}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{\Hypertarget{box_8libmd_8cc_source_l00008}\mbox{\hyperlink{structbox_a0fb2c48d4220723138af6dd47a60fbe6_a0fb2c48d4220723138af6dd47a60fbe6}{00008}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structbox_a0fb2c48d4220723138af6dd47a60fbe6_a0fb2c48d4220723138af6dd47a60fbe6}{box<dim>::box}}()}
+\DoxyCodeLine{00009 \{}
+\DoxyCodeLine{00015     memset(\mbox{\hyperlink{structbcond}{bcond}},0,dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_af8ecdd9d7d0f3cdced7f9a83dc659959}{uc}}));}
+\DoxyCodeLine{00016     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) L[d]=10.0;}
+\DoxyCodeLine{00017     memset(vshear,0,dim*dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00018     memset(Lshear,0,dim*dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00019     memset(LshearInv,0,dim*dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00020     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) Lshear[d][d]=L[d],LshearInv[d][d]=1.0/L[d];}
+\DoxyCodeLine{00021     useLshear=\textcolor{keyword}{false};}
+\DoxyCodeLine{00022 \}}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{\Hypertarget{box_8libmd_8cc_source_l00024}\mbox{\hyperlink{structbox_a67d02b9cc9c1697134b5d22b98e462d4_a67d02b9cc9c1697134b5d22b98e462d4}{00024}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structbox_a67d02b9cc9c1697134b5d22b98e462d4_a67d02b9cc9c1697134b5d22b98e462d4}{box<dim>::shear\_boundary}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} j,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} velocity)}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00030     \textcolor{keywordflow}{if}(i==j)}
+\DoxyCodeLine{00031     \{}
+\DoxyCodeLine{00032         \mbox{\hyperlink{macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_a4d48c340b3c83579a8d58cb20a320f84}{ERROR}}(\textcolor{stringliteral}{"shear velocity must be perpendicular to boundary"});}
+\DoxyCodeLine{00033         exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00034     \}}
+\DoxyCodeLine{00035     vshear[i][j]=velocity;}
+\DoxyCodeLine{00036     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) Lshear[d][d]=L[d],LshearInv[d][d]=1.0/L[d];}
+\DoxyCodeLine{00037     useLshear=\textcolor{keyword}{true};}
+\DoxyCodeLine{00038     \mbox{\hyperlink{structbcond}{bcond}}[j]=\mbox{\hyperlink{struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_a565f9cf3347ba75b9bfc64ec12d69946ae60ceea4da62257e104c5ac6aa720a31}{BCOND::BOXSHEAR}};}
+\DoxyCodeLine{00039 \}}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{\Hypertarget{box_8libmd_8cc_source_l00041}\mbox{\hyperlink{structbox_a91faa4ff193900b8701448514d10b5c6_a91faa4ff193900b8701448514d10b5c6}{00041}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structbox_a91faa4ff193900b8701448514d10b5c6_a91faa4ff193900b8701448514d10b5c6}{box<dim>::skew\_boundary}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} j, \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} displacement)}
+\DoxyCodeLine{00042 \{}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{if}(i==j)}
+\DoxyCodeLine{00051     \{}
+\DoxyCodeLine{00052         \mbox{\hyperlink{macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_a4d48c340b3c83579a8d58cb20a320f84}{ERROR}}(\textcolor{stringliteral}{"shear displacement must be perpendicular to boundary"});}
+\DoxyCodeLine{00053         exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00054     \}}
+\DoxyCodeLine{00055     memset(Lshear,0,dim*dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00056     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) Lshear[d][d]=L[d];}
+\DoxyCodeLine{00057     Lshear[i][j]=displacement;}
+\DoxyCodeLine{00058     useLshear=\textcolor{keyword}{true};}
+\DoxyCodeLine{00059     \mbox{\hyperlink{structbcond}{bcond}}[j]=\mbox{\hyperlink{struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_a565f9cf3347ba75b9bfc64ec12d69946ae60ceea4da62257e104c5ac6aa720a31}{BCOND::BOXSHEAR}};}
+\DoxyCodeLine{00060     invert\_box();}
+\DoxyCodeLine{00061 \}}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{\Hypertarget{box_8libmd_8cc_source_l00064}\mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{00064}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}} (\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} Ain[dim][dim], \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} B[dim][dim])}
+\DoxyCodeLine{00065 \{}
+\DoxyCodeLine{00070     \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i, j, k;}
+\DoxyCodeLine{00071     \textcolor{keywordtype}{int} sgn = 1;}
+\DoxyCodeLine{00072     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} d = 1, t1, t2;}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074     \textcolor{comment}{// clone Ain so that it is unchanged}}
+\DoxyCodeLine{00075     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} A[dim][dim];}
+\DoxyCodeLine{00076     std::copy(\&Ain[0][0], \&Ain[0][0]+dim*dim,\&A[0][0]);}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078     \textcolor{comment}{// Initialize B to identity matrix}}
+\DoxyCodeLine{00079     memset(B,0,dim*dim*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}));}
+\DoxyCodeLine{00080     \textcolor{keywordflow}{for}(i=0;i<dim;i++) B[i][i]=1.0;}
+\DoxyCodeLine{00081     \textcolor{keywordflow}{for} (i = 0; i < dim; i++)}
+\DoxyCodeLine{00082     \{ \textcolor{comment}{// Look for largest pivot}}
+\DoxyCodeLine{00083         j = i;}
+\DoxyCodeLine{00084         \textcolor{keywordflow}{for} (k = i+1; k < dim; k++)}
+\DoxyCodeLine{00085             \textcolor{keywordflow}{if} (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(A[j][i]) < \mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(A[k][i]))}
+\DoxyCodeLine{00086                 j = k;}
+\DoxyCodeLine{00087         \textcolor{comment}{// No nonzero pivot implies singular matrix}}
+\DoxyCodeLine{00088         \textcolor{keywordflow}{if} (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(A[j][i]) < \mbox{\hyperlink{box_8libmd_8cc_ace215f31f28f0e6769853d07f36afc3f_ace215f31f28f0e6769853d07f36afc3f}{mxinv\_eps}})}
+\DoxyCodeLine{00089             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00090         \textcolor{comment}{// Swap rows if necessary}}
+\DoxyCodeLine{00091         \textcolor{keywordflow}{if} (j > i)}
+\DoxyCodeLine{00092         \{}
+\DoxyCodeLine{00093             sgn *= -\/1; \textcolor{comment}{// Switch sign of determinant}}
+\DoxyCodeLine{00094             std::swap\_ranges(A[i]+i, A[i]+dim, A[j]+i);}
+\DoxyCodeLine{00095             std::swap\_ranges(B[i], B[i]+dim, B[j]);}
+\DoxyCodeLine{00096         \}}
+\DoxyCodeLine{00097         \textcolor{comment}{// Reduce other rows}}
+\DoxyCodeLine{00098         t1 = A[i][i]/d;}
+\DoxyCodeLine{00099         \textcolor{keywordflow}{for} (j = 0; j < dim; j++)}
+\DoxyCodeLine{00100             \textcolor{keywordflow}{if} (j != i)}
+\DoxyCodeLine{00101             \{}
+\DoxyCodeLine{00102                 t2 = A[j][i]/d;}
+\DoxyCodeLine{00103                 \textcolor{keywordflow}{for} (k = i; k < dim; k++)}
+\DoxyCodeLine{00104                     A[j][k] = t1 * A[j][k] -\/ t2 * A[i][k];}
+\DoxyCodeLine{00105                 \textcolor{keywordflow}{for} (k = 0; k < dim; k++)}
+\DoxyCodeLine{00106                     B[j][k] = t1 * B[j][k] -\/ t2 * B[i][k];}
+\DoxyCodeLine{00107             \}}
+\DoxyCodeLine{00108         d *= t1;}
+\DoxyCodeLine{00109     \}}
+\DoxyCodeLine{00110     \textcolor{keywordflow}{for} (i = 0; i < dim; i++)}
+\DoxyCodeLine{00111         \textcolor{keywordflow}{for} (j = 0; j < dim; j++)}
+\DoxyCodeLine{00112             B[i][j] /= d;}
+\DoxyCodeLine{00113     \textcolor{keywordflow}{return} sgn * d;}
+\DoxyCodeLine{00114 \}}
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{\Hypertarget{box_8libmd_8cc_source_l00116}\mbox{\hyperlink{box_8libmd_8cc_a6cd0aa49a5b7e5f19e536645a57ae45d_a6cd0aa49a5b7e5f19e536645a57ae45d}{00116}} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}} (\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} Ain[2][2], \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} B[2][2])}
+\DoxyCodeLine{00117 \{}
+\DoxyCodeLine{00123     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} d = Ain[0][0]*Ain[1][1] -\/ Ain[0][1]*Ain[1][0];}
+\DoxyCodeLine{00124     \textcolor{keywordflow}{if} (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(d) < \mbox{\hyperlink{box_8libmd_8cc_ace215f31f28f0e6769853d07f36afc3f_ace215f31f28f0e6769853d07f36afc3f}{mxinv\_eps}})}
+\DoxyCodeLine{00125         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00126     B[0][0] = Ain[1][1] / d;}
+\DoxyCodeLine{00127     B[0][1] = -\/Ain[0][1] / d;}
+\DoxyCodeLine{00128     B[1][0] = -\/Ain[1][0] / d;}
+\DoxyCodeLine{00129     B[1][1] = Ain[0][0] / d;}
+\DoxyCodeLine{00130     \textcolor{keywordflow}{return} d;}
+\DoxyCodeLine{00131 \}}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{\Hypertarget{box_8libmd_8cc_source_l00133}\mbox{\hyperlink{box_8libmd_8cc_a9810dfd3857d9af2517cebc5b8f05cf8_a9810dfd3857d9af2517cebc5b8f05cf8}{00133}} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}} (\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} Ain[3][3], \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} B[3][3])}
+\DoxyCodeLine{00134 \{}
+\DoxyCodeLine{00140     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} d =   Ain[0][0] * (Ain[1][1]*Ain[2][2] -\/ Ain[1][2]*Ain[2][1])}
+\DoxyCodeLine{00141             + Ain[0][1] * (Ain[1][2]*Ain[2][0] -\/ Ain[1][0]*Ain[2][2])}
+\DoxyCodeLine{00142             + Ain[0][2] * (Ain[1][0]*Ain[2][1] -\/ Ain[1][1]*Ain[2][0]);}
+\DoxyCodeLine{00143     \textcolor{keywordflow}{if} (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(d) < \mbox{\hyperlink{box_8libmd_8cc_ace215f31f28f0e6769853d07f36afc3f_ace215f31f28f0e6769853d07f36afc3f}{mxinv\_eps}})}
+\DoxyCodeLine{00144         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00145     B[0][0] = (Ain[1][1]*Ain[2][2] -\/ Ain[1][2]*Ain[2][1]) / d;}
+\DoxyCodeLine{00146     B[1][0] = (Ain[1][2]*Ain[2][0] -\/ Ain[1][0]*Ain[2][2]) / d;}
+\DoxyCodeLine{00147     B[2][0] = (Ain[1][0]*Ain[2][1] -\/ Ain[1][1]*Ain[2][0]) / d;}
+\DoxyCodeLine{00148     B[0][1] = (Ain[2][1]*Ain[0][2] -\/ Ain[2][2]*Ain[0][1]) / d;}
+\DoxyCodeLine{00149     B[1][1] = (Ain[2][2]*Ain[0][0] -\/ Ain[2][0]*Ain[0][2]) / d;}
+\DoxyCodeLine{00150     B[2][1] = (Ain[2][0]*Ain[0][1] -\/ Ain[2][1]*Ain[0][0]) / d;}
+\DoxyCodeLine{00151     B[0][2] = (Ain[0][1]*Ain[1][2] -\/ Ain[0][2]*Ain[1][1]) / d;}
+\DoxyCodeLine{00152     B[1][2] = (Ain[0][2]*Ain[1][0] -\/ Ain[0][0]*Ain[1][2]) / d;}
+\DoxyCodeLine{00153     B[2][2] = (Ain[0][0]*Ain[1][1] -\/ Ain[0][1]*Ain[1][0]) / d;}
+\DoxyCodeLine{00154     \textcolor{keywordflow}{return} d;}
+\DoxyCodeLine{00155 \}}
+\DoxyCodeLine{00156 }
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{\Hypertarget{box_8libmd_8cc_source_l00158}\mbox{\hyperlink{structbox_a0dd5c44041b2e9431748d8f04e4890f7_a0dd5c44041b2e9431748d8f04e4890f7}{00158}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structbox_a0dd5c44041b2e9431748d8f04e4890f7_a0dd5c44041b2e9431748d8f04e4890f7}{box<dim>::invert\_box}}()}
+\DoxyCodeLine{00159 \{}
+\DoxyCodeLine{00164     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} d = \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}(Lshear, LshearInv);}
+\DoxyCodeLine{00165     \textcolor{keywordflow}{if} (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(d) < \mbox{\hyperlink{box_8libmd_8cc_ace215f31f28f0e6769853d07f36afc3f_ace215f31f28f0e6769853d07f36afc3f}{mxinv\_eps}}) \{}
+\DoxyCodeLine{00166         \mbox{\hyperlink{macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_a4d48c340b3c83579a8d58cb20a320f84}{ERROR}}(\textcolor{stringliteral}{"singular matrix encountered during box matrix inversion"});}
+\DoxyCodeLine{00167         exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00168     \}}
+\DoxyCodeLine{00169 \}}
+
+\end{DoxyCode}

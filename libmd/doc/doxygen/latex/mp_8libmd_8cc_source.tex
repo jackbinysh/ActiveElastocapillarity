@@ -1,0 +1,112 @@
+\hypertarget{mp_8libmd_8cc_source}{}\doxysection{mp.\+libmd.\+cc}
+\label{mp_8libmd_8cc_source}\index{libmd-\/src/mp.libmd.cc@{libmd-\/src/mp.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00001}\mbox{\hyperlink{mp_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00006}\mbox{\hyperlink{structmp_a8edf03f32a1158b6b200112c45afd381_a8edf03f32a1158b6b200112c45afd381}{00006}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structmp_a8edf03f32a1158b6b200112c45afd381_a8edf03f32a1158b6b200112c45afd381}{mp<dim>::mp}}()}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00012     setmp();}
+\DoxyCodeLine{00013 \}}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00015}\mbox{\hyperlink{structmp_a08440a1cc2f41c677690398276a63ac6_a08440a1cc2f41c677690398276a63ac6}{00015}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmp_a08440a1cc2f41c677690398276a63ac6_a08440a1cc2f41c677690398276a63ac6}{mp<dim>::setmp}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i)}
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00021     patch=i;}
+\DoxyCodeLine{00022     \textcolor{keywordflow}{switch}(i)}
+\DoxyCodeLine{00023     \{}
+\DoxyCodeLine{00024         \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9a9755c7ac619c711b933f304b8f907c4a}{MP::MOLLIFIER}}:}
+\DoxyCodeLine{00025             parameters.assign(2,1.0);}
+\DoxyCodeLine{00026             fmp=\&MOLLIFIER<ldf,dim>;}
+\DoxyCodeLine{00027             dfmp=\&MOLLIFIER<duals<dim>,dim>;}
+\DoxyCodeLine{00028         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00029         \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9a57287ee702e8423d46fa6c8229f8f043}{MP::EGGCARTON}}:}
+\DoxyCodeLine{00030             parameters.assign(dim+1,1.0);}
+\DoxyCodeLine{00031             fmp=\&EGGCARTON<ldf,dim>;}
+\DoxyCodeLine{00032             dfmp=\&EGGCARTON<duals<dim>,dim>;}
+\DoxyCodeLine{00033         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00034         \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_m_p_a8b6b43a623ba90f509955017b7ef85c9_a8b6b43a623ba90f509955017b7ef85c9a96545e5f2db8005d444fcaa0f9ef2bea}{MP::GAUSSIANBUMP}}:}
+\DoxyCodeLine{00035             parameters.assign(2,1.0);}
+\DoxyCodeLine{00036             fmp=\&GAUSSIANBUMP<ldf,dim>;}
+\DoxyCodeLine{00037             dfmp=\&GAUSSIANBUMP<duals<dim>,dim>;}
+\DoxyCodeLine{00038         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00039         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00040             parameters.assign(1,1.0);}
+\DoxyCodeLine{00041             fmp=\&FLATSPACE<ldf,dim>;}
+\DoxyCodeLine{00042             dfmp=\&FLATSPACE<duals<dim>,dim>;}
+\DoxyCodeLine{00043         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045 \}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00047}\mbox{\hyperlink{structmp_adc249216879c36bb4281c77cfe0e3070_adc249216879c36bb4281c77cfe0e3070}{00047}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmp_a08440a1cc2f41c677690398276a63ac6_a08440a1cc2f41c677690398276a63ac6}{mp<dim>::setmp}}(\mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr<ldf,dim>}} f,\mbox{\hyperlink{libmd_8h_a9a9e79dbea056167398a2d694c43ff3a_a9a9e79dbea056167398a2d694c43ff3a}{fmpptr}}<\mbox{\hyperlink{structduals}{duals<dim>}},dim> df)}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00052     fmp=f;}
+\DoxyCodeLine{00053     dfmp=df;}
+\DoxyCodeLine{00054     patch=\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{UI\_MAX}};}
+\DoxyCodeLine{00055 \}}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00057}\mbox{\hyperlink{structmp_aec5edb0609b1127ec7df607d43880955_aec5edb0609b1127ec7df607d43880955}{00057}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmp_aec5edb0609b1127ec7df607d43880955_aec5edb0609b1127ec7df607d43880955}{mp<dim>::calc}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim])}
+\DoxyCodeLine{00058 \{}
+\DoxyCodeLine{00063     \mbox{\hyperlink{structduals}{duals<dim>}} y[dim];}
+\DoxyCodeLine{00064     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);}
+\DoxyCodeLine{00065     geometryx[i]=dfmp(y,parameters);}
+\DoxyCodeLine{00066 \}}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00068}\mbox{\hyperlink{structmp_a898dbc8141f959568d1285bed8aabf3d_a898dbc8141f959568d1285bed8aabf3d}{00068}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structmp_aec5edb0609b1127ec7df607d43880955_aec5edb0609b1127ec7df607d43880955}{mp<dim>::calc}}(\mbox{\hyperlink{structduals}{duals<dim>}} \&z,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim])}
+\DoxyCodeLine{00069 \{}
+\DoxyCodeLine{00074     \mbox{\hyperlink{structduals}{duals<dim>}} y[dim];}
+\DoxyCodeLine{00075     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);}
+\DoxyCodeLine{00076     z=dfmp(y,parameters);}
+\DoxyCodeLine{00077 \}}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00079}\mbox{\hyperlink{structmp_a7f68eaecc3861d8ffbbbf941eea4c375_a7f68eaecc3861d8ffbbbf941eea4c375}{00079}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a7f68eaecc3861d8ffbbbf941eea4c375_a7f68eaecc3861d8ffbbbf941eea4c375}{mp<dim>::f}}(\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim])}
+\DoxyCodeLine{00080 \{}
+\DoxyCodeLine{00084     \textcolor{keywordflow}{return} fmp(x,parameters);}
+\DoxyCodeLine{00085 \}}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00087}\mbox{\hyperlink{structmp_a6cfde440e01aac636364d3699594ec00_a6cfde440e01aac636364d3699594ec00}{00087}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a6cfde440e01aac636364d3699594ec00_a6cfde440e01aac636364d3699594ec00}{mp<dim>::df}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim])}
+\DoxyCodeLine{00088 \{}
+\DoxyCodeLine{00092     \mbox{\hyperlink{structduals}{duals<dim>}} y[dim];}
+\DoxyCodeLine{00093     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);}
+\DoxyCodeLine{00094     \textcolor{keywordflow}{return} fmp(y,parameters).dx[mu];}
+\DoxyCodeLine{00095 \}}
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00097}\mbox{\hyperlink{structmp_a0a9bbcb3fb4b4e541491bede35d41cab_a0a9bbcb3fb4b4e541491bede35d41cab}{00097}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a0a9bbcb3fb4b4e541491bede35d41cab_a0a9bbcb3fb4b4e541491bede35d41cab}{mp<dim>::ddf}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim])}
+\DoxyCodeLine{00098 \{}
+\DoxyCodeLine{00102     \mbox{\hyperlink{structduals}{duals<dim>}} y[dim];}
+\DoxyCodeLine{00103     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);}
+\DoxyCodeLine{00104     \textcolor{keywordflow}{return} fmp(y,parameters).dxdy[mu][nu];}
+\DoxyCodeLine{00105 \}}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00107}\mbox{\hyperlink{structmp_a19b6d238e61760d2385ed1bf8a244329_a19b6d238e61760d2385ed1bf8a244329}{00107}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a19b6d238e61760d2385ed1bf8a244329_a19b6d238e61760d2385ed1bf8a244329}{mp<dim>::g}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)}
+\DoxyCodeLine{00108 \{}
+\DoxyCodeLine{00112     \textcolor{keywordflow}{return} \mbox{\hyperlink{mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{kdelta}}(mu,nu)+geometryx[i].dx[mu]*geometryx[i].dx[nu];}
+\DoxyCodeLine{00113 \}}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00115}\mbox{\hyperlink{structmp_a34a8c2027ae11ea84efa0dbbbfcc8409_a34a8c2027ae11ea84efa0dbbbfcc8409}{00115}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a34a8c2027ae11ea84efa0dbbbfcc8409_a34a8c2027ae11ea84efa0dbbbfcc8409}{mp<dim>::gp}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)}
+\DoxyCodeLine{00116 \{}
+\DoxyCodeLine{00120     \textcolor{keywordflow}{return} \mbox{\hyperlink{mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{kdelta}}(mu,nu)+geometryxp[i].dx[mu]*geometryxp[i].dx[nu];}
+\DoxyCodeLine{00121 \}}
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00123}\mbox{\hyperlink{structmp_a2c5825d8f21771e40b120082e50827d2_a2c5825d8f21771e40b120082e50827d2}{00123}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_a2c5825d8f21771e40b120082e50827d2_a2c5825d8f21771e40b120082e50827d2}{mp<dim>::ginv}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)}
+\DoxyCodeLine{00124 \{}
+\DoxyCodeLine{00128     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}=1.0;}
+\DoxyCodeLine{00129     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(geometryx[i].dx[d],2);}
+\DoxyCodeLine{00130     \textcolor{keywordflow}{return} \mbox{\hyperlink{mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{kdelta}}(mu,nu)-\/(geometryx[i].dx[mu]*geometryx[i].dx[nu])/\mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}};}
+\DoxyCodeLine{00131 \}}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00133}\mbox{\hyperlink{structmp_abd53fa81c114885220760369e00581e2_abd53fa81c114885220760369e00581e2}{00133}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_abd53fa81c114885220760369e00581e2_abd53fa81c114885220760369e00581e2}{mp<dim>::sqrt\_ginv}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)}
+\DoxyCodeLine{00134 \{}
+\DoxyCodeLine{00138     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}=1.0;}
+\DoxyCodeLine{00139     \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d=0;d<dim;d++) \mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}+=\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{std::pow}}(geometryx[i].dx[d],2);}
+\DoxyCodeLine{00140     \textcolor{keywordflow}{return} \mbox{\hyperlink{mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d_ae7f557e30beb3ab5663c7560989a9e8d}{kdelta}}(mu,nu)-\/(geometryx[i].dx[mu]*geometryx[i].dx[nu])/(\mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}+\mbox{\hyperlink{autodiff_8libmd_8cc_af33bda4d5a7fc8ad1679ec339a730045_af33bda4d5a7fc8ad1679ec339a730045}{std::sqrt}}(\mbox{\hyperlink{box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_a40b2bff2b597ae82496372ce80675e68}{det}}));}
+\DoxyCodeLine{00141 \}}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{\Hypertarget{mp_8libmd_8cc_source_l00143}\mbox{\hyperlink{structmp_aabea07a9716f508691b7ae5e79464d03_aabea07a9716f508691b7ae5e79464d03}{00143}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structmp_aabea07a9716f508691b7ae5e79464d03_aabea07a9716f508691b7ae5e79464d03}{mp<dim>::A}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} sigma,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} mu,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nu)}
+\DoxyCodeLine{00144 \{}
+\DoxyCodeLine{00148     \textcolor{keywordflow}{return} geometryx[i].dx[nu]*geometryx[i].dxdy[sigma][mu];}
+\DoxyCodeLine{00149 \}}
+
+\end{DoxyCode}

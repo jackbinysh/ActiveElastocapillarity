@@ -1,0 +1,51 @@
+.TH "libmd-src/error.libmd.cc" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libmd-src/error.libmd.cc
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./libmd\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__libmd_src_file__\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBldf\fP \fBTicToc\fP ()"
+.br
+.RI "High precision timer\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __libmd_src_file__"
+
+.PP
+Definition at line 1 of file error\&.libmd\&.cc\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBldf\fP TicToc ()"
+
+.PP
+High precision timer\&. 
+.PP
+Definition at line 6 of file error\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+8     static std::chrono::high_resolution_clock::time_point start,stop;
+9     start=stop,stop=std::chrono::high_resolution_clock::now();
+10     return std::chrono::duration<ldf>(stop-start)\&.count();
+11 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

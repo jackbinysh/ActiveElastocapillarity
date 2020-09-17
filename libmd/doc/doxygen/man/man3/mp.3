@@ -1,0 +1,355 @@
+.TH "mp< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mp< dim > \- This structure defines the Monge patch manifold and its properties\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmp\fP ()"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "void \fBsetmp\fP (\fBui\fP i=\fBMP::FLATSPACE\fP)"
+.br
+.RI "Picks one of the builtin Monge patches\&. "
+.ti -1c
+.RI "void \fBsetmp\fP (\fBfmpptr\fP< \fBldf\fP, dim > \fBf\fP, \fBfmpptr\fP< \fBduals\fP< dim >, dim > \fBdf\fP)"
+.br
+.RI "Picks a custom Monge patch\&. "
+.ti -1c
+.RI "void \fBcalc\fP (\fBui\fP i, \fBldf\fP x[dim])"
+.br
+.RI "Calculate geometric information\&. "
+.ti -1c
+.RI "void \fBcalc\fP (\fBduals\fP< dim > &z, \fBldf\fP x[dim])"
+.br
+.RI "Calculate geometric information on the spot\&. "
+.ti -1c
+.RI "\fBldf\fP \fBf\fP (\fBldf\fP x[dim])"
+.br
+.RI "Monge patch\&. "
+.ti -1c
+.RI "\fBldf\fP \fBdf\fP (\fBui\fP mu, \fBldf\fP x[dim])"
+.br
+.RI "Monge patch gradient\&. "
+.ti -1c
+.RI "\fBldf\fP \fBddf\fP (\fBui\fP mu, \fBui\fP nu, \fBldf\fP x[dim])"
+.br
+.RI "Monge patch laplacian\&. "
+.ti -1c
+.RI "\fBldf\fP \fBg\fP (\fBui\fP i, \fBui\fP mu, \fBui\fP nu)"
+.br
+.RI "Monge patch metric tensor\&. "
+.ti -1c
+.RI "\fBldf\fP \fBgp\fP (\fBui\fP i, \fBui\fP mu, \fBui\fP nu)"
+.br
+.RI "Monge patch metric tensor\&. "
+.ti -1c
+.RI "\fBldf\fP \fBginv\fP (\fBui\fP i, \fBui\fP mu, \fBui\fP nu)"
+.br
+.RI "Monge patch metric tensor inverse\&. "
+.ti -1c
+.RI "\fBldf\fP \fBsqrt_ginv\fP (\fBui\fP i, \fBui\fP mu, \fBui\fP nu)"
+.br
+.RI "Square root of Monge patch metric tensor inverse\&. "
+.ti -1c
+.RI "\fBldf\fP \fBA\fP (\fBui\fP i, \fBui\fP sigma, \fBui\fP mu, \fBui\fP nu)"
+.br
+.RI "Monge patch $ A_{\sigma \mu \nu} = \Gamma_{\nu \sigma \mu} $ where $ \Gamma_{\nu \sigma \mu} $ are the Christoffel symbols (of the first kind) "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBui\fP \fBpatch\fP"
+.br
+.RI "Monge patch type number UI_MAX is custom\&. "
+.ti -1c
+.RI "std::vector< \fBldf\fP > \fBparameters\fP"
+.br
+.RI "Monge patch function parameters\&. "
+.ti -1c
+.RI "\fBfmpptr\fP< \fBldf\fP, dim > \fBfmp\fP"
+.br
+.RI "Monge patch function\&. "
+.ti -1c
+.RI "\fBfmpptr\fP< \fBduals\fP< dim >, dim > \fBdfmp\fP"
+.br
+.RI "Derivatives of monge function\&. "
+.ti -1c
+.RI "std::vector< \fBduals\fP< dim > > \fBgeometryx\fP"
+.br
+.RI "Geometric information for particle i in position at position x\&. "
+.ti -1c
+.RI "std::vector< \fBduals\fP< dim > > \fBgeometryxp\fP"
+.br
+.RI "Geometric information for particle i in position at position xp\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct mp< dim >"
+This structure defines the Monge patch manifold and its properties\&. 
+.PP
+Definition at line 591 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<ui dim> \fBmp\fP< dim >::\fBmp\fP"
+
+.PP
+Constructor\&. Constructor for the mp<dim> class By default loads a FLATSPACE Monge patch by calling setmp
+.PP
+Definition at line 6 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+12     setmp();
+13 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "template<ui dim> \fBldf\fP \fBmp\fP< dim >::A (\fBui\fP i, \fBui\fP sigma, \fBui\fP mu, \fBui\fP nu)"
+
+.PP
+Monge patch $ A_{\sigma \mu \nu} = \Gamma_{\nu \sigma \mu} $ where $ \Gamma_{\nu \sigma \mu} $ are the Christoffel symbols (of the first kind) Calculates A symbol of the van Zuiden integrator element \fCsigma mu nu\fP for particle \fCi\fP
+.PP
+Definition at line 143 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+144 {
+148     return geometryx[i]\&.dx[nu]*geometryx[i]\&.dxdy[sigma][mu];
+149 }
+.fi
+.SS "template<ui dim> void \fBmp\fP< dim >::calc (\fBduals\fP< dim > & z, \fBldf\fP x[dim])"
+
+.PP
+Calculate geometric information on the spot\&. Calculates geometric information for particle \fCi\fP at position \fCx\fP The results are stored in the first argument \fCz\fP
+.PP
+Definition at line 68 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+69 {
+74     duals<dim> y[dim];
+75     for(ui d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);
+76     z=dfmp(y,parameters);
+77 }
+.fi
+.SS "template<ui dim> void \fBmp\fP< dim >::calc (\fBui\fP i, \fBldf\fP x[dim])"
+
+.PP
+Calculate geometric information\&. Calculates geometric information for particle \fCi\fP at position \fCx\fP The results are stored in the geometryx array
+.PP
+Definition at line 57 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+58 {
+63     duals<dim> y[dim];
+64     for(ui d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);
+65     geometryx[i]=dfmp(y,parameters);
+66 }
+.fi
+.SS "template<ui dim> \fBldf\fP \fBmp\fP< dim >::ddf (\fBui\fP mu, \fBui\fP nu, \fBldf\fP x[dim])"
+
+.PP
+Monge patch laplacian\&. Calculates the second derivative in the directions \fCmu nu\fP of the(set) Monge function at position \fCx\fP
+.PP
+Definition at line 97 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+98 {
+102     duals<dim> y[dim];
+103     for(ui d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);
+104     return fmp(y,parameters)\&.dxdy[mu][nu];
+105 }
+.fi
+.SS "template<ui dim> \fBldf\fP \fBmp\fP< dim >::df (\fBui\fP mu, \fBldf\fP x[dim])"
+
+.PP
+Monge patch gradient\&. Calculates the derivative in direction \fCmu\fP of the(set) Monge function at position \fCx\fP
+.PP
+Definition at line 87 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+88 {
+92     duals<dim> y[dim];
+93     for(ui d=0;d<dim;d++) y[d]=duals<dim>(x[d],d);
+94     return fmp(y,parameters)\&.dx[mu];
+95 }
+.fi
+.SS "template<ui dim> \fBldf\fP \fBmp\fP< dim >::f (\fBldf\fP x[dim])"
+
+.PP
+Monge patch\&. Calculates value of the (set) Monge function at position \fCx\fP
+.PP
+Definition at line 79 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+80 {
+84     return fmp(x,parameters);
+85 }
+.fi
+.SS "template<ui dim> \fBldf\fP \fBmp\fP< dim >::g (\fBui\fP i, \fBui\fP mu, \fBui\fP nu)"
+
+.PP
+Monge patch metric tensor\&. Calculates Monge metric tensor element \fCmu\fP\fCnu\fP for particle \fCi\fP
+.PP
+Definition at line 107 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+108 {
+112     return kdelta(mu,nu)+geometryx[i]\&.dx[mu]*geometryx[i]\&.dx[nu];
+113 }
+.fi
+.PP
+References kdelta()\&.
+.SS "template<ui dim> \fBldf\fP \fBmp\fP< dim >::ginv (\fBui\fP i, \fBui\fP mu, \fBui\fP nu)"
+
+.PP
+Monge patch metric tensor inverse\&. Calculates Monge metric tensor inverse element \fCmu\fP\fCnu\fP for particle \fCi\fP
+.PP
+Definition at line 123 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+124 {
+128     ldf det=1\&.0;
+129     for(ui d=0;d<dim;d++) det+=std::pow(geometryx[i]\&.dx[d],2);
+130     return kdelta(mu,nu)-(geometryx[i]\&.dx[mu]*geometryx[i]\&.dx[nu])/det;
+131 }
+.fi
+.PP
+References det(), kdelta(), and pow()\&.
+.SS "template<ui dim> \fBldf\fP \fBmp\fP< dim >::gp (\fBui\fP i, \fBui\fP mu, \fBui\fP nu)"
+
+.PP
+Monge patch metric tensor\&. Calculates Monge metric tensor element \fCmu\fP\fCnu\fP for particle \fCi\fP at it's previous position \fCxp\fP
+.PP
+Definition at line 115 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+116 {
+120     return kdelta(mu,nu)+geometryxp[i]\&.dx[mu]*geometryxp[i]\&.dx[nu];
+121 }
+.fi
+.PP
+References kdelta()\&.
+.SS "template<ui dim> void \fBmp\fP< dim >::setmp (\fBfmpptr\fP< \fBldf\fP, dim > f, \fBfmpptr\fP< \fBduals\fP< dim >, dim > df)"
+
+.PP
+Picks a custom Monge patch\&. Sets an externaly defined Monge patch
+.PP
+Definition at line 47 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+48 {
+52     fmp=f;
+53     dfmp=df;
+54     patch=UI_MAX;
+55 }
+.fi
+.PP
+References UI_MAX\&.
+.SS "template<ui dim> void \fBmp\fP< dim >::setmp (\fBui\fP i = \fC\fBMP::FLATSPACE\fP\fP)"
+
+.PP
+Picks one of the builtin Monge patches\&. Sets a builtin Monge patch \fCi\fP can be a \fCui\fP or \fC\fBMP\fP enum\fP type e\&.g\&. \fC\fBMP::FLATSPACE\fP\fP (default e\&.g\&. \fC\fBMP::FLATSPACE\fP\fP (default)\&.
+.PP
+Definition at line 15 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+16 {
+21     patch=i;
+22     switch(i)
+23     {
+24         case MP::MOLLIFIER:
+25             parameters\&.assign(2,1\&.0);
+26             fmp=&MOLLIFIER<ldf,dim>;
+27             dfmp=&MOLLIFIER<duals<dim>,dim>;
+28         break;
+29         case MP::EGGCARTON:
+30             parameters\&.assign(dim+1,1\&.0);
+31             fmp=&EGGCARTON<ldf,dim>;
+32             dfmp=&EGGCARTON<duals<dim>,dim>;
+33         break;
+34         case MP::GAUSSIANBUMP:
+35             parameters\&.assign(2,1\&.0);
+36             fmp=&GAUSSIANBUMP<ldf,dim>;
+37             dfmp=&GAUSSIANBUMP<duals<dim>,dim>;
+38         break;
+39         default:
+40             parameters\&.assign(1,1\&.0);
+41             fmp=&FLATSPACE<ldf,dim>;
+42             dfmp=&FLATSPACE<duals<dim>,dim>;
+43         break;
+44     }
+45 }
+.fi
+.PP
+References MP::EGGCARTON, MP::GAUSSIANBUMP, and MP::MOLLIFIER\&.
+.SS "template<ui dim> \fBldf\fP \fBmp\fP< dim >::sqrt_ginv (\fBui\fP i, \fBui\fP mu, \fBui\fP nu)"
+
+.PP
+Square root of Monge patch metric tensor inverse\&. Calculates the square root of Monge metric tensor inverse element \fCmu\fP\fCnu\fP for particle \fCi\fP
+.PP
+Definition at line 133 of file mp\&.libmd\&.cc\&.
+.PP
+.nf
+134 {
+138     ldf det=1\&.0;
+139     for(ui d=0;d<dim;d++) det+=std::pow(geometryx[i]\&.dx[d],2);
+140     return kdelta(mu,nu)-(geometryx[i]\&.dx[mu]*geometryx[i]\&.dx[nu])/(det+std::sqrt(det));
+141 }
+.fi
+.PP
+References det(), kdelta(), pow(), and sqrt()\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> \fBfmpptr\fP<\fBduals\fP<dim>,dim> \fBmp\fP< dim >::dfmp"
+
+.PP
+Derivatives of monge function\&. 
+.PP
+Definition at line 596 of file libmd\&.h\&.
+.SS "template<ui dim> \fBfmpptr\fP<\fBldf\fP,dim> \fBmp\fP< dim >::fmp"
+
+.PP
+Monge patch function\&. 
+.PP
+Definition at line 595 of file libmd\&.h\&.
+.SS "template<ui dim> std::vector<\fBduals\fP<dim> > \fBmp\fP< dim >::geometryx"
+
+.PP
+Geometric information for particle i in position at position x\&. 
+.PP
+Definition at line 597 of file libmd\&.h\&.
+.SS "template<ui dim> std::vector<\fBduals\fP<dim> > \fBmp\fP< dim >::geometryxp"
+
+.PP
+Geometric information for particle i in position at position xp\&. 
+.PP
+Definition at line 598 of file libmd\&.h\&.
+.SS "template<ui dim> std::vector<\fBldf\fP> \fBmp\fP< dim >::parameters"
+
+.PP
+Monge patch function parameters\&. 
+.PP
+Definition at line 594 of file libmd\&.h\&.
+.SS "template<ui dim> \fBui\fP \fBmp\fP< dim >::patch"
+
+.PP
+Monge patch type number UI_MAX is custom\&. 
+.PP
+Definition at line 593 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

@@ -1,0 +1,249 @@
+.TH "libmd-src/boundaryconditions.libmd.cc" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libmd-src/boundaryconditions.libmd.cc
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./libmd\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__libmd_src_file__\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_NONE\fP (\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_NONE\fP (\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_PERIODIC\fP (\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_PERIODIC\fP (\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_HARD\fP (\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_HARD\fP (\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_BOXSHEAR\fP (\fBui\fP d, \fBui\fP i, void *sys)"
+.br
+.ti -1c
+.RI "template<ui dim> void \fBBCOND_BOXSHEAR\fP (\fBui\fP d, \fBldf\fP x[dim], void *sys)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __libmd_src_file__"
+
+.PP
+Definition at line 1 of file boundaryconditions\&.libmd\&.cc\&.
+.SH "Function Documentation"
+.PP 
+.SS "template<ui dim> void BCOND_BOXSHEAR (\fBui\fP d, \fBldf\fP x[dim], void * sys)"
+Periodicity function to be called if dimension \fCd\fP has sheared boundary conditions\&.
+.PP
+Checks if point \fCx\fP is outside the boundary perpendicular to dimension \fCd\fP and, if so, updates its position according to the box shear matrices stored in \fCsimbox\&.Lshear\fP and \fCsimbox\&.vshear\fP\&. The particle position
+.PP
+Definition at line 184 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+185 {
+195     const ldf boundaryCrossing=std::round(x[d]/SYS->simbox\&.L[d]);
+196     if((int)boundaryCrossing) for(ui k=0;k<dim;k++) x[k]-=SYS->simbox\&.Lshear[k][d]*boundaryCrossing;
+197 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void BCOND_BOXSHEAR (\fBui\fP d, \fBui\fP i, void * sys)"
+Periodicity function to be called if dimension \fCd\fP has sheared boundary conditions\&.
+.PP
+Checks if particle \fCi\fP has crossed the boundary perpendicular to dimension \fCd\fP and, if so, updates its position and velocity according to the box shear matrices stored in \fCsimbox\&.Lshear\fP and \fCsimbox\&.vshear\fP\&. The particle position
+.PP
+Definition at line 164 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+165 {
+175     const ldf boundaryCrossing=std::round(SYS->particles[i]\&.x[d]/SYS->simbox\&.L[d]);
+176     if((int)boundaryCrossing) for(ui k=0;k<dim;k++)
+177     {
+178         SYS->particles[i]\&.x[k]-=SYS->simbox\&.Lshear[k][d]*boundaryCrossing;
+179         SYS->particles[i]\&.xp[k]-=SYS->simbox\&.Lshear[k][d]*boundaryCrossing;
+180         SYS->particles[i]\&.dx[k]-=SYS->simbox\&.vshear[k][d]*boundaryCrossing;
+181     }
+182 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void BCOND_HARD (\fBui\fP d, \fBldf\fP x[dim], void * sys)"
+Periodicity function to be called if dimension \fCd\fP has hard boundary conditions\&.
+.PP
+Checks if point \fCx\fP is outside the boundary perpendicular to dimension \fCd\fP and, if so, updates its position to respect a hard wall reflection\&. The particle position is mirrored across the boundary wall\&. 
+.br
+ This function correctly takes into account skewed boundary conditions, and uses the box matrices \fCsimbox\&.Lshear\fP and \fCsimbox\&.vshear\fP to calculate the reflections if \fCsimbox\&.useLshear\fP is \fCtrue\fP\&.
+.PP
+Definition at line 119 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+120 {
+134     if (SYS->simbox\&.useLshear)
+135     {
+136         ldf s=0;
+137         for (ui k=0;k<dim;k++) s+=SYS->simbox\&.LshearInv[d][k]*x[k];
+138         if (std::abs(s) > 0\&.5) // particle has hit the hard boundary as distorted by the shear
+139         {
+140             if (std::abs(s) > 1\&.) { WARNING("dynamics led to particle displacement bigger than box size; hard boundary reflections undefined"); }
+141             ldf nhat[dim];
+142             ldf nlen=0\&.,xperp=0\&.,x0perp;
+143             // the normal vector to the box boundary in dimension d is the dth row of LshearInv
+144             for (ui k=0;k<dim;k++) nlen += SYS->simbox\&.LshearInv[d][k]*SYS->simbox\&.LshearInv[d][k];
+145             nlen = sqrt(nlen);
+146             // projection of velocity and position perpendicular to boundary wall
+147             for (ui k=0;k<dim;k++) {
+148                 nhat[k] = SYS->simbox\&.LshearInv[d][k]/nlen;
+149                 xperp += nhat[k]*x[k];
+150             }
+151             x0perp = nhat[d]*SYS->simbox\&.Lshear[d][d]*0\&.5*(s > 0\&.? 1\&.:-1\&.);
+152 
+153             // subtract perpendicular component twice to get reflected velocity
+154             for (ui k=0;k<dim;k++) x[k] -= 2\&.0*(xperp-x0perp)*nhat[k]; // reflection about a plane passing through point set by x0perp
+155         }
+156     }
+157     else
+158     {
+159         const ldf xnew=SYS->simbox\&.L[d]*(std::abs(x[d]/SYS->simbox\&.L[d]+0\&.5-2\&.0*floor(x[d]/(2\&.0*SYS->simbox\&.L[d])+0\&.75))-0\&.5);
+160         x[d]=xnew;
+161     }
+162 }
+.fi
+.PP
+References abs(), sqrt(), SYS, and WARNING\&.
+.SS "template<ui dim> void BCOND_HARD (\fBui\fP d, \fBui\fP i, void * sys)"
+Periodicity function to be called if dimension \fCd\fP has hard boundary conditions\&.
+.PP
+Checks if particle \fCi\fP has crossed the boundary perpendicular to dimension \fCd\fP and, if so, updates its position and velocity to respect a hard wall reflection\&. The particle position is mirrored across the boundary wall, whereas its velocity component perpendicular to the boundary wall is reversed\&. 
+.br
+ This function correctly takes into account skewed boundary conditions, and uses the box matrices \fCsimbox\&.Lshear\fP and \fCsimbox\&.vshear\fP to calculate the reflections if \fCsimbox\&.useLshear\fP is \fCtrue\fP\&.
+.PP
+Definition at line 61 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+62 {
+77     if (SYS->simbox\&.useLshear)
+78     {
+79         ldf s=0;
+80         for (ui k=0;k<dim;k++) s+=SYS->simbox\&.LshearInv[d][k]*SYS->particles[i]\&.x[k];
+81         if (std::abs(s) > 0\&.5) // particle has hit the hard boundary as distorted by the shear
+82         {
+83             if (std::abs(s) > 1\&.) { WARNING("dynamics led to particle displacement bigger than box size; hard boundary reflections undefined"); }
+84             ldf nhat[dim];
+85             ldf nlen=0\&.,vperp=0\&.,xperp=0\&.,x0perp;
+86 
+87             // the normal vector to the box boundary in dimension d is the dth row of LshearInv
+88             for (ui k=0;k<dim;k++) nlen += SYS->simbox\&.LshearInv[d][k]*SYS->simbox\&.LshearInv[d][k];
+89             nlen = sqrt(nlen);
+90 
+91             // projection of velocity and position perpendicular to boundary wall
+92             for (ui k=0;k<dim;k++) {
+93                 nhat[k] = SYS->simbox\&.LshearInv[d][k]/nlen;
+94                 vperp += nhat[k]*SYS->particles[i]\&.dx[k];
+95                 xperp += nhat[k]*SYS->particles[i]\&.x[k];
+96             }
+97 
+98             x0perp = nhat[d]*SYS->simbox\&.Lshear[d][d]*0\&.5*(s > 0\&.? 1\&.:-1\&.);
+99 
+100             // subtract perpendicular component twice to get reflected velocity
+101             for (ui k=0;k<dim;k++)
+102             {
+103                 SYS->particles[i]\&.dx[k] -= 2\&.0*vperp*nhat[k];
+104                 SYS->particles[i]\&.x[k] -= 2\&.0*(xperp-x0perp)*nhat[k]; // reflection about a plane passing through point set by x0perp
+105                 SYS->particles[i]\&.xp[k] += 2\&.0*(xperp-x0perp)*nhat[k];
+106             }
+107         }
+108     }
+109     else
+110     {
+111         const ldf xnew=SYS->simbox\&.L[d]*(std::abs(SYS->particles[i]\&.x[d]/SYS->simbox\&.L[d]+0\&.5-2\&.0*floor(SYS->particles[i]\&.x[d]/(2\&.0*SYS->simbox\&.L[d])+0\&.75))-0\&.5);
+112         const ldf sign=(((int)std::round(SYS->particles[i]\&.x[d]/SYS->simbox\&.L[d]))%2?-1\&.0:1\&.0);
+113         SYS->particles[i]\&.xp[d]+=sign*(xnew-SYS->particles[i]\&.x[d]);
+114         SYS->particles[i]\&.x[d]=xnew;
+115         SYS->particles[i]\&.dx[d]*=sign;
+116     }
+117 }
+.fi
+.PP
+References abs(), sqrt(), SYS, and WARNING\&.
+.SS "template<ui dim> void BCOND_NONE (\fBui\fP d, \fBldf\fP x[dim], void * sys)"
+Periodicity function to be called if dimension \fCd\fP has no boundary conditions\&.
+.PP
+This function does nothing
+.PP
+Definition at line 19 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+20 {
+27     (void) d;
+28     (void) x;
+29     (void) sys;
+30 }
+.fi
+.SS "template<ui dim> void BCOND_NONE (\fBui\fP d, \fBui\fP i, void * sys)"
+Periodicity function to be called if dimension \fCd\fP has no boundary conditions\&.
+.PP
+This function does nothing
+.PP
+Definition at line 6 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+14     (void) d;
+15     (void) i;
+16     (void) sys;
+17 }
+.fi
+.SS "template<ui dim> void BCOND_PERIODIC (\fBui\fP d, \fBldf\fP x[dim], void * sys)"
+Periodicity function to be called if dimension \fCd\fP has periodic boundary conditions\&.
+.PP
+Checks if point \fCx\fP is outside the boundary perpendicular to dimension \fCd\fP and, if so, shifts its coordinate in that dimension by multiples of \fCsimbox\&.L[d]\fP so that it is within the bounds \fC(-simbox\&.L[d]/2,simbox\&.L[d]/2)\fP\&.
+.PP
+Definition at line 47 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+48 {
+57     const ldf dx=SYS->simbox\&.L[d]*std::round(x[d]/SYS->simbox\&.L[d]);
+58     x[d]-=dx;
+59 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void BCOND_PERIODIC (\fBui\fP d, \fBui\fP i, void * sys)"
+Periodicity function to be called if dimension \fCd\fP has periodic boundary conditions\&.
+.PP
+Checks if particle \fCi\fP has crossed the boundary perpendicular to dimension \fCd\fP and, if so, shifts its coordinate in that dimension by multiples of \fCsimbox\&.L[d]\fP so that it is within the bounds \fC(-simbox\&.L[d]/2,simbox\&.L[d]/2)\fP\&.
+.PP
+Definition at line 32 of file boundaryconditions\&.libmd\&.cc\&.
+.PP
+.nf
+33 {
+42     const ldf dx=SYS->simbox\&.L[d]*std::round(SYS->particles[i]\&.x[d]/SYS->simbox\&.L[d]);
+43     SYS->particles[i]\&.xp[d]-=dx;
+44     SYS->particles[i]\&.x[d]-=dx;
+45 }
+.fi
+.PP
+References SYS\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

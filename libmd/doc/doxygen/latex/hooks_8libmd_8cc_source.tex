@@ -1,0 +1,27 @@
+\hypertarget{hooks_8libmd_8cc_source}{}\doxysection{hooks.\+libmd.\+cc}
+\label{hooks_8libmd_8cc_source}\index{libmd-\/src/hooks.libmd.cc@{libmd-\/src/hooks.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{hooks_8libmd_8cc_source_l00001}\mbox{\hyperlink{hooks_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{hooks_8libmd_8cc_source_l00006}\mbox{\hyperlink{structt__hook_a7472894ffced163e7336e5ed6d39b9cd_a7472894ffced163e7336e5ed6d39b9cd}{00006}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structt__hook_a7472894ffced163e7336e5ed6d39b9cd_a7472894ffced163e7336e5ed6d39b9cd}{t\_hook<dim>::add}}(\mbox{\hyperlink{libmd_8h_a45997a38178962fd1ae543a6b308d196_a45997a38178962fd1ae543a6b308d196}{hookptr<dim>}} p)}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00011     hooks.push\_back(p);}
+\DoxyCodeLine{00012     \textcolor{keywordflow}{return} hooks.size()-\/1;}
+\DoxyCodeLine{00013 \}}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{\Hypertarget{hooks_8libmd_8cc_source_l00015}\mbox{\hyperlink{structt__hook_afef5e30fe43c85d1249d2668d1fcb17f_afef5e30fe43c85d1249d2668d1fcb17f}{00015}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structt__hook_afef5e30fe43c85d1249d2668d1fcb17f_afef5e30fe43c85d1249d2668d1fcb17f}{t\_hook<dim>::operator()}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} idx,std::vector<ldf> \&parameters,\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00021     hooks[idx](parameters,sys);}
+\DoxyCodeLine{00022 \}}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{\Hypertarget{hooks_8libmd_8cc_source_l00024}\mbox{\hyperlink{structhooktype_a03ed28bf76315c4f4ffeb2bde7755e44_a03ed28bf76315c4f4ffeb2bde7755e44}{00024}} \mbox{\hyperlink{structhooktype_a03ed28bf76315c4f4ffeb2bde7755e44_a03ed28bf76315c4f4ffeb2bde7755e44}{hooktype::hooktype}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} nohook,std::vector<ldf> \&param)}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00031     \mbox{\hyperlink{structhooktype_ad81d7b738ac51aac9892391afc1d13cf_ad81d7b738ac51aac9892391afc1d13cf}{hook}}=nohook;}
+\DoxyCodeLine{00032     \mbox{\hyperlink{structhooktype_a7a1dbb49e6b7c670bcde4785d06f0dda_a7a1dbb49e6b7c670bcde4785d06f0dda}{parameters}}=param;}
+\DoxyCodeLine{00033 \}}
+
+\end{DoxyCode}

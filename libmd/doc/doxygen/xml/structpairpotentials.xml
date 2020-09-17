@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structpairpotentials" kind="struct" language="C++" prot="public">
+    <compoundname>pairpotentials</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_1a8d7d4b77b302f3d235362b7857bbb242" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="libmd_8h_a9b569e89a6a36bb0fdd87a612abedd97_1a9b569e89a6a36bb0fdd87a612abedd97" kindref="member">potentialptr</ref>&lt; <ref refid="structdual" kindref="compound">dual</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;potentialptr&lt;dual&gt; &gt; pairpotentials::potentials</definition>
+        <argsstring></argsstring>
+        <name>potentials</name>
+        <briefdescription>
+<para>Pair potential vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="264" column="17" bodyfile="libmd.h" bodystart="264" bodyend="-1"/>
+        <referencedby refid="structpairpotentials_ab76e50aab62cfaa68a09fc58e9e3d333_1ab76e50aab62cfaa68a09fc58e9e3d333" compoundref="pairpotentials_8libmd_8cc" startline="6" endline="22">pairpotentials</referencedby>
+        <referencedby refid="structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_1a41a8b85ded4ddaf1896a5d3de69402b8" compoundref="pairpotentials_8libmd_8cc" startline="24" endline="31">add</referencedby>
+        <referencedby refid="structpairpotentials_ac70a0bc9bd954e96f28280ab2c026983_1ac70a0bc9bd954e96f28280ab2c026983" compoundref="pairpotentials_8libmd_8cc" startline="33" endline="41">operator()</referencedby>
+        <referencedby refid="structpairpotentials_a4caa08856a866509f47794b203078164_1a4caa08856a866509f47794b203078164" compoundref="pairpotentials_8libmd_8cc" startline="43" endline="51">dr</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structpairpotentials_ab76e50aab62cfaa68a09fc58e9e3d333_1ab76e50aab62cfaa68a09fc58e9e3d333" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pairpotentials::pairpotentials</definition>
+        <argsstring>()</argsstring>
+        <name>pairpotentials</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>pairpotentials constuctor. <linebreak/>
+ Reserves 16 slot in the potentials vector. <linebreak/>
+ Adds the builtin pairpotentials. <linebreak/>
+</para>
+        </inbodydescription>
+        <location file="libmd.h" line="266" column="5" bodyfile="libmd-src/pairpotentials.libmd.cc" bodystart="6" bodyend="22"/>
+        <references refid="structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_1a41a8b85ded4ddaf1896a5d3de69402b8" compoundref="pairpotentials_8libmd_8cc" startline="24" endline="31">add</references>
+        <references refid="structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_1a8d7d4b77b302f3d235362b7857bbb242" compoundref="libmd_8h" startline="264">potentials</references>
+      </memberdef>
+      <memberdef kind="function" id="structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_1a41a8b85ded4ddaf1896a5d3de69402b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui pairpotentials::add</definition>
+        <argsstring>(potentialptr&lt; dual &gt; p)</argsstring>
+        <name>add</name>
+        <param>
+          <type><ref refid="libmd_8h_a9b569e89a6a36bb0fdd87a612abedd97_1a9b569e89a6a36bb0fdd87a612abedd97" kindref="member">potentialptr</ref>&lt; <ref refid="structdual" kindref="compound">dual</ref> &gt;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Add a potentials. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function adds a custom potential function <computeroutput>p</computeroutput> to the potentials vector. <linebreak/>
+</para>
+        </inbodydescription>
+        <location file="libmd.h" line="268" column="8" bodyfile="libmd-src/pairpotentials.libmd.cc" bodystart="24" bodyend="31"/>
+        <references refid="structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_1a8d7d4b77b302f3d235362b7857bbb242" compoundref="libmd_8h" startline="264">potentials</references>
+        <referencedby refid="structpairpotentials_ab76e50aab62cfaa68a09fc58e9e3d333_1ab76e50aab62cfaa68a09fc58e9e3d333" compoundref="pairpotentials_8libmd_8cc" startline="6" endline="22">pairpotentials</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structpairpotentials_ac70a0bc9bd954e96f28280ab2c026983_1ac70a0bc9bd954e96f28280ab2c026983" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf pairpotentials::operator()</definition>
+        <argsstring>(ui type, ldf r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>Pair potential executer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function evaluates a potential function in <computeroutput>pairpotentials[type]</computeroutput> at <computeroutput>r</computeroutput> with <computeroutput>parameters</computeroutput> <linebreak/>
+ Make sure that if you use a custom potential function <computeroutput>type</computeroutput> and <computeroutput>potentials</computeroutput> align.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="269" column="9" bodyfile="libmd-src/pairpotentials.libmd.cc" bodystart="33" bodyend="41"/>
+        <references refid="structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_1a8d7d4b77b302f3d235362b7857bbb242" compoundref="libmd_8h" startline="264">potentials</references>
+      </memberdef>
+      <memberdef kind="function" id="structpairpotentials_a4caa08856a866509f47794b203078164_1a4caa08856a866509f47794b203078164" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf pairpotentials::dr</definition>
+        <argsstring>(ui type, ldf r, std::vector&lt; ldf &gt; &amp;parameters)</argsstring>
+        <name>dr</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+<para>Pair potential d/dr executer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function evaluates the derivative of a potential function in <computeroutput>pairpotentials[type]</computeroutput> at <computeroutput>r</computeroutput> with <computeroutput>parameters</computeroutput> <linebreak/>
+ Make sure that if you use a custom potential function <computeroutput>type</computeroutput> and <computeroutput>potentials</computeroutput> align.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="270" column="9" bodyfile="libmd-src/pairpotentials.libmd.cc" bodystart="43" bodyend="51"/>
+        <references refid="structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_1a8d7d4b77b302f3d235362b7857bbb242" compoundref="libmd_8h" startline="264">potentials</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure takes care of pair potentials (who live outside of the class) </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; potentialptr&lt; dual &gt; &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; potentialptr&lt; dual &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>pairpotentials</label>
+        <link refid="structpairpotentials"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+potentials</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="263" column="1" bodyfile="libmd.h" bodystart="262" bodyend="271"/>
+    <listofallmembers>
+      <member refid="structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8_1a41a8b85ded4ddaf1896a5d3de69402b8" prot="public" virt="non-virtual"><scope>pairpotentials</scope><name>add</name></member>
+      <member refid="structpairpotentials_a4caa08856a866509f47794b203078164_1a4caa08856a866509f47794b203078164" prot="public" virt="non-virtual"><scope>pairpotentials</scope><name>dr</name></member>
+      <member refid="structpairpotentials_ac70a0bc9bd954e96f28280ab2c026983_1ac70a0bc9bd954e96f28280ab2c026983" prot="public" virt="non-virtual"><scope>pairpotentials</scope><name>operator()</name></member>
+      <member refid="structpairpotentials_ab76e50aab62cfaa68a09fc58e9e3d333_1ab76e50aab62cfaa68a09fc58e9e3d333" prot="public" virt="non-virtual"><scope>pairpotentials</scope><name>pairpotentials</name></member>
+      <member refid="structpairpotentials_a8d7d4b77b302f3d235362b7857bbb242_1a8d7d4b77b302f3d235362b7857bbb242" prot="public" virt="non-virtual"><scope>pairpotentials</scope><name>potentials</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

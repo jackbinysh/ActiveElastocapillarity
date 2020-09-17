@@ -1,0 +1,12 @@
+digraph "FORCEDIPOLE"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="RL";
+  Node1 [label="FORCEDIPOLE",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Force dipole potential functions."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="HOOKEANFORCEDIPOLE",height=0.2,width=0.4,color="black",URL="$libmd_8h_a60601f0c510687b04a3ae288ba5f4565.html#a60601f0c510687b04a3ae288ba5f4565",tooltip="Hookean force dipole potential functions."];
+}

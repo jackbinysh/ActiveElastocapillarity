@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structexternalforces" kind="struct" language="C++" prot="public">
+    <compoundname>externalforces</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structexternalforces_ab72d961fef069e67f5b9138a08338490_1ab72d961fef069e67f5b9138a08338490" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="libmd_8h_ab1124464203265bb807f6c210d35fe1f_1ab1124464203265bb807f6c210d35fe1f" kindref="member">extforceptr</ref>&lt; dim &gt; &gt;</type>
+        <definition>std::vector&lt;extforceptr&lt;dim&gt; &gt; externalforces&lt; dim &gt;::extforces</definition>
+        <argsstring></argsstring>
+        <name>extforces</name>
+        <briefdescription>
+<para>External forces function container. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="276" column="17" bodyfile="libmd.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structexternalforces_a2c64201093453180e1205e6cffd7c387_1a2c64201093453180e1205e6cffd7c387" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>externalforces&lt; dim &gt;::externalforces</definition>
+        <argsstring>()</argsstring>
+        <name>externalforces</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This is the externalforces&lt;dim&gt; constuctor. <linebreak/>
+ It reserves 8 slots in the extforces vector and adds the builtin externalforces. <linebreak/>
+</para>
+        </inbodydescription>
+        <location file="libmd.h" line="278" column="5" bodyfile="libmd-src/externalforces.libmd.cc" bodystart="31" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="structexternalforces_a81e85285b5d21febef146fe13bdb50a5_1a81e85285b5d21febef146fe13bdb50a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui externalforces&lt; dim &gt;::add</definition>
+        <argsstring>(extforceptr&lt; dim &gt; p)</argsstring>
+        <name>add</name>
+        <param>
+          <type><ref refid="libmd_8h_ab1124464203265bb807f6c210d35fe1f_1ab1124464203265bb807f6c210d35fe1f" kindref="member">extforceptr</ref>&lt; dim &gt;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Add an external force function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function allows the user to add an userdefined external force which is pointed at by <computeroutput>p</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="280" column="8" bodyfile="libmd-src/externalforces.libmd.cc" bodystart="44" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="structexternalforces_a4b07232d90c5611b30b7ee80f485a526_1a4b07232d90c5611b30b7ee80f485a526" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void externalforces&lt; dim &gt;::operator()</definition>
+        <argsstring>(ui type, ui i, std::vector&lt; ui &gt; &amp;particles, std::vector&lt; ldf &gt; &amp;parameters, void *sys)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref> &gt; &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref> &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>sys</declname>
+        </param>
+        <briefdescription>
+<para>Execute external force function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function calculates a certain external force <computeroutput>extforces[type]</computeroutput> for particle <computeroutput>i</computeroutput> with interacting particle list <computeroutput>particles</computeroutput>. <linebreak/>
+ The sys pointer is typically a void pointer to the md or mpmd system (which is cast back by using the macro SYS).</para>
+        </inbodydescription>
+        <location file="libmd.h" line="281" column="10" bodyfile="libmd-src/externalforces.libmd.cc" bodystart="53" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure takes care of additional (external) forces acting on particles. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; extforceptr&lt; dim &gt; &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; extforceptr&lt; dim &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>externalforces&lt; dim &gt;</label>
+        <link refid="structexternalforces"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+extforces</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="275" column="1" bodyfile="libmd.h" bodystart="274" bodyend="282"/>
+    <listofallmembers>
+      <member refid="structexternalforces_a81e85285b5d21febef146fe13bdb50a5_1a81e85285b5d21febef146fe13bdb50a5" prot="public" virt="non-virtual"><scope>externalforces</scope><name>add</name></member>
+      <member refid="structexternalforces_a2c64201093453180e1205e6cffd7c387_1a2c64201093453180e1205e6cffd7c387" prot="public" virt="non-virtual"><scope>externalforces</scope><name>externalforces</name></member>
+      <member refid="structexternalforces_ab72d961fef069e67f5b9138a08338490_1ab72d961fef069e67f5b9138a08338490" prot="public" virt="non-virtual"><scope>externalforces</scope><name>extforces</name></member>
+      <member refid="structexternalforces_a4b07232d90c5611b30b7ee80f485a526_1a4b07232d90c5611b30b7ee80f485a526" prot="public" virt="non-virtual"><scope>externalforces</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

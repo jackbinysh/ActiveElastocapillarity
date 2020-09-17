@@ -1,0 +1,143 @@
+\hypertarget{structexternalforces}{}\doxysection{externalforces$<$ dim $>$ Struct Template Reference}
+\label{structexternalforces}\index{externalforces$<$ dim $>$@{externalforces$<$ dim $>$}}
+
+
+This structure takes care of additional (external) forces acting on particles.  
+
+
+
+
+{\ttfamily \#include $<$libmd.\+h$>$}
+
+
+
+Collaboration diagram for externalforces$<$ dim $>$\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structexternalforces_a2c64201093453180e1205e6cffd7c387_a2c64201093453180e1205e6cffd7c387}{externalforces}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structexternalforces_a81e85285b5d21febef146fe13bdb50a5_a81e85285b5d21febef146fe13bdb50a5}{add}} (\mbox{\hyperlink{libmd_8h_ab1124464203265bb807f6c210d35fe1f_ab1124464203265bb807f6c210d35fe1f}{extforceptr}}$<$ dim $>$ p)
+\begin{DoxyCompactList}\small\item\em Add an external force function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structexternalforces_a4b07232d90c5611b30b7ee80f485a526_a4b07232d90c5611b30b7ee80f485a526}{operator()}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} type, \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$ \&particles, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters, void $\ast$sys)
+\begin{DoxyCompactList}\small\item\em Execute external force function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{libmd_8h_ab1124464203265bb807f6c210d35fe1f_ab1124464203265bb807f6c210d35fe1f}{extforceptr}}$<$ dim $>$ $>$ \mbox{\hyperlink{structexternalforces_ab72d961fef069e67f5b9138a08338490_ab72d961fef069e67f5b9138a08338490}{extforces}}
+\begin{DoxyCompactList}\small\item\em External forces function container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$ui dim$>$\newline
+struct externalforces$<$ dim $>$}
+
+This structure takes care of additional (external) forces acting on particles. 
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00274}{274}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structexternalforces_a2c64201093453180e1205e6cffd7c387_a2c64201093453180e1205e6cffd7c387}\label{structexternalforces_a2c64201093453180e1205e6cffd7c387_a2c64201093453180e1205e6cffd7c387}} 
+\index{externalforces$<$ dim $>$@{externalforces$<$ dim $>$}!externalforces@{externalforces}}
+\index{externalforces@{externalforces}!externalforces$<$ dim $>$@{externalforces$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{externalforces()}{externalforces()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{structexternalforces}{externalforces}}$<$ dim $>$\+::\mbox{\hyperlink{structexternalforces}{externalforces}}}
+
+
+
+Constructor. 
+
+This is the externalforces$<$dim$>$ constuctor. ~\newline
+ It reserves 8 slots in the extforces vector and adds the builtin externalforces. ~\newline
+
+
+Definition at line \mbox{\hyperlink{externalforces_8libmd_8cc_source_l00031}{31}} of file \mbox{\hyperlink{externalforces_8libmd_8cc_source}{externalforces.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032 \{}
+\DoxyCodeLine{00037     \mbox{\hyperlink{structexternalforces_ab72d961fef069e67f5b9138a08338490_ab72d961fef069e67f5b9138a08338490}{extforces}}.reserve(8);}
+\DoxyCodeLine{00038     \mbox{\hyperlink{structexternalforces_a81e85285b5d21febef146fe13bdb50a5_a81e85285b5d21febef146fe13bdb50a5}{add}}(DAMPING<dim>);}
+\DoxyCodeLine{00039     \mbox{\hyperlink{structexternalforces_a81e85285b5d21febef146fe13bdb50a5_a81e85285b5d21febef146fe13bdb50a5}{add}}(DISSIPATION<dim>);}
+\DoxyCodeLine{00040     \mbox{\hyperlink{structexternalforces_a81e85285b5d21febef146fe13bdb50a5_a81e85285b5d21febef146fe13bdb50a5}{add}}(LANGEVIN<dim>);}
+\DoxyCodeLine{00041     \mbox{\hyperlink{structexternalforces_a81e85285b5d21febef146fe13bdb50a5_a81e85285b5d21febef146fe13bdb50a5}{add}}(LANGEVIN\_MP<dim>);}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structexternalforces_a81e85285b5d21febef146fe13bdb50a5_a81e85285b5d21febef146fe13bdb50a5}\label{structexternalforces_a81e85285b5d21febef146fe13bdb50a5_a81e85285b5d21febef146fe13bdb50a5}} 
+\index{externalforces$<$ dim $>$@{externalforces$<$ dim $>$}!add@{add}}
+\index{add@{add}!externalforces$<$ dim $>$@{externalforces$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structexternalforces}{externalforces}}$<$ dim $>$\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_ab1124464203265bb807f6c210d35fe1f_ab1124464203265bb807f6c210d35fe1f}{extforceptr}}$<$ dim $>$}]{p }\end{DoxyParamCaption})}
+
+
+
+Add an external force function. 
+
+This function allows the user to add an userdefined external force which is pointed at by {\ttfamily p}.
+
+Definition at line \mbox{\hyperlink{externalforces_8libmd_8cc_source_l00044}{44}} of file \mbox{\hyperlink{externalforces_8libmd_8cc_source}{externalforces.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00049     \mbox{\hyperlink{structexternalforces_ab72d961fef069e67f5b9138a08338490_ab72d961fef069e67f5b9138a08338490}{extforces}}.push\_back(p);}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{return} \mbox{\hyperlink{structexternalforces_ab72d961fef069e67f5b9138a08338490_ab72d961fef069e67f5b9138a08338490}{extforces}}.size()-\/1;}
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structexternalforces_a4b07232d90c5611b30b7ee80f485a526_a4b07232d90c5611b30b7ee80f485a526}\label{structexternalforces_a4b07232d90c5611b30b7ee80f485a526_a4b07232d90c5611b30b7ee80f485a526}} 
+\index{externalforces$<$ dim $>$@{externalforces$<$ dim $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!externalforces$<$ dim $>$@{externalforces$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+void \mbox{\hyperlink{structexternalforces}{externalforces}}$<$ dim $>$\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{type,  }\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{i,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$ \&}]{particles,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters,  }\item[{void $\ast$}]{sys }\end{DoxyParamCaption})}
+
+
+
+Execute external force function. 
+
+This function calculates a certain external force {\ttfamily extforces\mbox{[}type\mbox{]}} for particle {\ttfamily i} with interacting particle list {\ttfamily particles}. ~\newline
+ The sys pointer is typically a void pointer to the md or mpmd system (which is cast back by using the macro S\+YS).
+
+Definition at line \mbox{\hyperlink{externalforces_8libmd_8cc_source_l00053}{53}} of file \mbox{\hyperlink{externalforces_8libmd_8cc_source}{externalforces.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00059     \mbox{\hyperlink{structexternalforces_ab72d961fef069e67f5b9138a08338490_ab72d961fef069e67f5b9138a08338490}{extforces}}[type](i,particles,parameters,sys);}
+\DoxyCodeLine{00060 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structexternalforces_ab72d961fef069e67f5b9138a08338490_ab72d961fef069e67f5b9138a08338490}\label{structexternalforces_ab72d961fef069e67f5b9138a08338490_ab72d961fef069e67f5b9138a08338490}} 
+\index{externalforces$<$ dim $>$@{externalforces$<$ dim $>$}!extforces@{extforces}}
+\index{extforces@{extforces}!externalforces$<$ dim $>$@{externalforces$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{extforces}{extforces}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+std\+::vector$<$\mbox{\hyperlink{libmd_8h_ab1124464203265bb807f6c210d35fe1f_ab1124464203265bb807f6c210d35fe1f}{extforceptr}}$<$dim$>$ $>$ \mbox{\hyperlink{structexternalforces}{externalforces}}$<$ dim $>$\+::extforces}
+
+
+
+External forces function container. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00276}{276}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h}{libmd.\+h}}\item 
+libmd-\/src/\mbox{\hyperlink{externalforces_8libmd_8cc}{externalforces.\+libmd.\+cc}}\end{DoxyCompactItemize}

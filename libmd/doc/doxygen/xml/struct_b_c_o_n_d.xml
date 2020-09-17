@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct_b_c_o_n_d" kind="struct" language="C++" prot="public">
+    <compoundname>BCOND</compoundname>
+    <includes refid="enums_8libmd_8h" local="no">enums.libmd.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946" prot="public" static="no" strong="no">
+        <type><ref refid="libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_1af8ecdd9d7d0f3cdced7f9a83dc659959" kindref="member">uc</ref></type>
+        <name>bcond</name>
+        <enumvalue id="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946a4a1d068ed4051725b2b85b94d521bda3" prot="public">
+          <name>NONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946a975aaa41fc29d28d5513e2907b29f1ce" prot="public">
+          <name>PERIODIC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946a3fb5b6aae7fd4165d508c0176a17ca82" prot="public">
+          <name>HARD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946ae60ceea4da62257e104c5ac6aa720a31" prot="public">
+          <name>BOXSHEAR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd-src/enums.libmd.h" line="7" column="22" bodyfile="libmd-src/enums.libmd.h" bodystart="7" bodyend="7"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>BCOND</label>
+        <link refid="struct_b_c_o_n_d"/>
+      </node>
+    </collaborationgraph>
+    <location file="libmd-src/enums.libmd.h" line="7" column="12" bodyfile="libmd-src/enums.libmd.h" bodystart="7" bodyend="7"/>
+    <listofallmembers>
+      <member refid="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946" prot="public" virt="non-virtual"><scope>BCOND</scope><name>bcond</name></member>
+      <member refid="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946ae60ceea4da62257e104c5ac6aa720a31" prot="public" virt="non-virtual"><scope>BCOND</scope><name>BOXSHEAR</name></member>
+      <member refid="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946a3fb5b6aae7fd4165d508c0176a17ca82" prot="public" virt="non-virtual"><scope>BCOND</scope><name>HARD</name></member>
+      <member refid="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946a4a1d068ed4051725b2b85b94d521bda3" prot="public" virt="non-virtual"><scope>BCOND</scope><name>NONE</name></member>
+      <member refid="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946a975aaa41fc29d28d5513e2907b29f1ce" prot="public" virt="non-virtual"><scope>BCOND</scope><name>PERIODIC</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

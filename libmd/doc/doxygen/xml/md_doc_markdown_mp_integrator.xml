@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md_doc_markdown_mp_integrator" kind="page">
+    <compoundname>md_doc_markdown_mp_integrator</compoundname>
+    <title>Monge patch integrators</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="md_doc_markdown_mp_integrator_1mp-integrator">
+<title>Integrators in libmd</title>
+<para>In libmd there are integrators for <ulink url="#md-integrator">flat space</ulink> and integrators for curved space (discussed here). All integrators in libmd are symplectic, see <ulink url="#md-int-ref">1</ulink> and <ulink url="#md-int-ref">2</ulink>. Symplectic integrators are integrators that preserve the Lagrangian symmetries. Therefore integration methods like explicit Euler or Runge-Kutta are not used.</para>
+<sect2 id="md_doc_markdown_mp_integrator_1mp-integrator-patch">
+<title>Monge patch space integrators</title>
+<para>For curved space molecular dynamics multiple integrators a provide some of which are invalid:<itemizedlist>
+<listitem><para><ref refid="md_doc_markdown_integrator_1md-symeul" kindref="member">Symplectic Euler</ref> inherited from flat space</para>
+</listitem><listitem><para><ref refid="md_doc_markdown_integrator_1md-vverlet" kindref="member">Velocity Verlet</ref> inherited from flat space</para>
+</listitem><listitem><para><ulink url="#mp-vanzuiden">van Zuiden</ulink> possibly somewhat narcisstically named.</para>
+</listitem><listitem><para><ulink url="#mp-vanzuiden">van Zuiden WFI</ulink> the van Zuiden integrator without fixed point iterations</para>
+</listitem><listitem><para><ulink url="#mp-vanzuiden">van Zuiden P</ulink> the van Zuiden integrator with limited fixed point iterations</para>
+</listitem></itemizedlist>
+</para>
+<sect3 id="md_doc_markdown_mp_integrator_1mp-vanzuiden">
+<title>The van Zuiden integrator</title>
+<para>The van Zuiden integrator is derived using Variational integrators <ndash/> see <ref refid="md_doc_markdown_integrator_1md-int-ref" kindref="member">1</ref> and <ref refid="md_doc_markdown_integrator_1md-int-ref" kindref="member">2</ref> <ndash/> using the following Lagrangian: <formula id="13">\begin{align} L=\tfrac{1}{2} m g_{\mu \nu} \dot{x}^{\mu} \dot{x}^{\nu} - V(x^{\rho}) \end{align}</formula> where <formula id="14">$g_{\mu \nu}$</formula> is the metric tensor. By discritizing in time and applying the discritized Euler<ndash/>Lagrange equatioins we obtain: <formula id="15">\begin{align} \epsilon^{\rho}=g^{\sigma \rho} \left( \Gamma_{\nu \sigma \mu} \epsilon^{\mu} \epsilon^{\nu} + C_{\sigma} \right) \end{align}</formula> where <formula id="16">$g^{\mu \nu}$</formula> is the metric inverse, <formula id="17">$\epsilon^{\mu}=x^{\mu}_{t+1}-x^{\mu}_{t}$</formula>, <formula id="18">$\Gamma_{\sigma \mu \nu}$</formula> are the Christoffel symbols of the first kind. The latter equations can be solved using fixed points iterations using the starting point: <formula id="19">\begin{align} \epsilon^{\rho}=g^{\sigma \rho} C_{\sigma} \end{align}</formula></para>
+<para>The metric can be modified as discussed <ref refid="md_doc_markdown_mongepatch_1mp-curvature" kindref="member">here</ref>.</para>
+</sect3>
+</sect2>
+<sect2 id="md_doc_markdown_mp_integrator_1mp-integrators">
+<title>Integrators structure</title>
+<para>Integrators in libmd can be controlled with the integrate structure in <computeroutput><ref refid="structmd_a649701c926568a12bc6fef1e182bdf23_1a649701c926568a12bc6fef1e182bdf23" kindref="member">md&lt;dim&gt;::integrator</ref></computeroutput> of type <computeroutput><ref refid="structintegrators" kindref="compound">integrators</ref></computeroutput>. For curved space two objects are relevant:<itemizedlist>
+<listitem><para><computeroutput><ref refid="structintegrators_ab59dc99049468eafc9f5b4c5e461077e_1ab59dc99049468eafc9f5b4c5e461077e" kindref="member">integrators::h</ref></computeroutput> the time step</para>
+</listitem><listitem><para><computeroutput><ref refid="structintegrators_ac4b901fdae2c7adf5599cc9a1d1883ae_1ac4b901fdae2c7adf5599cc9a1d1883ae" kindref="member">integrators::method</ref></computeroutput> the integration method</para>
+</listitem><listitem><para><computeroutput><ref refid="structintegrators_adb070aad7ba3928ed9376568b00bfb49_1adb070aad7ba3928ed9376568b00bfb49" kindref="member">integrators::generations</ref></computeroutput> number of allowed fixed point iterations</para>
+</listitem></itemizedlist>
+</para>
+<para>The time step controls the time evolution. As a rule of thumb the time steps shouldn&apos;t be to big because the velocities will arbitrarily rise as the potentials give too large energies, as particles end up where they shouldn&apos;t be (due to errors). A time step should not be to large as floating point errors will accumulate creating an error and/or barely any evolution takes place. Keep in mind that the physics should not be dependent on the choice of time step, it it does, than the time step is probably too small or too large. If the time step is not to small and not to large the symplecticity of the integrator will ensure the Lagrangian symmetries are preserved. The default time step size is <formula id="3">$h=10^{-3}$</formula>. The default value of generations is 10.</para>
+<para>The curved space integration methods supported by libmd are enumerated in <ref refid="struct_m_p___i_n_t_e_g_r_a_t_o_r_a6d6719917c0d2a6ffd3f204711ee6397_1a6d6719917c0d2a6ffd3f204711ee6397" kindref="member">MP_INTEGRATOR::mp_integrator</ref>. The default method is van Zuiden. </para>
+</sect2>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

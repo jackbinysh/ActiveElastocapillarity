@@ -1,0 +1,142 @@
+.TH "dual" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dual \- This structure automatically differentiates first order\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdual\fP ()"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBdual\fP (\fBldf\fP f, \fBldf\fP fx=0\&.0)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBdual\fP \fBoperator=\fP (\fBdual\fP G)"
+.br
+.RI "Assign operator\&. "
+.ti -1c
+.RI "template<class X > \fBdual\fP \fBoperator=\fP (X a)"
+.br
+.RI "Assign foreign type operator\&. "
+.ti -1c
+.RI "template<class X > \fBoperator X\fP ()"
+.br
+.RI "Cast overload\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBldf\fP \fBx\fP"
+.br
+.RI "Function value\&. "
+.ti -1c
+.RI "\fBldf\fP \fBdx\fP"
+.br
+.RI "Function derivative value\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure automatically differentiates first order\&. 
+.PP
+Definition at line 248 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "dual::dual ()"
+
+.PP
+Constructor\&. Default constructor for dual, does nothing\&.
+.PP
+Definition at line 6 of file autodiff\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+11 }
+.fi
+.SS "dual::dual (\fBldf\fP f, \fBldf\fP fx = \fC0\&.0\fP)"
+
+.PP
+Constructor\&. Constructor for dual, sets value (\fCx\fP) to \fCf\fP and derivative (\fCdx\fP) to \fCfx\fP (default: \fCfx\fP=0)\&.
+.PP
+Definition at line 13 of file autodiff\&.libmd\&.cc\&.
+.PP
+.nf
+14 {
+18     x=f;
+19     dx=fx;
+20 }
+.fi
+.PP
+References dx, and x\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class X > dual::operator X"
+
+.PP
+Cast overload\&. Cast operator, returns cast of value (\fCx\fP)\&.
+.PP
+Definition at line 43 of file autodiff\&.libmd\&.cc\&.
+.PP
+.nf
+44 {
+48     return x;
+49 }
+.fi
+.SS "\fBdual\fP dual::operator= (\fBdual\fP G)"
+
+.PP
+Assign operator\&. Copies \fCG\fP to \fCthis\fP and returns \fC*this\fP\&.
+.PP
+Definition at line 25 of file autodiff\&.libmd\&.cc\&.
+.PP
+.nf
+26 {
+30     x=G\&.x;
+31     dx=G\&.dx;
+32     return *this;
+33 }
+.fi
+.PP
+References dx, and x\&.
+.SS "template<class X > \fBdual\fP dual::operator= (X a)"
+
+.PP
+Assign foreign type operator\&. Sets value (\fCx\fP) to \fCa\fP and derivative (\fCdx\fP) to 0 and returns \fC*this\fP\&.
+.PP
+Definition at line 35 of file autodiff\&.libmd\&.cc\&.
+.PP
+.nf
+36 {
+40     return *this=dual(a);
+41 }
+.fi
+.PP
+References dual()\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBldf\fP dual::dx"
+
+.PP
+Function derivative value\&. 
+.PP
+Definition at line 251 of file libmd\&.h\&.
+.SS "\fBldf\fP dual::x"
+
+.PP
+Function value\&. 
+.PP
+Definition at line 250 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

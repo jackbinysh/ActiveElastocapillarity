@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structbox" kind="struct" language="C++" prot="public">
+    <compoundname>box</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structbox_ad7a15fb6e0bcc0bcfc99d9236c3fbb5c_1ad7a15fb6e0bcc0bcfc99d9236c3fbb5c" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf box&lt; dim &gt;::L[dim]</definition>
+        <argsstring>[dim]</argsstring>
+        <name>L</name>
+        <briefdescription>
+<para>Box size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="152" column="9" bodyfile="libmd.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbox_a059673ddf2ec1cc1f5bb90dc0fdbd903_1a059673ddf2ec1cc1f5bb90dc0fdbd903" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool box&lt; dim &gt;::useLshear</definition>
+        <argsstring></argsstring>
+        <name>useLshear</name>
+        <briefdescription>
+<para>Use sheared box matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="153" column="10" bodyfile="libmd.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbox_a781773b68c7d3f78eb91a314bffb8847_1a781773b68c7d3f78eb91a314bffb8847" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf box&lt; dim &gt;::vshear[dim][dim]</definition>
+        <argsstring>[dim][dim]</argsstring>
+        <name>vshear</name>
+        <briefdescription>
+<para>Shear velocity vshear[i][j] is shear velocity in direction i of boundary with normal in direction j. currently vshear[i][i] != 0 results in undefined behaviour. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="154" column="9" bodyfile="libmd.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbox_a4bd753f32d86d0117d6a18750a61cf8e_1a4bd753f32d86d0117d6a18750a61cf8e" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf box&lt; dim &gt;::Lshear[dim][dim]</definition>
+        <argsstring>[dim][dim]</argsstring>
+        <name>Lshear</name>
+        <briefdescription>
+<para>Box matrix that is updated at each time step. Used to compute distances for shear, in lieu of simbox.L. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="155" column="9" bodyfile="libmd.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbox_aff348de9e8f9d496e35fee5781dbf95a_1aff348de9e8f9d496e35fee5781dbf95a" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf box&lt; dim &gt;::LshearInv[dim][dim]</definition>
+        <argsstring>[dim][dim]</argsstring>
+        <name>LshearInv</name>
+        <briefdescription>
+<para>Inverse of Lshear[][]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="156" column="9" bodyfile="libmd.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbox_a0ff7a3ab01475fef1695a590e2b6ee9f_1a0ff7a3ab01475fef1695a590e2b6ee9f" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_1af8ecdd9d7d0f3cdced7f9a83dc659959" kindref="member">uc</ref></type>
+        <definition>uc box&lt; dim &gt;::bcond[dim]</definition>
+        <argsstring>[dim]</argsstring>
+        <name>bcond</name>
+        <briefdescription>
+<para>Boundary conditions in different dimensions NONE/PERIODIC/HARD/BOXSHEAR. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="157" column="8" bodyfile="libmd.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structbox_a0fb2c48d4220723138af6dd47a60fbe6_1a0fb2c48d4220723138af6dd47a60fbe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>box&lt; dim &gt;::box</definition>
+        <argsstring>()</argsstring>
+        <name>box</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Constructer for the system box. Assigns memory to the arrays that store the box size, boundary conditions, and shear conditions, all of which depend on the dimension <computeroutput>dim</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="159" column="5" bodyfile="libmd-src/box.libmd.cc" bodystart="8" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structbox_a67d02b9cc9c1697134b5d22b98e462d4_1a67d02b9cc9c1697134b5d22b98e462d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void box&lt; dim &gt;::shear_boundary</definition>
+        <argsstring>(ui i, ui j, ldf velocity)</argsstring>
+        <name>shear_boundary</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>velocity</declname>
+        </param>
+        <briefdescription>
+<para>Set up boundary shear velocity in direction i of boundary with normal direction j. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Apply a dynamic shear to the boundary normal to spatial dimension <computeroutput>j</computeroutput> by shear speed <computeroutput>velocity</computeroutput> in direction <computeroutput>i</computeroutput>. Requires <formula id="20">$i\neq j$</formula>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="160" column="10" bodyfile="libmd-src/box.libmd.cc" bodystart="24" bodyend="39"/>
+        <references refid="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946ae60ceea4da62257e104c5ac6aa720a31" compoundref="enums_8libmd_8h" startline="7">BCOND::BOXSHEAR</references>
+        <references refid="macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_1a4d48c340b3c83579a8d58cb20a320f84" compoundref="macros_8libmd_8h" startline="58">ERROR</references>
+      </memberdef>
+      <memberdef kind="function" id="structbox_a91faa4ff193900b8701448514d10b5c6_1a91faa4ff193900b8701448514d10b5c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void box&lt; dim &gt;::skew_boundary</definition>
+        <argsstring>(ui i, ui j, ldf displacement)</argsstring>
+        <name>skew_boundary</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>displacement</declname>
+        </param>
+        <briefdescription>
+<para>Skew the simulation box by moving boundary with normal direction j by amount &apos;displacement&apos; in direction i. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Apply a static shear by displacing the boundary normal to spatial dimension <computeroutput>j</computeroutput> in direction <computeroutput>i</computeroutput> by an amount <computeroutput>displacement</computeroutput>. Requires <formula id="20">$i\neq j$</formula>. The boundary conditions in dimension j must be set to BOXSHEAR (set by default) or HARD; particle dynamics do not respect the shear if PERIODIC is used.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="161" column="10" bodyfile="libmd-src/box.libmd.cc" bodystart="41" bodyend="61"/>
+        <references refid="struct_b_c_o_n_d_a565f9cf3347ba75b9bfc64ec12d69946_1a565f9cf3347ba75b9bfc64ec12d69946ae60ceea4da62257e104c5ac6aa720a31" compoundref="enums_8libmd_8h" startline="7">BCOND::BOXSHEAR</references>
+        <references refid="macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_1a4d48c340b3c83579a8d58cb20a320f84" compoundref="macros_8libmd_8h" startline="58">ERROR</references>
+      </memberdef>
+      <memberdef kind="function" id="structbox_a0dd5c44041b2e9431748d8f04e4890f7_1a0dd5c44041b2e9431748d8f04e4890f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void box&lt; dim &gt;::invert_box</definition>
+        <argsstring>()</argsstring>
+        <name>invert_box</name>
+        <briefdescription>
+<para>Invert the Lshear[][] box matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Invert the system box <computeroutput>matrix</computeroutput> <ref refid="structbox_a4bd753f32d86d0117d6a18750a61cf8e_1a4bd753f32d86d0117d6a18750a61cf8e" kindref="member">box&lt;dim&gt;::Lshear</ref> and store the result in <computeroutput><ref refid="structbox_aff348de9e8f9d496e35fee5781dbf95a_1aff348de9e8f9d496e35fee5781dbf95a" kindref="member">box&lt;dim&gt;::LshearInv</ref></computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="162" column="10" bodyfile="libmd-src/box.libmd.cc" bodystart="158" bodyend="169"/>
+        <references refid="autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_1aef1f4db2bbc91c997fdc24226ea63d52" compoundref="autodiff_8libmd_8cc" startline="364" endline="367">abs</references>
+        <references refid="box_8libmd_8cc_a40b2bff2b597ae82496372ce80675e68_1a40b2bff2b597ae82496372ce80675e68" compoundref="box_8libmd_8cc" startline="64" endline="114">det</references>
+        <references refid="macros_8libmd_8h_a4d48c340b3c83579a8d58cb20a320f84_1a4d48c340b3c83579a8d58cb20a320f84" compoundref="macros_8libmd_8h" startline="58">ERROR</references>
+        <references refid="box_8libmd_8cc_ace215f31f28f0e6769853d07f36afc3f_1ace215f31f28f0e6769853d07f36afc3f" compoundref="box_8libmd_8cc" startline="6">mxinv_eps</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure contains information about the simulation box. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>box&lt; dim &gt;</label>
+        <link refid="structbox"/>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="151" column="1" bodyfile="libmd.h" bodystart="150" bodyend="163"/>
+    <listofallmembers>
+      <member refid="structbox_a0ff7a3ab01475fef1695a590e2b6ee9f_1a0ff7a3ab01475fef1695a590e2b6ee9f" prot="public" virt="non-virtual"><scope>box</scope><name>bcond</name></member>
+      <member refid="structbox_a0fb2c48d4220723138af6dd47a60fbe6_1a0fb2c48d4220723138af6dd47a60fbe6" prot="public" virt="non-virtual"><scope>box</scope><name>box</name></member>
+      <member refid="structbox_a0dd5c44041b2e9431748d8f04e4890f7_1a0dd5c44041b2e9431748d8f04e4890f7" prot="public" virt="non-virtual"><scope>box</scope><name>invert_box</name></member>
+      <member refid="structbox_ad7a15fb6e0bcc0bcfc99d9236c3fbb5c_1ad7a15fb6e0bcc0bcfc99d9236c3fbb5c" prot="public" virt="non-virtual"><scope>box</scope><name>L</name></member>
+      <member refid="structbox_a4bd753f32d86d0117d6a18750a61cf8e_1a4bd753f32d86d0117d6a18750a61cf8e" prot="public" virt="non-virtual"><scope>box</scope><name>Lshear</name></member>
+      <member refid="structbox_aff348de9e8f9d496e35fee5781dbf95a_1aff348de9e8f9d496e35fee5781dbf95a" prot="public" virt="non-virtual"><scope>box</scope><name>LshearInv</name></member>
+      <member refid="structbox_a67d02b9cc9c1697134b5d22b98e462d4_1a67d02b9cc9c1697134b5d22b98e462d4" prot="public" virt="non-virtual"><scope>box</scope><name>shear_boundary</name></member>
+      <member refid="structbox_a91faa4ff193900b8701448514d10b5c6_1a91faa4ff193900b8701448514d10b5c6" prot="public" virt="non-virtual"><scope>box</scope><name>skew_boundary</name></member>
+      <member refid="structbox_a059673ddf2ec1cc1f5bb90dc0fdbd903_1a059673ddf2ec1cc1f5bb90dc0fdbd903" prot="public" virt="non-virtual"><scope>box</scope><name>useLshear</name></member>
+      <member refid="structbox_a781773b68c7d3f78eb91a314bffb8847_1a781773b68c7d3f78eb91a314bffb8847" prot="public" virt="non-virtual"><scope>box</scope><name>vshear</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

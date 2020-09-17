@@ -1,0 +1,12 @@
+digraph "pairpotentials::pairpotentials"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="pairpotentials::pairpotentials",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Constructor."];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="pairpotentials::add",height=0.2,width=0.4,color="black",URL="$structpairpotentials_a41a8b85ded4ddaf1896a5d3de69402b8.html#a41a8b85ded4ddaf1896a5d3de69402b8",tooltip="Add a potentials."];
+}

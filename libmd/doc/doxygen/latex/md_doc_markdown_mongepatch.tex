@@ -1,0 +1,4 @@
+\hypertarget{md_doc_markdown_mongepatch_mp-curvature}{}\doxysection{Curvature in libmd}\label{md_doc_markdown_mongepatch_mp-curvature}
+libmd supports Molecular dynamics on manifolds (curved surfaces) in any dimension. Although the \mbox{\hyperlink{md_doc_markdown_mp_integrator_mp-integrator}{integrator for curved surfaces}} supports any manifold, a Monge gauge/patch is chosen. A Monge patch basically assumes that the curvature is introduced by using a scalar function $f:\mathbb{R}^{d}\rightarrow\mathbb{R}$, for any dimension $d$. Such that the metric yields\+: \begin{align} g_{\mu \nu}= \delta_{\mu \nu} + \partial_{\mu} \partial_{\nu} f \end{align} In libmd $f$ can be controlled by the user. Using automatic differentiation libmd calculates all the required differential geometric forms like the metric determinant, the metric inverse, and the Christoffel symbols.
+
+S\+T\+UB S\+T\+UB S\+T\+UB 

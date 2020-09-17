@@ -1,0 +1,318 @@
+\hypertarget{potentials_8libmd_8cc}{}\doxysection{libmd-\/src/potentials.libmd.\+cc File Reference}
+\label{potentials_8libmd_8cc}\index{libmd-\/src/potentials.libmd.cc@{libmd-\/src/potentials.libmd.cc}}
+{\ttfamily \#include \char`\"{}../libmd.\+h\char`\"{}}\newline
+Include dependency graph for potentials.\+libmd.\+cc\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{potentials_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{\+\_\+\+\_\+libmd\+\_\+src\+\_\+file\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class X $>$ }\\X \mbox{\hyperlink{potentials_8libmd_8cc_ad848edbfe46941489261f84096adb972_ad848edbfe46941489261f84096adb972}{C\+O\+U\+L\+O\+MB}} (X r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Coulomb potential functions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class X $>$ }\\X \mbox{\hyperlink{potentials_8libmd_8cc_af54e62e12e037d8b70bfd88d71fe23a9_af54e62e12e037d8b70bfd88d71fe23a9}{Y\+U\+K\+A\+WA}} (X r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Yukawa potential functions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class X $>$ }\\X \mbox{\hyperlink{potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_a82eec3e4535cd60b73051cf9970be606}{H\+O\+O\+K\+E\+AN}} (X r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Hookean potential functions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class X $>$ }\\X \mbox{\hyperlink{potentials_8libmd_8cc_a2d9694d9eebcc0fcc8245d5fe107ab44_a2d9694d9eebcc0fcc8245d5fe107ab44}{LJ}} (X r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em The famous Lennard-\/\+Jones potential functions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class X $>$ }\\X \mbox{\hyperlink{potentials_8libmd_8cc_a3f9ca49430b0d735c6547b4c36d3fe29_a3f9ca49430b0d735c6547b4c36d3fe29}{M\+O\+R\+SE}} (X r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Morse potential functions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class X $>$ }\\X \mbox{\hyperlink{potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_a082699d879383d5964f469bd32984224}{F\+O\+R\+C\+E\+D\+I\+P\+O\+LE}} (X r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Force dipole potential functions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class X $>$ }\\X \mbox{\hyperlink{potentials_8libmd_8cc_a60601f0c510687b04a3ae288ba5f4565_a60601f0c510687b04a3ae288ba5f4565}{H\+O\+O\+K\+E\+A\+N\+F\+O\+R\+C\+E\+D\+I\+P\+O\+LE}} (X r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Hookean force dipole potential functions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class X $>$ }\\X \mbox{\hyperlink{potentials_8libmd_8cc_a3bc06782c0bafd9eb6e5e63a37a3fbad_a3bc06782c0bafd9eb6e5e63a37a3fbad}{A\+N\+H\+A\+R\+M\+O\+N\+I\+C\+S\+P\+R\+I\+NG}} (X r, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Anharmonic spring potential functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{potentials_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}\label{potentials_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}} 
+\index{potentials.libmd.cc@{potentials.libmd.cc}!\_\_libmd\_src\_file\_\_@{\_\_libmd\_src\_file\_\_}}
+\index{\_\_libmd\_src\_file\_\_@{\_\_libmd\_src\_file\_\_}!potentials.libmd.cc@{potentials.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{\_\_libmd\_src\_file\_\_}{\_\_libmd\_src\_file\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+libmd\+\_\+src\+\_\+file\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{potentials_8libmd_8cc_source_l00001}{1}} of file \mbox{\hyperlink{potentials_8libmd_8cc_source}{potentials.\+libmd.\+cc}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{potentials_8libmd_8cc_a3bc06782c0bafd9eb6e5e63a37a3fbad_a3bc06782c0bafd9eb6e5e63a37a3fbad}\label{potentials_8libmd_8cc_a3bc06782c0bafd9eb6e5e63a37a3fbad_a3bc06782c0bafd9eb6e5e63a37a3fbad}} 
+\index{potentials.libmd.cc@{potentials.libmd.cc}!ANHARMONICSPRING@{ANHARMONICSPRING}}
+\index{ANHARMONICSPRING@{ANHARMONICSPRING}!potentials.libmd.cc@{potentials.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{ANHARMONICSPRING()}{ANHARMONICSPRING()}}
+{\footnotesize\ttfamily template$<$class X $>$ \\
+X A\+N\+H\+A\+R\+M\+O\+N\+I\+C\+S\+P\+R\+I\+NG (\begin{DoxyParamCaption}\item[{X}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Anharmonic spring potential functions. 
+
+Anharmoninc spring\+: \[V_{\text{ANHARMONICSPRING}}(r)=\tfrac{k}{\alpha}{\lvert r-r_0 \rvert}^{\alpha}\] ~\newline
+ This function depends on three parameters\+: 
+\begin{DoxyItemize}
+\item the \textquotesingle{}spring\textquotesingle{} constant $k$  
+\item the \textquotesingle{}spring\textquotesingle{} rest length $r_0$  
+\item the exponent $\alpha$  
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{potentials_8libmd_8cc_source_l00107}{107}} of file \mbox{\hyperlink{potentials_8libmd_8cc_source}{potentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108 \{}
+\DoxyCodeLine{00119     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} k=parameters[0];}
+\DoxyCodeLine{00120     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} r0=parameters[1];}
+\DoxyCodeLine{00121     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} alpha=parameters[2];}
+\DoxyCodeLine{00122     \textcolor{keywordflow}{return} (k/alpha)*\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{pow}}(\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{abs}}(r-\/r0),alpha);}
+\DoxyCodeLine{00123 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00364}{abs()}}, and \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00274}{pow()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{potentials_8libmd_8cc_ad848edbfe46941489261f84096adb972_ad848edbfe46941489261f84096adb972}\label{potentials_8libmd_8cc_ad848edbfe46941489261f84096adb972_ad848edbfe46941489261f84096adb972}} 
+\index{potentials.libmd.cc@{potentials.libmd.cc}!COULOMB@{COULOMB}}
+\index{COULOMB@{COULOMB}!potentials.libmd.cc@{potentials.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{COULOMB()}{COULOMB()}}
+{\footnotesize\ttfamily template$<$class X $>$ \\
+X C\+O\+U\+L\+O\+MB (\begin{DoxyParamCaption}\item[{X}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Coulomb potential functions. 
+
+Coulomb potential\+: \[V_{\text{COULOMB}}(r)=\frac{q}{r}\] ~\newline
+ This function depends on one parameter\+: 
+\begin{DoxyItemize}
+\item The charge coupling between two partilces\+: $q$  
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{potentials_8libmd_8cc_source_l00006}{6}} of file \mbox{\hyperlink{potentials_8libmd_8cc_source}{potentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00016     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} q=parameters[0];}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{return} q/r;}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_a082699d879383d5964f469bd32984224}\label{potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_a082699d879383d5964f469bd32984224}} 
+\index{potentials.libmd.cc@{potentials.libmd.cc}!FORCEDIPOLE@{FORCEDIPOLE}}
+\index{FORCEDIPOLE@{FORCEDIPOLE}!potentials.libmd.cc@{potentials.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{FORCEDIPOLE()}{FORCEDIPOLE()}}
+{\footnotesize\ttfamily template$<$class X $>$ \\
+X F\+O\+R\+C\+E\+D\+I\+P\+O\+LE (\begin{DoxyParamCaption}\item[{X}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Force dipole potential functions. 
+
+
+
+Definition at line \mbox{\hyperlink{potentials_8libmd_8cc_source_l00086}{86}} of file \mbox{\hyperlink{potentials_8libmd_8cc_source}{potentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087 \{}
+\DoxyCodeLine{00088     \textcolor{comment}{// exerts a constant force f = parameters[0]. Positive force => extension of dipole}}
+\DoxyCodeLine{00089     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} f = parameters[0];}
+\DoxyCodeLine{00090     \textcolor{keywordflow}{return} -\/f*r;}
+\DoxyCodeLine{00091 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_a82eec3e4535cd60b73051cf9970be606}\label{potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_a82eec3e4535cd60b73051cf9970be606}} 
+\index{potentials.libmd.cc@{potentials.libmd.cc}!HOOKEAN@{HOOKEAN}}
+\index{HOOKEAN@{HOOKEAN}!potentials.libmd.cc@{potentials.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{HOOKEAN()}{HOOKEAN()}}
+{\footnotesize\ttfamily template$<$class X $>$ \\
+X H\+O\+O\+K\+E\+AN (\begin{DoxyParamCaption}\item[{X}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Hookean potential functions. 
+
+Hookian potential (Harmonic spring potential)\+: \[V_{\text{HOOKEAN}}(r)=\tfrac{1}{2}k{(r-r_0)}^2\] ~\newline
+ This function depends on two parameters\+: 
+\begin{DoxyItemize}
+\item the spring constant $k$  
+\item the spring\textquotesingle{}s rest length $r_0$  
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{potentials_8libmd_8cc_source_l00036}{36}} of file \mbox{\hyperlink{potentials_8libmd_8cc_source}{potentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037 \{}
+\DoxyCodeLine{00047     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} k=parameters[0];}
+\DoxyCodeLine{00048     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} r0=parameters[1];}
+\DoxyCodeLine{00049     \textcolor{keywordflow}{return} k/2.0*\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{pow}}(r-\/r0,2);}
+\DoxyCodeLine{00050 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00274}{pow()}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{potentials_8libmd_8cc_a60601f0c510687b04a3ae288ba5f4565_a60601f0c510687b04a3ae288ba5f4565}\label{potentials_8libmd_8cc_a60601f0c510687b04a3ae288ba5f4565_a60601f0c510687b04a3ae288ba5f4565}} 
+\index{potentials.libmd.cc@{potentials.libmd.cc}!HOOKEANFORCEDIPOLE@{HOOKEANFORCEDIPOLE}}
+\index{HOOKEANFORCEDIPOLE@{HOOKEANFORCEDIPOLE}!potentials.libmd.cc@{potentials.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{HOOKEANFORCEDIPOLE()}{HOOKEANFORCEDIPOLE()}}
+{\footnotesize\ttfamily template$<$class X $>$ \\
+X H\+O\+O\+K\+E\+A\+N\+F\+O\+R\+C\+E\+D\+I\+P\+O\+LE (\begin{DoxyParamCaption}\item[{X}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Hookean force dipole potential functions. 
+
+
+
+Definition at line \mbox{\hyperlink{potentials_8libmd_8cc_source_l00093}{93}} of file \mbox{\hyperlink{potentials_8libmd_8cc_source}{potentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094 \{}
+\DoxyCodeLine{00095     std::vector<ldf> sprparams(parameters.begin(),parameters.begin()+2);}
+\DoxyCodeLine{00096     std::vector<ldf> fdparams(parameters.begin()+2,parameters.begin()+3);}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098     \textcolor{keywordflow}{if} (parameters.size() == 3) \textcolor{keywordflow}{return} \mbox{\hyperlink{potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_a82eec3e4535cd60b73051cf9970be606}{HOOKEAN}}(r, sprparams) + \mbox{\hyperlink{potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_a082699d879383d5964f469bd32984224}{FORCEDIPOLE}}(r, fdparams);}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100     \textcolor{comment}{// if threshold exists: force dipole kicks in when force due to spring extension/compression is larger than threshold.}}
+\DoxyCodeLine{00101     \textcolor{comment}{// positive f => threshold is in extension; negative f => threshold is in compression.}}
+\DoxyCodeLine{00102     \textcolor{comment}{// threshold must be positive for this interpretation to hold.}}
+\DoxyCodeLine{00103     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} threshold = parameters[3];}
+\DoxyCodeLine{00104     \textcolor{keywordflow}{return} \mbox{\hyperlink{potentials_8libmd_8cc_a82eec3e4535cd60b73051cf9970be606_a82eec3e4535cd60b73051cf9970be606}{HOOKEAN}}(r, sprparams) + (sprparams[0]*(r-\/sprparams[1])*fdparams[0]/\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(fdparams[0]) > threshold)*\mbox{\hyperlink{potentials_8libmd_8cc_a082699d879383d5964f469bd32984224_a082699d879383d5964f469bd32984224}{FORCEDIPOLE}}(r, fdparams);}
+\DoxyCodeLine{00105 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00364}{abs()}}, \mbox{\hyperlink{potentials_8libmd_8cc_source_l00086}{F\+O\+R\+C\+E\+D\+I\+P\+O\+L\+E()}}, and \mbox{\hyperlink{potentials_8libmd_8cc_source_l00036}{H\+O\+O\+K\+E\+A\+N()}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{potentials_8libmd_8cc_a2d9694d9eebcc0fcc8245d5fe107ab44_a2d9694d9eebcc0fcc8245d5fe107ab44}\label{potentials_8libmd_8cc_a2d9694d9eebcc0fcc8245d5fe107ab44_a2d9694d9eebcc0fcc8245d5fe107ab44}} 
+\index{potentials.libmd.cc@{potentials.libmd.cc}!LJ@{LJ}}
+\index{LJ@{LJ}!potentials.libmd.cc@{potentials.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{LJ()}{LJ()}}
+{\footnotesize\ttfamily template$<$class X $>$ \\
+X LJ (\begin{DoxyParamCaption}\item[{X}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+The famous Lennard-\/\+Jones potential functions. 
+
+The famous Lenard-\/\+Jones potential\+: \[V_{\text{LJ}}(r)=4 \epsilon \left({\left( \frac{\sigma}{r} \right)}^{12} - {\left( \frac{\sigma}{r} \right)}^6 \right) \] ~\newline
+ This function depends on two parameters\+: 
+\begin{DoxyItemize}
+\item the coupling constant $\epsilon$  
+\item the characteristic length scale $\sigma$  
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{potentials_8libmd_8cc_source_l00052}{52}} of file \mbox{\hyperlink{potentials_8libmd_8cc_source}{potentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053 \{}
+\DoxyCodeLine{00063     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} e=parameters[0];}
+\DoxyCodeLine{00064     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} s=parameters[1];}
+\DoxyCodeLine{00065     \textcolor{keywordflow}{return} 4.0*e*(\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{pow}}(s/r,12)-\/\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{pow}}(s/r,6));}
+\DoxyCodeLine{00066 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00274}{pow()}}.
+
+Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{potentials_8libmd_8cc_a3f9ca49430b0d735c6547b4c36d3fe29_a3f9ca49430b0d735c6547b4c36d3fe29}\label{potentials_8libmd_8cc_a3f9ca49430b0d735c6547b4c36d3fe29_a3f9ca49430b0d735c6547b4c36d3fe29}} 
+\index{potentials.libmd.cc@{potentials.libmd.cc}!MORSE@{MORSE}}
+\index{MORSE@{MORSE}!potentials.libmd.cc@{potentials.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{MORSE()}{MORSE()}}
+{\footnotesize\ttfamily template$<$class X $>$ \\
+X M\+O\+R\+SE (\begin{DoxyParamCaption}\item[{X}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Morse potential functions. 
+
+Morse potential\+: \[V_{\text{MORSE}}(r)=d{\left(1-e^{a(r_e-r)}\right)}^2\] ~\newline
+ This function depends on three parameters\+: 
+\begin{DoxyItemize}
+\item the dissociation energy $d$  
+\item the width $a$  
+\item the equilibrium bond distance $r_e$  
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{potentials_8libmd_8cc_source_l00068}{68}} of file \mbox{\hyperlink{potentials_8libmd_8cc_source}{potentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069 \{}
+\DoxyCodeLine{00080     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} d=parameters[0];}
+\DoxyCodeLine{00081     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} a=parameters[1];}
+\DoxyCodeLine{00082     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} re=parameters[2];}
+\DoxyCodeLine{00083     \textcolor{keywordflow}{return} d*\mbox{\hyperlink{autodiff_8libmd_8cc_a4fd9e414f0c7ab2098dcea6c6de318d9_a4fd9e414f0c7ab2098dcea6c6de318d9}{pow}}(1.0-\/\mbox{\hyperlink{autodiff_8libmd_8cc_ade909d25ab24d31221b8640c8c6e58c3_ade909d25ab24d31221b8640c8c6e58c3}{exp}}(a*(re-\/r)),2);}
+\DoxyCodeLine{00084 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00279}{exp()}}, and \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00274}{pow()}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{potentials_8libmd_8cc_af54e62e12e037d8b70bfd88d71fe23a9_af54e62e12e037d8b70bfd88d71fe23a9}\label{potentials_8libmd_8cc_af54e62e12e037d8b70bfd88d71fe23a9_af54e62e12e037d8b70bfd88d71fe23a9}} 
+\index{potentials.libmd.cc@{potentials.libmd.cc}!YUKAWA@{YUKAWA}}
+\index{YUKAWA@{YUKAWA}!potentials.libmd.cc@{potentials.libmd.cc}}
+\doxysubsubsection{\texorpdfstring{YUKAWA()}{YUKAWA()}}
+{\footnotesize\ttfamily template$<$class X $>$ \\
+X Y\+U\+K\+A\+WA (\begin{DoxyParamCaption}\item[{X}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Yukawa potential functions. 
+
+Yukawa potential\+: \[V_{\text{YUKAWA}}(r)=\frac{b}{r e^{kr}}\] ~\newline
+ This function depends on two parameters\+: 
+\begin{DoxyItemize}
+\item the coupling strength between two partilces $b$  
+\item the Yukawa reciprocal length scale $k$  
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{potentials_8libmd_8cc_source_l00020}{20}} of file \mbox{\hyperlink{potentials_8libmd_8cc_source}{potentials.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021 \{}
+\DoxyCodeLine{00031     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} b=parameters[0];}
+\DoxyCodeLine{00032     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} k=parameters[1];}
+\DoxyCodeLine{00033     \textcolor{keywordflow}{return} b/(r*\mbox{\hyperlink{autodiff_8libmd_8cc_ade909d25ab24d31221b8640c8c6e58c3_ade909d25ab24d31221b8640c8c6e58c3}{exp}}(k*r));}
+\DoxyCodeLine{00034 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{autodiff_8libmd_8cc_source_l00279}{exp()}}.
+
+Here is the call graph for this function\+:
+% FIG 9

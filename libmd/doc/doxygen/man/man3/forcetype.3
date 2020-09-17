@@ -1,0 +1,113 @@
+.TH "forcetype" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+forcetype \- This structure saves the external force functions and calculates them\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBforcetype\fP (\fBui\fP noexternalforce, std::vector< \fBldf\fP > &param)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBforcetype\fP (\fBui\fP noexternalforce, std::vector< std::vector< \fBui\fP >> &plist, std::vector< \fBldf\fP > &param)"
+.br
+.RI "Constructor\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBui\fP \fBexternalforce\fP"
+.br
+.RI "External force type\&. "
+.ti -1c
+.RI "std::vector< std::vector< \fBui\fP > > \fBparticles\fP"
+.br
+.RI "Interacting particle list\&. "
+.ti -1c
+.RI "std::vector< \fBldf\fP > \fBparameters\fP"
+.br
+.RI "Parameters for the external force\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure saves the external force functions and calculates them\&. 
+.PP
+Definition at line 200 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "forcetype::forcetype (\fBui\fP noexternalforce, std::vector< \fBldf\fP > & param)"
+
+.PP
+Constructor\&. This is the forcetype constructor\&. 
+.br
+ It expects the externalforce number: \fCnoexternalforce\fP which should be aligned with the \fBexternalforces<dim>::extforces\fP vector\&. 
+.br
+ Additionally it need parameters for the external force given by \fCparam\fP\&. 
+.br
+ Optionally an interacting particle list can be given\&.
+.PP
+Definition at line 6 of file externalforces\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+14     externalforce=noexternalforce;
+15     parameters=param;
+16 }
+.fi
+.PP
+References externalforce, and parameters\&.
+.SS "forcetype::forcetype (\fBui\fP noexternalforce, std::vector< std::vector< \fBui\fP >> & plist, std::vector< \fBldf\fP > & param)"
+
+.PP
+Constructor\&. This is the forcetype constructor\&. 
+.br
+ It expects the externalforce number: \fCnoexternalforce\fP which should be aligned with the \fBexternalforces<dim>::extforces\fP vector\&. 
+.br
+ Additionally it need parameters for the external force given by \fCparam\fP\&. 
+.br
+ Optionally an interacting particle list can be given\&.
+.PP
+Definition at line 18 of file externalforces\&.libmd\&.cc\&.
+.PP
+.nf
+19 {
+26     externalforce=noexternalforce;
+27     particles=plist;
+28     parameters=param;
+29 }
+.fi
+.PP
+References externalforce, parameters, and particles\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBui\fP forcetype::externalforce"
+
+.PP
+External force type\&. 
+.PP
+Definition at line 202 of file libmd\&.h\&.
+.SS "std::vector<\fBldf\fP> forcetype::parameters"
+
+.PP
+Parameters for the external force\&. 
+.PP
+Definition at line 204 of file libmd\&.h\&.
+.SS "std::vector<std::vector<\fBui\fP> > forcetype::particles"
+
+.PP
+Interacting particle list\&. 
+.PP
+Definition at line 203 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

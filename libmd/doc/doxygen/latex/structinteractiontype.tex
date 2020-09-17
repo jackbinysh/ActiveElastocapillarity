@@ -1,0 +1,134 @@
+\hypertarget{structinteractiontype}{}\doxysection{interactiontype Struct Reference}
+\label{structinteractiontype}\index{interactiontype@{interactiontype}}
+
+
+This structure saves the particle type interactions and calculates the the potentials.  
+
+
+
+
+{\ttfamily \#include $<$libmd.\+h$>$}
+
+
+
+Collaboration diagram for interactiontype\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structinteractiontype_a5a3a645a38eb13a4d5bdd660cec0b916_a5a3a645a38eb13a4d5bdd660cec0b916}{interactiontype}} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} ppot, std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&param, \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} Rco, \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} Vco)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structinteractiontype_a7eb99cd090421aa9bf5ad928243eae2d_a7eb99cd090421aa9bf5ad928243eae2d}{potential}}
+\begin{DoxyCompactList}\small\item\em Type of potential. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \mbox{\hyperlink{structinteractiontype_ab9bae26a4a153dea871d9e601e5ec69a_ab9bae26a4a153dea871d9e601e5ec69a}{parameters}}
+\begin{DoxyCompactList}\small\item\em Parameters of potential. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structinteractiontype_ad2f961dd5cddbe2d40ae8065718835a7_ad2f961dd5cddbe2d40ae8065718835a7}{rco}}
+\begin{DoxyCompactList}\small\item\em R\+\_\+cuttoff radius. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structinteractiontype_adb52d25bbb9dfe86b57c290f5c86bb43_adb52d25bbb9dfe86b57c290f5c86bb43}{vco}}
+\begin{DoxyCompactList}\small\item\em Cuttoff potential energy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This structure saves the particle type interactions and calculates the the potentials. 
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00180}{180}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structinteractiontype_a5a3a645a38eb13a4d5bdd660cec0b916_a5a3a645a38eb13a4d5bdd660cec0b916}\label{structinteractiontype_a5a3a645a38eb13a4d5bdd660cec0b916_a5a3a645a38eb13a4d5bdd660cec0b916}} 
+\index{interactiontype@{interactiontype}!interactiontype@{interactiontype}}
+\index{interactiontype@{interactiontype}!interactiontype@{interactiontype}}
+\doxysubsubsection{\texorpdfstring{interactiontype()}{interactiontype()}}
+{\footnotesize\ttfamily interactiontype\+::interactiontype (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}}]{ppot,  }\item[{std\+::vector$<$ \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} $>$ \&}]{param,  }\item[{\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}}]{Rco,  }\item[{\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}}]{Vco }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructor for interactiontype. Sets {\ttfamily potential} to {\ttfamily ppot}, {\ttfamily parameters} to {\ttfamily \&param} and {\ttfamily vco} to {\ttfamily Vco}.
+
+Definition at line \mbox{\hyperlink{interact_8libmd_8cc_source_l00006}{6}} of file \mbox{\hyperlink{interact_8libmd_8cc_source}{interact.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00012     \mbox{\hyperlink{structinteractiontype_a7eb99cd090421aa9bf5ad928243eae2d_a7eb99cd090421aa9bf5ad928243eae2d}{potential}}=ppot;}
+\DoxyCodeLine{00013     \mbox{\hyperlink{structinteractiontype_ab9bae26a4a153dea871d9e601e5ec69a_ab9bae26a4a153dea871d9e601e5ec69a}{parameters}}=param;}
+\DoxyCodeLine{00014     \mbox{\hyperlink{structinteractiontype_ad2f961dd5cddbe2d40ae8065718835a7_ad2f961dd5cddbe2d40ae8065718835a7}{rco}}=Rco;}
+\DoxyCodeLine{00015     \mbox{\hyperlink{structinteractiontype_adb52d25bbb9dfe86b57c290f5c86bb43_adb52d25bbb9dfe86b57c290f5c86bb43}{vco}}=Vco;}
+\DoxyCodeLine{00016 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00183}{parameters}}, \mbox{\hyperlink{libmd_8h_source_l00182}{potential}}, \mbox{\hyperlink{libmd_8h_source_l00184}{rco}}, and \mbox{\hyperlink{libmd_8h_source_l00185}{vco}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structinteractiontype_ab9bae26a4a153dea871d9e601e5ec69a_ab9bae26a4a153dea871d9e601e5ec69a}\label{structinteractiontype_ab9bae26a4a153dea871d9e601e5ec69a_ab9bae26a4a153dea871d9e601e5ec69a}} 
+\index{interactiontype@{interactiontype}!parameters@{parameters}}
+\index{parameters@{parameters}!interactiontype@{interactiontype}}
+\doxysubsubsection{\texorpdfstring{parameters}{parameters}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}}$>$ interactiontype\+::parameters}
+
+
+
+Parameters of potential. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00183}{183}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteractiontype_a7eb99cd090421aa9bf5ad928243eae2d_a7eb99cd090421aa9bf5ad928243eae2d}\label{structinteractiontype_a7eb99cd090421aa9bf5ad928243eae2d_a7eb99cd090421aa9bf5ad928243eae2d}} 
+\index{interactiontype@{interactiontype}!potential@{potential}}
+\index{potential@{potential}!interactiontype@{interactiontype}}
+\doxysubsubsection{\texorpdfstring{potential}{potential}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} interactiontype\+::potential}
+
+
+
+Type of potential. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00182}{182}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteractiontype_ad2f961dd5cddbe2d40ae8065718835a7_ad2f961dd5cddbe2d40ae8065718835a7}\label{structinteractiontype_ad2f961dd5cddbe2d40ae8065718835a7_ad2f961dd5cddbe2d40ae8065718835a7}} 
+\index{interactiontype@{interactiontype}!rco@{rco}}
+\index{rco@{rco}!interactiontype@{interactiontype}}
+\doxysubsubsection{\texorpdfstring{rco}{rco}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} interactiontype\+::rco}
+
+
+
+R\+\_\+cuttoff radius. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00184}{184}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structinteractiontype_adb52d25bbb9dfe86b57c290f5c86bb43_adb52d25bbb9dfe86b57c290f5c86bb43}\label{structinteractiontype_adb52d25bbb9dfe86b57c290f5c86bb43_adb52d25bbb9dfe86b57c290f5c86bb43}} 
+\index{interactiontype@{interactiontype}!vco@{vco}}
+\index{vco@{vco}!interactiontype@{interactiontype}}
+\doxysubsubsection{\texorpdfstring{vco}{vco}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} interactiontype\+::vco}
+
+
+
+Cuttoff potential energy. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00185}{185}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h}{libmd.\+h}}\item 
+libmd-\/src/\mbox{\hyperlink{interact_8libmd_8cc}{interact.\+libmd.\+cc}}\end{DoxyCompactItemize}

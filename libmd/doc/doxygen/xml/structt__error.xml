@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structt__error" kind="struct" language="C++" prot="public">
+    <compoundname>t_error</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt__error_ac26e77277143e6eb52ecca2779f0f047_1ac26e77277143e6eb52ecca2779f0f047" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui t_error::term_level</definition>
+        <argsstring></argsstring>
+        <name>term_level</name>
+        <briefdescription>
+<para>Terminate level for libmd. The default value is 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="106" column="8" bodyfile="libmd.h" bodystart="106" bodyend="-1"/>
+        <referencedby refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" compoundref="error_8libmd_8cc" startline="13" endline="34">t_error</referencedby>
+        <referencedby refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" compoundref="error_8libmd_8cc" startline="124" endline="127">terminate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* t_error::error_file</definition>
+        <argsstring></argsstring>
+        <name>error_file</name>
+        <briefdescription>
+<para>libmd error output file (default stderr) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="107" column="10" bodyfile="libmd.h" bodystart="107" bodyend="-1"/>
+        <referencedby refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" compoundref="error_8libmd_8cc" startline="13" endline="34">t_error</referencedby>
+        <referencedby refid="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" compoundref="error_8libmd_8cc" startline="36" endline="44">~t_error</referencedby>
+        <referencedby refid="structt__error_affcce00de3de6b7ecf900ab71a6107cc_1affcce00de3de6b7ecf900ab71a6107cc" compoundref="error_8libmd_8cc" startline="46" endline="51">set_error_file</referencedby>
+        <referencedby refid="structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a_1ad8cbcad9d1efc6e6d74ee4694b04fa5a" compoundref="error_8libmd_8cc" startline="88" endline="92">print_error</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* t_error::warning_file</definition>
+        <argsstring></argsstring>
+        <name>warning_file</name>
+        <briefdescription>
+<para>libmd warning output file (default stderr) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="108" column="10" bodyfile="libmd.h" bodystart="108" bodyend="-1"/>
+        <referencedby refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" compoundref="error_8libmd_8cc" startline="13" endline="34">t_error</referencedby>
+        <referencedby refid="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" compoundref="error_8libmd_8cc" startline="36" endline="44">~t_error</referencedby>
+        <referencedby refid="structt__error_aa3e1d8a32cf1d271099a369c5a5559f2_1aa3e1d8a32cf1d271099a369c5a5559f2" compoundref="error_8libmd_8cc" startline="53" endline="58">set_warning_file</referencedby>
+        <referencedby refid="structt__error_a5c54c0544d5980c5e8424359480a65bc_1a5c54c0544d5980c5e8424359480a65bc" compoundref="error_8libmd_8cc" startline="94" endline="98">print_warning</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* t_error::debug_1_file</definition>
+        <argsstring></argsstring>
+        <name>debug_1_file</name>
+        <briefdescription>
+<para>libmd debug[1] output file (default stdout) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="109" column="10" bodyfile="libmd.h" bodystart="109" bodyend="-1"/>
+        <referencedby refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" compoundref="error_8libmd_8cc" startline="13" endline="34">t_error</referencedby>
+        <referencedby refid="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" compoundref="error_8libmd_8cc" startline="36" endline="44">~t_error</referencedby>
+        <referencedby refid="structt__error_a988bfb0493cbc3aa3f297df2ea39dc40_1a988bfb0493cbc3aa3f297df2ea39dc40" compoundref="error_8libmd_8cc" startline="60" endline="65">set_debug_1_file</referencedby>
+        <referencedby refid="structt__error_a11654cc137c42b1bddb5ed90b09e39e7_1a11654cc137c42b1bddb5ed90b09e39e7" compoundref="error_8libmd_8cc" startline="100" endline="104">print_debug_1</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* t_error::debug_2_file</definition>
+        <argsstring></argsstring>
+        <name>debug_2_file</name>
+        <briefdescription>
+<para>libmd debug[2] output file (default stdout) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="110" column="10" bodyfile="libmd.h" bodystart="110" bodyend="-1"/>
+        <referencedby refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" compoundref="error_8libmd_8cc" startline="13" endline="34">t_error</referencedby>
+        <referencedby refid="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" compoundref="error_8libmd_8cc" startline="36" endline="44">~t_error</referencedby>
+        <referencedby refid="structt__error_a2d8a7aadeae0891e9a78e0b45010b916_1a2d8a7aadeae0891e9a78e0b45010b916" compoundref="error_8libmd_8cc" startline="67" endline="72">set_debug_2_file</referencedby>
+        <referencedby refid="structt__error_ac0b658091f7db13369b5cae56402df16_1ac0b658091f7db13369b5cae56402df16" compoundref="error_8libmd_8cc" startline="106" endline="110">print_debug_2</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* t_error::debug_3_file</definition>
+        <argsstring></argsstring>
+        <name>debug_3_file</name>
+        <briefdescription>
+<para>libmd debug[3] output file (default stdout) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="111" column="10" bodyfile="libmd.h" bodystart="111" bodyend="-1"/>
+        <referencedby refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" compoundref="error_8libmd_8cc" startline="13" endline="34">t_error</referencedby>
+        <referencedby refid="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" compoundref="error_8libmd_8cc" startline="36" endline="44">~t_error</referencedby>
+        <referencedby refid="structt__error_afd98cb51fe5600a9a40cae19fca8fac8_1afd98cb51fe5600a9a40cae19fca8fac8" compoundref="error_8libmd_8cc" startline="74" endline="79">set_debug_3_file</referencedby>
+        <referencedby refid="structt__error_a4926e202b9dd7ea1070787edd129d2b5_1a4926e202b9dd7ea1070787edd129d2b5" compoundref="error_8libmd_8cc" startline="112" endline="116">print_debug_3</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* t_error::debug_timer_file</definition>
+        <argsstring></argsstring>
+        <name>debug_timer_file</name>
+        <briefdescription>
+<para>libmd debug[timer] output file (default stdout) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="112" column="10" bodyfile="libmd.h" bodystart="112" bodyend="-1"/>
+        <referencedby refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" compoundref="error_8libmd_8cc" startline="13" endline="34">t_error</referencedby>
+        <referencedby refid="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" compoundref="error_8libmd_8cc" startline="36" endline="44">~t_error</referencedby>
+        <referencedby refid="structt__error_ab51ce2f9542d75914d23b1f90b550c1d_1ab51ce2f9542d75914d23b1f90b550c1d" compoundref="error_8libmd_8cc" startline="81" endline="86">set_debug_timer_file</referencedby>
+        <referencedby refid="structt__error_ad8dea87e3d50536f8eb5687c28974603_1ad8dea87e3d50536f8eb5687c28974603" compoundref="error_8libmd_8cc" startline="118" endline="122">print_debug_timer</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>t_error::t_error</definition>
+        <argsstring>()</argsstring>
+        <name>t_error</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="114" column="5" bodyfile="libmd-src/error.libmd.cc" bodystart="13" bodyend="34"/>
+        <references refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" compoundref="libmd_8h" startline="109">debug_1_file</references>
+        <references refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" compoundref="libmd_8h" startline="110">debug_2_file</references>
+        <references refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" compoundref="libmd_8h" startline="111">debug_3_file</references>
+        <references refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" compoundref="libmd_8h" startline="112">debug_timer_file</references>
+        <references refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" compoundref="libmd_8h" startline="107">error_file</references>
+        <references refid="structt__error_ac26e77277143e6eb52ecca2779f0f047_1ac26e77277143e6eb52ecca2779f0f047" compoundref="libmd_8h" startline="106">term_level</references>
+        <references refid="error_8libmd_8cc_adb345393f36f6a2a235137949c1dd0ff_1adb345393f36f6a2a235137949c1dd0ff" compoundref="error_8libmd_8cc" startline="6" endline="11">TicToc</references>
+        <references refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" compoundref="libmd_8h" startline="108">warning_file</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>t_error::~t_error</definition>
+        <argsstring>()</argsstring>
+        <name>~t_error</name>
+        <briefdescription>
+<para>Destructor (to close the files) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="115" column="5" bodyfile="libmd-src/error.libmd.cc" bodystart="36" bodyend="44"/>
+        <references refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" compoundref="libmd_8h" startline="109">debug_1_file</references>
+        <references refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" compoundref="libmd_8h" startline="110">debug_2_file</references>
+        <references refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" compoundref="libmd_8h" startline="111">debug_3_file</references>
+        <references refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" compoundref="libmd_8h" startline="112">debug_timer_file</references>
+        <references refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" compoundref="libmd_8h" startline="107">error_file</references>
+        <references refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" compoundref="libmd_8h" startline="108">warning_file</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_affcce00de3de6b7ecf900ab71a6107cc_1affcce00de3de6b7ecf900ab71a6107cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::set_error_file</definition>
+        <argsstring>(const char *fname)</argsstring>
+        <name>set_error_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>fname</declname>
+        </param>
+        <briefdescription>
+<para>Sets the error output file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="117" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="46" bodyend="51"/>
+        <references refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" compoundref="libmd_8h" startline="107">error_file</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_aa3e1d8a32cf1d271099a369c5a5559f2_1aa3e1d8a32cf1d271099a369c5a5559f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::set_warning_file</definition>
+        <argsstring>(const char *fname)</argsstring>
+        <name>set_warning_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>fname</declname>
+        </param>
+        <briefdescription>
+<para>Sets the warning output file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="118" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="53" bodyend="58"/>
+        <references refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" compoundref="libmd_8h" startline="108">warning_file</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_a988bfb0493cbc3aa3f297df2ea39dc40_1a988bfb0493cbc3aa3f297df2ea39dc40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::set_debug_1_file</definition>
+        <argsstring>(const char *fname)</argsstring>
+        <name>set_debug_1_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>fname</declname>
+        </param>
+        <briefdescription>
+<para>Sets the debug[1] output file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="119" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="60" bodyend="65"/>
+        <references refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" compoundref="libmd_8h" startline="109">debug_1_file</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_a2d8a7aadeae0891e9a78e0b45010b916_1a2d8a7aadeae0891e9a78e0b45010b916" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::set_debug_2_file</definition>
+        <argsstring>(const char *fname)</argsstring>
+        <name>set_debug_2_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>fname</declname>
+        </param>
+        <briefdescription>
+<para>Sets the debug[2] output file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="120" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="67" bodyend="72"/>
+        <references refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" compoundref="libmd_8h" startline="110">debug_2_file</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_afd98cb51fe5600a9a40cae19fca8fac8_1afd98cb51fe5600a9a40cae19fca8fac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::set_debug_3_file</definition>
+        <argsstring>(const char *fname)</argsstring>
+        <name>set_debug_3_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>fname</declname>
+        </param>
+        <briefdescription>
+<para>Sets the debug[3] output file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="121" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="74" bodyend="79"/>
+        <references refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" compoundref="libmd_8h" startline="111">debug_3_file</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_ab51ce2f9542d75914d23b1f90b550c1d_1ab51ce2f9542d75914d23b1f90b550c1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::set_debug_timer_file</definition>
+        <argsstring>(const char *fname)</argsstring>
+        <name>set_debug_timer_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>fname</declname>
+        </param>
+        <briefdescription>
+<para>Sets the debug[timer] output file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="122" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="81" bodyend="86"/>
+        <references refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" compoundref="libmd_8h" startline="112">debug_timer_file</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a_1ad8cbcad9d1efc6e6d74ee4694b04fa5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::print_error</definition>
+        <argsstring>(char *buffer)</argsstring>
+        <name>print_error</name>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Prints a error to the error output file (for internal use) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="123" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="88" bodyend="92"/>
+        <references refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" compoundref="libmd_8h" startline="107">error_file</references>
+        <references refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" compoundref="error_8libmd_8cc" startline="124" endline="127">terminate</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_a5c54c0544d5980c5e8424359480a65bc_1a5c54c0544d5980c5e8424359480a65bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::print_warning</definition>
+        <argsstring>(char *buffer)</argsstring>
+        <name>print_warning</name>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Prints a warning to the warning output file (for internal use) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="124" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="94" bodyend="98"/>
+        <references refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" compoundref="error_8libmd_8cc" startline="124" endline="127">terminate</references>
+        <references refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" compoundref="libmd_8h" startline="108">warning_file</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_a11654cc137c42b1bddb5ed90b09e39e7_1a11654cc137c42b1bddb5ed90b09e39e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::print_debug_1</definition>
+        <argsstring>(char *buffer)</argsstring>
+        <name>print_debug_1</name>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Prints debug[1] message to the debug[1] output file (for internal use) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="125" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="100" bodyend="104"/>
+        <references refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" compoundref="libmd_8h" startline="109">debug_1_file</references>
+        <references refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" compoundref="error_8libmd_8cc" startline="124" endline="127">terminate</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_ac0b658091f7db13369b5cae56402df16_1ac0b658091f7db13369b5cae56402df16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::print_debug_2</definition>
+        <argsstring>(char *buffer)</argsstring>
+        <name>print_debug_2</name>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Prints debug[2] message to the debug[2] output file (for internal use) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="126" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="106" bodyend="110"/>
+        <references refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" compoundref="libmd_8h" startline="110">debug_2_file</references>
+        <references refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" compoundref="error_8libmd_8cc" startline="124" endline="127">terminate</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_a4926e202b9dd7ea1070787edd129d2b5_1a4926e202b9dd7ea1070787edd129d2b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::print_debug_3</definition>
+        <argsstring>(char *buffer)</argsstring>
+        <name>print_debug_3</name>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Prints debug[3] message to the debug[3] output file (for internal use) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="127" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="112" bodyend="116"/>
+        <references refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" compoundref="libmd_8h" startline="111">debug_3_file</references>
+        <references refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" compoundref="error_8libmd_8cc" startline="124" endline="127">terminate</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_ad8dea87e3d50536f8eb5687c28974603_1ad8dea87e3d50536f8eb5687c28974603" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::print_debug_timer</definition>
+        <argsstring>(char *buffer)</argsstring>
+        <name>print_debug_timer</name>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Prints debug[timer] message to the debug[timer] output file (for internal use) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="128" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="118" bodyend="122"/>
+        <references refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" compoundref="libmd_8h" startline="112">debug_timer_file</references>
+        <references refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" compoundref="error_8libmd_8cc" startline="124" endline="127">terminate</references>
+      </memberdef>
+      <memberdef kind="function" id="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t_error::terminate</definition>
+        <argsstring>(ui term)</argsstring>
+        <name>terminate</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+<para>Terminate if termlevel allows it (for internal use) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="129" column="10" bodyfile="libmd-src/error.libmd.cc" bodystart="124" bodyend="127"/>
+        <references refid="structt__error_ac26e77277143e6eb52ecca2779f0f047_1ac26e77277143e6eb52ecca2779f0f047" compoundref="libmd_8h" startline="106">term_level</references>
+        <referencedby refid="structt__error_a11654cc137c42b1bddb5ed90b09e39e7_1a11654cc137c42b1bddb5ed90b09e39e7" compoundref="error_8libmd_8cc" startline="100" endline="104">print_debug_1</referencedby>
+        <referencedby refid="structt__error_ac0b658091f7db13369b5cae56402df16_1ac0b658091f7db13369b5cae56402df16" compoundref="error_8libmd_8cc" startline="106" endline="110">print_debug_2</referencedby>
+        <referencedby refid="structt__error_a4926e202b9dd7ea1070787edd129d2b5_1a4926e202b9dd7ea1070787edd129d2b5" compoundref="error_8libmd_8cc" startline="112" endline="116">print_debug_3</referencedby>
+        <referencedby refid="structt__error_ad8dea87e3d50536f8eb5687c28974603_1ad8dea87e3d50536f8eb5687c28974603" compoundref="error_8libmd_8cc" startline="118" endline="122">print_debug_timer</referencedby>
+        <referencedby refid="structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a_1ad8cbcad9d1efc6e6d74ee4694b04fa5a" compoundref="error_8libmd_8cc" startline="88" endline="92">print_error</referencedby>
+        <referencedby refid="structt__error_a5c54c0544d5980c5e8424359480a65bc_1a5c54c0544d5980c5e8424359480a65bc" compoundref="error_8libmd_8cc" startline="94" endline="98">print_warning</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure handles errors/warnings/debug levels. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>t_error</label>
+        <link refid="structt__error"/>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="105" column="1" bodyfile="libmd.h" bodystart="104" bodyend="130"/>
+    <listofallmembers>
+      <member refid="structt__error_a564dfc9870b1ff33e63154b6a36557e8_1a564dfc9870b1ff33e63154b6a36557e8" prot="public" virt="non-virtual"><scope>t_error</scope><name>debug_1_file</name></member>
+      <member refid="structt__error_aecaa999dee5eb5ddf4171e4bf68f2524_1aecaa999dee5eb5ddf4171e4bf68f2524" prot="public" virt="non-virtual"><scope>t_error</scope><name>debug_2_file</name></member>
+      <member refid="structt__error_a7a1f1ea05fa525c8005acb15c3892a4a_1a7a1f1ea05fa525c8005acb15c3892a4a" prot="public" virt="non-virtual"><scope>t_error</scope><name>debug_3_file</name></member>
+      <member refid="structt__error_a42371d166e6adf303c3251c3ef7ed85c_1a42371d166e6adf303c3251c3ef7ed85c" prot="public" virt="non-virtual"><scope>t_error</scope><name>debug_timer_file</name></member>
+      <member refid="structt__error_a2fbd8114570fe83bc0cd03b7d768b31c_1a2fbd8114570fe83bc0cd03b7d768b31c" prot="public" virt="non-virtual"><scope>t_error</scope><name>error_file</name></member>
+      <member refid="structt__error_a11654cc137c42b1bddb5ed90b09e39e7_1a11654cc137c42b1bddb5ed90b09e39e7" prot="public" virt="non-virtual"><scope>t_error</scope><name>print_debug_1</name></member>
+      <member refid="structt__error_ac0b658091f7db13369b5cae56402df16_1ac0b658091f7db13369b5cae56402df16" prot="public" virt="non-virtual"><scope>t_error</scope><name>print_debug_2</name></member>
+      <member refid="structt__error_a4926e202b9dd7ea1070787edd129d2b5_1a4926e202b9dd7ea1070787edd129d2b5" prot="public" virt="non-virtual"><scope>t_error</scope><name>print_debug_3</name></member>
+      <member refid="structt__error_ad8dea87e3d50536f8eb5687c28974603_1ad8dea87e3d50536f8eb5687c28974603" prot="public" virt="non-virtual"><scope>t_error</scope><name>print_debug_timer</name></member>
+      <member refid="structt__error_ad8cbcad9d1efc6e6d74ee4694b04fa5a_1ad8cbcad9d1efc6e6d74ee4694b04fa5a" prot="public" virt="non-virtual"><scope>t_error</scope><name>print_error</name></member>
+      <member refid="structt__error_a5c54c0544d5980c5e8424359480a65bc_1a5c54c0544d5980c5e8424359480a65bc" prot="public" virt="non-virtual"><scope>t_error</scope><name>print_warning</name></member>
+      <member refid="structt__error_a988bfb0493cbc3aa3f297df2ea39dc40_1a988bfb0493cbc3aa3f297df2ea39dc40" prot="public" virt="non-virtual"><scope>t_error</scope><name>set_debug_1_file</name></member>
+      <member refid="structt__error_a2d8a7aadeae0891e9a78e0b45010b916_1a2d8a7aadeae0891e9a78e0b45010b916" prot="public" virt="non-virtual"><scope>t_error</scope><name>set_debug_2_file</name></member>
+      <member refid="structt__error_afd98cb51fe5600a9a40cae19fca8fac8_1afd98cb51fe5600a9a40cae19fca8fac8" prot="public" virt="non-virtual"><scope>t_error</scope><name>set_debug_3_file</name></member>
+      <member refid="structt__error_ab51ce2f9542d75914d23b1f90b550c1d_1ab51ce2f9542d75914d23b1f90b550c1d" prot="public" virt="non-virtual"><scope>t_error</scope><name>set_debug_timer_file</name></member>
+      <member refid="structt__error_affcce00de3de6b7ecf900ab71a6107cc_1affcce00de3de6b7ecf900ab71a6107cc" prot="public" virt="non-virtual"><scope>t_error</scope><name>set_error_file</name></member>
+      <member refid="structt__error_aa3e1d8a32cf1d271099a369c5a5559f2_1aa3e1d8a32cf1d271099a369c5a5559f2" prot="public" virt="non-virtual"><scope>t_error</scope><name>set_warning_file</name></member>
+      <member refid="structt__error_af212e30a88db8166210667617fff518f_1af212e30a88db8166210667617fff518f" prot="public" virt="non-virtual"><scope>t_error</scope><name>t_error</name></member>
+      <member refid="structt__error_ac26e77277143e6eb52ecca2779f0f047_1ac26e77277143e6eb52ecca2779f0f047" prot="public" virt="non-virtual"><scope>t_error</scope><name>term_level</name></member>
+      <member refid="structt__error_af803c2519381179010f51e13fe208320_1af803c2519381179010f51e13fe208320" prot="public" virt="non-virtual"><scope>t_error</scope><name>terminate</name></member>
+      <member refid="structt__error_ac560c35b31b3861960f1fd8a881fa33b_1ac560c35b31b3861960f1fd8a881fa33b" prot="public" virt="non-virtual"><scope>t_error</scope><name>warning_file</name></member>
+      <member refid="structt__error_af86314216790940b591cd4d0849e9824_1af86314216790940b591cd4d0849e9824" prot="public" virt="non-virtual"><scope>t_error</scope><name>~t_error</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

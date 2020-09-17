@@ -1,0 +1,12 @@
+digraph "t_error::print_debug_timer"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="t_error::print_debug\l_timer",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Prints debug[timer] message to the debug[timer] output file (for internal use)"];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="t_error::terminate",height=0.2,width=0.4,color="black",URL="$structt__error_af803c2519381179010f51e13fe208320.html#af803c2519381179010f51e13fe208320",tooltip="Terminate if termlevel allows it (for internal use)"];
+}

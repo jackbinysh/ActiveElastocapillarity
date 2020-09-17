@@ -1,0 +1,237 @@
+.TH "md_doc_markdown_interactions" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_doc_markdown_interactions \- Interactions 
+
+.SH "Interactions in libmd"
+.PP
+Interactions are of two types: pair potentials and forcetypes\&. In molecular dynamics, the \fIforces\fP on each particle are computed at each time step as a function of neighbouring particles, external constraints, etc\&. Pair porentials are a concise way of defining central forces that can be written as a gradient of a potential energy, whereas forcetypes encompass all other possibilities\&.
+.SS "Conservative forces"
+Molecular dynamics simulations often include conservative forces between pairs of particles, which depend only on the distance between the two particles and act along the vector joining them\&. They can be written as the gradient of a potential energy $V(r)$ that depends on the separation distance\&. If $\mathbf{r}_i$ and $\mathbf{r}_j$ are the position vectors of two particles, then the pairwise central forces on each particle are \[ \mathbf{F}_i = -\nabla_{\mathbf{r}_i} V(|\mathbf{r}_i-\mathbf{r}_j|) = -\mathbf{F}_j \]
+.PP
+\fClibmd\fP uses the framework of \fIparticle types\fP to define pairwise interactions\&. Every \fBparticle\fP instance has an associated \fCtype\fP, an \fCunsigned int\fP stored in the \fC\fBparticle\&.type\fP\fP variable\&. Interactions are defined between pairs of particle types\&. For instance, a system of identical particles interacting via a Yukawa potential can be set up by assigning the same particle type, say \fC0\fP, to all particles in the system, and defining a Yukawa-type interaction between the pair of particle types \fC(0,0)\fP\&.
+.PP
+The particle type is set while creating a \fBparticle\fP instance via the \fCptype\fP argument of the \fBparticle<dim>::particle\fP constructor, and can be updated by calling the \fBmd<dim>::set_type(ui p, ui newtype)\fP function\&.
+.PP
+Defining a pairwise interaction between two particle types requires making a distinction between \fIpair potentials\fP and \fIinteractions\fP:
+.PP
+.IP "\(bu" 2
+A \fIpair potential\fP is the definition of a potential function $V(r)$ that may depend on some parameters in addition to the particle separation $r$\&. The \fBmd<dim>::v\fP structure stores information about pair potentials in the simulation\&. See the subsection on \fCpair potentials\fP for more information\&.
+.IP "\(bu" 2
+An \fIinteraction\fP is a combination of a pair potential and a specific set of parameters\&. The \fBmd<dim>::network\fP structure stores information about the interactions deriving from pair potentials in the system\&. See the subsection on \fCinteractions\fP for more information\&.
+.PP
+.SS "Pair potentials"
+Pair potential functions are defined outside the \fCmd<dim>()\fP structure, and added to the simulation using function pointers\&. A pair potential function takes two arguments: the separation distance \fCr\fP and a pointer \fCvector<ldf> &params\fP to a vector of \fCfloat\fPs that contains the parameters needed to compute the interaction, and returns the potential energy\&. \fClibmd\fP uses \fCautomatic differentiation\fP implemented in \fBautodiff\&.libmd\&.cc\fP to calculate the forces from the potential definition\&. This mandates that the potential function be defined with the first argument (the distance \fCr\fP) and the return value having a templated type: 
+.PP
+.nf
+template<class X> X my_potential(X r,vector<ldf> &parameters) {\&.\&.\&.}
+
+.fi
+.PP
+ However, the function itself can be written by treating \fCr\fP and the return value as \fCldf\fP variables\&. See \fBpotentials\&.libmd\&.cc\fP for example definitions of potential functions\&.
+.PP
+Once the potential function has been defined, a function pointer pointing to it is added to the list of potential functions \fCmd<dim>::v\&.potentials\fP through a call to the \fBpairpotentials::add()\fP member function of \fBmd<dim>::v\fP\&. Each added potential is given a unique index, which is the return value of \fCmd<dim>::v\&.add()\fP\&. The following command adds the potential function \fCmy_potential()\fP defined above to an \fCmd<dim>\fP instance named \fCsys\fP, and stores the associated index in \fCpidx:\fP 
+.PP
+.nf
+md<dim> sys;
+\&.\&.\&.
+ui pidx = sys\&.v\&.add(my_potential<dual>);
+
+.fi
+.PP
+ (The \fC<dual>\fP template argument is needed for the automatic differentiation system\&.) This index is then used to define interactions between pairs of particle types through calls to \fBmd<dim>::add_interaction\fP and \fBmd<dim>::add_typeinteraction\fP functions catalogued in the subsection on \fCinteractions\fP\&.
+.SS "Predefined pair potentials"
+\fClibmd\fP comes with some predefined pair potentials that can be combined with any choices of parameters to easily define interactions between particle types\&. A complete listing is available in the documentation for the \fBpotentials\&.libmd\&.cc\fP file\&. The potentials are pre-loaded into the \fCmd<dim>::v\&.potentials\fP list of every \fBmd\fP instance, and are to be referenced by their positions in this list\&. For ease of indexing, a global enum structure \fBPOT\fP has been defined, with \fC\fBPOT\fP::<potential name>\fP providing the appropriate pair potential index\&. For instance, \fBPOT::COULOMB\fP is the index of the predefined \fBCOULOMB()\fP potential\&.
+.SS "Interactions"
+Once a potential has been added to the \fBmd\fP instance, it can be combined with specific values of parameters to create distinct \fIinteractions\fP, which are instances of the \fBinteractiontype\fP structure\&. Each \fBmd\fP instance has a library of interactions, stored in \fCmd<dim>::network\&.library[]\fP which is a vector of \fBinteractiontype\fP instances\&. Different interactions are indexed by their position in this vector\&.
+.PP
+Entries in the interaction library are added, modified and removed using the following set of functions:
+.PP
+.IP "\(bu" 2
+md<dim>::add_interaction(ui pidx, vector<ldf> &parameters) creates an interaction from the pair potential indexed by \fCpidx\fP with the given parameters\&. The return value is the index of the interaction in \fCmd<dim>::network\&.library[]\fP, which we will call \fCiidx\fP\&.
+.IP "\(bu" 2
+md<dim>::mod_interaction(ui iidx, ui pidx,vector<ldf> &parameters) replaces the potential function and parameters of the interaction indexed by \fCiidx\fP\&.
+.IP "\(bu" 2
+\fBmd<dim>::rem_interaction(ui iidx)\fP removes the interaction indexed by \fCiidx\fP\&.
+.PP
+.PP
+The following set of functions assigns a particular interaction indexed by \fCiidx\fP to act between particles of types \fCtype1\fP and \fCtype2:\fP 
+.PP
+.IP "\(bu" 2
+\fBmd<dim>::add_typeinteraction(ui type1, ui type2, ui iidx)\fP
+.IP "\(bu" 2
+\fBmd<dim>::mod_typeinteraction(ui type1, ui type2, ui iidx)\fP
+.IP "\(bu" 2
+\fBmd<dim>::mad_typeinteraction(ui type1, ui type2, ui iidx)\fP
+.PP
+.PP
+The functions differ in their behaviour when an interaction between the pair of types has or has not been defined\&.
+.PP
+There is also a set of functions which allows the creation of an interaction and its assignment to act between particle types \fCtype1\fP and \fCtype2\fP in a single command:
+.PP
+.IP "\(bu" 2
+md<dim>::add_typeinteraction(ui type1, ui type2, ui pidx, vector<ldf> &parameters)
+.IP "\(bu" 2
+md<dim>::mod_typeinteraction(ui type1, ui type2, ui pidx, vector<ldf> &parameters)
+.IP "\(bu" 2
+md<dim>::mad_typeinteraction(ui type1, ui type2, ui pidx, vector<ldf> &parameters)
+.PP
+.PP
+The following code snippets are therefore equivalent: 
+.PP
+.nf
+/* Uses predefined Hookean spring potential, indexed by POT::HOOKEAN */
+
+vector<ldf> params = {1\&.0,2\&.0};     // Vector of two parameters for a Hookean spring
+                                    // (spring constant and rest length)
+
+ui onespring = md<dim>::add_interaction(POT::HOOKEAN, &params);
+                                    // Create a Hookean interaction with the given parameters
+                                    // and store its index in onespring
+
+md<dim>::add_typeinteraction(2,8,onespring);
+                                    // Add the interaction indexed by onespring between
+                                    // particle types 2 and 8
+
+.fi
+.PP
+.PP
+.PP
+.nf
+/* Uses predefined Hookean spring potential, indexed by POT::HOOKEAN  */
+
+vector<ldf> params = {1\&.0,2\&.0};     // Vector of two parameters for a Hookean spring
+                                    // (spring constant and rest length)
+
+md<dim>::add_typeinteraction(2,8,POT::HOOKEAN,&params);
+                                    // Add a Hookean interaction between particles of
+                                    // type 2 and type 8 with defined params
+.fi
+.PP
+.SS "Cutoff radius"
+An important parameter in limiting unnecessary computations of pair potentials is the \fIcutoff radius\fP, a value of the particle separation beyond which the pair potential and resultant force are assumed to be zero\&. Each interaction (i\&.e\&. each \fBinteractiontype\fP instance in \fCmd<dim>::network\&.library\fP[]) has a unique cutoff radius stored in the \fCrco\fP member variable\&. By default, this is set to be equal to the value of \fCmd<dim>::network\&.rco\fP, which is the case for the examples listed above\&. However, every function that creates a new interaction also has a version in which the cutoff radius can be explicitly specified as an additional parameter, as follows:
+.PP
+.IP "\(bu" 2
+md<dim>::add_interaction(ui pidx, ldf rco, vector<ldf> &parameters)
+.IP "\(bu" 2
+md<dim>::mod_interaction(ui iidx, ui pidx, ldf rco, vector<ldf> &parameters)
+.IP "\(bu" 2
+md<dim>::add_typeinteraction(ui type1, ui type2, ui pidx, ldf rco, vector<ldf> &parameters)
+.IP "\(bu" 2
+md<dim>::mod_typeinteraction(ui type1, ui type2, ui pidx, ldf rco, vector<ldf> &parameters)
+.IP "\(bu" 2
+md<dim>::mad_typeinteraction(ui type1, ui type2, ui pidx, ldf rco, vector<ldf> &parameters)
+.PP
+.SS "Bonds"
+A bond is a pair interaction specific to two particles\&. If two particles share a bond, each has a unique particle type that is not shared with any other particle in the system\&. As a result, the particles could have a unique interaction that is not shared by any other pair of particles in the system\&. (This is however not a requirement -- a bond could be created between particles with an interaction type that is also present between other particle types\&.)
+.PP
+Bonds provide a framework to assign specific interactions to pairs of particles based on the particle ID rather than the particle type\&. For instance, a disordered spring network with every spring having a unique bond length or spring constant can be implemented by adding bonds among connected particles, each of which is a Hookean interaction with the appropriate parameters\&. Many functions exist to automate the task of adding, removing, or modifying bonds between pairs of particles without the user having to keep track of particle type assignments\&. These are summarized here\&. All such functions take two particle indices as their first two arguments\&. The order of the particle indices is unimportant\&.
+.PP
+Functions to create/modify bonds fall into two classes\&. The first class assigns a predefined interaction type, referenced by its index \fCiidx\fP in \fCmd<dim>::network\&.library[]\fP, to the particle pair:
+.PP
+.IP "\(bu" 2
+\fBmd<dim>::add_bond(ui p1, ui p2, ui iidx)\fP
+.IP "\(bu" 2
+\fBmd<dim>::mod_bond(ui p1, ui p2, ui iidx)\fP
+.IP "\(bu" 2
+\fBmd<dim>::mad_bond(ui p1, ui p2, ui iidx)\fP
+.PP
+.PP
+The second class creates a new interaction from a specified potential type (referenced by its index \fCpidx\fP in \fCmd<dim>::v\&.potentials[]\fP) and a parameter list, and assigns this newly created interaction type to the pair of particles:
+.PP
+.IP "\(bu" 2
+md<dim>::add_bond(ui p1, ui p2, ui pidx, vector<ldf> &parameters)
+.IP "\(bu" 2
+md<dim>::mod_bond(ui p1, ui p2, ui pidx, vector<ldf> &parameters)
+.IP "\(bu" 2
+md<dim>::mad_bond(ui p1, ui p2, ui pidx, vector<ldf> &parameters)
+.PP
+.PP
+The function \fBmd<dim>::rem_bond\fP removes any interaction (including a pair interaction of non-bond type) between a specified pair of particles\&. A special convenience function \fBmd<dim>::add_spring\fP enables easy creation of harmonic springs of specified spring constant and rest length between specific particle pairs\&.
+.PP
+\fBNote:\fP calling functions to add, remove, or modify bonds between particle pairs typically \fBchanges the particle types\fP associated with each member of the pair\&. Therefore, it is best to use bond functions after all particle type and potential assignments have been completed (the bond functions will preserve type interactions through the particle reassignment)\&.
+.SS "Interactions and bonds within superparticles"
+Interactions and bonds have a special meaning in the context of \fCsuperparticles\fP\&.
+.PP
+A pairwise \fIinteraction\fP can be defined between two particle subtypes \fCp1\fP and \fCp2\fP within a superparticle type \fCspt\fP; this interaction will then be present in all copies of \fCspt\fP in the system\&. The pair potentials and interactions are shared with the ordinary particles (i\&.e\&. the same libraries and indices are used), but the \fCadd/mod/mad_typeinteraction\fP() functions described in the section on \fCinteractions\fP are replaced by the following functions:
+.PP
+.IP "\(bu" 2
+\fBmd<dim>::add_sp_interaction(ui spt, ui p1, ui p2, ui iidx)\fP
+.IP "\(bu" 2
+md<dim>::add_sp_interaction(ui spt, ui p1, ui p2, ui pidx, vector<ldf> &parameters)
+.IP "\(bu" 2
+md<dim>::add_sp_interaction(ui spt, ui p1, ui p2, ui pidx, ldf rco, vector<ldf> &parameters)
+.PP
+.PP
+(and similarly for \fCmod_sp_interaction\fP and \fCmad_sp_interaction\fP)\&.
+.PP
+A \fIbond\fP within a superparticle is created by specifying two \fIordinary\fP particle indices (not subtypes) \fCp1\fP and \fCp2\fP which must belong to the same superparticle\&. An interaction is then created between these two particles, which only exists in that particular superparticle instance, making it distinct from all other superparticles in the system\&. Successful superparticle bond creation always gives rise to a new superparticle type specific to the superparticle instance that has been targeted\&. See the following functions for more details:
+.PP
+.IP "\(bu" 2
+\fBmd<dim>::add_sp_bond(ui p1, ui p2, ui iidx)\fP
+.IP "\(bu" 2
+md<dim>::add_sp_bond(ui p1, ui p2, ui pidx, vector<ldf> &parameters)
+.PP
+.PP
+(and similarly for \fCmod_sp_bond\fP and \fCmad_sp_bond\fP)\&.
+.PP
+Finally the functions \fBmd<dim>::rem_sp_interaction()\fP and \fBmd<dim>::rem_sp_bond()\fP remove superparticle interactions and bonds respectively\&.
+.SS "Non-conservative forces"
+Many applications of molecular dynamics involve forces that cannot be defined as gradients of \fCpair potentials\fP; e\&.g\&. dissipative drag on a particle\&. We use the \fBforcetype\fP framework to define such forces on particles\&. This framework is completely general, and can be used to define any number of operations (not restricted to force calculation) on individual particles that can be calculated as a function of particle positions, velocities, or external parameters\&.
+.PP
+As with conservative forces, a distinction is to be made between \fIexternal force functions\fP and \fIforcetypes\fP, which are the equivalent of \fIpair potentials\fP and \fItype interactions\fP respectively\&. Information about external force functions is stored in the \fBmd<dim>::f\fP structure, whereas the forcetypes deriving from these force functions are stored in the \fBmd<dim>::network\fP structure (specifically \fCmd<dim>::network\&.forces\fP and \fCmd<dim>::network\&.forcelibrary\fP)\&.
+.SS "External force functions"
+The \fBforcetype\fP framework requires operations on particles to be represented as \fIexternal force functions\fP, which live outside the \fCmd<dim>()\fP structure and fits the following prototype: 
+.PP
+.nf
+template <ui dim> void my_external_force(ui i, vector<ui> &partners, vector<ldf> &parameters, void *sys) {\&.\&.\&.}
+
+.fi
+.PP
+ where \fCi\fP is a particle index, \fCpartners\fP points to a vector of particle indices which might influence particle \fCi\fP, and \fCparameters\fP can be specified\&. During execution, a pointer to the \fBmd\fP object itself is passed to the external force function as the last argument\&. Under normal use, a call to \fCmy_external_force()\fP function would compute a force on particle \fCi\fP that is a function of the positions and velocities of \fCi\fP and \fCpartners\fP, and update the force vector \fC\fP((md<dim>*) sys)->particles[i]\&.F with this force\&. However, the external force function is not restricted to calculating and updating forces, but could modify the \fBmd\fP object in any way\&.
+.PP
+The macro \fBSYS\fP eases the referencing of member variables within \fCsys\fP within the \fCmy_external_force()\fP function\&. For instance, \fC\fP((md<dim>*) sys)->particles[i]\&.F can be rewritten as \fCSYS->particles\fP[i]\&.F\&.
+.PP
+Once an external force function has been defined, a function pointer pointing to it is added to the list of external force functions \fCmd<dim>::f\&.extforces\fP through a call to the \fBexternalforces::add()\fP member function of \fBmd<dim>::f\fP\&. Each added external force function is given a unique index, which is the return value of \fCmd<dim>::f\&.add()\fP\&. The following command adds the function \fCmy_external_force()\fP to an \fCmd<dim>\fP instance named \fCsys\fP, and stores the associated index in \fCfidx:\fP 
+.PP
+.nf
+md<dim> sys;
+\&.\&.\&.
+ui fidx = sys\&.f\&.add(my_external_force<dim>);
+
+.fi
+.PP
+ \fIParticular\fP forcetypes are obtained by combining an external force function indexed by \fCfidx\fP with a specific set of parameters, using the \fBmd<dim>::add_forcetype\fP function catalogued in the \fCfollowing subsection\fP\&.
+.SS "Predefined external force functions"
+\fClibmd\fP comes with two predefined external force functions, which illustrate the concept\&.
+.PP
+.IP "\(bu" 2
+The \fBDAMPING()\fP function updates \fCSYS->particles\fP[i]\&.F with a viscous drag force that is a function solely of the velocity of particle \fCi\fP\&. The corresponding force index is \fC\fBEXTFORCE::DAMPING\fP\fP\&.
+.IP "\(bu" 2
+The \fBDISSIPATION()\fP function updates \fCSYS->particles\fP[i]\&.F with a force proportional to the velocity difference between \fCi\fP and each particle index in \fCparticles\fP\&. The function is indexed by \fBEXTFORCE::DISSIPATION\fP\&.
+.PP
+.SS "Forcetypes"
+An external force function indexed by \fCfidx\fP is combined with specific values of parameters and a specific list of particles associated with each particle to create distinct \fIforcetypes\fP, which are instances of the \fBforcetype\fP structure\&. These are stored in \fCmd<dim>::network\&.forcelibrary[]\fP, a vector of \fBforcetype\fP instances\&. Different forcetypes are indexed by their position in this vector\&.
+.PP
+Entries in the forcetype library are added, modified and removed using the following functions, which returns a \fCbool\fP indicating the success of the operation:
+.PP
+.IP "\(bu" 2
+\fBmd<dim>::add_forcetype\fP(ui fidx, vector<vector<ui>> &partnerlist, vector<ldf> &parameters) creates a forcetype from the external force function indexed by \fCfidx\fP with the given parameters\&. The \fCpartnerlist\fP is either empty, or points to a list of lists of partner indices, so that \fC\fP(&partnerlist)[i] contains the partners of particle \fCi\fP to be passed to the external force function\&. The return value is the index of the forcetype in \fCmd<dim>::network\&.forcelibrary[]\fP, which we will call \fCftype\fP\&.
+.IP "\(bu" 2
+\fBmd<dim>::mod_forcetype\fP(ui ftype, ui fidx, vector<vector<ui>> &partnerlist, vector<ldf> &parameters) replaces the external force function and partner list of the forcetype indexed by \fCftype\fP\&.
+.IP "\(bu" 2
+\fBmd<dim>::rem_forcetype(ui ftype)\fP removes the interaction indexed by \fCftype\fP\&.
+.PP
+.PP
+Once a forcetype entry has been created, it still needs to be assigned to a particle to influence the dynamics of that particle\&. Forcetype assignment is handled by the following set of functions:
+.PP
+.IP "\(bu" 2
+\fBmd<dim>::assign_forcetype(ui i, ui ftype)\fP assigns \fCftype\fP to particle \fCi\fP\&.
+.IP "\(bu" 2
+\fBmd<dim>::assign_all_forcetype(ui ftype)\fP assigns \fCftype\fP to all particles\&.
+.IP "\(bu" 2
+md<dim>::unassign_forcetype(ui ftype) and md<dim>::unassign_all_forcetype(ui ftype, ui i) remove the assignment of \fCftype\fP from one or all particles\&.
+.PP
+.PP
+Finally, the function \fBmd<dim>::clear_all_assigned_forcetype()\fP is useful to clear all assignments to forcetypes from all particles, although it does not remove the forcetypes themselves\&. 

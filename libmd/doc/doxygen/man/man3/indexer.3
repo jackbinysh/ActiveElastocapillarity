@@ -1,0 +1,91 @@
+.TH "indexer< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+indexer< dim > \- This structure is specific for the indexer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcelldatatype\fP"
+.br
+.ti -1c
+.RI "struct \fBkdtreedatatype\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBindexer\fP ()"
+.br
+.RI "Constructor\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBuc\fP \fBmethod\fP"
+.br
+.RI "Method of indexing\&. "
+.ti -1c
+.RI "\fBcelldatatype\fP \fBcelldata\fP"
+.br
+.RI "Cell data object\&. "
+.ti -1c
+.RI "\fBkdtreedatatype\fP \fBkdtreedata\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct indexer< dim >"
+This structure is specific for the indexer\&. 
+.PP
+Definition at line 295 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<ui dim> \fBindexer\fP< dim >::\fBindexer\fP"
+
+.PP
+Constructor\&. Constructor for indexer struct\&. Initializes \fCmethod\fP to \fC\fBINDEX::CELL\fP\fP (\fBmd<dim>::cell()\fP)\&.
+.PP
+Definition at line 50 of file index\&.libmd\&.cc\&.
+.PP
+.nf
+51 {
+55     method=INDEX::CELL;
+56 }
+.fi
+.PP
+References INDEX::CELL, and indexer< dim >::method\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> \fBcelldatatype\fP \fBindexer\fP< dim >::celldata"
+
+.PP
+Cell data object\&. 
+.PP
+Definition at line 311 of file libmd\&.h\&.
+.SS "template<ui dim> \fBkdtreedatatype\fP \fBindexer\fP< dim >::kdtreedata"
+
+.PP
+Definition at line 321 of file libmd\&.h\&.
+.SS "template<ui dim> \fBuc\fP \fBindexer\fP< dim >::method"
+
+.PP
+Method of indexing\&. 
+.PP
+Definition at line 297 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

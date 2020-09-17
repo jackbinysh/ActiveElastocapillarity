@@ -1,0 +1,138 @@
+\hypertarget{structadditional__vars}{}\doxysection{additional\+\_\+vars$<$ dim $>$ Struct Template Reference}
+\label{structadditional__vars}\index{additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}}
+
+
+This structure stores additional variables.  
+
+
+
+
+{\ttfamily \#include $<$libmd.\+h$>$}
+
+
+
+Collaboration diagram for additional\+\_\+vars$<$ dim $>$\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structadditional__vars_ae260e26bdd294f5adabf438945e6781e_ae260e26bdd294f5adabf438945e6781e}{noftypedamping}} =\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{U\+I\+\_\+\+M\+AX}}
+\begin{DoxyCompactList}\small\item\em This variable stores the number of the ftype that damps/drags the system. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structadditional__vars_a907dd4b8d94e3485b696f99829288fa5_a907dd4b8d94e3485b696f99829288fa5}{noftypelangevin}} =\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{U\+I\+\_\+\+M\+AX}}
+\begin{DoxyCompactList}\small\item\em This variable stores the number of the ftype that adds temperature to the system. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structadditional__vars_a69e8de3a1d2dfee4913551135372cc31_a69e8de3a1d2dfee4913551135372cc31}{export\+\_\+force\+\_\+calc}} =false
+\begin{DoxyCompactList}\small\item\em This variable tells export\+\_\+force if the forces have been calculated for this output. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structadditional__vars_ab53d6c7796a200cceb7ed63c4f7f2437_ab53d6c7796a200cceb7ed63c4f7f2437}{reindex}} =true
+\begin{DoxyCompactList}\small\item\em This variable tells if the system needs to be reindexed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structadditional__vars_a506ad79285972d5e6b02906c14135dd9_a506ad79285972d5e6b02906c14135dd9}{overdamped\+\_\+gamma}} =1.\+0
+\begin{DoxyCompactList}\small\item\em This variable defines the damping coefficient $\gamma$ for overdamped dynamics. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structadditional__vars_a6b73130bce799b8391300bf9abed0802_a6b73130bce799b8391300bf9abed0802}{overdamped\+\_\+pre\+\_\+integrator}} =\mbox{\hyperlink{struct_i_n_t_e_g_r_a_t_o_r_aca72c4b4e70e5554ba92d83a6ffa1fbc_aca72c4b4e70e5554ba92d83a6ffa1fbca35688bfab06ce41823fd436dd67bcd62}{I\+N\+T\+E\+G\+R\+A\+T\+O\+R\+::\+V\+V\+E\+R\+L\+ET}}
+\begin{DoxyCompactList}\small\item\em This variable stores the integrator used before the overdamped regime. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$ui dim$>$\newline
+struct additional\+\_\+vars$<$ dim $>$}
+
+This structure stores additional variables. 
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00364}{364}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structadditional__vars_a69e8de3a1d2dfee4913551135372cc31_a69e8de3a1d2dfee4913551135372cc31}\label{structadditional__vars_a69e8de3a1d2dfee4913551135372cc31_a69e8de3a1d2dfee4913551135372cc31}} 
+\index{additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}!export\_force\_calc@{export\_force\_calc}}
+\index{export\_force\_calc@{export\_force\_calc}!additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{export\_force\_calc}{export\_force\_calc}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+bool \mbox{\hyperlink{structadditional__vars}{additional\+\_\+vars}}$<$ dim $>$\+::export\+\_\+force\+\_\+calc =false}
+
+
+
+This variable tells export\+\_\+force if the forces have been calculated for this output. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00368}{368}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structadditional__vars_ae260e26bdd294f5adabf438945e6781e_ae260e26bdd294f5adabf438945e6781e}\label{structadditional__vars_ae260e26bdd294f5adabf438945e6781e_ae260e26bdd294f5adabf438945e6781e}} 
+\index{additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}!noftypedamping@{noftypedamping}}
+\index{noftypedamping@{noftypedamping}!additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{noftypedamping}{noftypedamping}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structadditional__vars}{additional\+\_\+vars}}$<$ dim $>$\+::noftypedamping =\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{U\+I\+\_\+\+M\+AX}}}
+
+
+
+This variable stores the number of the ftype that damps/drags the system. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00366}{366}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structadditional__vars_a907dd4b8d94e3485b696f99829288fa5_a907dd4b8d94e3485b696f99829288fa5}\label{structadditional__vars_a907dd4b8d94e3485b696f99829288fa5_a907dd4b8d94e3485b696f99829288fa5}} 
+\index{additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}!noftypelangevin@{noftypelangevin}}
+\index{noftypelangevin@{noftypelangevin}!additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{noftypelangevin}{noftypelangevin}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structadditional__vars}{additional\+\_\+vars}}$<$ dim $>$\+::noftypelangevin =\mbox{\hyperlink{libmd_8h_a027c70e4468b8d7fb673dec474df6902_a027c70e4468b8d7fb673dec474df6902}{U\+I\+\_\+\+M\+AX}}}
+
+
+
+This variable stores the number of the ftype that adds temperature to the system. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00367}{367}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structadditional__vars_a506ad79285972d5e6b02906c14135dd9_a506ad79285972d5e6b02906c14135dd9}\label{structadditional__vars_a506ad79285972d5e6b02906c14135dd9_a506ad79285972d5e6b02906c14135dd9}} 
+\index{additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}!overdamped\_gamma@{overdamped\_gamma}}
+\index{overdamped\_gamma@{overdamped\_gamma}!additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{overdamped\_gamma}{overdamped\_gamma}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structadditional__vars}{additional\+\_\+vars}}$<$ dim $>$\+::overdamped\+\_\+gamma =1.\+0}
+
+
+
+This variable defines the damping coefficient $\gamma$ for overdamped dynamics. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00370}{370}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structadditional__vars_a6b73130bce799b8391300bf9abed0802_a6b73130bce799b8391300bf9abed0802}\label{structadditional__vars_a6b73130bce799b8391300bf9abed0802_a6b73130bce799b8391300bf9abed0802}} 
+\index{additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}!overdamped\_pre\_integrator@{overdamped\_pre\_integrator}}
+\index{overdamped\_pre\_integrator@{overdamped\_pre\_integrator}!additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{overdamped\_pre\_integrator}{overdamped\_pre\_integrator}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structadditional__vars}{additional\+\_\+vars}}$<$ dim $>$\+::overdamped\+\_\+pre\+\_\+integrator =\mbox{\hyperlink{struct_i_n_t_e_g_r_a_t_o_r_aca72c4b4e70e5554ba92d83a6ffa1fbc_aca72c4b4e70e5554ba92d83a6ffa1fbca35688bfab06ce41823fd436dd67bcd62}{I\+N\+T\+E\+G\+R\+A\+T\+O\+R\+::\+V\+V\+E\+R\+L\+ET}}}
+
+
+
+This variable stores the integrator used before the overdamped regime. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00371}{371}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structadditional__vars_ab53d6c7796a200cceb7ed63c4f7f2437_ab53d6c7796a200cceb7ed63c4f7f2437}\label{structadditional__vars_ab53d6c7796a200cceb7ed63c4f7f2437_ab53d6c7796a200cceb7ed63c4f7f2437}} 
+\index{additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}!reindex@{reindex}}
+\index{reindex@{reindex}!additional\_vars$<$ dim $>$@{additional\_vars$<$ dim $>$}}
+\doxysubsubsection{\texorpdfstring{reindex}{reindex}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+bool \mbox{\hyperlink{structadditional__vars}{additional\+\_\+vars}}$<$ dim $>$\+::reindex =true}
+
+
+
+This variable tells if the system needs to be reindexed. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00369}{369}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h}{libmd.\+h}}\end{DoxyCompactItemize}

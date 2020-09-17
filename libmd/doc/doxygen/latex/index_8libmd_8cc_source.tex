@@ -1,0 +1,55 @@
+\hypertarget{index_8libmd_8cc_source}{}\doxysection{index.\+libmd.\+cc}
+\label{index_8libmd_8cc_source}\index{libmd-\/src/index.libmd.cc@{libmd-\/src/index.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{index_8libmd_8cc_source_l00001}\mbox{\hyperlink{index_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{index_8libmd_8cc_source_l00006}\mbox{\hyperlink{structindexer_1_1celldatatype_a490bb487385297810ca59e5742519142_a490bb487385297810ca59e5742519142}{00006}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structindexer_1_1celldatatype_a490bb487385297810ca59e5742519142_a490bb487385297810ca59e5742519142}{indexer<dim>::celldatatype::celldatatype}}()}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00011     \mbox{\hyperlink{structindexer_1_1celldatatype_a2f91b9599af03b573c02e6bc33ffedd0_a2f91b9599af03b573c02e6bc33ffedd0}{IndexDelta}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00012     \mbox{\hyperlink{structindexer_1_1celldatatype_a88e1cc736deded093f4a16b8118ecd37_a88e1cc736deded093f4a16b8118ecd37}{Cells}}=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00013     \mbox{\hyperlink{structindexer_1_1celldatatype_a9d35dcc9fc6584348940a5e4bad421bc_a9d35dcc9fc6584348940a5e4bad421bc}{OutsideBox}}=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00014 \}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{\Hypertarget{index_8libmd_8cc_source_l00016}\mbox{\hyperlink{structindexer_1_1celldatatype_af5dcd221701aa2058bb63df67b5b4a49_af5dcd221701aa2058bb63df67b5b4a49}{00016}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structindexer_1_1celldatatype_af5dcd221701aa2058bb63df67b5b4a49_af5dcd221701aa2058bb63df67b5b4a49}{indexer<dim>::celldatatype::\string~celldatatype}}()}
+\DoxyCodeLine{00017 \{}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{if} (IndexDelta)}
+\DoxyCodeLine{00022     \{   \textcolor{keyword}{delete}[] IndexDelta;}
+\DoxyCodeLine{00023         \textcolor{keyword}{delete}[] Cells;}
+\DoxyCodeLine{00024         \textcolor{keyword}{delete}[] OutsideBox;}
+\DoxyCodeLine{00025     \}}
+\DoxyCodeLine{00026 \}}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{\Hypertarget{index_8libmd_8cc_source_l00028}\mbox{\hyperlink{structindexer_1_1kdtreedatatype_ae4995c650fa6bef502b173517bd6b566_ae4995c650fa6bef502b173517bd6b566}{00028}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structindexer_1_1kdtreedatatype_ae4995c650fa6bef502b173517bd6b566_ae4995c650fa6bef502b173517bd6b566}{indexer<dim>::kdtreedatatype::kdtreedatatype}}()}
+\DoxyCodeLine{00029 \{}
+\DoxyCodeLine{00033     Idx = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00034     Pmin = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00035     Pmax = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00036 \}}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{\Hypertarget{index_8libmd_8cc_source_l00038}\mbox{\hyperlink{structindexer_1_1kdtreedatatype_a10f515bf7660ba47f8c8b9b99dd67dde_a10f515bf7660ba47f8c8b9b99dd67dde}{00038}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structindexer_1_1kdtreedatatype_a10f515bf7660ba47f8c8b9b99dd67dde_a10f515bf7660ba47f8c8b9b99dd67dde}{indexer<dim>::kdtreedatatype::\string~kdtreedatatype}}()}
+\DoxyCodeLine{00039 \{}
+\DoxyCodeLine{00043     \textcolor{keywordflow}{if} (Idx)}
+\DoxyCodeLine{00044     \{   \textcolor{keyword}{delete}[] Idx;}
+\DoxyCodeLine{00045         \textcolor{keyword}{delete}[] Pmin;}
+\DoxyCodeLine{00046         \textcolor{keyword}{delete}[] Pmax;}
+\DoxyCodeLine{00047     \}}
+\DoxyCodeLine{00048 \}}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{\Hypertarget{index_8libmd_8cc_source_l00050}\mbox{\hyperlink{structindexer_a6e22728a0f3f78b2b16a8794fe6a8e6c_a6e22728a0f3f78b2b16a8794fe6a8e6c}{00050}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structindexer_a6e22728a0f3f78b2b16a8794fe6a8e6c_a6e22728a0f3f78b2b16a8794fe6a8e6c}{indexer<dim>::indexer}}()}
+\DoxyCodeLine{00051 \{}
+\DoxyCodeLine{00055     \mbox{\hyperlink{structindexer_acc5e1b4942d6cb935bfb179e7c4987d7_acc5e1b4942d6cb935bfb179e7c4987d7}{method}}=\mbox{\hyperlink{struct_i_n_d_e_x_a4ee2ed52ee6dd3e482fc53a8db54065f_a4ee2ed52ee6dd3e482fc53a8db54065fa486e0599b24dbb8e029fc21ed530ec97}{INDEX::CELL}};}
+\DoxyCodeLine{00056 \}}
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{\Hypertarget{index_8libmd_8cc_source_l00058}\mbox{\hyperlink{libmd_8h_a6f257685c4b7efdcedec109fa33cbcf1_a6f257685c4b7efdcedec109fa33cbcf1}{00058}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{index_8libmd_8cc_a6f257685c4b7efdcedec109fa33cbcf1_a6f257685c4b7efdcedec109fa33cbcf1}{dotprod}} (\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} A[], \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} B[])}
+\DoxyCodeLine{00059 \{}
+\DoxyCodeLine{00063     \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x = 0;}
+\DoxyCodeLine{00064     \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d = 0; d < dim; d++)}
+\DoxyCodeLine{00065         x += A[d]*B[d];}
+\DoxyCodeLine{00066     \textcolor{keywordflow}{return} x;}
+\DoxyCodeLine{00067 \}}
+
+\end{DoxyCode}

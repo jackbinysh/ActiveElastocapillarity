@@ -1,0 +1,130 @@
+\hypertarget{boundaryconditions_8libmd_8cc_source}{}\doxysection{boundaryconditions.\+libmd.\+cc}
+\label{boundaryconditions_8libmd_8cc_source}\index{libmd-\/src/boundaryconditions.libmd.cc@{libmd-\/src/boundaryconditions.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{boundaryconditions_8libmd_8cc_source_l00001}\mbox{\hyperlink{boundaryconditions_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{boundaryconditions_8libmd_8cc_source_l00006}\mbox{\hyperlink{libmd_8h_a125b8967bd2a122e454f6baa1268ee59_a125b8967bd2a122e454f6baa1268ee59}{00006}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{boundaryconditions_8libmd_8cc_a125b8967bd2a122e454f6baa1268ee59_a125b8967bd2a122e454f6baa1268ee59}{BCOND\_NONE}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00014     (void) d;}
+\DoxyCodeLine{00015     (void) i;}
+\DoxyCodeLine{00016     (void) sys;}
+\DoxyCodeLine{00017 \}}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{\Hypertarget{boundaryconditions_8libmd_8cc_source_l00019}\mbox{\hyperlink{libmd_8h_a97ae56c5ca0f92c083ef8fc369ade6a6_a97ae56c5ca0f92c083ef8fc369ade6a6}{00019}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{boundaryconditions_8libmd_8cc_a125b8967bd2a122e454f6baa1268ee59_a125b8967bd2a122e454f6baa1268ee59}{BCOND\_NONE}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim],\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00020 \{}
+\DoxyCodeLine{00027     (void) d;}
+\DoxyCodeLine{00028     (void) x;}
+\DoxyCodeLine{00029     (void) sys;}
+\DoxyCodeLine{00030 \}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{\Hypertarget{boundaryconditions_8libmd_8cc_source_l00032}\mbox{\hyperlink{libmd_8h_a3ce0157b0762adc9e1789ba0362b9041_a3ce0157b0762adc9e1789ba0362b9041}{00032}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{boundaryconditions_8libmd_8cc_a3ce0157b0762adc9e1789ba0362b9041_a3ce0157b0762adc9e1789ba0362b9041}{BCOND\_PERIODIC}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00033 \{}
+\DoxyCodeLine{00042     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} dx=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]*std::round(\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[d]/\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]);}
+\DoxyCodeLine{00043     \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].xp[d]-\/=dx;}
+\DoxyCodeLine{00044     \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[d]-\/=dx;}
+\DoxyCodeLine{00045 \}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{\Hypertarget{boundaryconditions_8libmd_8cc_source_l00047}\mbox{\hyperlink{libmd_8h_ad3106cf4919cc0df6111afd9315a32e6_ad3106cf4919cc0df6111afd9315a32e6}{00047}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{boundaryconditions_8libmd_8cc_a3ce0157b0762adc9e1789ba0362b9041_a3ce0157b0762adc9e1789ba0362b9041}{BCOND\_PERIODIC}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim],\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00057     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} dx=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]*std::round(x[d]/\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]);}
+\DoxyCodeLine{00058     x[d]-\/=dx;}
+\DoxyCodeLine{00059 \}}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{\Hypertarget{boundaryconditions_8libmd_8cc_source_l00061}\mbox{\hyperlink{libmd_8h_a2893f1abcebbd51fb9f4748ce2e97b7a_a2893f1abcebbd51fb9f4748ce2e97b7a}{00061}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{boundaryconditions_8libmd_8cc_a2893f1abcebbd51fb9f4748ce2e97b7a_a2893f1abcebbd51fb9f4748ce2e97b7a}{BCOND\_HARD}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00062 \{}
+\DoxyCodeLine{00077     \textcolor{keywordflow}{if} (\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.useLshear)}
+\DoxyCodeLine{00078     \{}
+\DoxyCodeLine{00079         \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} s=0;}
+\DoxyCodeLine{00080         \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++) s+=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.LshearInv[d][k]*\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[k];}
+\DoxyCodeLine{00081         if (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(s) > 0.5) \textcolor{comment}{// particle has hit the hard boundary as distorted by the shear}}
+\DoxyCodeLine{00082         \{}
+\DoxyCodeLine{00083             \textcolor{keywordflow}{if} (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(s) > 1.) \{ \mbox{\hyperlink{macros_8libmd_8h_a8d12d0f11fc9acd2f1fa22d80895ddae_a8d12d0f11fc9acd2f1fa22d80895ddae}{WARNING}}(\textcolor{stringliteral}{"dynamics led to particle displacement bigger than box size; hard boundary reflections undefined"}); \}}
+\DoxyCodeLine{00084             \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} nhat[dim];}
+\DoxyCodeLine{00085             \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} nlen=0.,vperp=0.,xperp=0.,x0perp;}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087             \textcolor{comment}{// the normal vector to the box boundary in dimension d is the dth row of LshearInv}}
+\DoxyCodeLine{00088             \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++) nlen += \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.LshearInv[d][k]*\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.LshearInv[d][k];}
+\DoxyCodeLine{00089             nlen = \mbox{\hyperlink{autodiff_8libmd_8cc_af33bda4d5a7fc8ad1679ec339a730045_af33bda4d5a7fc8ad1679ec339a730045}{sqrt}}(nlen);}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091             \textcolor{comment}{// projection of velocity and position perpendicular to boundary wall}}
+\DoxyCodeLine{00092             \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++) \{}
+\DoxyCodeLine{00093                 nhat[k] = \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.LshearInv[d][k]/nlen;}
+\DoxyCodeLine{00094                 vperp += nhat[k]*\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].dx[k];}
+\DoxyCodeLine{00095                 xperp += nhat[k]*\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[k];}
+\DoxyCodeLine{00096             \}}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098             x0perp = nhat[d]*\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.Lshear[d][d]*0.5*(s > 0.? 1.:-\/1.);}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100             \textcolor{comment}{// subtract perpendicular component twice to get reflected velocity}}
+\DoxyCodeLine{00101             \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++)}
+\DoxyCodeLine{00102             \{}
+\DoxyCodeLine{00103                 \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].dx[k] -\/= 2.0*vperp*nhat[k];}
+\DoxyCodeLine{00104                 \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[k] -\/= 2.0*(xperp-\/x0perp)*nhat[k]; \textcolor{comment}{// reflection about a plane passing through point set by x0perp}}
+\DoxyCodeLine{00105                 \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].xp[k] += 2.0*(xperp-\/x0perp)*nhat[k];}
+\DoxyCodeLine{00106             \}}
+\DoxyCodeLine{00107         \}}
+\DoxyCodeLine{00108     \}}
+\DoxyCodeLine{00109     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00110     \{}
+\DoxyCodeLine{00111         \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} xnew=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]*(\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[d]/\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]+0.5-\/2.0*floor(\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[d]/(2.0*\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d])+0.75))-\/0.5);}
+\DoxyCodeLine{00112         \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} sign=(((int)std::round(\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[d]/\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]))\%2?-\/1.0:1.0);}
+\DoxyCodeLine{00113         \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].xp[d]+=sign*(xnew-\/\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[d]);}
+\DoxyCodeLine{00114         \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[d]=xnew;}
+\DoxyCodeLine{00115         \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].dx[d]*=sign;}
+\DoxyCodeLine{00116     \}}
+\DoxyCodeLine{00117 \}}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{\Hypertarget{boundaryconditions_8libmd_8cc_source_l00119}\mbox{\hyperlink{libmd_8h_ad7ccf55e9e770d9f0e222c8c4374adde_ad7ccf55e9e770d9f0e222c8c4374adde}{00119}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{boundaryconditions_8libmd_8cc_a2893f1abcebbd51fb9f4748ce2e97b7a_a2893f1abcebbd51fb9f4748ce2e97b7a}{BCOND\_HARD}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim],\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00120 \{}
+\DoxyCodeLine{00134     \textcolor{keywordflow}{if} (\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.useLshear)}
+\DoxyCodeLine{00135     \{}
+\DoxyCodeLine{00136         \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} s=0;}
+\DoxyCodeLine{00137         \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++) s+=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.LshearInv[d][k]*x[k];}
+\DoxyCodeLine{00138         if (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(s) > 0.5) \textcolor{comment}{// particle has hit the hard boundary as distorted by the shear}}
+\DoxyCodeLine{00139         \{}
+\DoxyCodeLine{00140             \textcolor{keywordflow}{if} (\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(s) > 1.) \{ \mbox{\hyperlink{macros_8libmd_8h_a8d12d0f11fc9acd2f1fa22d80895ddae_a8d12d0f11fc9acd2f1fa22d80895ddae}{WARNING}}(\textcolor{stringliteral}{"dynamics led to particle displacement bigger than box size; hard boundary reflections undefined"}); \}}
+\DoxyCodeLine{00141             \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} nhat[dim];}
+\DoxyCodeLine{00142             \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} nlen=0.,xperp=0.,x0perp;}
+\DoxyCodeLine{00143             \textcolor{comment}{// the normal vector to the box boundary in dimension d is the dth row of LshearInv}}
+\DoxyCodeLine{00144             \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++) nlen += \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.LshearInv[d][k]*\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.LshearInv[d][k];}
+\DoxyCodeLine{00145             nlen = \mbox{\hyperlink{autodiff_8libmd_8cc_af33bda4d5a7fc8ad1679ec339a730045_af33bda4d5a7fc8ad1679ec339a730045}{sqrt}}(nlen);}
+\DoxyCodeLine{00146             \textcolor{comment}{// projection of velocity and position perpendicular to boundary wall}}
+\DoxyCodeLine{00147             \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++) \{}
+\DoxyCodeLine{00148                 nhat[k] = \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.LshearInv[d][k]/nlen;}
+\DoxyCodeLine{00149                 xperp += nhat[k]*x[k];}
+\DoxyCodeLine{00150             \}}
+\DoxyCodeLine{00151             x0perp = nhat[d]*\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.Lshear[d][d]*0.5*(s > 0.? 1.:-\/1.);}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153             \textcolor{comment}{// subtract perpendicular component twice to get reflected velocity}}
+\DoxyCodeLine{00154             \textcolor{keywordflow}{for} (\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++) x[k] -\/= 2.0*(xperp-\/x0perp)*nhat[k]; \textcolor{comment}{// reflection about a plane passing through point set by x0perp}}
+\DoxyCodeLine{00155         \}}
+\DoxyCodeLine{00156     \}}
+\DoxyCodeLine{00157     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00158     \{}
+\DoxyCodeLine{00159         \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} xnew=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]*(\mbox{\hyperlink{autodiff_8libmd_8cc_aef1f4db2bbc91c997fdc24226ea63d52_aef1f4db2bbc91c997fdc24226ea63d52}{std::abs}}(x[d]/\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]+0.5-\/2.0*floor(x[d]/(2.0*\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d])+0.75))-\/0.5);}
+\DoxyCodeLine{00160         x[d]=xnew;}
+\DoxyCodeLine{00161     \}}
+\DoxyCodeLine{00162 \}}
+\DoxyCodeLine{00163 }
+\DoxyCodeLine{\Hypertarget{boundaryconditions_8libmd_8cc_source_l00164}\mbox{\hyperlink{libmd_8h_af498e0276167e137bfc61a7d8b8f1da6_af498e0276167e137bfc61a7d8b8f1da6}{00164}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{boundaryconditions_8libmd_8cc_af498e0276167e137bfc61a7d8b8f1da6_af498e0276167e137bfc61a7d8b8f1da6}{BCOND\_BOXSHEAR}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00165 \{}
+\DoxyCodeLine{00175     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} boundaryCrossing=std::round(\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[d]/\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]);}
+\DoxyCodeLine{00176     \textcolor{keywordflow}{if}((\textcolor{keywordtype}{int})boundaryCrossing) \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++)}
+\DoxyCodeLine{00177     \{}
+\DoxyCodeLine{00178         \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].x[k]-\/=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.Lshear[k][d]*boundaryCrossing;}
+\DoxyCodeLine{00179         \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].xp[k]-\/=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.Lshear[k][d]*boundaryCrossing;}
+\DoxyCodeLine{00180         \mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>particles[i].dx[k]-\/=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.vshear[k][d]*boundaryCrossing;}
+\DoxyCodeLine{00181     \}}
+\DoxyCodeLine{00182 \}}
+\DoxyCodeLine{00183 }
+\DoxyCodeLine{\Hypertarget{boundaryconditions_8libmd_8cc_source_l00184}\mbox{\hyperlink{libmd_8h_a376c47134fbeb6fa1280dd1a7ee013e6_a376c47134fbeb6fa1280dd1a7ee013e6}{00184}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{boundaryconditions_8libmd_8cc_af498e0276167e137bfc61a7d8b8f1da6_af498e0276167e137bfc61a7d8b8f1da6}{BCOND\_BOXSHEAR}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim],\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00185 \{}
+\DoxyCodeLine{00195     \textcolor{keyword}{const} \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} boundaryCrossing=std::round(x[d]/\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.L[d]);}
+\DoxyCodeLine{00196     \textcolor{keywordflow}{if}((\textcolor{keywordtype}{int})boundaryCrossing) \textcolor{keywordflow}{for}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k=0;k<dim;k++) x[k]-\/=\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.Lshear[k][d]*boundaryCrossing;}
+\DoxyCodeLine{00197 \}}
+
+\end{DoxyCode}

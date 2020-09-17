@@ -1,0 +1,81 @@
+.TH "t_hook< dim >" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+t_hook< dim > \- This structure is the hook launchpad\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBui\fP \fBadd\fP (\fBhookptr\fP< dim > p)"
+.br
+.RI "Add an element to the hook pointer vector\&. "
+.ti -1c
+.RI "void \fBoperator()\fP (\fBui\fP idx, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Run a hook by calling the hookpointer\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< \fBhookptr\fP< dim > > \fBhooks\fP"
+.br
+.RI "Vector containing pointer to all the hooks\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<ui dim>
+.br
+struct t_hook< dim >"
+This structure is the hook launchpad\&. 
+.PP
+Definition at line 327 of file libmd\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<ui dim> \fBui\fP \fBt_hook\fP< dim >::add (\fBhookptr\fP< dim > p)"
+
+.PP
+Add an element to the hook pointer vector\&. This function allows the user to add an userdefined hook which is pointed at by \fCp\fP\&.
+.PP
+Definition at line 6 of file hooks\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+11     hooks\&.push_back(p);
+12     return hooks\&.size()-1;
+13 }
+.fi
+.SS "template<ui dim> void \fBt_hook\fP< dim >::operator() (\fBui\fP idx, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Run a hook by calling the hookpointer\&. This function calculates a certain hook \fChooks[idx]\fP 
+.br
+ The sys pointer is typically a void pointer to the md or mpmd system (which is cast back by using the macro SYS)\&.
+.PP
+Definition at line 15 of file hooks\&.libmd\&.cc\&.
+.PP
+.nf
+16 {
+21     hooks[idx](parameters,sys);
+22 }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "template<ui dim> std::vector<\fBhookptr\fP<dim> > \fBt_hook\fP< dim >::hooks"
+
+.PP
+Vector containing pointer to all the hooks\&. 
+.PP
+Definition at line 329 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

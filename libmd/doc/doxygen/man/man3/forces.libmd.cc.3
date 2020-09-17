@@ -1,0 +1,179 @@
+.TH "libmd-src/forces.libmd.cc" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libmd-src/forces.libmd.cc
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./libmd\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__libmd_src_file__\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<ui dim> void \fBnoise_gen\fP (\fBldf\fP noise[dim], \fBui\fP seed)"
+.br
+.RI "Fill an array with Gaussian distributed random variables ( $\mu=0$, $\sigma=1$) "
+.ti -1c
+.RI "template<ui dim> void \fBDAMPING\fP (\fBui\fP i, std::vector< \fBui\fP > &particles, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Damping external force functions\&. "
+.ti -1c
+.RI "template<ui dim> void \fBDISSIPATION\fP (\fBui\fP i, std::vector< \fBui\fP > &particles, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Dissipation external force functions\&. "
+.ti -1c
+.RI "template<ui dim> void \fBLANGEVIN\fP (\fBui\fP i, std::vector< \fBui\fP > &particles, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Thermal noise external force functions\&. "
+.ti -1c
+.RI "template<ui dim> void \fBLANGEVIN_MP\fP (\fBui\fP i, std::vector< \fBui\fP > &particles, std::vector< \fBldf\fP > &parameters, void *sys)"
+.br
+.RI "Thermal noise with curvature external force functions\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __libmd_src_file__"
+
+.PP
+Definition at line 1 of file forces\&.libmd\&.cc\&.
+.SH "Function Documentation"
+.PP 
+.SS "template<ui dim> void DAMPING (\fBui\fP i, std::vector< \fBui\fP > & particles, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Damping external force functions\&. This external damping force takes the form: \[F^{\mu}_{\text{DAMPING}}(\dot{x}^{\mu})=-\gamma \dot{x}^{\mu}\] 
+.br
+ This function depends on one parameter: 
+.PD 0
+
+.IP "\(bu" 2
+the damping constant $\gamma$  
+.PP
+
+.PP
+Definition at line 21 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+22 {
+31     (void) particles;
+32     ldf gamma=parameters[0];
+33     for(ui d=0;d<dim;d++) SYS->particles[i]\&.F[d]-=gamma*SYS->particles[i]\&.dx[d];
+34 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void DISSIPATION (\fBui\fP i, std::vector< \fBui\fP > & particles, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Dissipation external force functions\&. This external dissipation force takes the form: \[F^{\mu}_{\text{DISSIPATION}}(\dot{x}^{\mu})=b \dot{x}_j^{\mu} - \dot{x}_i^{\mu}\] 
+.br
+ Here the \fCj\fPth particle is given in the particles std::vector
+.br
+ This function depends on one parameter: 
+.PD 0
+
+.IP "\(bu" 2
+the damping constant $b$  
+.PP
+
+.PP
+Definition at line 36 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+37 {
+47     ldf b=parameters[0];
+48     for(auto it: particles) for(ui d=0;d<dim;d++) SYS->particles[i]\&.F[d]+=b*(SYS->dv(d,i,it));
+49 }
+.fi
+.PP
+References SYS\&.
+.SS "template<ui dim> void LANGEVIN (\fBui\fP i, std::vector< \fBui\fP > & particles, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Thermal noise external force functions\&. This external Langevin force takes the form: \[F^{\mu}_{\text{LANGEVIN}}(\dot{x}^{\mu})=\sqrt{\left(2 \gamma k_B T\right)} \hat{\xi}(t)\] 
+.br
+ This function depends on one parameter: 
+.PD 0
+
+.IP "\(bu" 2
+the temperature $k_B T$  
+.IP "\(bu" 2
+the damping constant $\gamma$  
+.PP
+
+.PP
+Definition at line 51 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+52 {
+62     (void) particles;
+63     const ldf KbT=parameters[0];
+64     const ldf gamma=parameters[1];
+65     const ldf factor=sqrt(2\&.0*gamma*KbT/SYS->integrator\&.h);
+66     ldf noise[dim];
+67     noise_gen<dim>(noise);
+68     for(ui d=0;d<dim;d++) SYS->particles[i]\&.F[d]+=factor*noise[d];
+69 }
+.fi
+.PP
+References sqrt(), and SYS\&.
+.SS "template<ui dim> void LANGEVIN_MP (\fBui\fP i, std::vector< \fBui\fP > & particles, std::vector< \fBldf\fP > & parameters, void * sys)"
+
+.PP
+Thermal noise with curvature external force functions\&. This external Langevin force takes the form: \[F^{\mu}_{\text{LANGEVIN}}(\dot{x}^{\mu})=\sqrt{\left(2 \gamma k_B T\right)} \hat{\xi}(t)\] 
+.br
+ This function depends on one parameter: 
+.PD 0
+
+.IP "\(bu" 2
+the temperature $k_B T$  
+.IP "\(bu" 2
+the damping constant $\gamma$  
+.PP
+
+.PP
+Definition at line 72 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+73 {
+83     (void) particles;
+84     const ldf KbT=parameters[0];
+85     const ldf gamma=parameters[1];
+86     const ldf factor=sqrt(2\&.0*gamma*KbT/SYS->integrator\&.h);
+87     ldf noise[dim],metric_noise[dim]={};
+88     noise_gen<dim>(noise);
+89     for(ui mu=0;mu<dim;mu++) for(ui nu=0;nu<dim;nu++) metric_noise[mu]+=MP_SYS->patch\&.sqrt_ginv(i,mu,nu)*noise[nu];
+90     for(ui d=0;d<dim;d++) SYS->particles[i]\&.F[d]+=factor*metric_noise[d];
+91 }
+.fi
+.PP
+References MP_SYS, sqrt(), and SYS\&.
+.SS "template<ui dim> void noise_gen (\fBldf\fP noise[dim], \fBui\fP seed)"
+
+.PP
+Fill an array with Gaussian distributed random variables ( $\mu=0$, $\sigma=1$) This function fills \fCnoise[dim]\fP with random Gaussian variables (provided \fCnoise[dim]\fP exists)\&. The seed can be set by the second argument \fCseed\fP which has default value 0U (which is neglected) To set the seed call \fCnoise_gen<dim>(nullptr,seed)\fP By the default the seed is randomly set by the random device
+.PP
+Definition at line 6 of file forces\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+14     static std::random_device rd;
+15     static std::mt19937 mt(rd());
+16     static std::normal_distribution<ldf> normal(0\&.0,1\&.0);
+17     if(seed) mt\&.seed(seed);
+18     if(noise) for(ui d=0;d<dim;d++) noise[d]=normal(mt);
+19 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

@@ -1,0 +1,9 @@
+digraph "t_error"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{t_error\n|+ term_level\l+ error_file\l+ warning_file\l+ debug_1_file\l+ debug_2_file\l+ debug_3_file\l+ debug_timer_file\l|+ t_error()\l+ ~t_error()\l+ set_error_file()\l+ set_warning_file()\l+ set_debug_1_file()\l+ set_debug_2_file()\l+ set_debug_3_file()\l+ set_debug_timer_file()\l+ print_error()\l+ print_warning()\l+ print_debug_1()\l+ print_debug_2()\l+ print_debug_3()\l+ print_debug_timer()\l+ terminate()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This structure handles errors/warnings/debug levels."];
+}

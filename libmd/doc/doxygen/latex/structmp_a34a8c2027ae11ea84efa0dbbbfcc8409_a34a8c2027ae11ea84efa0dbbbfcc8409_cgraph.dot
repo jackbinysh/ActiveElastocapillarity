@@ -1,0 +1,12 @@
+digraph "mp::gp"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="mp::gp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Monge patch metric tensor."];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid"];
+  Node2 [label="kdelta",height=0.2,width=0.4,color="black",URL="$mongepatches_8libmd_8cc_ae7f557e30beb3ab5663c7560989a9e8d.html#ae7f557e30beb3ab5663c7560989a9e8d",tooltip="Kronecker delta function."];
+}

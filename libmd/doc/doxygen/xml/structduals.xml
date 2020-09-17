@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structduals" kind="struct" language="C++" prot="public">
+    <compoundname>duals</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structduals_af609d1d502f4673b396b9722fbd4ba70_1af609d1d502f4673b396b9722fbd4ba70" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf duals&lt; dim &gt;::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>Function value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="577" column="9" bodyfile="libmd.h" bodystart="577" bodyend="-1"/>
+        <referencedby refid="structduals_a280562eb789f97395e5520380a44e340_1a280562eb789f97395e5520380a44e340" compoundref="autodiff2_8libmd_8cc" startline="38" endline="47">duals&lt; dim &gt;::operator=</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a7c33468652751ef3254fc0d07693b9a3_1a7c33468652751ef3254fc0d07693b9a3" compoundref="autodiff2_8libmd_8cc" startline="68" endline="71">operator==</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a7713d3f4d97a793b7bd2896faf1e78ad_1a7713d3f4d97a793b7bd2896faf1e78ad" compoundref="autodiff2_8libmd_8cc" startline="73" endline="76">operator!=</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ac92aef0e3dd7d7e795139c8fc57a9159_1ac92aef0e3dd7d7e795139c8fc57a9159" compoundref="autodiff2_8libmd_8cc" startline="78" endline="81">operator&lt;=</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_aa836cf8885d70c6b6c55016b8b45bca1_1aa836cf8885d70c6b6c55016b8b45bca1" compoundref="autodiff2_8libmd_8cc" startline="83" endline="86">operator&gt;=</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a2b5a00837b8ca239c747ab319c1fbc28_1a2b5a00837b8ca239c747ab319c1fbc28" compoundref="autodiff2_8libmd_8cc" startline="88" endline="91">operator&lt;</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_aae728b37711e2addad5824172779d2e4_1aae728b37711e2addad5824172779d2e4" compoundref="autodiff2_8libmd_8cc" startline="93" endline="96">operator&gt;</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ae8e8da74e9b68475e6e1f695a41376fc_1ae8e8da74e9b68475e6e1f695a41376fc" compoundref="autodiff2_8libmd_8cc" startline="166" endline="175">operator+</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a6f74cf3ff0bcb599a477a8df331d9e45_1a6f74cf3ff0bcb599a477a8df331d9e45" compoundref="autodiff2_8libmd_8cc" startline="177" endline="186">operator-</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a236a2ac3e5ba9298a1268e8bc2f8ca14_1a236a2ac3e5ba9298a1268e8bc2f8ca14" compoundref="autodiff2_8libmd_8cc" startline="188" endline="197">operator*</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a314d45d470d0886f331ce23d8ee6c608_1a314d45d470d0886f331ce23d8ee6c608" compoundref="autodiff2_8libmd_8cc" startline="199" endline="209">operator/</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_aeacff147fa4ff819f0c2746a68440b84_1aeacff147fa4ff819f0c2746a68440b84" compoundref="autodiff2_8libmd_8cc" startline="295" endline="299">operator+=</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a95b5c01288d402501b3bd4ee4e275932_1a95b5c01288d402501b3bd4ee4e275932" compoundref="autodiff2_8libmd_8cc" startline="301" endline="305">operator-=</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a23c702b1c84c5e7802e4cbbec9adf8f3_1a23c702b1c84c5e7802e4cbbec9adf8f3" compoundref="autodiff2_8libmd_8cc" startline="320" endline="330">sqrt</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a6e8c84f1707cd26d96553b6f49556ee1_1a6e8c84f1707cd26d96553b6f49556ee1" compoundref="autodiff2_8libmd_8cc" startline="332" endline="342">pow</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_afad14878ad3fae669c4753da766d8c41_1afad14878ad3fae669c4753da766d8c41" compoundref="autodiff2_8libmd_8cc" startline="344" endline="354">exp</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a2d6fafc4be5268548f5e8c0b9e427369_1a2d6fafc4be5268548f5e8c0b9e427369" compoundref="autodiff2_8libmd_8cc" startline="380" endline="390">log</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a183a3c87e7b9ca9690a87752daec44ca_1a183a3c87e7b9ca9690a87752daec44ca" compoundref="autodiff2_8libmd_8cc" startline="392" endline="402">sin</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ad6f2b141874ce8030478040b80d62c27_1ad6f2b141874ce8030478040b80d62c27" compoundref="autodiff2_8libmd_8cc" startline="404" endline="414">cos</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a1aa9165cb6c78149ee8382f13fcad3f4_1a1aa9165cb6c78149ee8382f13fcad3f4" compoundref="autodiff2_8libmd_8cc" startline="416" endline="426">tan</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a78df6b014a019a6a2086deac6ea61ee6_1a78df6b014a019a6a2086deac6ea61ee6" compoundref="autodiff2_8libmd_8cc" startline="428" endline="438">sinh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_adf09f68c00e466a4d5121e5206a0ad6a_1adf09f68c00e466a4d5121e5206a0ad6a" compoundref="autodiff2_8libmd_8cc" startline="440" endline="450">cosh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a74becbd03d0abf56d560897208dfaf2d_1a74becbd03d0abf56d560897208dfaf2d" compoundref="autodiff2_8libmd_8cc" startline="452" endline="462">tanh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ab08e88b35f0ae1885dde6a2177165447_1ab08e88b35f0ae1885dde6a2177165447" compoundref="autodiff2_8libmd_8cc" startline="464" endline="474">asin</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a3613ffcafbd69764d1f93ae49da9a4c0_1a3613ffcafbd69764d1f93ae49da9a4c0" compoundref="autodiff2_8libmd_8cc" startline="476" endline="486">acos</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ad34613b1a8f004357cbb88f9ff837d40_1ad34613b1a8f004357cbb88f9ff837d40" compoundref="autodiff2_8libmd_8cc" startline="488" endline="498">atan</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a3e432d0e6ac48dfb205d37b633f198bf_1a3e432d0e6ac48dfb205d37b633f198bf" compoundref="autodiff2_8libmd_8cc" startline="500" endline="510">asinh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_af8fec088264d729bd68f3d5ae136a2e5_1af8fec088264d729bd68f3d5ae136a2e5" compoundref="autodiff2_8libmd_8cc" startline="512" endline="522">acosh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_af2eaeb0fa9e54fd7b35087f34787fccc_1af2eaeb0fa9e54fd7b35087f34787fccc" compoundref="autodiff2_8libmd_8cc" startline="524" endline="534">atanh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a6efeb0b6ee5d74a0df81e0fb154b5b9e_1a6efeb0b6ee5d74a0df81e0fb154b5b9e" compoundref="autodiff2_8libmd_8cc" startline="536" endline="539">abs</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structduals_a32ab27f54ca10418d9c8faecae56da0b_1a32ab27f54ca10418d9c8faecae56da0b" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf duals&lt; dim &gt;::dx[dim]</definition>
+        <argsstring>[dim]</argsstring>
+        <name>dx</name>
+        <briefdescription>
+<para>First derivatives. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="578" column="9" bodyfile="libmd.h" bodystart="578" bodyend="-1"/>
+        <referencedby refid="structduals_a280562eb789f97395e5520380a44e340_1a280562eb789f97395e5520380a44e340" compoundref="autodiff2_8libmd_8cc" startline="38" endline="47">duals&lt; dim &gt;::operator=</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ae8e8da74e9b68475e6e1f695a41376fc_1ae8e8da74e9b68475e6e1f695a41376fc" compoundref="autodiff2_8libmd_8cc" startline="166" endline="175">operator+</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a6f74cf3ff0bcb599a477a8df331d9e45_1a6f74cf3ff0bcb599a477a8df331d9e45" compoundref="autodiff2_8libmd_8cc" startline="177" endline="186">operator-</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a236a2ac3e5ba9298a1268e8bc2f8ca14_1a236a2ac3e5ba9298a1268e8bc2f8ca14" compoundref="autodiff2_8libmd_8cc" startline="188" endline="197">operator*</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a314d45d470d0886f331ce23d8ee6c608_1a314d45d470d0886f331ce23d8ee6c608" compoundref="autodiff2_8libmd_8cc" startline="199" endline="209">operator/</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a23c702b1c84c5e7802e4cbbec9adf8f3_1a23c702b1c84c5e7802e4cbbec9adf8f3" compoundref="autodiff2_8libmd_8cc" startline="320" endline="330">sqrt</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a6e8c84f1707cd26d96553b6f49556ee1_1a6e8c84f1707cd26d96553b6f49556ee1" compoundref="autodiff2_8libmd_8cc" startline="332" endline="342">pow</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_afad14878ad3fae669c4753da766d8c41_1afad14878ad3fae669c4753da766d8c41" compoundref="autodiff2_8libmd_8cc" startline="344" endline="354">exp</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a2d6fafc4be5268548f5e8c0b9e427369_1a2d6fafc4be5268548f5e8c0b9e427369" compoundref="autodiff2_8libmd_8cc" startline="380" endline="390">log</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a183a3c87e7b9ca9690a87752daec44ca_1a183a3c87e7b9ca9690a87752daec44ca" compoundref="autodiff2_8libmd_8cc" startline="392" endline="402">sin</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ad6f2b141874ce8030478040b80d62c27_1ad6f2b141874ce8030478040b80d62c27" compoundref="autodiff2_8libmd_8cc" startline="404" endline="414">cos</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a1aa9165cb6c78149ee8382f13fcad3f4_1a1aa9165cb6c78149ee8382f13fcad3f4" compoundref="autodiff2_8libmd_8cc" startline="416" endline="426">tan</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a78df6b014a019a6a2086deac6ea61ee6_1a78df6b014a019a6a2086deac6ea61ee6" compoundref="autodiff2_8libmd_8cc" startline="428" endline="438">sinh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_adf09f68c00e466a4d5121e5206a0ad6a_1adf09f68c00e466a4d5121e5206a0ad6a" compoundref="autodiff2_8libmd_8cc" startline="440" endline="450">cosh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a74becbd03d0abf56d560897208dfaf2d_1a74becbd03d0abf56d560897208dfaf2d" compoundref="autodiff2_8libmd_8cc" startline="452" endline="462">tanh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ab08e88b35f0ae1885dde6a2177165447_1ab08e88b35f0ae1885dde6a2177165447" compoundref="autodiff2_8libmd_8cc" startline="464" endline="474">asin</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a3613ffcafbd69764d1f93ae49da9a4c0_1a3613ffcafbd69764d1f93ae49da9a4c0" compoundref="autodiff2_8libmd_8cc" startline="476" endline="486">acos</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ad34613b1a8f004357cbb88f9ff837d40_1ad34613b1a8f004357cbb88f9ff837d40" compoundref="autodiff2_8libmd_8cc" startline="488" endline="498">atan</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a3e432d0e6ac48dfb205d37b633f198bf_1a3e432d0e6ac48dfb205d37b633f198bf" compoundref="autodiff2_8libmd_8cc" startline="500" endline="510">asinh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_af8fec088264d729bd68f3d5ae136a2e5_1af8fec088264d729bd68f3d5ae136a2e5" compoundref="autodiff2_8libmd_8cc" startline="512" endline="522">acosh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_af2eaeb0fa9e54fd7b35087f34787fccc_1af2eaeb0fa9e54fd7b35087f34787fccc" compoundref="autodiff2_8libmd_8cc" startline="524" endline="534">atanh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structduals_abd330d764f43b6d008479d6d2b2d6c23_1abd330d764f43b6d008479d6d2b2d6c23" prot="public" static="no" mutable="no">
+        <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+        <definition>ldf duals&lt; dim &gt;::dxdy[dim][dim]</definition>
+        <argsstring>[dim][dim]</argsstring>
+        <name>dxdy</name>
+        <briefdescription>
+<para>Second derivatives. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="579" column="9" bodyfile="libmd.h" bodystart="579" bodyend="-1"/>
+        <referencedby refid="structduals_a280562eb789f97395e5520380a44e340_1a280562eb789f97395e5520380a44e340" compoundref="autodiff2_8libmd_8cc" startline="38" endline="47">duals&lt; dim &gt;::operator=</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ae8e8da74e9b68475e6e1f695a41376fc_1ae8e8da74e9b68475e6e1f695a41376fc" compoundref="autodiff2_8libmd_8cc" startline="166" endline="175">operator+</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a6f74cf3ff0bcb599a477a8df331d9e45_1a6f74cf3ff0bcb599a477a8df331d9e45" compoundref="autodiff2_8libmd_8cc" startline="177" endline="186">operator-</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a236a2ac3e5ba9298a1268e8bc2f8ca14_1a236a2ac3e5ba9298a1268e8bc2f8ca14" compoundref="autodiff2_8libmd_8cc" startline="188" endline="197">operator*</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a314d45d470d0886f331ce23d8ee6c608_1a314d45d470d0886f331ce23d8ee6c608" compoundref="autodiff2_8libmd_8cc" startline="199" endline="209">operator/</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a23c702b1c84c5e7802e4cbbec9adf8f3_1a23c702b1c84c5e7802e4cbbec9adf8f3" compoundref="autodiff2_8libmd_8cc" startline="320" endline="330">sqrt</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a6e8c84f1707cd26d96553b6f49556ee1_1a6e8c84f1707cd26d96553b6f49556ee1" compoundref="autodiff2_8libmd_8cc" startline="332" endline="342">pow</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_afad14878ad3fae669c4753da766d8c41_1afad14878ad3fae669c4753da766d8c41" compoundref="autodiff2_8libmd_8cc" startline="344" endline="354">exp</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a2d6fafc4be5268548f5e8c0b9e427369_1a2d6fafc4be5268548f5e8c0b9e427369" compoundref="autodiff2_8libmd_8cc" startline="380" endline="390">log</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a183a3c87e7b9ca9690a87752daec44ca_1a183a3c87e7b9ca9690a87752daec44ca" compoundref="autodiff2_8libmd_8cc" startline="392" endline="402">sin</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ad6f2b141874ce8030478040b80d62c27_1ad6f2b141874ce8030478040b80d62c27" compoundref="autodiff2_8libmd_8cc" startline="404" endline="414">cos</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a1aa9165cb6c78149ee8382f13fcad3f4_1a1aa9165cb6c78149ee8382f13fcad3f4" compoundref="autodiff2_8libmd_8cc" startline="416" endline="426">tan</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a78df6b014a019a6a2086deac6ea61ee6_1a78df6b014a019a6a2086deac6ea61ee6" compoundref="autodiff2_8libmd_8cc" startline="428" endline="438">sinh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_adf09f68c00e466a4d5121e5206a0ad6a_1adf09f68c00e466a4d5121e5206a0ad6a" compoundref="autodiff2_8libmd_8cc" startline="440" endline="450">cosh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a74becbd03d0abf56d560897208dfaf2d_1a74becbd03d0abf56d560897208dfaf2d" compoundref="autodiff2_8libmd_8cc" startline="452" endline="462">tanh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ab08e88b35f0ae1885dde6a2177165447_1ab08e88b35f0ae1885dde6a2177165447" compoundref="autodiff2_8libmd_8cc" startline="464" endline="474">asin</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a3613ffcafbd69764d1f93ae49da9a4c0_1a3613ffcafbd69764d1f93ae49da9a4c0" compoundref="autodiff2_8libmd_8cc" startline="476" endline="486">acos</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_ad34613b1a8f004357cbb88f9ff837d40_1ad34613b1a8f004357cbb88f9ff837d40" compoundref="autodiff2_8libmd_8cc" startline="488" endline="498">atan</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_a3e432d0e6ac48dfb205d37b633f198bf_1a3e432d0e6ac48dfb205d37b633f198bf" compoundref="autodiff2_8libmd_8cc" startline="500" endline="510">asinh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_af8fec088264d729bd68f3d5ae136a2e5_1af8fec088264d729bd68f3d5ae136a2e5" compoundref="autodiff2_8libmd_8cc" startline="512" endline="522">acosh</referencedby>
+        <referencedby refid="autodiff2_8libmd_8cc_af2eaeb0fa9e54fd7b35087f34787fccc_1af2eaeb0fa9e54fd7b35087f34787fccc" compoundref="autodiff2_8libmd_8cc" startline="524" endline="534">atanh</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structduals_a38aca421eabfa2ece4e90f4842e1a070_1a38aca421eabfa2ece4e90f4842e1a070" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>duals&lt; dim &gt;::duals</definition>
+        <argsstring>()</argsstring>
+        <name>duals</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Default constructor for duals, does nothing.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="581" column="5" bodyfile="libmd-src/autodiff2.libmd.cc" bodystart="6" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="structduals_afedb005dbc6c9c13fedef8d345f89af0_1afedb005dbc6c9c13fedef8d345f89af0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>duals&lt; dim &gt;::duals</definition>
+        <argsstring>(ldf a)</argsstring>
+        <name>duals</name>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Constructor for duals, sets value (<computeroutput>x</computeroutput>) to <computeroutput>a</computeroutput> and derivatives to 0.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="582" column="5" bodyfile="libmd-src/autodiff2.libmd.cc" bodystart="13" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structduals_af27e460ea795b5402aa24fbc71ed9dcf_1af27e460ea795b5402aa24fbc71ed9dcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>duals&lt; dim &gt;::duals</definition>
+        <argsstring>(ldf a, ui i)</argsstring>
+        <name>duals</name>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Constructor for duals, sets value (<computeroutput>x</computeroutput>) to <computeroutput>a</computeroutput> and derivatives to 0, with the exception of the derivative with respect to <computeroutput>x[i]</computeroutput>, which is set to 1.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="583" column="5" bodyfile="libmd-src/autodiff2.libmd.cc" bodystart="23" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structduals_a280562eb789f97395e5520380a44e340_1a280562eb789f97395e5520380a44e340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structduals" kindref="compound">duals</ref>&lt; dim &gt;</type>
+        <definition>duals&lt; dim &gt; duals&lt; dim &gt;::operator=</definition>
+        <argsstring>(duals&lt; dim &gt; a)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structduals" kindref="compound">duals</ref>&lt; dim &gt;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Assign operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Copies <computeroutput>G</computeroutput> to <computeroutput>this</computeroutput> and returns <computeroutput>*this</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="585" column="11" bodyfile="libmd-src/autodiff2.libmd.cc" bodystart="38" bodyend="47"/>
+        <references refid="structduals_a32ab27f54ca10418d9c8faecae56da0b_1a32ab27f54ca10418d9c8faecae56da0b" compoundref="libmd_8h" startline="578">duals&lt; dim &gt;::dx</references>
+        <references refid="structduals_abd330d764f43b6d008479d6d2b2d6c23_1abd330d764f43b6d008479d6d2b2d6c23" compoundref="libmd_8h" startline="579">duals&lt; dim &gt;::dxdy</references>
+        <references refid="structduals_af609d1d502f4673b396b9722fbd4ba70_1af609d1d502f4673b396b9722fbd4ba70" compoundref="libmd_8h" startline="577">duals&lt; dim &gt;::x</references>
+      </memberdef>
+      <memberdef kind="function" id="structduals_a4ff907c4d2ab9d3c878cb597d4575ee3_1a4ff907c4d2ab9d3c878cb597d4575ee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structduals" kindref="compound">duals</ref>&lt; dim &gt;</type>
+        <definition>duals&lt; dim &gt; duals&lt; dim &gt;::operator=</definition>
+        <argsstring>(X a)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>X</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Assign foreign type operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Sets value (<computeroutput>x</computeroutput>) to <computeroutput>a</computeroutput> and derivatives to 0 and returns <computeroutput>*this</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="586" column="22" bodyfile="libmd-src/autodiff2.libmd.cc" bodystart="49" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="structduals_a955a585836b2bc341e64b6e49734598d_1a955a585836b2bc341e64b6e49734598d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class X</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>duals&lt; dim &gt;::operator X</definition>
+        <argsstring>()</argsstring>
+        <name>operator X</name>
+        <briefdescription>
+<para>Cast overload. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Cast operator, returns cast of value (<computeroutput>x</computeroutput>).</para>
+        </inbodydescription>
+        <location file="libmd.h" line="587" column="16" bodyfile="libmd-src/autodiff2.libmd.cc" bodystart="57" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Autodiff for Monge patches. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>duals&lt; dim &gt;</label>
+        <link refid="structduals"/>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="576" column="1" bodyfile="libmd.h" bodystart="575" bodyend="588"/>
+    <listofallmembers>
+      <member refid="structduals_a38aca421eabfa2ece4e90f4842e1a070_1a38aca421eabfa2ece4e90f4842e1a070" prot="public" virt="non-virtual"><scope>duals</scope><name>duals</name></member>
+      <member refid="structduals_afedb005dbc6c9c13fedef8d345f89af0_1afedb005dbc6c9c13fedef8d345f89af0" prot="public" virt="non-virtual"><scope>duals</scope><name>duals</name></member>
+      <member refid="structduals_af27e460ea795b5402aa24fbc71ed9dcf_1af27e460ea795b5402aa24fbc71ed9dcf" prot="public" virt="non-virtual"><scope>duals</scope><name>duals</name></member>
+      <member refid="structduals_a32ab27f54ca10418d9c8faecae56da0b_1a32ab27f54ca10418d9c8faecae56da0b" prot="public" virt="non-virtual"><scope>duals</scope><name>dx</name></member>
+      <member refid="structduals_abd330d764f43b6d008479d6d2b2d6c23_1abd330d764f43b6d008479d6d2b2d6c23" prot="public" virt="non-virtual"><scope>duals</scope><name>dxdy</name></member>
+      <member refid="structduals_a955a585836b2bc341e64b6e49734598d_1a955a585836b2bc341e64b6e49734598d" prot="public" virt="non-virtual"><scope>duals</scope><name>operator X</name></member>
+      <member refid="structduals_a280562eb789f97395e5520380a44e340_1a280562eb789f97395e5520380a44e340" prot="public" virt="non-virtual"><scope>duals</scope><name>operator=</name></member>
+      <member refid="structduals_a4ff907c4d2ab9d3c878cb597d4575ee3_1a4ff907c4d2ab9d3c878cb597d4575ee3" prot="public" virt="non-virtual"><scope>duals</scope><name>operator=</name></member>
+      <member refid="structduals_af609d1d502f4673b396b9722fbd4ba70_1af609d1d502f4673b396b9722fbd4ba70" prot="public" virt="non-virtual"><scope>duals</scope><name>x</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

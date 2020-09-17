@@ -1,0 +1,9 @@
+digraph "duals&lt; dim &gt;"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{duals\< dim \>\n|+ x\l+ dx\l+ dxdy\l|+ duals()\l+ duals()\l+ duals()\l+ operator=()\l+ operator=()\l+ operator X()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Autodiff for Monge patches."];
+}

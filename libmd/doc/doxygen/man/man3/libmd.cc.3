@@ -1,0 +1,112 @@
+.TH "libmd.cc" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libmd.cc
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'libmd\&.h'\fP
+.br
+\fC#include 'libmd\-src/error\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/autodiff\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/potentials\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/particle\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/forces\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/box\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/boundaryconditions\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/bcond\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/interact\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/index\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/pairpotentials\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/externalforces\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/hooks\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/integrators\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/variadic_vars\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/md\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/mongepatches\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/autodiff2\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/mp\&.libmd\&.cc'\fP
+.br
+\fC#include 'libmd\-src/mpmd\&.libmd\&.cc'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__libmd_cc__\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fB__libmd__info\fP ()"
+.br
+.RI "Basic libmd comilation info\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __libmd_cc__"
+
+.PP
+Definition at line 5 of file libmd\&.cc\&.
+.SH "Function Documentation"
+.PP 
+.SS "void __libmd__info ()"
+
+.PP
+Basic libmd comilation info\&. This function is designed to give the user an overview of the compilation
+.PP
+Definition at line 12 of file libmd\&.cc\&.
+.PP
+.nf
+13 {
+17     #ifdef BRANCH
+18     printf("libmd branch: " IO_BOLDCYAN "%s" IO_RESET "\n",BRANCH);
+19     #endif
+20     #ifdef VER
+21     printf("libmd branch version: " IO_BOLDCYAN "%s" IO_RESET "\n",VER);
+22     #endif
+23     #ifdef CC
+24     printf("Compiler: " IO_WHITE "%s" IO_RESET "\n",CC);
+25     #endif
+26     printf("Compiler version: " IO_WHITE "%s" IO_RESET "\n",__VERSION__);
+27     printf("Floating point type: ");
+28     #ifdef LIBMD__LONG_DOUBLE__
+29     printf(IO_BLUE "long double" IO_RESET "\n");
+30     #elif defined LIBMD__FLOAT__
+31     printf(IO_YELLOW "float" IO_RESET "\n");
+32     #else
+33     printf(IO_WHITE "double" IO_RESET "\n");
+34     #endif
+35     printf("Thread option: %s\n",THREAD_MODEL);
+36     #ifdef CMSG
+37     printf("Compilation message: " IO_YELLOW "%s" IO_RESET "\n",CMSG);
+38     #endif
+39 }
+.fi
+.PP
+References IO_BLUE, IO_BOLDCYAN, IO_RESET, IO_WHITE, IO_YELLOW, and THREAD_MODEL\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

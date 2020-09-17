@@ -1,0 +1,47 @@
+\hypertarget{bcond_8libmd_8cc_source}{}\doxysection{bcond.\+libmd.\+cc}
+\label{bcond_8libmd_8cc_source}\index{libmd-\/src/bcond.libmd.cc@{libmd-\/src/bcond.libmd.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{bcond_8libmd_8cc_source_l00001}\mbox{\hyperlink{bcond_8libmd_8cc_a4384389855e24d346feb2e60f23afb0b_a4384389855e24d346feb2e60f23afb0b}{00001}} \textcolor{preprocessor}{\#define \_\_libmd\_src\_file\_\_}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#ifndef libmd\_h}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "../libmd.h"}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{bcond_8libmd_8cc_source_l00006}\mbox{\hyperlink{structbcond_aaf6bd683008ee2630ca338279e323dcf_aaf6bd683008ee2630ca338279e323dcf}{00006}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{structbcond_aaf6bd683008ee2630ca338279e323dcf_aaf6bd683008ee2630ca338279e323dcf}{bcond<dim>::bcond}}()}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00014     bcond\_p.reserve(8);}
+\DoxyCodeLine{00015     bcond\_x.reserve(8);}
+\DoxyCodeLine{00016     add(BCOND\_NONE<dim>,BCOND\_NONE<dim>);}
+\DoxyCodeLine{00017     add(BCOND\_PERIODIC<dim>,BCOND\_PERIODIC<dim>);}
+\DoxyCodeLine{00018     add(BCOND\_HARD<dim>,BCOND\_HARD<dim>);}
+\DoxyCodeLine{00019     add(BCOND\_BOXSHEAR<dim>,BCOND\_BOXSHEAR<dim>);}
+\DoxyCodeLine{00020 \}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{\Hypertarget{bcond_8libmd_8cc_source_l00022}\mbox{\hyperlink{structbcond_a868fae546e312eac13e06e3166c232e1_a868fae546e312eac13e06e3166c232e1}{00022}} \textcolor{keyword}{template}<ui dim> \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structbcond_a868fae546e312eac13e06e3166c232e1_a868fae546e312eac13e06e3166c232e1}{bcond<dim>::add}}(\mbox{\hyperlink{libmd_8h_af8ec9f4c33f60034f0a127f6ef768853_af8ec9f4c33f60034f0a127f6ef768853}{bcondpptr<dim>}} p,\mbox{\hyperlink{libmd_8h_aa98a300a65511a537685b4d0e8be341c_aa98a300a65511a537685b4d0e8be341c}{bcondxptr<dim>}} x)}
+\DoxyCodeLine{00023 \{}
+\DoxyCodeLine{00030     bcond\_p.push\_back(p);}
+\DoxyCodeLine{00031     bcond\_x.push\_back(x);}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{return} bcond\_p.size();}
+\DoxyCodeLine{00033 \}}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{\Hypertarget{bcond_8libmd_8cc_source_l00035}\mbox{\hyperlink{structbcond_a172779e9f000f048258ff596243b93b3_a172779e9f000f048258ff596243b93b3}{00035}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structbcond_a172779e9f000f048258ff596243b93b3_a172779e9f000f048258ff596243b93b3}{bcond<dim>::operator()}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00036 \{}
+\DoxyCodeLine{00041     bcond\_p[\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.bcond[d]](d,i,sys);}
+\DoxyCodeLine{00042 \}}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{\Hypertarget{bcond_8libmd_8cc_source_l00044}\mbox{\hyperlink{structbcond_a37517e8b216cc36c264a276f71a8c3ec_a37517e8b216cc36c264a276f71a8c3ec}{00044}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structbcond_a172779e9f000f048258ff596243b93b3_a172779e9f000f048258ff596243b93b3}{bcond<dim>::operator()}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim],\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00050     bcond\_x[\mbox{\hyperlink{macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_ae3d9f52a1a315303ad04f0576bd42a25}{SYS}}-\/>simbox.bcond[d]](d,x,sys);}
+\DoxyCodeLine{00051 \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{\Hypertarget{bcond_8libmd_8cc_source_l00053}\mbox{\hyperlink{structbcond_a5520726c04690ff1d88edcaa9d4cd2a7_a5520726c04690ff1d88edcaa9d4cd2a7}{00053}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structbcond_a172779e9f000f048258ff596243b93b3_a172779e9f000f048258ff596243b93b3}{bcond<dim>::operator()}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} i,\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00059     bcond\_p[k](d,i,sys);}
+\DoxyCodeLine{00060 \}}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{\Hypertarget{bcond_8libmd_8cc_source_l00062}\mbox{\hyperlink{structbcond_a6df71b34688c0985ec468a800c5d00c6_a6df71b34688c0985ec468a800c5d00c6}{00062}} \textcolor{keyword}{template}<ui dim> \textcolor{keywordtype}{void} \mbox{\hyperlink{structbcond_a172779e9f000f048258ff596243b93b3_a172779e9f000f048258ff596243b93b3}{bcond<dim>::operator()}}(\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} k,\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} d,\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} x[dim],\textcolor{keywordtype}{void} *sys)}
+\DoxyCodeLine{00063 \{}
+\DoxyCodeLine{00068     bcond\_x[k](d,x,sys);}
+\DoxyCodeLine{00069 \}}
+
+\end{DoxyCode}

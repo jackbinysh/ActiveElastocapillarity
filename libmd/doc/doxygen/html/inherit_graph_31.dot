@@ -1,0 +1,10 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node0 [label="variadic_vars\< dim \>",height=0.2,width=0.4,color="black",URL="$structvariadic__vars.html",tooltip="This structure stores some cyclic variables for the variadic functions."];
+}

@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structbcond" kind="struct" language="C++" prot="public">
+    <compoundname>bcond</compoundname>
+    <includes refid="libmd_8h" local="no">libmd.h</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structbcond_a3ece2672dd0f1650c472050c29c3aab8_1a3ece2672dd0f1650c472050c29c3aab8" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="libmd_8h_af8ec9f4c33f60034f0a127f6ef768853_1af8ec9f4c33f60034f0a127f6ef768853" kindref="member">bcondpptr</ref>&lt; dim &gt; &gt;</type>
+        <definition>std::vector&lt;bcondpptr&lt;dim&gt; &gt; bcond&lt; dim &gt;::bcond_p</definition>
+        <argsstring></argsstring>
+        <name>bcond_p</name>
+        <briefdescription>
+<para>Vector of bcond particle function pointers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="167" column="17" bodyfile="libmd.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbcond_ab05f30bfba1693deba4d3c95cbd6f68a_1ab05f30bfba1693deba4d3c95cbd6f68a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="libmd_8h_aa98a300a65511a537685b4d0e8be341c_1aa98a300a65511a537685b4d0e8be341c" kindref="member">bcondxptr</ref>&lt; dim &gt; &gt;</type>
+        <definition>std::vector&lt;bcondxptr&lt;dim&gt; &gt; bcond&lt; dim &gt;::bcond_x</definition>
+        <argsstring></argsstring>
+        <name>bcond_x</name>
+        <briefdescription>
+<para>Vector of bcond position function pointers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libmd.h" line="168" column="17" bodyfile="libmd.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structbcond_aaf6bd683008ee2630ca338279e323dcf_1aaf6bd683008ee2630ca338279e323dcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>bcond&lt; dim &gt;::bcond</definition>
+        <argsstring>()</argsstring>
+        <name>bcond</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Constructor of the bcond structure</para>
+<para>This functions reserves space for the vector of functionpointers, and adds the BCOND_... functions in the order defined by the <ref refid="struct_b_c_o_n_d" kindref="compound">BCOND</ref> enum structure.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="170" column="5" bodyfile="libmd-src/bcond.libmd.cc" bodystart="6" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structbcond_a868fae546e312eac13e06e3166c232e1_1a868fae546e312eac13e06e3166c232e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+        <definition>ui bcond&lt; dim &gt;::add</definition>
+        <argsstring>(bcondpptr&lt; dim &gt; p, bcondxptr&lt; dim &gt; x)</argsstring>
+        <name>add</name>
+        <param>
+          <type><ref refid="libmd_8h_af8ec9f4c33f60034f0a127f6ef768853_1af8ec9f4c33f60034f0a127f6ef768853" kindref="member">bcondpptr</ref>&lt; dim &gt;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa98a300a65511a537685b4d0e8be341c_1aa98a300a65511a537685b4d0e8be341c" kindref="member">bcondxptr</ref>&lt; dim &gt;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Add bcond functions to their respective vectors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function allows the user to add (costum) boundary condition functions.</para>
+<para>The first argument <computeroutput>bcondpptr&lt;dim&gt; p</computeroutput> is for particles and the second argument <computeroutput>bcondxptr&lt;dim&gt; x</computeroutput> is for points (or positions).</para>
+        </inbodydescription>
+        <location file="libmd.h" line="172" column="8" bodyfile="libmd-src/bcond.libmd.cc" bodystart="22" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structbcond_a172779e9f000f048258ff596243b93b3_1a172779e9f000f048258ff596243b93b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bcond&lt; dim &gt;::operator()</definition>
+        <argsstring>(ui d, ui i, void *sys)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>sys</declname>
+        </param>
+        <briefdescription>
+<para>Periodicity operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function applies the by the user defined boundary conditions for certain dimension in simbox.bcond[d] to a certain particle <computeroutput>i</computeroutput> in <computeroutput>md&lt;dim</computeroutput> system <computeroutput>sys</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="173" column="10" bodyfile="libmd-src/bcond.libmd.cc" bodystart="35" bodyend="42"/>
+        <references refid="macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_1ae3d9f52a1a315303ad04f0576bd42a25" compoundref="macros_8libmd_8h" startline="6">SYS</references>
+      </memberdef>
+      <memberdef kind="function" id="structbcond_a37517e8b216cc36c264a276f71a8c3ec_1a37517e8b216cc36c264a276f71a8c3ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bcond&lt; dim &gt;::operator()</definition>
+        <argsstring>(ui d, ldf x[dim], void *sys)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>x</declname>
+          <array>[dim]</array>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>sys</declname>
+        </param>
+        <briefdescription>
+<para>Periodictty overloaded operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function applies the by the user defined boundary conditions for certain dimension in simbox.bcond[d] to a certain point <computeroutput>x</computeroutput> in <computeroutput>md&lt;dim</computeroutput> system <computeroutput>sys</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="174" column="10" bodyfile="libmd-src/bcond.libmd.cc" bodystart="44" bodyend="51"/>
+        <references refid="macros_8libmd_8h_ae3d9f52a1a315303ad04f0576bd42a25_1ae3d9f52a1a315303ad04f0576bd42a25" compoundref="macros_8libmd_8h" startline="6">SYS</references>
+      </memberdef>
+      <memberdef kind="function" id="structbcond_a5520726c04690ff1d88edcaa9d4cd2a7_1a5520726c04690ff1d88edcaa9d4cd2a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bcond&lt; dim &gt;::operator()</definition>
+        <argsstring>(ui k, ui d, ui i, void *sys)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>sys</declname>
+        </param>
+        <briefdescription>
+<para>Periodicity operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function applies the by the user invoked boundary conditions for certain dimension to a certain particle <computeroutput>i</computeroutput> in <computeroutput>md&lt;dim</computeroutput> system <computeroutput>sys</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="175" column="10" bodyfile="libmd-src/bcond.libmd.cc" bodystart="53" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="structbcond_a6df71b34688c0985ec468a800c5d00c6_1a6df71b34688c0985ec468a800c5d00c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bcond&lt; dim &gt;::operator()</definition>
+        <argsstring>(ui k, ui d, ldf x[dim], void *sys)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_aa0f39ee33b87675e11229913d432ffe7_1aa0f39ee33b87675e11229913d432ffe7" kindref="member">ui</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_1a9b1cd8bf0a06d4a62c19f7953a3487ea" kindref="member">ldf</ref></type>
+          <declname>x</declname>
+          <array>[dim]</array>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>sys</declname>
+        </param>
+        <briefdescription>
+<para>Periodictty overloaded operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This function applies the by the user invoked boundary conditions for certain dimension to a certain point <computeroutput>x</computeroutput> in <computeroutput>md&lt;dim</computeroutput> system <computeroutput>sys</computeroutput>.</para>
+        </inbodydescription>
+        <location file="libmd.h" line="176" column="10" bodyfile="libmd-src/bcond.libmd.cc" bodystart="62" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>bcond&lt; dim &gt;</label>
+        <link refid="structbcond"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+bcond_p</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+bcond_x</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; bcondpptr&lt; dim &gt; &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; bcondpptr&lt; dim &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>std::vector&lt; bcondxptr&lt; dim &gt; &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; bcondxptr&lt; dim &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libmd.h" line="166" column="1" bodyfile="libmd.h" bodystart="165" bodyend="177"/>
+    <listofallmembers>
+      <member refid="structbcond_a868fae546e312eac13e06e3166c232e1_1a868fae546e312eac13e06e3166c232e1" prot="public" virt="non-virtual"><scope>bcond</scope><name>add</name></member>
+      <member refid="structbcond_aaf6bd683008ee2630ca338279e323dcf_1aaf6bd683008ee2630ca338279e323dcf" prot="public" virt="non-virtual"><scope>bcond</scope><name>bcond</name></member>
+      <member refid="structbcond_a3ece2672dd0f1650c472050c29c3aab8_1a3ece2672dd0f1650c472050c29c3aab8" prot="public" virt="non-virtual"><scope>bcond</scope><name>bcond_p</name></member>
+      <member refid="structbcond_ab05f30bfba1693deba4d3c95cbd6f68a_1ab05f30bfba1693deba4d3c95cbd6f68a" prot="public" virt="non-virtual"><scope>bcond</scope><name>bcond_x</name></member>
+      <member refid="structbcond_a172779e9f000f048258ff596243b93b3_1a172779e9f000f048258ff596243b93b3" prot="public" virt="non-virtual"><scope>bcond</scope><name>operator()</name></member>
+      <member refid="structbcond_a37517e8b216cc36c264a276f71a8c3ec_1a37517e8b216cc36c264a276f71a8c3ec" prot="public" virt="non-virtual"><scope>bcond</scope><name>operator()</name></member>
+      <member refid="structbcond_a5520726c04690ff1d88edcaa9d4cd2a7_1a5520726c04690ff1d88edcaa9d4cd2a7" prot="public" virt="non-virtual"><scope>bcond</scope><name>operator()</name></member>
+      <member refid="structbcond_a6df71b34688c0985ec468a800c5d00c6_1a6df71b34688c0985ec468a800c5d00c6" prot="public" virt="non-virtual"><scope>bcond</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

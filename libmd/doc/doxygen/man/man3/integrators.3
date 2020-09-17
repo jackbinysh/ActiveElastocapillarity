@@ -1,0 +1,90 @@
+.TH "integrators" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+integrators \- This structure defines and saves integration metadata\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <libmd\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBintegrators\fP ()"
+.br
+.RI "Constructor\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBldf\fP \fBh\fP"
+.br
+.RI "Timestep size\&. "
+.ti -1c
+.RI "\fBuc\fP \fBmethod\fP"
+.br
+.RI "Type of integration\&. "
+.ti -1c
+.RI "\fBui\fP \fBgenerations\fP"
+.br
+.RI "Maximum generations of timestep\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure defines and saves integration metadata\&. 
+.PP
+Definition at line 285 of file libmd\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "integrators::integrators ()"
+
+.PP
+Constructor\&. Integrator constructor 
+.br
+ The default integrator is \fBINTEGRATOR::VVERLET\fP 
+.br
+ The default timestep is \fCh=1e-3\fP 
+.br
+ The default number of generations is \fCgenerations=10\fP and only relevant for \fBmpmd<dim>::thread_zuiden_protect\fP\&. 
+.br
+
+.PP
+Definition at line 6 of file integrators\&.libmd\&.cc\&.
+.PP
+.nf
+7 {
+14     method=INTEGRATOR::VVERLET;
+15     generations=10;
+16     h=1e-3;
+17 }
+.fi
+.PP
+References generations, h, method, and INTEGRATOR::VVERLET\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBui\fP integrators::generations"
+
+.PP
+Maximum generations of timestep\&. 
+.PP
+Definition at line 289 of file libmd\&.h\&.
+.SS "\fBldf\fP integrators::h"
+
+.PP
+Timestep size\&. 
+.PP
+Definition at line 287 of file libmd\&.h\&.
+.SS "\fBuc\fP integrators::method"
+
+.PP
+Type of integration\&. 
+.PP
+Definition at line 288 of file libmd\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

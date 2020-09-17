@@ -1,0 +1,12 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node0 [label="md\< dim \>",height=0.2,width=0.4,color="black",URL="$structmd.html",tooltip="This structure defines the molecular dynamics simulation."];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 [label="mpmd\< dim \>",height=0.2,width=0.4,color="black",URL="$structmpmd.html",tooltip="This structure takes care of Monge patch molecular dynamics simulations."];
+}

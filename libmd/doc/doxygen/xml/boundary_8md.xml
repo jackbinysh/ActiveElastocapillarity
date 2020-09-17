@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="boundary_8md" kind="file" language="Markdown">
+    <compoundname>boundary.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">Boundary<sp/>conditions</highlight></codeline>
+<codeline><highlight class="normal">===================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Boundary<sp/>box<sp/>and<sp/>boundary<sp/>conditions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{#md-boundary}</highlight></codeline>
+<codeline><highlight class="normal">====================================</highlight></codeline>
+    </programlisting>
+    <location file="doc/markdown/boundary.md"/>
+  </compounddef>
+</doxygen>

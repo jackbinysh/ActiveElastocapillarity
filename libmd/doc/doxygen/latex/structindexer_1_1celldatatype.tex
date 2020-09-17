@@ -1,0 +1,215 @@
+\hypertarget{structindexer_1_1celldatatype}{}\doxysection{indexer$<$ dim $>$\+::celldatatype Struct Reference}
+\label{structindexer_1_1celldatatype}\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+
+
+{\ttfamily \#include $<$libmd.\+h$>$}
+
+
+
+Collaboration diagram for indexer$<$ dim $>$\+::celldatatype\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structindexer_1_1celldatatype_a490bb487385297810ca59e5742519142_a490bb487385297810ca59e5742519142}{celldatatype}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structindexer_1_1celldatatype_af5dcd221701aa2058bb63df67b5b4a49_af5dcd221701aa2058bb63df67b5b4a49}{$\sim$celldatatype}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structindexer_1_1celldatatype_a57c11ad66a988ca6e3382cd81a10596f_a57c11ad66a988ca6e3382cd81a10596f}{Q}} \mbox{[}dim\mbox{]}
+\begin{DoxyCompactList}\small\item\em Number of cells per dimension. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structindexer_1_1celldatatype_a7331af24e2d676d25abf661a948db065_a7331af24e2d676d25abf661a948db065}{n\+Cells}}
+\begin{DoxyCompactList}\small\item\em Total number of cells (= prod(\+Q)) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structindexer_1_1celldatatype_aa85b576770bcc7bd7bcbc545c98ed3e0_aa85b576770bcc7bd7bcbc545c98ed3e0}{tot\+Neighbors}}
+\begin{DoxyCompactList}\small\item\em Total number of (potential) neighboring cells to check (= (3$^\wedge$d-\/1)/2) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structindexer_1_1celldatatype_a19300d3513f9e9abc1bdd4413439cfe3_a19300d3513f9e9abc1bdd4413439cfe3}{Cell\+Size}} \mbox{[}dim\mbox{]}
+\begin{DoxyCompactList}\small\item\em Length of cell in each dimension. \end{DoxyCompactList}\item 
+int($\ast$ \mbox{\hyperlink{structindexer_1_1celldatatype_a2f91b9599af03b573c02e6bc33ffedd0_a2f91b9599af03b573c02e6bc33ffedd0}{Index\+Delta}} )\mbox{[}dim\mbox{]}
+\begin{DoxyCompactList}\small\item\em Indices of neighboring cells relative to cell. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} $>$ $\ast$ \mbox{\hyperlink{structindexer_1_1celldatatype_a88e1cc736deded093f4a16b8118ecd37_a88e1cc736deded093f4a16b8118ecd37}{Cells}}
+\begin{DoxyCompactList}\small\item\em List of particles per cell. \end{DoxyCompactList}\item 
+bool $\ast$ \mbox{\hyperlink{structindexer_1_1celldatatype_a9d35dcc9fc6584348940a5e4bad421bc_a9d35dcc9fc6584348940a5e4bad421bc}{Outside\+Box}}
+\begin{DoxyCompactList}\small\item\em Indicates for each particle whether it is outside the simbox. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$ui dim$>$\newline
+struct indexer$<$ dim $>$\+::celldatatype}
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00298}{298}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structindexer_1_1celldatatype_a490bb487385297810ca59e5742519142_a490bb487385297810ca59e5742519142}\label{structindexer_1_1celldatatype_a490bb487385297810ca59e5742519142_a490bb487385297810ca59e5742519142}} 
+\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}!celldatatype@{celldatatype}}
+\index{celldatatype@{celldatatype}!indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+\doxysubsubsection{\texorpdfstring{celldatatype()}{celldatatype()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{structindexer}{indexer}}$<$ dim $>$\+::celldatatype\+::celldatatype}
+
+
+
+Constructor. 
+
+Constructor for {\ttfamily celldatatype}, used by the indexing algorithm \mbox{\hyperlink{structmd_af99c7ccc16292d4c1cdb07bd0c9ac895_af99c7ccc16292d4c1cdb07bd0c9ac895}{md$<$dim$>$\+::cell()}}.
+
+Definition at line \mbox{\hyperlink{index_8libmd_8cc_source_l00006}{6}} of file \mbox{\hyperlink{index_8libmd_8cc_source}{index.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00011     \mbox{\hyperlink{structindexer_1_1celldatatype_a2f91b9599af03b573c02e6bc33ffedd0_a2f91b9599af03b573c02e6bc33ffedd0}{IndexDelta}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00012     \mbox{\hyperlink{structindexer_1_1celldatatype_a88e1cc736deded093f4a16b8118ecd37_a88e1cc736deded093f4a16b8118ecd37}{Cells}}=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00013     \mbox{\hyperlink{structindexer_1_1celldatatype_a9d35dcc9fc6584348940a5e4bad421bc_a9d35dcc9fc6584348940a5e4bad421bc}{OutsideBox}}=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00305}{indexer$<$ dim $>$\+::celldatatype\+::\+Cells}}, \mbox{\hyperlink{libmd_8h_source_l00304}{indexer$<$ dim $>$\+::celldatatype\+::\+Index\+Delta}}, and \mbox{\hyperlink{libmd_8h_source_l00306}{indexer$<$ dim $>$\+::celldatatype\+::\+Outside\+Box}}.
+
+\mbox{\Hypertarget{structindexer_1_1celldatatype_af5dcd221701aa2058bb63df67b5b4a49_af5dcd221701aa2058bb63df67b5b4a49}\label{structindexer_1_1celldatatype_af5dcd221701aa2058bb63df67b5b4a49_af5dcd221701aa2058bb63df67b5b4a49}} 
+\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}!````~celldatatype@{$\sim$celldatatype}}
+\index{````~celldatatype@{$\sim$celldatatype}!indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+\doxysubsubsection{\texorpdfstring{$\sim$celldatatype()}{~celldatatype()}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{structindexer}{indexer}}$<$ dim $>$\+::celldatatype\+::$\sim$celldatatype}
+
+
+
+Destructor. 
+
+Destructor for {\ttfamily celldatatype}, used by the indexing algorithm \mbox{\hyperlink{structmd_af99c7ccc16292d4c1cdb07bd0c9ac895_af99c7ccc16292d4c1cdb07bd0c9ac895}{md$<$dim$>$\+::cell()}}.
+
+Definition at line \mbox{\hyperlink{index_8libmd_8cc_source_l00016}{16}} of file \mbox{\hyperlink{index_8libmd_8cc_source}{index.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017 \{}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{if} (\mbox{\hyperlink{structindexer_1_1celldatatype_a2f91b9599af03b573c02e6bc33ffedd0_a2f91b9599af03b573c02e6bc33ffedd0}{IndexDelta}})}
+\DoxyCodeLine{00022     \{   \textcolor{keyword}{delete}[] \mbox{\hyperlink{structindexer_1_1celldatatype_a2f91b9599af03b573c02e6bc33ffedd0_a2f91b9599af03b573c02e6bc33ffedd0}{IndexDelta}};}
+\DoxyCodeLine{00023         \textcolor{keyword}{delete}[] \mbox{\hyperlink{structindexer_1_1celldatatype_a88e1cc736deded093f4a16b8118ecd37_a88e1cc736deded093f4a16b8118ecd37}{Cells}};}
+\DoxyCodeLine{00024         \textcolor{keyword}{delete}[] \mbox{\hyperlink{structindexer_1_1celldatatype_a9d35dcc9fc6584348940a5e4bad421bc_a9d35dcc9fc6584348940a5e4bad421bc}{OutsideBox}};}
+\DoxyCodeLine{00025     \}}
+\DoxyCodeLine{00026 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structindexer_1_1celldatatype_a88e1cc736deded093f4a16b8118ecd37_a88e1cc736deded093f4a16b8118ecd37}\label{structindexer_1_1celldatatype_a88e1cc736deded093f4a16b8118ecd37_a88e1cc736deded093f4a16b8118ecd37}} 
+\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}!Cells@{Cells}}
+\index{Cells@{Cells}!indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+\doxysubsubsection{\texorpdfstring{Cells}{Cells}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+std\+::vector$<$\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}}$>$$\ast$ \mbox{\hyperlink{structindexer}{indexer}}$<$ dim $>$\+::celldatatype\+::\+Cells}
+
+
+
+List of particles per cell. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00305}{305}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structindexer_1_1celldatatype_a19300d3513f9e9abc1bdd4413439cfe3_a19300d3513f9e9abc1bdd4413439cfe3}\label{structindexer_1_1celldatatype_a19300d3513f9e9abc1bdd4413439cfe3_a19300d3513f9e9abc1bdd4413439cfe3}} 
+\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}!CellSize@{CellSize}}
+\index{CellSize@{CellSize}!indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+\doxysubsubsection{\texorpdfstring{CellSize}{CellSize}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structindexer}{indexer}}$<$ dim $>$\+::celldatatype\+::\+Cell\+Size\mbox{[}dim\mbox{]}}
+
+
+
+Length of cell in each dimension. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00303}{303}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structindexer_1_1celldatatype_a2f91b9599af03b573c02e6bc33ffedd0_a2f91b9599af03b573c02e6bc33ffedd0}\label{structindexer_1_1celldatatype_a2f91b9599af03b573c02e6bc33ffedd0_a2f91b9599af03b573c02e6bc33ffedd0}} 
+\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}!IndexDelta@{IndexDelta}}
+\index{IndexDelta@{IndexDelta}!indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+\doxysubsubsection{\texorpdfstring{IndexDelta}{IndexDelta}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+int($\ast$ \mbox{\hyperlink{structindexer}{indexer}}$<$ dim $>$\+::celldatatype\+::\+Index\+Delta)\mbox{[}dim\mbox{]}}
+
+
+
+Indices of neighboring cells relative to cell. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00304}{304}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structindexer_1_1celldatatype_a7331af24e2d676d25abf661a948db065_a7331af24e2d676d25abf661a948db065}\label{structindexer_1_1celldatatype_a7331af24e2d676d25abf661a948db065_a7331af24e2d676d25abf661a948db065}} 
+\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}!nCells@{nCells}}
+\index{nCells@{nCells}!indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+\doxysubsubsection{\texorpdfstring{nCells}{nCells}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structindexer}{indexer}}$<$ dim $>$\+::celldatatype\+::n\+Cells}
+
+
+
+Total number of cells (= prod(\+Q)) 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00301}{301}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structindexer_1_1celldatatype_a9d35dcc9fc6584348940a5e4bad421bc_a9d35dcc9fc6584348940a5e4bad421bc}\label{structindexer_1_1celldatatype_a9d35dcc9fc6584348940a5e4bad421bc_a9d35dcc9fc6584348940a5e4bad421bc}} 
+\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}!OutsideBox@{OutsideBox}}
+\index{OutsideBox@{OutsideBox}!indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+\doxysubsubsection{\texorpdfstring{OutsideBox}{OutsideBox}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+bool$\ast$ \mbox{\hyperlink{structindexer}{indexer}}$<$ dim $>$\+::celldatatype\+::\+Outside\+Box}
+
+
+
+Indicates for each particle whether it is outside the simbox. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00306}{306}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structindexer_1_1celldatatype_a57c11ad66a988ca6e3382cd81a10596f_a57c11ad66a988ca6e3382cd81a10596f}\label{structindexer_1_1celldatatype_a57c11ad66a988ca6e3382cd81a10596f_a57c11ad66a988ca6e3382cd81a10596f}} 
+\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}!Q@{Q}}
+\index{Q@{Q}!indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+\doxysubsubsection{\texorpdfstring{Q}{Q}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structindexer}{indexer}}$<$ dim $>$\+::celldatatype\+::Q\mbox{[}dim\mbox{]}}
+
+
+
+Number of cells per dimension. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00300}{300}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structindexer_1_1celldatatype_aa85b576770bcc7bd7bcbc545c98ed3e0_aa85b576770bcc7bd7bcbc545c98ed3e0}\label{structindexer_1_1celldatatype_aa85b576770bcc7bd7bcbc545c98ed3e0_aa85b576770bcc7bd7bcbc545c98ed3e0}} 
+\index{indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}!totNeighbors@{totNeighbors}}
+\index{totNeighbors@{totNeighbors}!indexer$<$ dim $>$::celldatatype@{indexer$<$ dim $>$::celldatatype}}
+\doxysubsubsection{\texorpdfstring{totNeighbors}{totNeighbors}}
+{\footnotesize\ttfamily template$<$ui dim$>$ \\
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structindexer}{indexer}}$<$ dim $>$\+::celldatatype\+::tot\+Neighbors}
+
+
+
+Total number of (potential) neighboring cells to check (= (3$^\wedge$d-\/1)/2) 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00302}{302}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h}{libmd.\+h}}\item 
+libmd-\/src/\mbox{\hyperlink{index_8libmd_8cc}{index.\+libmd.\+cc}}\end{DoxyCompactItemize}

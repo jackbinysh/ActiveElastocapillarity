@@ -1,0 +1,121 @@
+\hypertarget{structintegrators}{}\doxysection{integrators Struct Reference}
+\label{structintegrators}\index{integrators@{integrators}}
+
+
+This structure defines and saves integration metadata.  
+
+
+
+
+{\ttfamily \#include $<$libmd.\+h$>$}
+
+
+
+Collaboration diagram for integrators\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structintegrators_a5e57cd5112f01d098d2d3c5a40fd9a13_a5e57cd5112f01d098d2d3c5a40fd9a13}{integrators}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} \mbox{\hyperlink{structintegrators_ab59dc99049468eafc9f5b4c5e461077e_ab59dc99049468eafc9f5b4c5e461077e}{h}}
+\begin{DoxyCompactList}\small\item\em Timestep size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_af8ecdd9d7d0f3cdced7f9a83dc659959}{uc}} \mbox{\hyperlink{structintegrators_ac4b901fdae2c7adf5599cc9a1d1883ae_ac4b901fdae2c7adf5599cc9a1d1883ae}{method}}
+\begin{DoxyCompactList}\small\item\em Type of integration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} \mbox{\hyperlink{structintegrators_adb070aad7ba3928ed9376568b00bfb49_adb070aad7ba3928ed9376568b00bfb49}{generations}}
+\begin{DoxyCompactList}\small\item\em Maximum generations of timestep. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This structure defines and saves integration metadata. 
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00285}{285}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structintegrators_a5e57cd5112f01d098d2d3c5a40fd9a13_a5e57cd5112f01d098d2d3c5a40fd9a13}\label{structintegrators_a5e57cd5112f01d098d2d3c5a40fd9a13_a5e57cd5112f01d098d2d3c5a40fd9a13}} 
+\index{integrators@{integrators}!integrators@{integrators}}
+\index{integrators@{integrators}!integrators@{integrators}}
+\doxysubsubsection{\texorpdfstring{integrators()}{integrators()}}
+{\footnotesize\ttfamily integrators\+::integrators (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Integrator constructor ~\newline
+ The default integrator is \mbox{\hyperlink{struct_i_n_t_e_g_r_a_t_o_r_aca72c4b4e70e5554ba92d83a6ffa1fbc_aca72c4b4e70e5554ba92d83a6ffa1fbca35688bfab06ce41823fd436dd67bcd62}{I\+N\+T\+E\+G\+R\+A\+T\+O\+R\+::\+V\+V\+E\+R\+L\+ET}} ~\newline
+ The default timestep is {\ttfamily h=1e-\/3} ~\newline
+ The default number of generations is {\ttfamily generations=10} and only relevant for \mbox{\hyperlink{structmpmd_a8e7d1b7cafc905e283023a6b822cc766_a8e7d1b7cafc905e283023a6b822cc766}{mpmd$<$dim$>$\+::thread\+\_\+zuiden\+\_\+protect}}. ~\newline
+
+
+Definition at line \mbox{\hyperlink{integrators_8libmd_8cc_source_l00006}{6}} of file \mbox{\hyperlink{integrators_8libmd_8cc_source}{integrators.\+libmd.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00014     \mbox{\hyperlink{structintegrators_ac4b901fdae2c7adf5599cc9a1d1883ae_ac4b901fdae2c7adf5599cc9a1d1883ae}{method}}=\mbox{\hyperlink{struct_i_n_t_e_g_r_a_t_o_r_aca72c4b4e70e5554ba92d83a6ffa1fbc_aca72c4b4e70e5554ba92d83a6ffa1fbca35688bfab06ce41823fd436dd67bcd62}{INTEGRATOR::VVERLET}};}
+\DoxyCodeLine{00015     \mbox{\hyperlink{structintegrators_adb070aad7ba3928ed9376568b00bfb49_adb070aad7ba3928ed9376568b00bfb49}{generations}}=10;}
+\DoxyCodeLine{00016     \mbox{\hyperlink{structintegrators_ab59dc99049468eafc9f5b4c5e461077e_ab59dc99049468eafc9f5b4c5e461077e}{h}}=1e-\/3;}
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{libmd_8h_source_l00289}{generations}}, \mbox{\hyperlink{libmd_8h_source_l00287}{h}}, \mbox{\hyperlink{libmd_8h_source_l00288}{method}}, and \mbox{\hyperlink{enums_8libmd_8h_source_l00005}{I\+N\+T\+E\+G\+R\+A\+T\+O\+R\+::\+V\+V\+E\+R\+L\+ET}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structintegrators_adb070aad7ba3928ed9376568b00bfb49_adb070aad7ba3928ed9376568b00bfb49}\label{structintegrators_adb070aad7ba3928ed9376568b00bfb49_adb070aad7ba3928ed9376568b00bfb49}} 
+\index{integrators@{integrators}!generations@{generations}}
+\index{generations@{generations}!integrators@{integrators}}
+\doxysubsubsection{\texorpdfstring{generations}{generations}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_aa0f39ee33b87675e11229913d432ffe7_aa0f39ee33b87675e11229913d432ffe7}{ui}} integrators\+::generations}
+
+
+
+Maximum generations of timestep. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00289}{289}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structintegrators_ab59dc99049468eafc9f5b4c5e461077e_ab59dc99049468eafc9f5b4c5e461077e}\label{structintegrators_ab59dc99049468eafc9f5b4c5e461077e_ab59dc99049468eafc9f5b4c5e461077e}} 
+\index{integrators@{integrators}!h@{h}}
+\index{h@{h}!integrators@{integrators}}
+\doxysubsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_a9b1cd8bf0a06d4a62c19f7953a3487ea_a9b1cd8bf0a06d4a62c19f7953a3487ea}{ldf}} integrators\+::h}
+
+
+
+Timestep size. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00287}{287}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+\mbox{\Hypertarget{structintegrators_ac4b901fdae2c7adf5599cc9a1d1883ae_ac4b901fdae2c7adf5599cc9a1d1883ae}\label{structintegrators_ac4b901fdae2c7adf5599cc9a1d1883ae_ac4b901fdae2c7adf5599cc9a1d1883ae}} 
+\index{integrators@{integrators}!method@{method}}
+\index{method@{method}!integrators@{integrators}}
+\doxysubsubsection{\texorpdfstring{method}{method}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmd_8h_af8ecdd9d7d0f3cdced7f9a83dc659959_af8ecdd9d7d0f3cdced7f9a83dc659959}{uc}} integrators\+::method}
+
+
+
+Type of integration. 
+
+
+
+Definition at line \mbox{\hyperlink{libmd_8h_source_l00288}{288}} of file \mbox{\hyperlink{libmd_8h_source}{libmd.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmd_8h}{libmd.\+h}}\item 
+libmd-\/src/\mbox{\hyperlink{integrators_8libmd_8cc}{integrators.\+libmd.\+cc}}\end{DoxyCompactItemize}

@@ -1,0 +1,155 @@
+.TH "libmd-src/box.libmd.cc" 3 "Thu Sep 3 2020" "Version -0." "libmd" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libmd-src/box.libmd.cc
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./libmd\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__libmd_src_file__\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<ui dim> \fBldf\fP \fBdet\fP (\fBldf\fP Ain[dim][dim], \fBldf\fP B[dim][dim])"
+.br
+.ti -1c
+.RI "\fBldf\fP \fBdet\fP (\fBldf\fP Ain[2][2], \fBldf\fP B[2][2])"
+.br
+.ti -1c
+.RI "\fBldf\fP \fBdet\fP (\fBldf\fP Ain[3][3], \fBldf\fP B[3][3])"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const \fBldf\fP \fBmxinv_eps\fP =\fBsqrt\fP(std::numeric_limits<\fBldf\fP>::epsilon())"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __libmd_src_file__"
+
+.PP
+Definition at line 1 of file box\&.libmd\&.cc\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBldf\fP det (\fBldf\fP Ain[2][2], \fBldf\fP B[2][2])"
+Return the determinant of the array \fCAin\fP, and store its inverse in the array \fCB\fP if the determinant is nonzero\&. Specialized function for dim=2
+.PP
+Definition at line 116 of file box\&.libmd\&.cc\&.
+.PP
+.nf
+117 {
+123     ldf d = Ain[0][0]*Ain[1][1] - Ain[0][1]*Ain[1][0];
+124     if (std::abs(d) < mxinv_eps)
+125         return 0;
+126     B[0][0] = Ain[1][1] / d;
+127     B[0][1] = -Ain[0][1] / d;
+128     B[1][0] = -Ain[1][0] / d;
+129     B[1][1] = Ain[0][0] / d;
+130     return d;
+131 }
+.fi
+.PP
+References abs(), and mxinv_eps\&.
+.SS "\fBldf\fP det (\fBldf\fP Ain[3][3], \fBldf\fP B[3][3])"
+Return the determinant of the array \fCAin\fP, and store its inverse in the array \fCB\fP if the determinant is nonzero\&. Specialized function for dim=3
+.PP
+Definition at line 133 of file box\&.libmd\&.cc\&.
+.PP
+.nf
+134 {
+140     ldf d =   Ain[0][0] * (Ain[1][1]*Ain[2][2] - Ain[1][2]*Ain[2][1])
+141             + Ain[0][1] * (Ain[1][2]*Ain[2][0] - Ain[1][0]*Ain[2][2])
+142             + Ain[0][2] * (Ain[1][0]*Ain[2][1] - Ain[1][1]*Ain[2][0]);
+143     if (std::abs(d) < mxinv_eps)
+144         return 0;
+145     B[0][0] = (Ain[1][1]*Ain[2][2] - Ain[1][2]*Ain[2][1]) / d;
+146     B[1][0] = (Ain[1][2]*Ain[2][0] - Ain[1][0]*Ain[2][2]) / d;
+147     B[2][0] = (Ain[1][0]*Ain[2][1] - Ain[1][1]*Ain[2][0]) / d;
+148     B[0][1] = (Ain[2][1]*Ain[0][2] - Ain[2][2]*Ain[0][1]) / d;
+149     B[1][1] = (Ain[2][2]*Ain[0][0] - Ain[2][0]*Ain[0][2]) / d;
+150     B[2][1] = (Ain[2][0]*Ain[0][1] - Ain[2][1]*Ain[0][0]) / d;
+151     B[0][2] = (Ain[0][1]*Ain[1][2] - Ain[0][2]*Ain[1][1]) / d;
+152     B[1][2] = (Ain[0][2]*Ain[1][0] - Ain[0][0]*Ain[1][2]) / d;
+153     B[2][2] = (Ain[0][0]*Ain[1][1] - Ain[0][1]*Ain[1][0]) / d;
+154     return d;
+155 }
+.fi
+.PP
+References abs(), and mxinv_eps\&.
+.SS "template<ui dim> \fBldf\fP det (\fBldf\fP Ain[dim][dim], \fBldf\fP B[dim][dim])"
+Return the determinant of the array \fCAin\fP, and store its inverse in the array \fCB\fP if the determinant is nonzero\&.
+.PP
+Definition at line 64 of file box\&.libmd\&.cc\&.
+.PP
+.nf
+65 {
+70     ui i, j, k;
+71     int sgn = 1;
+72     ldf d = 1, t1, t2;
+73 
+74     // clone Ain so that it is unchanged
+75     ldf A[dim][dim];
+76     std::copy(&Ain[0][0], &Ain[0][0]+dim*dim,&A[0][0]);
+77 
+78     // Initialize B to identity matrix
+79     memset(B,0,dim*dim*sizeof(ldf));
+80     for(i=0;i<dim;i++) B[i][i]=1\&.0;
+81     for (i = 0; i < dim; i++)
+82     { // Look for largest pivot
+83         j = i;
+84         for (k = i+1; k < dim; k++)
+85             if (std::abs(A[j][i]) < std::abs(A[k][i]))
+86                 j = k;
+87         // No nonzero pivot implies singular matrix
+88         if (std::abs(A[j][i]) < mxinv_eps)
+89             return 0;
+90         // Swap rows if necessary
+91         if (j > i)
+92         {
+93             sgn *= -1; // Switch sign of determinant
+94             std::swap_ranges(A[i]+i, A[i]+dim, A[j]+i);
+95             std::swap_ranges(B[i], B[i]+dim, B[j]);
+96         }
+97         // Reduce other rows
+98         t1 = A[i][i]/d;
+99         for (j = 0; j < dim; j++)
+100             if (j != i)
+101             {
+102                 t2 = A[j][i]/d;
+103                 for (k = i; k < dim; k++)
+104                     A[j][k] = t1 * A[j][k] - t2 * A[i][k];
+105                 for (k = 0; k < dim; k++)
+106                     B[j][k] = t1 * B[j][k] - t2 * B[i][k];
+107             }
+108         d *= t1;
+109     }
+110     for (i = 0; i < dim; i++)
+111         for (j = 0; j < dim; j++)
+112             B[i][j] /= d;
+113     return sgn * d;
+114 }
+.fi
+.PP
+References abs(), and mxinv_eps\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const \fBldf\fP mxinv_eps =\fBsqrt\fP(std::numeric_limits<\fBldf\fP>::epsilon())"
+
+.PP
+Definition at line 6 of file box\&.libmd\&.cc\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libmd from the source code\&.

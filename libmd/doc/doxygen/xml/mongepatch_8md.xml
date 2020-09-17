@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="mongepatch_8md" kind="file" language="Markdown">
+    <compoundname>mongepatch.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">Monge<sp/>patch</highlight></codeline>
+<codeline><highlight class="normal">============</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Curvature<sp/>in<sp/>libmd<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{#mp-curvature}</highlight></codeline>
+<codeline><highlight class="normal">=====================</highlight></codeline>
+<codeline><highlight class="normal">libmd<sp/>supports<sp/>Molecular<sp/>dynamics<sp/>on<sp/>manifolds<sp/>(curved<sp/>surfaces)<sp/>in<sp/>any<sp/>dimension.</highlight></codeline>
+<codeline><highlight class="normal">Although<sp/>the<sp/>[integrator<sp/>for<sp/>curved<sp/>surfaces](@ref<sp/>mp-integrator)<sp/>supports<sp/>any<sp/>manifold,<sp/>a<sp/>Monge<sp/>gauge/patch<sp/>is<sp/>chosen.</highlight></codeline>
+<codeline><highlight class="normal">A<sp/>Monge<sp/>patch<sp/>basically<sp/>assumes<sp/>that<sp/>the<sp/>curvature<sp/>is<sp/>introduced<sp/>by<sp/>using<sp/>a<sp/>scalar<sp/>function<sp/>\f$f:\mathbb{R}^{d}\rightarrow\mathbb{R}\f$,<sp/>for<sp/>any<sp/>dimension<sp/>\f$d\f$.</highlight></codeline>
+<codeline><highlight class="normal">Such<sp/>that<sp/>the<sp/>metric<sp/>yields:<sp/></highlight></codeline>
+<codeline><highlight class="normal">\f{align}{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>g_{\mu<sp/>\nu}=<sp/>\delta_{\mu<sp/>\nu}<sp/>+<sp/>\partial_{\mu}<sp/>\partial_{\nu}<sp/>f</highlight></codeline>
+<codeline><highlight class="normal">\f}</highlight></codeline>
+<codeline><highlight class="normal">In<sp/>libmd<sp/>\f$f\f$<sp/>can<sp/>be<sp/>controlled<sp/>by<sp/>the<sp/>user.</highlight></codeline>
+<codeline><highlight class="normal">Using<sp/>automatic<sp/>differentiation<sp/>libmd<sp/>calculates<sp/>all<sp/>the<sp/>required<sp/>differential<sp/>geometric<sp/>forms<sp/>like<sp/>the<sp/>metric<sp/>determinant,<sp/>the<sp/>metric<sp/>inverse,<sp/>and<sp/>the<sp/>Christoffel<sp/>symbols.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">STUB</highlight></codeline>
+<codeline><highlight class="normal">STUB</highlight></codeline>
+<codeline><highlight class="normal">STUB</highlight></codeline>
+    </programlisting>
+    <location file="doc/markdown/mongepatch.md"/>
+  </compounddef>
+</doxygen>
