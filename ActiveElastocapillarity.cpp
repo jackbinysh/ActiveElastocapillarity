@@ -10,24 +10,29 @@
 #include <string>
 using namespace std;
 
+// dimensionality of the sim
+const ui dim = 2;
+// Simulation parameters
+ui run_time = 100000;
+ui LogInterval=100;
+ldf time_step = 1E-3; 
+// Input and Output
+const string InputMeshFilename = "TestMesh.vtu";
+const string DataDir="Data/";
+const string OutputMeshPrefix="MyRun";
+
 int main(int argc,char *argv[])
 {
-
-  int system_size=6;
-  string fileName = "TestMesh.vtu";
-  const ui dim=3;
-
-  // Initialise the MD simulation
-	md<dim> sys(system_size);
-	sys.index();
-	sys.network.update = false;
-  
-
   // Read in the mesh
   auto reader = vtkSmartPointer<vtkXMLUnstructuredGridReader>::New();
-  reader->SetFileName (fileName.c_str());
+  reader->SetFileName (InputMeshFilename.c_str());
   reader->Update();
   auto InputMesh = reader->GetOutput();
+
+  // Initialise the MD simulation
+	md<dim> sys(InputMesh->GetNumberOfPoints());
+	sys.index();
+	sys.network.update = false;
 
   // tell the MD sim about particle positions
   for (vtkIdType i = 0; i < InputMesh->GetNumberOfPoints() ; i++)
@@ -53,19 +58,28 @@ int main(int argc,char *argv[])
   {
     if(2==npts) // i.e if the cell is an edge
     {
-      vector<ldf> params = {1.0,2.0};
+      vector<ldf> params = {0.1,0.2};
       bool made = sys.add_bond(pts[0], pts[1], POT::HOOKEAN, params); //add spring, neohookean potential
+      cout << pts[0] << "\t" << pts[1] << endl;
+    }
+    if(3==npts)
+    {
+      vector<ldf> params = {0.1,1.0};
+      bool made1, made2,made3;
+      made1 = sys.add_bond(pts[0], pts[1], POT::HOOKEAN, params); //add spring, neohookean potential
+       made2 = sys.add_bond(pts[0], pts[2], POT::HOOKEAN, params); //add spring, neohookean potential
+       made3 = sys.add_bond(pts[1], pts[2], POT::HOOKEAN, params); //add spring, neohookean potential
+      cout << pts[0] << "\t" << pts[1] << "\t" << pts[2] << endl;
+      cout << made1 << "\t" << made2 << "\t" << made3 << endl << endl;
     }
   }
 
   // Run the sim
-  ui run_time = 100000;
-	ldf time_step = 1E-3; 
 	sys.integrator.h = time_step;
 	for (ui i = 0; i < run_time; i++) 
   {
     // log output
-    if(0==i%100)
+    if(0==i%LogInterval)
     {
       for (ui i = 0; i < sys.particles.size(); i++) 
       {
@@ -74,19 +88,26 @@ int main(int argc,char *argv[])
         for(int d=0;d<dim;d++)
         {
           x[d]=sys.particles[i].x[d];
-          cout <<x[d] << "\t";
         }
-        cout <<endl;
         InputMesh->GetPoints()->SetPoint(i,x);
       }
-      string outputname = std::to_string(i)+"out.vtu";
+      string outputname = DataDir+OutputMeshPrefix+std::to_string(i)+".vtu";
       auto writer = vtkSmartPointer<vtkXMLUnstructuredGridWriter>::New();
       writer->SetFileName(outputname.c_str());
       writer->SetInputData(InputMesh);
       writer->Write();
     }
+
 		sys.timestep(); 
   }
+
+  return 0;
+}
+
+
+
+
+
   
   //output
 
@@ -192,6 +213,3 @@ int main(int argc,char *argv[])
 //  writer->SetFileName(outputname.c_str());
 //  writer->SetInputData(unstructuredGrid);
 //  writer->Write();
-
-  return 0;
-}
