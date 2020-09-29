@@ -17,9 +17,9 @@ ui run_time = 100000;
 ui LogInterval=100;
 ldf time_step = 1E-3; 
 // Input and Output
-const string InputMeshFilename = "TestMesh.vtu";
+const string InputMeshFilename = "Disk.vtu";
 const string DataDir="Data/";
-const string OutputMeshPrefix="MyRun";
+const string OutputMeshPrefix="Disk";
 
 int main(int argc,char *argv[])
 {
@@ -59,18 +59,15 @@ int main(int argc,char *argv[])
     if(2==npts) // i.e if the cell is an edge
     {
       vector<ldf> params = {0.1,0.2};
-      bool made = sys.add_bond(pts[0], pts[1], POT::HOOKEAN, params); //add spring, neohookean potential
-      cout << pts[0] << "\t" << pts[1] << endl;
+      bool made = sys.add_bond(pts[0], pts[1], POT::HOOKEAN, params); 
     }
     if(3==npts)
     {
       vector<ldf> params = {0.1,1.0};
-      bool made1, made2,made3;
-      made1 = sys.add_bond(pts[0], pts[1], POT::HOOKEAN, params); //add spring, neohookean potential
-       made2 = sys.add_bond(pts[0], pts[2], POT::HOOKEAN, params); //add spring, neohookean potential
-       made3 = sys.add_bond(pts[1], pts[2], POT::HOOKEAN, params); //add spring, neohookean potential
-      cout << pts[0] << "\t" << pts[1] << "\t" << pts[2] << endl;
-      cout << made1 << "\t" << made2 << "\t" << made3 << endl << endl;
+     
+      sys.add_bond(pts[0], pts[1], POT::HOOKEAN, params); 
+      sys.add_bond(pts[0], pts[2], POT::HOOKEAN, params); 
+      sys.add_bond(pts[1], pts[2], POT::HOOKEAN, params);
     }
   }
 
@@ -97,7 +94,6 @@ int main(int argc,char *argv[])
       writer->SetInputData(InputMesh);
       writer->Write();
     }
-
 		sys.timestep(); 
   }
 
