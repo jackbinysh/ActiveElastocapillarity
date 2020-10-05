@@ -1,5 +1,5 @@
 ##DEBUG=0 (default) assumes RELEASE mode (maximum optimizations) otherwise DEBUG mode is assumded
-DEBUG=0
+DEBUG=1
 
 ##Do we want -pg to be included in compilation time (default off; if turned on DEBUGFLAG -g3 is also set)
 PROFILE=0

@@ -1,9 +1,0 @@
-digraph "dual"
-{
- // INTERACTIVE_SVG=YES
- // LATEX_PDF_SIZE
-  bgcolor="transparent";
-  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
-  node [fontname="Helvetica",fontsize="12",shape=record];
-  Node1 [label="{dual\n|+ x\l+ dx\l|+ dual()\l+ dual()\l+ operator=()\l+ operator=()\l+ operator X()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This structure automatically differentiates first order."];
-}

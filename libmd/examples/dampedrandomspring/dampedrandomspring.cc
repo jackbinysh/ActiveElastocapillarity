@@ -15,7 +15,7 @@ using namespace std;
 string ptfile = "smd.pts";
 string bfile = "smd.bds";
 
-bool pngout=false;
+bool pngout=true;
 
 int main()
 {
@@ -74,7 +74,7 @@ int main()
         //~ write_bonds("sim"+std::to_string(h)+".bds", sys);
         write_data("sim"+std::to_string(h), sys);
 
-        sys.timesteps(100000);
+        sys.timesteps(5000);
         cout << h << endl;
     }
     return EXIT_SUCCESS;

@@ -1,9 +1,0 @@
-digraph "additional_vars&lt; dim &gt;"
-{
- // INTERACTIVE_SVG=YES
- // LATEX_PDF_SIZE
-  bgcolor="transparent";
-  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
-  node [fontname="Helvetica",fontsize="12",shape=record];
-  Node1 [label="{additional_vars\< dim \>\n|+ noftypedamping\l+ noftypelangevin\l+ export_force_calc\l+ reindex\l+ overdamped_gamma\l+ overdamped_pre_integrator\l|}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This structure stores additional variables."];
-}

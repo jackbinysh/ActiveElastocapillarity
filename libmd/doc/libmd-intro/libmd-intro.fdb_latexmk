@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1599152781 "libmd-intro.tex" "libmd-intro.pdf" "libmd-intro" 1599154599
+["pdflatex"] 1601378536 "libmd-intro.tex" "libmd-intro.pdf" "libmd-intro" 1601378536
   "/home/jackbinysh/texmf/tex/latex/wrapfig/wrapfig.sty" 1484319651 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1480098666 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
@@ -225,14 +225,14 @@
   "/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1513614182 2534796 ad86771c20a6e6ef850d07fe251c18bc ""
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1513614209 4130818 ef9c27be2cca945a9c075c21a67d97f5 ""
   "/usr/local/texlive/2017/texmf.cnf" 1513614178 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "libmd-intro.aux" 1599152782 2286 c516437a392c3c267379ce8747494fec ""
-  "libmd-intro.out" 1599152782 508 c02b6cdcf0bd3da5af0136a85a65f634 ""
+  "libmd-intro.aux" 1601378536 2286 c516437a392c3c267379ce8747494fec ""
+  "libmd-intro.out" 1601378536 508 c02b6cdcf0bd3da5af0136a85a65f634 ""
   "libmd-intro.tex" 1599152202 13238 05c7b05caa3f5af840ebc9b88638931d ""
   "meta.xmp" 1599152202 1279 ce699c107e95044cde273f8469464528 ""
-  "meta.xmpi" 1599152782 1179 dc7a77cbb139307b7fbfa3ddefb668f8 ""
+  "meta.xmpi" 1601378536 1179 dc7a77cbb139307b7fbfa3ddefb668f8 ""
   (generated)
+  "libmd-intro.out"
+  "libmd-intro.aux"
+  "libmd-intro.log"
   "libmd-intro.pdf"
   "meta.xmpi"
-  "libmd-intro.log"
-  "libmd-intro.aux"
-  "libmd-intro.out"
