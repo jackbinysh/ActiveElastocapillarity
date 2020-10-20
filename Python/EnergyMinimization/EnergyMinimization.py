@@ -86,7 +86,22 @@ def vNeoHookean(r_ij,r0_ij,khook):
     lam_ij=r_ij/r0_ij
     V_ij=(kneo_ij/2)*((2/lam_ij) + lam_ij**2)
     return V_ij
-    
+ 
+def TotalArea(P_ij,triangles):
+    TotalArea=0
+    for triangle in triangles:
+        v1 = P_ij[triangle[1]]-P_ij[triangle[0]]
+        v2 = P_ij[triangle[2]]-P_ij[triangle[0]]
+        TriArea= 0.5*np.linalg.norm( (np.cross(v1,v2)))
+        TotalArea = TotalArea+TriArea
+    return TotalArea   
+
+def vTotalArea(pts,tri):
+    AB=pts[tri[:,0:2]]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    BC=pts[tri[:,1:3]]
+    t2 = np.subtract(BC[:,0,:],BC[:,1,:])
+    return np.absolute(0.5*np.cross(t1,t2)).sum()   
     
 # The argument P is a vector (flattened matrix), needed for scipy
 # A : connectivity matrix
@@ -96,7 +111,7 @@ def vNeoHookean(r_ij,r0_ij,khook):
 # kd : the discrete bond bending energy
 # theta0: preferred bond angle
 
-def energy(P,A,r0_ij,angletriples,k,kd,theta0): 
+def energy(P,A,r0_ij,angletriples,triangles,k,kd,theta0,B,TargetArea): 
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 2))
     # We compute the distance matrix.
@@ -106,4 +121,7 @@ def energy(P,A,r0_ij,angletriples,k,kd,theta0):
     SpringEnergy = (0.5*A*vNeoHookean(r_ij,r0_ij,k)).sum()   
     #bond bending energy
     BendingEnergy = vBending(P_ij,angletriples,kd,theta0).sum()
-    return SpringEnergy+BendingEnergy    
+    # Energetic penalty on volume change
+    VolumeConstraintEnergy = B*(vTotalArea(P_ij,triangles)-TargetArea)**2
+    
+    return SpringEnergy+BendingEnergy+VolumeConstraintEnergy    
