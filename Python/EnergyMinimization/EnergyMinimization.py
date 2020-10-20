@@ -11,6 +11,43 @@ import json
 import shutil
 import scipy.optimize as opt
 
+def ReadMesh(filename):
+    InputMesh = meshio.read(filename)
+    
+    # make list of:
+    #interior bonds : interiorbonds
+    # edge bonds :edgepoints
+    # bonds : interiorbonds+edgebonds
+    # angle triples: angletriples
+    triangles=mesh.cells()
+    x = [[[triangle[0],triangle[1]],[triangle[0],triangle[2]],[triangle[1],triangle[2]] ]   for triangle in triangles]
+    flattenedx = [val for sublist in x for val in sublist]
+    bonds = [[x[0],x[1]] if x[0]<x[1] else [x[1],x[0]] for x in flattenedx]
+
+    # get a list of the bonds on the edge, and in the interior
+    edgebonds=[]
+    interiorbonds=[]
+    for elem in bonds:
+        if 1==bonds.count(elem):
+            edgebonds.append(elem)
+        elif 2==bonds.count(elem) and elem not in interiorbonds:
+            interiorbonds.append(elem)
+
+    bonds=interiorbonds+edgebonds
+
+    # for the edge bonds, get the angle triples
+    EdgeVertices = list(set([val for sublist in edgebonds for val in sublist]))
+    angletriples=[]
+
+    for vertex in EdgeVertices:
+        Neighbors=[x for x in edgebonds if vertex in x]
+        NeighborVertices = [val for sublist in Neighbors for val in sublist if val!=vertex]
+        angletriples.append([NeighborVertices[0],vertex,NeighborVertices[1]])
+        
+    return InputMesh, OutputMesh, interiorbonds,edgebonds,angletriples
+
+
+
 def MakeDolfinMesh(a, edgepoints):
     # make the mesh. Lets have a unit circle. It seems, from trial and error, that
     # res = 1.5*Radius/mesh_size,
