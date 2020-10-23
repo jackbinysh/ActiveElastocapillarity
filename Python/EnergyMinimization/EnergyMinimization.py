@@ -11,6 +11,8 @@ import json
 import shutil
 import scipy.optimize as opt
 
+####### 2D STUFF #########
+
 def MakeBondAngleLists(mesh):
     # make list of:
     #interior bonds : interiorbonds
@@ -42,8 +44,6 @@ def MakeBondAngleLists(mesh):
         NeighborVertices = [val for sublist in Neighbors for val in sublist if val!=vertex]
         angletriples.append([NeighborVertices[0],vertex,NeighborVertices[1]])
 
-     
-        
     return interiorbonds,edgebonds,angletriples
 
 def MakeDolfinMesh(a, edgepoints):
@@ -60,68 +60,6 @@ def MakeDolfinMesh(a, edgepoints):
 
     return MeshioMesh 
 
-def MakeDolfinMesh3D(a, edgepoints):
-    
-    # Make the mesh, a unit sphere: 
-    domain = Sphere(Point(0, 0, 0),1.0,10)
-    mesh = generate_mesh(domain,1.5/a)
-    
-    # make the cube
-    #mesh = UnitCubeMesh(1,1,1)
-    
-    points = mesh.coordinates()
-    cells = [("tetra",mesh.cells() )]
-    MeshioMesh = meshio.Mesh(points,cells)
-    return MeshioMesh 
-
-# Note: this code assumes all triangle and bond specifications are in ascending vertex order, i.e
-# bond = [0,3], but never [3,0]
-# triangle  =[1,4,6], never [4, 1,6] or [6,4,1] etc.
-def MakeBondAngleLists3D(InputMesh):
-    
-    tetras=InputMesh.cells[0].data
-    
-    trilist=[]
-    for tetra in tetras:
-        for (i,v) in enumerate(tetra):
-            # make it a python list for ease
-            tetra = list(tetra)
-            # the triangle made from removing the ith element of the tetra list
-            tri = (tetra[:i]+tetra[i+1:])
-            # add to the list of all our triangles
-            trilist.append(tri)
-          
-    # we now have a list of all the triangles in the mesh. the duplicates are in the interior, the unique ones
-    # form the boundary
-    boundarytris=[]
-    for tri in trilist:
-        if 1==trilist.count(tri):
-             boundarytris.append(tri)
-                
-                
-    # Now lets make bond lists. First, all the bonds
-    bondlist=[]
-    for t in tetras:
-        for (i,v1) in enumerate(t):
-            for(j,v2) in enumerate(t):
-                if(j>i and [v1,v2] not in bondlist):
-                    bondlist.append([v1,v2])
-
-    # Now just the bonds on the edge                
-    edgebondlist=[]
-    for t in boundarytris:
-        for (i,v1) in enumerate(t):
-            for(j,v2) in enumerate(t):
-                if(j>i and [v1,v2] not in edgebondlist):
-                    edgebondlist.append([v1,v2])
-
-    # and by a diff, the interior bonds
-    interiorbondlist=[]
-    for bond in bondlist:
-        if(bond not in edgebondlist):
-            interiorbondlist.append(bond)
-
-    return interiorbondlist, edgebondlist, boundarytris
 
 def MakeBondHist(Coordinates,bondlist):
     lengths=[np.linalg.norm(Coordinates[bond[1]] -Coordinates[bond[0]]) for bond in bondlist]
@@ -190,3 +128,97 @@ def energy(P,A,r0_ij,angletriples,triangles,k,kd,theta0,B,TargetArea):
     VolumeConstraintEnergy = B*(vTotalArea(P_ij,triangles)-TargetArea)**2
     
     return SpringEnergy+BendingEnergy+VolumeConstraintEnergy    
+
+############ 3D STUFF ####################
+
+
+def MakeDolfinMesh3D(a, edgepoints):
+    
+    # Make the mesh, a unit sphere: 
+    domain = Sphere(Point(0, 0, 0),1.0,10)
+    mesh = generate_mesh(domain,1.5/a)
+    
+    # make the cube
+    #mesh = UnitCubeMesh(1,1,1)
+    
+    points = mesh.coordinates()
+    cells = [("tetra",mesh.cells() )]
+    MeshioMesh = meshio.Mesh(points,cells)
+    return MeshioMesh 
+
+# Note: this code assumes all triangle and bond specifications are in ascending vertex order, i.e
+# bond = [0,3], but never [3,0]
+# triangle  =[1,4,6], never [4, 1,6] or [6,4,1] etc.
+def MakeBondAngleLists3D(InputMesh):
+    
+    tetras=InputMesh.cells[0].data
+    
+    trilist=[]
+    for tetra in tetras:
+        for (i,v) in enumerate(tetra):
+            # make it a python list for ease
+            tetra = list(tetra)
+            # the triangle made from removing the ith element of the tetra list
+            tri = (tetra[:i]+tetra[i+1:])
+            # add to the list of all our triangles
+            trilist.append(tri)
+          
+    # we now have a list of all the triangles in the mesh. the duplicates are in the interior, the unique ones
+    # form the boundary
+    boundarytris=[]
+    for tri in trilist:
+        if 1==trilist.count(tri):
+             boundarytris.append(tri)
+                
+                
+    # Now lets make bond lists. First, all the bonds
+    bondlist=[]
+    for t in tetras:
+        for (i,v1) in enumerate(t):
+            for(j,v2) in enumerate(t):
+                if(j>i and [v1,v2] not in bondlist):
+                    bondlist.append([v1,v2])
+
+    # Now just the bonds on the edge                
+    edgebondlist=[]
+    for t in boundarytris:
+        for (i,v1) in enumerate(t):
+            for(j,v2) in enumerate(t):
+                if(j>i and [v1,v2] not in edgebondlist):
+                    edgebondlist.append([v1,v2])
+
+    # and by a diff, the interior bonds
+    interiorbondlist=[]
+    for bond in bondlist:
+        if(bond not in edgebondlist):
+            interiorbondlist.append(bond)
+
+    # these should all be numpy lists going forward
+    return np.array(interiorbondlist), np.array(edgebondlist), np.array(boundarytris)
+
+
+#r_ij: numpy list of bond lengths
+# r0_ij: list of rest lengths
+#khook: the spring constant
+#returns V_ij, a list of the bond energies
+def NeoHookean3D(r_ij,r0_ij,khook):
+    kneo_ij = (r0_ij**2)*khook/3  
+    lam_ij=r_ij/r0_ij
+    V_ij=(kneo_ij/2)*((2/lam_ij) + lam_ij**2)
+    return V_ij
+
+
+def energy3D(P,bondlist,r0_ij,khook): 
+    # We convert it to a matrix here.
+    P_ij = P.reshape((-1, 3))
+    # from the bond list, work out what the current bond lengths are:
+    AB=P_ij[bondlist]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    rij=np.linalg.norm(t1,axis=1)
+    # NeoHookean Spring bond energies
+    SpringEnergy = vNeoHookean(r_ij,r0_ij,k).sum()   
+    #bond bending energy
+    #BendingEnergy = vBending(P_ij,angletriples,kd,theta0).sum()
+    # Energetic penalty on volume change
+    #VolumeConstraintEnergy = B*(vTotalArea(P_ij,triangles)-TargetArea)**2
+    return SpringEnergy
