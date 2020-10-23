@@ -41,6 +41,8 @@ def MakeBondAngleLists(mesh):
         Neighbors=[x for x in edgebonds if vertex in x]
         NeighborVertices = [val for sublist in Neighbors for val in sublist if val!=vertex]
         angletriples.append([NeighborVertices[0],vertex,NeighborVertices[1]])
+
+     
         
     return interiorbonds,edgebonds,angletriples
 
@@ -58,54 +60,68 @@ def MakeDolfinMesh(a, edgepoints):
 
     return MeshioMesh 
 
+def MakeDolfinMesh3D(a, edgepoints):
+    
+    # Make the mesh, a unit sphere: 
+    domain = Sphere(Point(0, 0, 0),1.0,10)
+    mesh = generate_mesh(domain,1.5/a)
+    
+    # make the cube
+    #mesh = UnitCubeMesh(1,1,1)
+    
+    points = mesh.coordinates()
+    cells = [("tetra",mesh.cells() )]
+    MeshioMesh = meshio.Mesh(points,cells)
+    return MeshioMesh 
 
-# deprecated
-#def MakeDolfinMesh(a, edgepoints):
-#    # make the mesh. Lets have a unit circle. It seems, from trial and error, that
-#    # res = 1.5*Radius/mesh_size,
-#    domain = Ellipse(Point(0, 0, 0),1.0,1.0, edgepoints)
-#    mesh = generate_mesh(domain, 1.5/a)
-#    
-#    mesh.init()
-#    
-#    # need to add a 3rd dimension 0 coordinate here
-#    points = np.insert(mesh.coordinates(),2,0,axis=1)
-#    cells = cells = [("triangle",mesh.cells() )]
-#    InputMesh = meshio.Mesh(points,cells)
-#    #copy for modifying at output
-#    OutputMesh=copy.deepcopy(InputMesh)
-#    
-#    # make list of:
-#    #interior bonds : interiorbonds
-#    # edge bonds :edgepoints
-#    # bonds : interiorbonds+edgebonds
-#    # angle triples: angletriples
-#    triangles=mesh.cells()
-#    x = [[[triangle[0],triangle[1]],[triangle[0],triangle[2]],[triangle[1],triangle[2]] ]   for triangle in triangles]
-#    flattenedx = [val for sublist in x for val in sublist]
-#    bonds = [[x[0],x[1]] if x[0]<x[1] else [x[1],x[0]] for x in flattenedx]
-#
-#    # get a list of the bonds on the edge, and in the interior
-#    edgebonds=[]
-#    interiorbonds=[]
-#    for elem in bonds:
-#        if 1==bonds.count(elem):
-#            edgebonds.append(elem)
-#        elif 2==bonds.count(elem) and elem not in interiorbonds:
-#            interiorbonds.append(elem)
-#
-#    bonds=interiorbonds+edgebonds
-#
-#    # for the edge bonds, get the angle triples
-#    EdgeVertices = list(set([val for sublist in edgebonds for val in sublist]))
-#    angletriples=[]
-#
-#    for vertex in EdgeVertices:
-#        Neighbors=[x for x in edgebonds if vertex in x]
-#        NeighborVertices = [val for sublist in Neighbors for val in sublist if val!=vertex]
-#        angletriples.append([NeighborVertices[0],vertex,NeighborVertices[1]])
-#        
-#    return InputMesh, OutputMesh, interiorbonds,edgebonds,angletriples
+# Note: this code assumes all triangle and bond specifications are in ascending vertex order, i.e
+# bond = [0,3], but never [3,0]
+# triangle  =[1,4,6], never [4, 1,6] or [6,4,1] etc.
+def MakeBondAngleLists3D(InputMesh):
+    
+    tetras=InputMesh.cells[0].data
+    
+    trilist=[]
+    for tetra in tetras:
+        for (i,v) in enumerate(tetra):
+            # make it a python list for ease
+            tetra = list(tetra)
+            # the triangle made from removing the ith element of the tetra list
+            tri = (tetra[:i]+tetra[i+1:])
+            # add to the list of all our triangles
+            trilist.append(tri)
+          
+    # we now have a list of all the triangles in the mesh. the duplicates are in the interior, the unique ones
+    # form the boundary
+    boundarytris=[]
+    for tri in trilist:
+        if 1==trilist.count(tri):
+             boundarytris.append(tri)
+                
+                
+    # Now lets make bond lists. First, all the bonds
+    bondlist=[]
+    for t in tetras:
+        for (i,v1) in enumerate(t):
+            for(j,v2) in enumerate(t):
+                if(j>i and [v1,v2] not in bondlist):
+                    bondlist.append([v1,v2])
+
+    # Now just the bonds on the edge                
+    edgebondlist=[]
+    for t in boundarytris:
+        for (i,v1) in enumerate(t):
+            for(j,v2) in enumerate(t):
+                if(j>i and [v1,v2] not in edgebondlist):
+                    edgebondlist.append([v1,v2])
+
+    # and by a diff, the interior bonds
+    interiorbondlist=[]
+    for bond in bondlist:
+        if(bond not in edgebondlist):
+            interiorbondlist.append(bond)
+
+    return interiorbondlist, edgebondlist, boundarytris
 
 def MakeBondHist(Coordinates,bondlist):
     lengths=[np.linalg.norm(Coordinates[bond[1]] -Coordinates[bond[0]]) for bond in bondlist]
