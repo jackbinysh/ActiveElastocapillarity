@@ -149,7 +149,8 @@ def MakeDolfinMesh3D(a, edgepoints):
 # Note: this code assumes all triangle and bond specifications are in ascending vertex order, i.e
 # bond = [0,3], but never [3,0]
 # triangle  =[1,4,6], never [4, 1,6] or [6,4,1] etc.
-def MakeBondAngleLists3D(InputMesh):
+# 
+def MakeMeshData3D(InputMesh):
     
     tetras=InputMesh.cells[0].data
     
@@ -192,11 +193,43 @@ def MakeBondAngleLists3D(InputMesh):
     for bond in bondlist:
         if(bond not in edgebondlist):
             interiorbondlist.append(bond)
+             
+    # construct a mapping between edge bond indices and boundary triangle indices
+    bidxTotidx=[]
+    for (bidx, b) in enumerate(edgebondlist):
+        tindices=[]
+        for (tidx,t) in enumerate(boundarytris):
+             if ( b in [[t[0],t[1]],[t[0],t[2]],[t[1],t[2]]]):
+                    tindices.append(tidx)
+        bidxTotidx.append(tindices)
+    
+    
+    # Going forward, we want all of these to be numpy arrays:           
+    interiorbondlist= np.array(interiorbondlist)
+    edgebondlist= np.array(edgebondlist)
+    boundarytris= np.array(boundarytris)
+    bidxTotidx=np.array(bidxTotidx)
 
-    # these should all be numpy lists going forward
-    return np.array(interiorbondlist), np.array(edgebondlist), np.array(boundarytris)
+    
+    # Finally, orient the triangles so that they all have outward normals, relative to the origin (0,0,0):
+    AB=InputMesh.points[boundarytris[:,0:2]]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    BC=InputMesh.points[boundarytris[:,1:3]]
+    t2 = np.subtract(BC[:,0,:],BC[:,1,:])
+    # the normal vectors
+    sizes = np.linalg.norm(np.cross(t1,t2),axis=1)
+    normals=np.cross(t1,t2)/sizes[:,None]
+    # barycentres of each triangle
+    barys=(InputMesh.points[boundarytris[:,0]]+InputMesh.points[boundarytris[:,1]]+InputMesh.points[boundarytris[:,2]])/3
+    # should we flip a pair of bonds? 
+    flip = (np.multiply(barys, normals).sum(axis=1) <0) 
+    for (tidx, t) in enumerate(boundarytris):
+        if True==flip[tidx]:
+            t[[0,1]]=t[[1,0]]
+           
+    return interiorbondlist, edgebondlist, boundarytris, bidxTotidx
 
-
+    
 #r_ij: numpy list of bond lengths
 # r0_ij: list of rest lengths
 #khook: the spring constant
@@ -206,6 +239,55 @@ def NeoHookean3D(r_ij,r0_ij,khook):
     lam_ij=r_ij/r0_ij
     V_ij=(kneo_ij/2)*((2/lam_ij) + lam_ij**2)
     return V_ij
+
+# Here I implement the bending energy found in, e.g.:
+# "Spectrin-Level modelling of the cytoskeleton and optical tweezers stretching of the Erythrocyte", Li, Dao, Lim, Suresh 2005.
+# and references therin, in particular:
+# "Topology changes in fluid membranes" Boal and Rao 1992
+# The formula to be implemented is
+# F_b = k_bend*Sum_{a,b}(1-cos(theta_ab - theta_0)). The sum is over tri's sharing an edge on the surface. theta_ab is the angle between their normals. 
+def BendingEnergy(P,boundarytris,bidxTotidx,kbend,theta_0):
+    
+    # first, compute list of normals to the triangles:
+    AB=P[boundarytris[:,0:2]]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    BC=P[boundarytris[:,1:3]]
+    t2 = np.subtract(BC[:,0,:],BC[:,1,:])
+    
+    normals= np.cross(t1,t2)
+    sizes = np.linalg.norm(normals,axis=1)
+    normals=normals/sizes[:,None]
+    
+    # now, run over the bonds, get the (a,b) pairs of neighboring triangles, and
+    # compute the bending energy for each
+  
+    # first set of triangles, "a",  in the pairings across bonds
+    tris_a=boundarytris[bidxTotidx[:,0]]
+    #x_a, barycentres:
+    x_a=(P[tris_a[:,0]]+P[tris_a[:,1]]+P[tris_a[:,2]])/3   
+    # the normals
+    n_a = normals[bidxTotidx[:,0]]
+    
+   
+    # second set of triangles, "b",  in the pairings across bonds
+    tris_b=boundarytris[bidxTotidx[:,1]]
+    #x_b, barycentres:
+    x_b=(P[tris_b[:,0]]+P[tris_b[:,1]]+P[tris_b[:,2]])/3   
+    # the normals
+    n_b = normals[bidxTotidx[:,1]]
+    
+    # cosines
+    costheta_ab = np.multiply(n_a, n_b).sum(axis=1) 
+    
+    # sines, signed accoring to (x_a-x_b).(n_a-n_b)
+    sintheta_ab_unsigned= np.linalg.norm( np.cross(n_a,n_b) ,axis=1)
+    signs= np.multiply((n_a-n_b), (x_a-x_b)).sum(axis=1)>0
+    # turn it from 0's and 1's to -1's and 1's
+    signs = 2*(signs-0.5)
+   
+    sintheta_ab = signs*sintheta_ab_unsigned
+    
+    return kbend*( 1-(np.cos(theta_0)*costheta_ab+np.sin(theta_0)*sintheta_ab) )
 
 
 def energy3D(P,bondlist,r0_ij,khook): 
