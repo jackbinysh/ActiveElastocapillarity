@@ -214,9 +214,9 @@ def energy3D(P,bondlist,r0_ij,khook):
     # from the bond list, work out what the current bond lengths are:
     AB=P_ij[bondlist]
     t1 = np.subtract(AB[:,0,:],AB[:,1,:])
-    rij=np.linalg.norm(t1,axis=1)
+    r_ij=np.linalg.norm(t1,axis=1)
     # NeoHookean Spring bond energies
-    SpringEnergy = vNeoHookean(r_ij,r0_ij,k).sum()   
+    SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook).sum()   
     #bond bending energy
     #BendingEnergy = vBending(P_ij,angletriples,kd,theta0).sum()
     # Energetic penalty on volume change
