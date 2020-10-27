@@ -135,7 +135,7 @@ def energy(P,A,r0_ij,angletriples,triangles,k,kd,theta0,B,TargetArea):
 def MakeDolfinMesh3D(a, edgepoints):
     
     # Make the mesh, a unit sphere: 
-    domain = Sphere(Point(0, 0, 0),1.0,10)
+    domain = Sphere(Point(0, 0, 0),1.0,1)
     mesh = generate_mesh(domain,1.5/a)
     
     # make the cube
@@ -211,24 +211,38 @@ def MakeMeshData3D(InputMesh):
     bidxTotidx=np.array(bidxTotidx)
 
     
-    # Finally, orient the triangles so that they all have outward normals, relative to the origin (0,0,0):
-    AB=InputMesh.points[boundarytris[:,0:2]]
+   
+           
+    return interiorbondlist, edgebondlist, boundarytris, bidxTotidx
+
+# assuming a sphere, orient triangles, given an interior points
+def OrientTriangles(points, boundarytris,interiorpoint):
+    
+    AB=points[boundarytris[:,0:2]]
     t1 = np.subtract(AB[:,0,:],AB[:,1,:])
-    BC=InputMesh.points[boundarytris[:,1:3]]
+    BC=points[boundarytris[:,1:3]]
     t2 = np.subtract(BC[:,0,:],BC[:,1,:])
     # the normal vectors
     sizes = np.linalg.norm(np.cross(t1,t2),axis=1)
     normals=np.cross(t1,t2)/sizes[:,None]
-    # barycentres of each triangle
-    barys=(InputMesh.points[boundarytris[:,0]]+InputMesh.points[boundarytris[:,1]]+InputMesh.points[boundarytris[:,2]])/3
+    
+    # barycentre of each triangle
+    
+    barys=(points[boundarytris[:,0]]+points[boundarytris[:,1]]+points[boundarytris[:,2]])/3
+    
+    # vec from interior point to barycentres
+    v = barys-interiorpoint
     # should we flip a pair of bonds? 
-    flip = (np.multiply(barys, normals).sum(axis=1) <0) 
-    for (tidx, t) in enumerate(boundarytris):
+    flip = (np.multiply(v, normals).sum(axis=1) <0) 
+    
+    # make the flips on a copy, not touching the input
+    orientedboundarytris=boundarytris.copy()
+    for (tidx, t) in enumerate(orientedboundarytris):
         if True==flip[tidx]:
             t[[0,1]]=t[[1,0]]
-           
-    return interiorbondlist, edgebondlist, boundarytris, bidxTotidx
-
+    
+    return orientedboundarytris
+    
     
 #r_ij: numpy list of bond lengths
 # r0_ij: list of rest lengths
@@ -287,7 +301,7 @@ def BendingEnergy(P,boundarytris,bidxTotidx,kbend,theta_0):
    
     sintheta_ab = signs*sintheta_ab_unsigned
     
-    return kbend*( 1-(np.cos(theta_0)*costheta_ab+np.sin(theta_0)*sintheta_ab) )
+    return kbend*( 1-(np.cos(theta_0)*costheta_ab+np.sin(theta_0)*sintheta_ab) ), normals, n_a, n_b
 
 
 def energy3D(P,bondlist,r0_ij,khook): 
@@ -304,3 +318,11 @@ def energy3D(P,bondlist,r0_ij,khook):
     # Energetic penalty on volume change
     #VolumeConstraintEnergy = B*(vTotalArea(P_ij,triangles)-TargetArea)**2
     return SpringEnergy
+
+
+def vTotalArea3D(pts,tri):
+    AB=pts[tri[:,0:2]]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    BC=pts[tri[:,1:3]]
+    t2 = np.subtract(BC[:,0,:],BC[:,1,:])
+    return np.linalg.norm(0.5*np.cross(t1,t2),axis=1).sum()
