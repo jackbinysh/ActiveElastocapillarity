@@ -151,72 +151,78 @@ def MakeDolfinMesh3D(a, edgepoints):
 # bond = [0,3], but never [3,0]
 # triangle  =[1,4,6], never [4, 1,6] or [6,4,1] etc.
 # 
-def MakeMeshData3DOLD(InputMesh):
-    
-    tetras=InputMesh.cells[0].data
-    
-    trilist=[]
-    for tetra in tetras:
-        for (i,v) in enumerate(tetra):
-            # make it a python list for ease
-            tetra = list(tetra)
-            # the triangle made from removing the ith element of the tetra list
-            tri = (tetra[:i]+tetra[i+1:])
-            # add to the list of all our triangles
-            trilist.append(tri)
-         
-   # we now have a list of all the triangles in the mesh. the duplicates are in the interior, the unique ones
-   # form the boundary
-    boundarytris=[]
-    for tri in trilist:
-        if 1==trilist.count(tri):
-             boundarytris.append(tri)
-               
-               
-   # Now lets make bond lists. First, all the bonds
-    bondlist=[]
-    for t in tetras:
-        for (i,v1) in enumerate(t):
-            for(j,v2) in enumerate(t):
-                if(j>i and [v1,v2] not in bondlist):
-                    bondlist.append([v1,v2])
-
-   # Now just the bonds on the edge                
-    edgebondlist=[]
-    for t in boundarytris:
-        for (i,v1) in enumerate(t):
-            for(j,v2) in enumerate(t):
-                if(j>i and [v1,v2] not in edgebondlist):
-                    edgebondlist.append([v1,v2])
-
-   # and by a diff, the interior bonds
-    interiorbondlist=[]
-    for bond in bondlist:
-        if(bond not in edgebondlist):
-            interiorbondlist.append(bond)
-            
-   # construct a mapping between edge bond indices and boundary triangle indices
-    bidxTotidx=[]
-    for (bidx, b) in enumerate(edgebondlist):
-        tindices=[]
-        for (tidx,t) in enumerate(boundarytris):
-             if ( b in [[t[0],t[1]],[t[0],t[2]],[t[1],t[2]]]):
-                    tindices.append(tidx)
-        bidxTotidx.append(tindices)
-   
-   
-   # Going forward, we want all of these to be numpy arrays:           
-    interiorbondlist= np.array(interiorbondlist)
-    edgebondlist= np.array(edgebondlist)
-    boundarytris= np.array(boundarytris)
-    bidxTotidx=np.array(bidxTotidx)
-          
-    return interiorbondlist, edgebondlist, boundarytris, bidxTotidx
+#def MakeMeshData3DOLD(InputMesh):
+#    
+#    tetras=InputMesh.cells[0].data
+#    
+#    trilist=[]
+#    for tetra in tetras:
+#        for (i,v) in enumerate(tetra):
+#            # make it a python list for ease
+#            tetra = list(tetra)
+#            # the triangle made from removing the ith element of the tetra list
+#            tri = (tetra[:i]+tetra[i+1:])
+#            # add to the list of all our triangles
+#            trilist.append(tri)
+#         
+#   # we now have a list of all the triangles in the mesh. the duplicates are in the interior, the unique ones
+#   # form the boundary
+#    boundarytris=[]
+#    for tri in trilist:
+#        if 1==trilist.count(tri):
+#             boundarytris.append(tri)
+#               
+#               
+#   # Now lets make bond lists. First, all the bonds
+#    bondlist=[]
+#    for t in tetras:
+#        for (i,v1) in enumerate(t):
+#            for(j,v2) in enumerate(t):
+#                if(j>i and [v1,v2] not in bondlist):
+#                    bondlist.append([v1,v2])
+#
+#   # Now just the bonds on the edge                
+#    edgebondlist=[]
+#    for t in boundarytris:
+#        for (i,v1) in enumerate(t):
+#            for(j,v2) in enumerate(t):
+#                if(j>i and [v1,v2] not in edgebondlist):
+#                    edgebondlist.append([v1,v2])
+#
+#   # and by a diff, the interior bonds
+#    interiorbondlist=[]
+#    for bond in bondlist:
+#        if(bond not in edgebondlist):
+#            interiorbondlist.append(bond)
+#            
+#   # construct a mapping between edge bond indices and boundary triangle indices
+#    bidxTotidx=[]
+#    for (bidx, b) in enumerate(edgebondlist):
+#        tindices=[]
+#        for (tidx,t) in enumerate(boundarytris):
+#             if ( b in [[t[0],t[1]],[t[0],t[2]],[t[1],t[2]]]):
+#                    tindices.append(tidx)
+#        bidxTotidx.append(tindices)
+#   
+#   
+#   # Going forward, we want all of these to be numpy arrays:           
+#    interiorbondlist= np.array(interiorbondlist)
+#    edgebondlist= np.array(edgebondlist)
+#    boundarytris= np.array(boundarytris)
+#    bidxTotidx=np.array(bidxTotidx)
+#          
+#    return interiorbondlist, edgebondlist, boundarytris, bidxTotidx
 
 
 def MakeMeshData3D(InputMesh):
     
-    tetras=InputMesh.cells[0].data
+    for block in InputMesh.cells:
+        if 'tetra'==block.type:
+            tetras=block.data.copy()
+    
+    # Im going to sort the tetrahedra so their vertices appear always in ascending order
+    tetras=np.sort(tetras,axis=1)
+    
     trilist=[]
     for tetra in tetras:
         for (i,v) in enumerate(tetra):
@@ -255,7 +261,7 @@ def MakeMeshData3D(InputMesh):
     # we know that list goes (tri0,tri1,tri2,tri3... tri_N, tri0,tri1,...  tri_N, tri0,tri1,... ) so we mod out to 
     # get which triangle we came from
     Nt=len(boundarytris)
-    x=np.empty((len(edgebondlist),2),dtype='int16')
+    x=np.empty((len(edgebondlist),2),dtype='uint64')
     for i in np.arange(0,len(edgebondlist)):
         x[i,:]=np.where(inv==i)[0]
     bidxTotidx=(x%Nt)
@@ -268,32 +274,8 @@ def MakeMeshData3D(InputMesh):
     a1_rows = a1.view([('', a1.dtype)] * a1.shape[1])
     a2_rows = a2.view([('', a2.dtype)] * a2.shape[1])
     interiorbondlist=np.setdiff1d(a1_rows, a2_rows).view(a1.dtype).reshape(-1, a1.shape[1])
-   
-
-   # interiorbondlist=[]
-   # for bond in bondlist:
-   #     if(bond.tolist() not in edgebondlist.tolist()):
-   #         interiorbondlist.append(bond)
-   # interiorbondlist = np.array(interiorbondlist)
-    
-    #interiorbondlist=[]
-    #for bond in bondlist:
-    #    if(bond not in edgebondlist):
-    #        interiorbondlist.append(bond)
-    #interiorbondlist = np.array(interiorbondlist)
-             
-    # construct a mapping between edge bond indices and boundary triangle indices
-    #bidxTotidx=[]
-    #for (bidx, b) in enumerate(edgebondlist):
-    #    tindices=[]
-    #    for (tidx,t) in enumerate(boundarytris):
-    #         if ( b.tolist() in [[t[0],t[1]],[t[0],t[2]],[t[1],t[2]]]):
-    #                tindices.append(tidx)
-    #    bidxTotidx.append(tindices)
-    #bidxTotidx=np.array(bidxTotidx)
                    
     return interiorbondlist, edgebondlist, boundarytris, bidxTotidx
-
 
 
 # assuming a sphere, orient triangles, given an interior points
@@ -382,7 +364,7 @@ def BendingEnergy(P,boundarytris,bidxTotidx,kbend,theta_0):
    
     sintheta_ab = signs*sintheta_ab_unsigned
     
-    return kbend*( 1-(np.cos(theta_0)*costheta_ab+np.sin(theta_0)*sintheta_ab) ), normals, n_a, n_b
+    return kbend*( 1-(np.cos(theta_0)*costheta_ab+np.sin(theta_0)*sintheta_ab) )
 
 
 def Volume3D(P,boundarytris,bidxTotidx):
@@ -398,14 +380,10 @@ def Volume3D(P,boundarytris,bidxTotidx):
     
     dA= 0.5*np.cross(t1,t2)
 
-    return np.multiply(x_a,dA).sum(axis=1)
+    return np.multiply(x_a,dA).sum(axis=1)/3
     
 
-
-
-
-
-def energy3D(P,bondlist,r0_ij,khook): 
+def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,r0_ij,khook,kbend,theta0,B,TargetArea): 
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
     # from the bond list, work out what the current bond lengths are:
@@ -415,10 +393,10 @@ def energy3D(P,bondlist,r0_ij,khook):
     # NeoHookean Spring bond energies
     SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook).sum()   
     #bond bending energy
-    #BendingEnergy = vBending(P_ij,angletriples,kd,theta0).sum()
+    BendingEnergy = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend,theta0).sum()
     # Energetic penalty on volume change
-    #VolumeConstraintEnergy = B*(vTotalArea(P_ij,triangles)-TargetArea)**2
-    return SpringEnergy
+    VolumeConstraintEnergy = B*(Volume3D(P_ij,orientedboundarytris,bidxTotidx)-TargetArea)**2
+    return SpringEnergy+BendingEnergy+VolumeConstraintEnergy
 
 
 def vTotalArea3D(pts,tri):
