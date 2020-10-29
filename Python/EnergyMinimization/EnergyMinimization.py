@@ -275,7 +275,7 @@ def MakeMeshData3D(InputMesh):
     a2_rows = a2.view([('', a2.dtype)] * a2.shape[1])
     interiorbondlist=np.setdiff1d(a1_rows, a2_rows).view(a1.dtype).reshape(-1, a1.shape[1])
                    
-    return interiorbondlist, edgebondlist, boundarytris, bidxTotidx
+    return interiorbondlist, edgebondlist, boundarytris, bidxTotidx, tetras
 
 
 # assuming a sphere, orient triangles, given an interior points
@@ -366,7 +366,7 @@ def BendingEnergy(P,boundarytris,bidxTotidx,kbend,theta_0):
     
     return kbend*( 1-(np.cos(theta_0)*costheta_ab+np.sin(theta_0)*sintheta_ab) )
 
-
+# use the divergence theorem
 def Volume3D(P,boundarytris,bidxTotidx):
     
     # Barycentres:
@@ -380,10 +380,35 @@ def Volume3D(P,boundarytris,bidxTotidx):
     
     dA= 0.5*np.cross(t1,t2)
 
-    return np.multiply(x_a,dA).sum(axis=1)/3
-    
+    return (np.multiply(x_a,dA).sum(axis=1)/3).sum()
 
-def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,r0_ij,khook,kbend,theta0,B,TargetArea): 
+# directly sum the triple product over all tetrahedra
+def Volume3D_tetras(P,tetras):
+   
+    AB=P[tetras[:,[0,1]]]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+
+    BC=P[tetras[:,[0,2]]]
+    t2 = np.subtract(BC[:,0,:],BC[:,1,:]) 
+
+    CD=P[tetras[:,[0,3]]]
+    t3 = np.subtract(CD[:,0,:],CD[:,1,:])   
+
+    t1ct2=np.cross(t1,t2)
+    t3dott1ct2=np.multiply(t3,t1ct2).sum(axis=1)
+
+    return np.abs(t3dott1ct2).sum()/6
+
+
+def vTotalArea3D(pts,tri):
+    AB=pts[tri[:,0:2]]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    BC=pts[tri[:,1:3]]
+    t2 = np.subtract(BC[:,0,:],BC[:,1,:])
+    return np.linalg.norm(0.5*np.cross(t1,t2),axis=1).sum()
+
+
+def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,r0_ij,khook,kbend,theta0,B,TargetVolume): 
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
     # from the bond list, work out what the current bond lengths are:
@@ -393,15 +418,7 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,r0_ij,khook,kbend,theta0
     # NeoHookean Spring bond energies
     SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook).sum()   
     #bond bending energy
-    BendingEnergy = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend,theta0).sum()
+    BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend,theta0).sum()
     # Energetic penalty on volume change
-    VolumeConstraintEnergy = B*(Volume3D(P_ij,orientedboundarytris,bidxTotidx)-TargetArea)**2
-    return SpringEnergy+BendingEnergy+VolumeConstraintEnergy
-
-
-def vTotalArea3D(pts,tri):
-    AB=pts[tri[:,0:2]]
-    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
-    BC=pts[tri[:,1:3]]
-    t2 = np.subtract(BC[:,0,:],BC[:,1,:])
-    return np.linalg.norm(0.5*np.cross(t1,t2),axis=1).sum()
+    VolumeConstraintEnergy = B*(Volume3D(P_ij,orientedboundarytris,bidxTotidx)-TargetVolume)**2
+    return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
