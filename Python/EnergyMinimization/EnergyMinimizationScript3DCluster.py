@@ -80,11 +80,8 @@ f.close()
 # and for good measure, dump a copy of this code into the data file too
 shutil.copyfile(ScriptName,DataFolder+RunFolder+ScriptName)
 
-with pygmsh.occ.Geometry() as geom:
-    geom.characteristic_length_max = target_a
-    ellipsoid = geom.add_ball([0.0, 0.0, 0.0], 1)
-    InputMesh = geom.generate_mesh()
-
+# Read in the Mesh
+InputMesh=meshio.read("InputMesh.vtk")
 OutputMesh = copy.deepcopy(InputMesh)    
 InputMesh.write(DataFolder+RunFolder+RunName+"InputMesh.vtk") 
 
