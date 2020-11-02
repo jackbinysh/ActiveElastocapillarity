@@ -135,7 +135,7 @@ def energy(P,A,r0_ij,angletriples,triangles,k,kd,theta0,B,TargetArea):
 def MakeDolfinMesh3D(a, edgepoints):
     
     # Make the mesh, a unit sphere: 
-    domain = Sphere(Point(0, 0, 0),1.0,1)
+    domain = Sphere(Point(0, 0, 0),1.0,edgepoints)
     mesh = generate_mesh(domain,1.5/a)
     
     # make the cube
@@ -323,7 +323,7 @@ def NeoHookean3D(r_ij,r0_ij,khook):
 # "Topology changes in fluid membranes" Boal and Rao 1992
 # The formula to be implemented is
 # F_b = k_bend*Sum_{a,b}(1-cos(theta_ab - theta_0)). The sum is over tri's sharing an edge on the surface. theta_ab is the angle between their normals. 
-def BendingEnergy(P,boundarytris,bidxTotidx,kbend,theta_0):
+def BendingEnergytheta0(P,boundarytris,bidxTotidx,kbend,theta_0):
     
     # first, compute list of normals to the triangles:
     AB=P[boundarytris[:,0:2]]
@@ -366,6 +366,38 @@ def BendingEnergy(P,boundarytris,bidxTotidx,kbend,theta_0):
     
     return kbend*( 1-(np.cos(theta_0)*costheta_ab+np.sin(theta_0)*sintheta_ab) )
 
+
+def BendingEnergy(P,boundarytris,bidxTotidx,kbend):
+    
+    # first, compute list of normals to the triangles:
+    AB=P[boundarytris[:,0:2]]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    BC=P[boundarytris[:,1:3]]
+    t2 = np.subtract(BC[:,0,:],BC[:,1,:])
+    
+    normals= np.cross(t1,t2)
+    sizes = np.linalg.norm(normals,axis=1)
+    normals=normals/sizes[:,None]
+    
+    # now, run over the bonds, get the (a,b) pairs of neighboring triangles, and
+    # compute the bending energy for each
+  
+    # first set of triangles, "a",  in the pairings across bonds
+    tris_a=boundarytris[bidxTotidx[:,0]]
+    # the normals
+    n_a = normals[bidxTotidx[:,0]]
+    
+   
+    # second set of triangles, "b",  in the pairings across bonds
+    tris_b=boundarytris[bidxTotidx[:,1]]
+    # the normals
+    n_b = normals[bidxTotidx[:,1]]
+    
+    # cosines
+    costheta_ab = np.multiply(n_a, n_b).sum(axis=1) 
+    
+    return kbend*(1-costheta_ab)
+
 # use the divergence theorem
 def Volume3D(P,boundarytris,bidxTotidx):
     
@@ -397,8 +429,7 @@ def Volume3D_tetras(P,tetras):
     t1ct2=np.cross(t1,t2)
     t3dott1ct2=np.multiply(t3,t1ct2).sum(axis=1)
 
-    return np.abs(t3dott1ct2).sum()/6
-
+    return (np.abs(t3dott1ct2)/6)
 
 def vTotalArea3D(pts,tri):
     AB=pts[tri[:,0:2]]
@@ -407,8 +438,7 @@ def vTotalArea3D(pts,tri):
     t2 = np.subtract(BC[:,0,:],BC[:,1,:])
     return np.linalg.norm(0.5*np.cross(t1,t2),axis=1).sum()
 
-
-def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,r0_ij,khook,kbend,theta0,B,TargetVolume): 
+def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,TargetVolumes): 
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
     # from the bond list, work out what the current bond lengths are:
@@ -418,7 +448,9 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,r0_ij,khook,kbend,theta0
     # NeoHookean Spring bond energies
     SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook).sum()   
     #bond bending energy
-    BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend,theta0).sum()
+    #BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend,theta0).sum()
+    BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend).sum()
     # Energetic penalty on volume change
-    VolumeConstraintEnergy = B*(Volume3D(P_ij,orientedboundarytris,bidxTotidx)-TargetVolume)**2
+    #VolumeConstraintEnergy = B*(Volume3D(P_ij,orientedboundarytris,bidxTotidx)-TargetVolume)**2
+    VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2).sum()
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
