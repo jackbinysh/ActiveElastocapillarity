@@ -101,30 +101,32 @@ bonds=np.concatenate((interiorbonds,edgebonds))
 orientedboundarytris=OrientTriangles(InputMesh.points,boundarytris,np.array([0,0,0]))
 boundarytris=orientedboundarytris
 
-# initial input points. Pout changes over time
-Pout_ij =InputMesh.points
-N = len(Pout_ij)
+# make the preferred rest lengths of the interior springs
+interiorpairs=InputMesh.points[interiorbonds]
+interiorvecs = np.subtract(interiorpairs[:,0,:],interiorpairs[:,1,:])
+InteriorBondRestLengths=np.linalg.norm(interiorvecs,axis=1)
+
+# make the preferred rest lengths of the edge springs. Initially have the at g0=1, but then
+#update them in the loop
+edgepairs=InputMesh.points[edgebonds]
+edgevecs = np.subtract(edgepairs[:,0,:],edgepairs[:,1,:])
+InitialEdgeBondRestLengths=np.linalg.norm(edgevecs,axis=1)
 
 # The volume constraint is simply that the target volume should be the initial volume
 TargetVolumes=Volume3D_tetras(InputMesh.points,tetras)
 
+# initial input points. Pout changes over time
+Pout_ij =InputMesh.points
+
+
 for g0 in np.arange(g0start,g0end,g0step):
     
     print("Current g0"+"{0:0.2f}".format(g0))
-    
-    # make the new preferred rest lengths of all the springs
-    interiorpairs=InputMesh.points[interiorbonds]
-    interiorvecs = np.subtract(interiorpairs[:,0,:],interiorpairs[:,1,:])
-    InteriorBondRestLengths=np.linalg.norm(interiorvecs,axis=1)
 
-    edgepairs=InputMesh.points[edgebonds]
-    edgevecs = np.subtract(edgepairs[:,0,:],edgepairs[:,1,:])
-    EdgeBondRestLengths=np.linalg.norm(edgevecs,axis=1)
     # the important bit! Giving it the prestress
-    EdgeBondRestLengths= g0*EdgeBondRestLengths
-
+    EdgeBondRestLengths= g0*InitialEdgeBondRestLengths
     r0_ij=np.concatenate((InteriorBondRestLengths,EdgeBondRestLengths))
-    
+
     #energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
     Pout_ij = opt.minimize(energy3D, Pout_ij.ravel()
                             ,options={'gtol':1e-02,'disp': True}  
