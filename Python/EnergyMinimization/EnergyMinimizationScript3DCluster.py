@@ -1,29 +1,39 @@
 #!/usr/bin/env python
 # coding: utf-8
 import meshio
-import pygalmesh
-import pygmsh
 import numpy as np
 import copy
 import glob
 from collections import Counter
 import matplotlib.pyplot as plt
 import os
+import sys
 import json
 import shutil
 import scipy.optimize as opt
 from EnergyMinimization import *
 
+# which line of input file defines me?
+line=int(sys.argv[1])
+
+# read in arguments from file
+reader=open("Parameters.txt","r")
+parameters=reader.readlines()[line].split()
+
+kc=float(parameters[0])
+B=float(parameters[1])
+MatNon=float(parameters[2])
+
 # Target mesh size:
 target_a = 0.2
-# continuum bending modulus:
-kc=0.1
+# continuum bending modulus: READ IN FROM COMMAND LINE
+kc=float(sys.argv[1])
 # continuum shear modulus:
 mu=1
 # Energetic penalty for volume change , READ IN FROM COMMAND LINE
-B=float(sys.argv[0])
+B=float(sys.argv[2])
 # The Material Nonlinearity parameter, between 0 and 1. READ IN FROM COMMAND LINE
-MatNon=float(sys.argv[1])
+MatNon=float(sys.argv[3])
 # the spring prestress values 
 g0start=1.5
 g0end=3
@@ -84,6 +94,12 @@ shutil.copyfile(ScriptName,DataFolder+RunFolder+ScriptName)
 InputMesh=meshio.read("InputMesh.vtk")
 OutputMesh = copy.deepcopy(InputMesh)    
 InputMesh.write(DataFolder+RunFolder+RunName+"InputMesh.vtk") 
+
+#Make the bond lists, make the oriented boundary triangles list, make the mapping from bonds to boundary triangles
+interiorbonds,edgebonds,boundarytris, bidxTotidx, tetras= MakeMeshData3D(InputMesh)
+bonds=np.concatenate((interiorbonds,edgebonds))
+orientedboundarytris=OrientTriangles(InputMesh.points,boundarytris,np.array([0,0,0]))
+boundarytris=orientedboundarytris
 
 # initial input points. Pout changes over time
 Pout_ij =InputMesh.points
