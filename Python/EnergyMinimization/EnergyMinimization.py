@@ -311,10 +311,11 @@ def OrientTriangles(points, boundarytris,interiorpoint):
 # r0_ij: list of rest lengths
 #khook: the spring constant
 #returns V_ij, a list of the bond energies
-def NeoHookean3D(r_ij,r0_ij,khook):
+def NeoHookean3D(r_ij,r0_ij,khook,MatNon):
     kneo_ij = (r0_ij**2)*khook/3  
     lam_ij=r_ij/r0_ij
-    V_ij=(kneo_ij/2)*((2/lam_ij) + lam_ij**2)
+    #V_ij=(kneo_ij/2)*((2/lam_ij) + lam_ij**2)
+    V_ij=kneo_ij*(  ((1-MatNon)/2)*((2/lam_ij) + lam_ij**2)+ (MatNon/2)*((1/lam_ij)**2 + 2*lam_ij)  )
     return V_ij
 
 # Here I implement the bending energy found in, e.g.:
@@ -438,7 +439,7 @@ def vTotalArea3D(pts,tri):
     t2 = np.subtract(BC[:,0,:],BC[:,1,:])
     return np.linalg.norm(0.5*np.cross(t1,t2),axis=1).sum()
 
-def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,TargetVolumes): 
+def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
     # from the bond list, work out what the current bond lengths are:
@@ -446,11 +447,46 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend
     t1 = np.subtract(AB[:,0,:],AB[:,1,:])
     r_ij=np.linalg.norm(t1,axis=1)
     # NeoHookean Spring bond energies
-    SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook).sum()   
+    SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook,MatNon).sum()   
     #bond bending energy
-    #BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend,theta0).sum()
     BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend).sum()
     # Energetic penalty on volume change
     #VolumeConstraintEnergy = B*(Volume3D(P_ij,orientedboundarytris,bidxTotidx)-TargetVolume)**2
     VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2).sum()
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
+
+
+def Output3D(OutputMesh,P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
+    
+
+    
+    # from the bond list, work out what the current bond lengths are:
+    AB=P_ij[bondlist]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    r_ij=np.linalg.norm(t1,axis=1)
+    # NeoHookean Spring bond energies
+    SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook,MatNon)   
+    #bond bending energy
+    BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend)
+    # Energetic penalty on volume change
+    VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2)
+
+    # write data to the meshio object
+    OutputMesh.points= Pout_ij
+    OutputMesh.write(DataFolder+RunFolder+RunName+"g0_"+"{0:0.2f}".format(g0)+".vtk",binary=True)  
+    
+    # write summary stats
+    TVolume=Volume3D_tetras(P_ij,tetras).sum()
+    TBending=BendingEnergyvar.sum()
+    TVolumeConstraint=VolumeConstraintEnergy.sum()
+    TSpringEnergy=SpringEnergy.sum()
+    TEnergy=SpringEnergy.sum()+BendingEnergyvar.sum()+VolumeConstraintEnergy.sum()
+    
+ 
+    f=open(DataFolder+RunFolder+"OutputSummary.log","w+")
+    
+    if os.stat(file_path).st_size == 0:
+        f.write('g0 Volume VolumeConstraint Bending SpringEnergy TotalEnergy')
+    f.write(g0,TVolume,TVolumeConstraint,TBending,TSpringEnergy,TEnergy)
+    
+
