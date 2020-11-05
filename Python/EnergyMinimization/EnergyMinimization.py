@@ -456,9 +456,7 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
 
-def Output3D(OutputMesh,P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
-    
-
+def Output3D(DataFolder,OutputMesh,P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
     
     # from the bond list, work out what the current bond lengths are:
     AB=P_ij[bondlist]
@@ -470,10 +468,6 @@ def Output3D(OutputMesh,P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,
     BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend)
     # Energetic penalty on volume change
     VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2)
-
-    # write data to the meshio object
-    OutputMesh.points= Pout_ij
-    OutputMesh.write(DataFolder+RunFolder+RunName+"g0_"+"{0:0.2f}".format(g0)+".vtk",binary=True)  
     
     # write summary stats
     TVolume=Volume3D_tetras(P_ij,tetras).sum()
@@ -482,11 +476,28 @@ def Output3D(OutputMesh,P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,
     TSpringEnergy=SpringEnergy.sum()
     TEnergy=SpringEnergy.sum()+BendingEnergyvar.sum()+VolumeConstraintEnergy.sum()
     
- 
-    f=open(DataFolder+RunFolder+"OutputSummary.log","w+")
+    f=open(DataFolder+"OutputSummary.log","w+")
+    if os.stat(mypath).st_size == 0:
+        f.write('g0 Volume VolumeConstraint Bending SpringEnergy TotalEnergy \n')
+    f.write(" ".join([str(x) for x in [g0,TVolume,TVolumeConstraint,TBending,TSpringEnergy,TEnergy,"\n"]]))
+    f.close()
     
-    if os.stat(file_path).st_size == 0:
-        f.write('g0 Volume VolumeConstraint Bending SpringEnergy TotalEnergy')
-    f.write(g0,TVolume,TVolumeConstraint,TBending,TSpringEnergy,TEnergy)
+    # write point data to the meshio object
+    OutputMesh.points= Pout_ij
+    
+    #write cell data
+    bondzeros=np.zeros(len(bondlist))
+    tetrazeros=np.zeros(len(tetras))
+    trizeros=np.zeros(len(boundarytris))
+    
+    OutputMesh.cell_data['VolumeEnergy']=[bondzeros,trizeros,VolumeConstraintEnergy]
+    OutputMesh.cell_data['SpringEnergy']=[SpringEnergy,trizeros,tetrazeros]
+    OutputMesh.cell_data['BendingEnergy']=[np.concatenate(( np.zeros(len(interiorbonds)),BendingEnergyvar )),triszeros,tetrazeros]
+    
+    OutputMesh.write(DataFolder+"g0_"+"{0:0.2f}".format(g0)+".vtk",binary=True)  
+    
+    
+    
+    
     
 
