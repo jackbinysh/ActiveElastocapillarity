@@ -5,7 +5,6 @@ import numpy as np
 import copy
 import glob
 from collections import Counter
-import matplotlib.pyplot as plt
 import os
 import sys
 import json
@@ -20,22 +19,18 @@ line=int(sys.argv[1])
 reader=open("Parameters.txt","r")
 parameters=reader.readlines()[line].split()
 
-kc=float(parameters[0])
-B=float(parameters[1])
-MatNon=float(parameters[2])
-
 # Target mesh size:
 target_a = 0.2
 # continuum bending modulus: READ IN FROM COMMAND LINE
-kc=float(sys.argv[1])
+kc=float(parameters[0])
 # continuum shear modulus:
 mu=1
 # Energetic penalty for volume change , READ IN FROM COMMAND LINE
-B=float(sys.argv[2])
+B=100000
 # The Material Nonlinearity parameter, between 0 and 1. READ IN FROM COMMAND LINE
-MatNon=float(sys.argv[3])
+MatNon=float(parameters[1])
 # the spring prestress values 
-g0start=1.5
+g0start=1.0
 g0end=3
 g0step=0.1
 
@@ -45,26 +40,21 @@ khook = mu
 theta0=0
 
 # root folder for data
-DataFolder='/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2020-10-23-EnergyMinimization/'
-# Folder for the run data
-RunFolder="alpha_"+"{0:0.2f}".format(MatNon)+"_B_"+"{0:0.1f}".format(B)+"/"
-# Name of the run
-RunName=""
-# Name of the current file
-ScriptName="EnergyMinimizationScript3DCluster.ipynb"
+DataFolder='/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2020-10-23-EnergyMinimization/'+"alpha_"+"{0:0.2f}".format(MatNon)+"_kc_"+"{0:0.1f}".format(kc)+"/"
 
-path = DataFolder+RunFolder
-# make the folder 
+# Name of the current file
+ScriptName="EnergyMinimizationScript3DCluster.py"
+
 try:
-    os.mkdir(path)
+    os.mkdir(DataFolder)
 except OSError:
-    print ("Creation of the directory %s failed" % path)
+    print ("Creation of the directory %s failed" % DataFolder)
 else:
-    print ("Successfully created the directory %s " % path)
+    print ("Successfully created the directory %s " % DataFolder)
     
 # try and clear out the folder of vtk files and log files, if there was a previous run in it
-for filename in glob.glob(path+'*.vtk')+glob.glob(path+'*.log'):
-    file_path = os.path.join(path, filename)
+for filename in glob.glob(DataFolder+'*.vtk')+glob.glob(DataFolder+'*.log'):
+    file_path = os.path.join(DataFolder, filename)
     try:
         if os.path.isfile(file_path) or os.path.islink(file_path):
             os.unlink(file_path)
@@ -74,32 +64,42 @@ for filename in glob.glob(path+'*.vtk')+glob.glob(path+'*.log'):
         print('Failed to delete %s. Reason: %s' % (file_path, e))
                 
 #Dump all the parameters to a file in the run folder        
-f=open(DataFolder+RunFolder+"Parameters.log","w+")
+f=open(DataFolder+"Parameters.log","w+")
 datadict= { 
         "a":target_a,
         "kc":kc, 
         "B":B,
         "mu":mu,
-        "alpha":MatNon,
         "g0start":g0start,
         "g0end":g0end,
+        "alpha": MatNon
 }
 json.dump(datadict,f)
 f.close()
 
 # and for good measure, dump a copy of this code into the data file too
-shutil.copyfile(ScriptName,DataFolder+RunFolder+ScriptName)
+shutil.copyfile(ScriptName,DataFolder+ScriptName)
 
 # Read in the Mesh
 InputMesh=meshio.read("InputMesh.vtk")
-OutputMesh = copy.deepcopy(InputMesh)    
-InputMesh.write(DataFolder+RunFolder+RunName+"InputMesh.vtk") 
 
 #Make the bond lists, make the oriented boundary triangles list, make the mapping from bonds to boundary triangles
 interiorbonds,edgebonds,boundarytris, bidxTotidx, tetras= MakeMeshData3D(InputMesh)
 bonds=np.concatenate((interiorbonds,edgebonds))
 orientedboundarytris=OrientTriangles(InputMesh.points,boundarytris,np.array([0,0,0]))
 boundarytris=orientedboundarytris
+
+# Write a copy of the input Mesh, for visualisation
+cells=[ ("line", bonds ), ("triangle",boundarytris ), ("tetra",tetras)]
+isbond=  np.ones(len(bonds))
+isedgebond= np.concatenate( ( np.zeros(len(interiorbonds)),np.ones(len(edgebonds)) ) )
+CellDataDict={'isedgebond':[isedgebond,np.zeros(len(boundarytris)),np.zeros(len(tetras))]
+              ,'isbond':[isbond,np.zeros(len(boundarytris)),np.zeros(len(tetras))]}
+
+OutputMesh=meshio.Mesh(InputMesh.points, cells, {},CellDataDict)
+OutputMesh.write(DataFolder+"InitialMesh.vtk",binary=True)
+
+### ENERGY MINIMIIZATION ###
 
 # make the preferred rest lengths of the interior springs
 interiorpairs=InputMesh.points[interiorbonds]
@@ -117,7 +117,6 @@ TargetVolumes=Volume3D_tetras(InputMesh.points,tetras)
 
 # initial input points. Pout changes over time
 Pout_ij =InputMesh.points
-
 
 for g0 in np.arange(g0start,g0end,g0step):
     
@@ -144,6 +143,5 @@ for g0 in np.arange(g0start,g0end,g0step):
                            ).x.reshape((-1, 3))
    
 
-    # write the output 
-    OutputMesh.points= Pout_ij  
-    OutputMesh.write(DataFolder+RunFolder+RunName+"g0_"+"{0:0.2f}".format(g0)+".vtk",binary=True)  
+            Output3D(DataFolder,OutputMesh,Pout_ij,bonds,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0)
+ 

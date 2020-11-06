@@ -456,7 +456,7 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
 
-def Output3D(DataFolder,OutputMesh,P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
+def Output3D(DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
     
     # from the bond list, work out what the current bond lengths are:
     AB=P_ij[bondlist]
@@ -475,29 +475,29 @@ def Output3D(DataFolder,OutputMesh,P,bondlist,orientedboundarytris,bidxTotidx,te
     TVolumeConstraint=VolumeConstraintEnergy.sum()
     TSpringEnergy=SpringEnergy.sum()
     TEnergy=SpringEnergy.sum()+BendingEnergyvar.sum()+VolumeConstraintEnergy.sum()
-    
-    f=open(DataFolder+"OutputSummary.log","w+")
-    if os.stat(mypath).st_size == 0:
+        
+    filepath=DataFolder+"OutputSummary.log"
+    f=open(filepath,"a")
+    if os.stat(filepath).st_size == 0:
         f.write('g0 Volume VolumeConstraint Bending SpringEnergy TotalEnergy \n')
-    f.write(" ".join([str(x) for x in [g0,TVolume,TVolumeConstraint,TBending,TSpringEnergy,TEnergy,"\n"]]))
+
+    outputlist=["{:0.5f}".format(x) for x in [g0,TVolume,TVolumeConstraint,TBending,TSpringEnergy,TEnergy]] 
+    outputlist.append("\n") 
+    f.write(" ".join(outputlist))
     f.close()
-    
+      
     # write point data to the meshio object
-    OutputMesh.points= Pout_ij
+    OutputMesh.points= P_ij
     
     #write cell data
     bondzeros=np.zeros(len(bondlist))
+    interiorbondzeros=np.zeros(len(bondlist)-len(bidxTotidx))
     tetrazeros=np.zeros(len(tetras))
-    trizeros=np.zeros(len(boundarytris))
+    trizeros=np.zeros(len(orientedboundarytris))
     
     OutputMesh.cell_data['VolumeEnergy']=[bondzeros,trizeros,VolumeConstraintEnergy]
     OutputMesh.cell_data['SpringEnergy']=[SpringEnergy,trizeros,tetrazeros]
-    OutputMesh.cell_data['BendingEnergy']=[np.concatenate(( np.zeros(len(interiorbonds)),BendingEnergyvar )),triszeros,tetrazeros]
+    OutputMesh.cell_data['BendingEnergy']=[np.concatenate(( interiorbondzeros,BendingEnergyvar )),trizeros,tetrazeros]
     
     OutputMesh.write(DataFolder+"g0_"+"{0:0.2f}".format(g0)+".vtk",binary=True)  
     
-    
-    
-    
-    
-
