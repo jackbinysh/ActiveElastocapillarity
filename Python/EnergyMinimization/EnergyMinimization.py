@@ -10,6 +10,7 @@ import os
 import json
 import shutil
 import scipy.optimize as opt
+import numba
 
 ####### 2D STUFF #########
 
@@ -146,74 +147,6 @@ def MakeDolfinMesh3D(a, edgepoints):
     MeshioMesh = meshio.Mesh(points,cells)
     return MeshioMesh 
 
-#DEPRECATED
-# Note: this code assumes all triangle and bond specifications are in ascending vertex order, i.e
-# bond = [0,3], but never [3,0]
-# triangle  =[1,4,6], never [4, 1,6] or [6,4,1] etc.
-# 
-#def MakeMeshData3DOLD(InputMesh):
-#    
-#    tetras=InputMesh.cells[0].data
-#    
-#    trilist=[]
-#    for tetra in tetras:
-#        for (i,v) in enumerate(tetra):
-#            # make it a python list for ease
-#            tetra = list(tetra)
-#            # the triangle made from removing the ith element of the tetra list
-#            tri = (tetra[:i]+tetra[i+1:])
-#            # add to the list of all our triangles
-#            trilist.append(tri)
-#         
-#   # we now have a list of all the triangles in the mesh. the duplicates are in the interior, the unique ones
-#   # form the boundary
-#    boundarytris=[]
-#    for tri in trilist:
-#        if 1==trilist.count(tri):
-#             boundarytris.append(tri)
-#               
-#               
-#   # Now lets make bond lists. First, all the bonds
-#    bondlist=[]
-#    for t in tetras:
-#        for (i,v1) in enumerate(t):
-#            for(j,v2) in enumerate(t):
-#                if(j>i and [v1,v2] not in bondlist):
-#                    bondlist.append([v1,v2])
-#
-#   # Now just the bonds on the edge                
-#    edgebondlist=[]
-#    for t in boundarytris:
-#        for (i,v1) in enumerate(t):
-#            for(j,v2) in enumerate(t):
-#                if(j>i and [v1,v2] not in edgebondlist):
-#                    edgebondlist.append([v1,v2])
-#
-#   # and by a diff, the interior bonds
-#    interiorbondlist=[]
-#    for bond in bondlist:
-#        if(bond not in edgebondlist):
-#            interiorbondlist.append(bond)
-#            
-#   # construct a mapping between edge bond indices and boundary triangle indices
-#    bidxTotidx=[]
-#    for (bidx, b) in enumerate(edgebondlist):
-#        tindices=[]
-#        for (tidx,t) in enumerate(boundarytris):
-#             if ( b in [[t[0],t[1]],[t[0],t[2]],[t[1],t[2]]]):
-#                    tindices.append(tidx)
-#        bidxTotidx.append(tindices)
-#   
-#   
-#   # Going forward, we want all of these to be numpy arrays:           
-#    interiorbondlist= np.array(interiorbondlist)
-#    edgebondlist= np.array(edgebondlist)
-#    boundarytris= np.array(boundarytris)
-#    bidxTotidx=np.array(bidxTotidx)
-#          
-#    return interiorbondlist, edgebondlist, boundarytris, bidxTotidx
-
-
 def MakeMeshData3D(InputMesh):
     
     for block in InputMesh.cells:
@@ -318,6 +251,13 @@ def NeoHookean3D(r_ij,r0_ij,khook,MatNon):
     V_ij=kneo_ij*(  ((1-MatNon)/2)*((2/lam_ij) + lam_ij**2)+ (MatNon/2)*((1/lam_ij)**2 + 2*lam_ij)  )
     return V_ij
 
+@jit(nopython=True)
+def NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon):
+    kneo_ij = (r0_ij**2)*khook/3  
+    lam_ij=r_ij/r0_ij
+    V_ij=kneo_ij*(  ((1-MatNon)/2)*((2/lam_ij) + lam_ij**2)+ (MatNon/2)*((1/lam_ij)**2 + 2*lam_ij)  )
+    return V_ij
+
 # Here I implement the bending energy found in, e.g.:
 # "Spectrin-Level modelling of the cytoskeleton and optical tweezers stretching of the Erythrocyte", Li, Dao, Lim, Suresh 2005.
 # and references therin, in particular:
@@ -399,6 +339,41 @@ def BendingEnergy(P,boundarytris,bidxTotidx,kbend):
     
     return kbend*(1-costheta_ab)
 
+@jit(nopython=True)
+def NumbaBendingEnergy(P,boundarytris,bidxTotidx,kbend):
+    
+    # first, compute list of normals to the triangles:     
+    A=P[boundarytris[:,0]]
+    B=P[boundarytris[:,1]]
+    t1=A-B
+    
+    B=P[boundarytris[:,1]]
+    C=P[boundarytris[:,2]]
+    t2=B-C
+    
+    normals= np.cross(t1,t2)
+    sizes=np.sqrt(np.multiply(normals, normals).sum(axis=1))
+    normals=(1/sizes.reshape(-1,1))*normals
+    
+    # now, run over the bonds, get the (a,b) pairs of neighboring triangles, and
+    # compute the bending energy for each
+  
+    # first set of triangles, "a",  in the pairings across bonds
+    tris_a=boundarytris[bidxTotidx[:,0]]
+    # the normals
+    n_a = normals[bidxTotidx[:,0]]
+    
+   
+    # second set of triangles, "b",  in the pairings across bonds
+    tris_b=boundarytris[bidxTotidx[:,1]]
+    # the normals
+    n_b = normals[bidxTotidx[:,1]]
+    
+    # cosines
+    costheta_ab = np.multiply(n_a, n_b).sum(axis=1) 
+    
+    return kbend*(1-costheta_ab)
+
 # use the divergence theorem
 def Volume3D(P,boundarytris,bidxTotidx):
     
@@ -432,12 +407,26 @@ def Volume3D_tetras(P,tetras):
 
     return (np.abs(t3dott1ct2)/6)
 
-def vTotalArea3D(pts,tri):
-    AB=pts[tri[:,0:2]]
-    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
-    BC=pts[tri[:,1:3]]
-    t2 = np.subtract(BC[:,0,:],BC[:,1,:])
-    return np.linalg.norm(0.5*np.cross(t1,t2),axis=1).sum()
+# directly sum the triple product over all tetrahedra
+@jit(nopython=True)
+def NumbaVolume3D_tetras(P,tetras):
+   
+    A=P[tetras[:,0]]
+    B=P[tetras[:,1]]
+    t1=A-B
+
+    B=P[tetras[:,0]]
+    C=P[tetras[:,2]]
+    t2=B-C
+  
+    C=P[tetras[:,0]]
+    D=P[tetras[:,3]]
+    t3=C-D
+
+    t1ct2=np.cross(t1,t2)
+    t3dott1ct2=np.multiply(t3,t1ct2).sum(axis=1)
+
+    return (np.abs(t3dott1ct2)/6)
 
 def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
     # We convert it to a matrix here.
@@ -455,8 +444,26 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend
     VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2).sum()
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
+@jit(nopython=True)
+def Numbaenergy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
+       
+    # We convert it to a matrix here.
+    P_ij = P.reshape((-1, 3))
+    # from the bond list, work out what the current bond lengths are:
+    a=P_ij[bondlist[:,0]]
+    b=P_ij[bondlist[:,1]]
+    t1=a-b  
+    r_ij=np.sqrt(np.multiply(t1, t1).sum(axis=1))
+    # NeoHookean Spring bond energies
+    SpringEnergy = NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon).sum()   
+    #bond bending energy
+    BendingEnergyvar = NumbaBendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend).sum()
+    # Energetic penalty on volume change
+    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras(P_ij,tetras)-TargetVolumes)**2).sum()
+    return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
-def Output3D(DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
+
+def  Output3D(DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
     
     # from the bond list, work out what the current bond lengths are:
     AB=P_ij[bondlist]
