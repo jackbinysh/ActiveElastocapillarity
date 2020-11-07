@@ -468,7 +468,7 @@ def NumbaVolume3D_tetras(P,tetras):
 
 # directly sum the triple product over all tetrahedra
 @jit(nopython=True)
-def NumbaVolume3D_tetras2(P,tetras):
+def NumbaVolume3D_tetras_2(P,tetras):
     
     Tot=np.zeros(len(tetras))
     for i in range(len(tetras)):
@@ -549,7 +549,7 @@ def Numbaenergy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,
     #bond bending energy
     BendingEnergyvar = NumbaBendingEnergy_2(P_ij,orientedboundarytris,bidxTotidx,kbend).sum()
     # Energetic penalty on volume change
-    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras2(P_ij,tetras)-TargetVolumes)**2).sum()
+    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum()
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
 def  Output3D(DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
