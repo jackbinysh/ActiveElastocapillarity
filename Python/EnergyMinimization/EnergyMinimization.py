@@ -10,7 +10,7 @@ import os
 import json
 import shutil
 import scipy.optimize as opt
-import numba
+from numba import jit
 
 ####### 2D STUFF #########
 
@@ -374,6 +374,44 @@ def NumbaBendingEnergy(P,boundarytris,bidxTotidx,kbend):
     
     return kbend*(1-costheta_ab)
 
+@jit(nopython=True)
+def NumbaBendingEnergy_2(P,boundarytris,bidxTotidx,kbend):
+    
+    # first, compute list of normals to the triangles:     
+    normals=np.zeros( (len(boundarytris),3) )
+    for i in range(len(boundarytris)):
+        
+        P0=P[boundarytris[i,0]]
+        P1=P[boundarytris[i,1]]
+        P2=P[boundarytris[i,2]]
+        
+        t0x=P1[0]-P0[0]
+        t0y=P1[1]-P0[1]
+        t0z=P1[2]-P0[2]
+        
+        t1x=P2[0]-P0[0]
+        t1y=P2[1]-P0[1]
+        t1z=P2[2]-P0[2]
+        
+        nx = t0y*t1z- t0z*t1y
+        ny = t0z*t1x- t0x*t1z
+        nz = t0x*t1y- t0y*t1x
+        
+        size=np.sqrt(nx*nx+ny*ny+nz*nz)
+        
+        normals[i,0]=(nx/size)
+        normals[i,1]=(ny/size)
+        normals[i,2]=(nz/size)
+        
+    
+    costheta_ab=np.zeros(len(bidxTotidx))
+    for i in range(len(bidxTotidx)):
+        n_a=normals[bidxTotidx[i,0]]
+        n_b=normals[bidxTotidx[i,1]]
+        costheta_ab[i]=n_a[0]*n_b[0]+n_a[1]*n_b[1]+n_a[2]*n_b[2]
+        
+    return kbend*(1-costheta_ab)   
+
 # use the divergence theorem
 def Volume3D(P,boundarytris,bidxTotidx):
     
@@ -428,6 +466,63 @@ def NumbaVolume3D_tetras(P,tetras):
 
     return (np.abs(t3dott1ct2)/6)
 
+# directly sum the triple product over all tetrahedra
+@jit(nopython=True)
+def NumbaVolume3D_tetras2(P,tetras):
+    
+    Tot=np.zeros(len(tetras))
+    for i in range(len(tetras)):
+        
+        P0= P[tetras[i,0]]
+        P1= P[tetras[i,1]] 
+        P2= P[tetras[i,2]] 
+        P3= P[tetras[i,3]] 
+              
+        t0x=P1[0]-P0[0]
+        t0y=P1[1]-P0[1]
+        t0z=P1[2]-P0[2]
+        
+        t1x=P2[0]-P0[0]
+        t1y=P2[1]-P0[1]
+        t1z=P2[2]-P0[2]
+        
+        t2x=P3[0]-P0[0]
+        t2y=P3[1]-P0[1]
+        t2z=P3[2]-P0[2]
+        
+        
+        t0ct1x = t0y*t1z- t0z*t1y
+        t0ct1y = t0z*t1x- t0x*t1z
+        t0ct1z = t0x*t1y- t0y*t1x
+        
+        t2dott0ct1=t2x*t0ct1x+t2y*t0ct1y+t2z*t0ct1z
+        
+        Tot[i]=np.abs(t2dott0ct1/6)
+      
+    return Tot
+
+@jit(nopython=True)
+def NumbaMakeBondLengths(P,bonds):
+    r_ij=np.zeros(len(bonds))
+    
+    for i in range(len(bonds)):
+        P0 = P[bonds[i,0]]
+        P1 = P[bonds[i,1]]
+        
+        tx=P1[0]-P0[0]
+        ty=P1[1]-P0[1]
+        tz=P1[2]-P0[2]       
+        r_ij[i]=np.sqrt(tx*tx+ty*ty+tz*tz)  
+        
+    return r_ij
+
+def vTotalArea3D(pts,tri):
+    AB=pts[tri[:,0:2]]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    BC=pts[tri[:,1:3]]
+    t2 = np.subtract(BC[:,0,:],BC[:,1,:])
+    return np.linalg.norm(0.5*np.cross(t1,t2),axis=1).sum()
+
 def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
@@ -445,23 +540,17 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
 @jit(nopython=True)
-def Numbaenergy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
-       
+def Numbaenergy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes):     
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
-    # from the bond list, work out what the current bond lengths are:
-    a=P_ij[bondlist[:,0]]
-    b=P_ij[bondlist[:,1]]
-    t1=a-b  
-    r_ij=np.sqrt(np.multiply(t1, t1).sum(axis=1))
+    r_ij=NumbaMakeBondLengths(P_ij,bondlist)
     # NeoHookean Spring bond energies
     SpringEnergy = NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon).sum()   
     #bond bending energy
-    BendingEnergyvar = NumbaBendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend).sum()
+    BendingEnergyvar = NumbaBendingEnergy_2(P_ij,orientedboundarytris,bidxTotidx,kbend).sum()
     # Energetic penalty on volume change
-    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras(P_ij,tetras)-TargetVolumes)**2).sum()
+    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras2(P_ij,tetras)-TargetVolumes)**2).sum()
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
-
 
 def  Output3D(DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
     
