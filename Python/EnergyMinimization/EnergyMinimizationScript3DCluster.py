@@ -30,9 +30,9 @@ B=100000
 # The Material Nonlinearity parameter, between 0 and 1. READ IN FROM COMMAND LINE
 MatNon=float(parameters[1])
 # the spring prestress values 
-g0start=1.0
-g0end=3
-g0step=0.1
+g0coarse=np.arange(1,1.9,0.1)
+g0fine=np.arange(1.81,2.11,0.01)
+g0range=np.concatenate((g0coarse,g0fine))
 
 # The microscopic values
 kbend=kc/target_a
@@ -40,7 +40,7 @@ khook = mu
 theta0=0
 
 # root folder for data
-DataFolder='/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2020-10-23-EnergyMinimization/'+"alpha_"+"{0:0.2f}".format(MatNon)+"_kc_"+"{0:0.1f}".format(kc)+"/"
+DataFolder='/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2020-10-23-EnergyMinimization/'+"kc_"+"{0:0.1f}".format(kc)+"_alpha_"+"{0:0.2f}".format(MatNon)+"/"
 
 # Name of the current file
 ScriptName="EnergyMinimizationScript3DCluster.py"
@@ -70,8 +70,6 @@ datadict= {
         "kc":kc, 
         "B":B,
         "mu":mu,
-        "g0start":g0start,
-        "g0end":g0end,
         "alpha": MatNon
 }
 json.dump(datadict,f)
@@ -118,7 +116,7 @@ TargetVolumes=Volume3D_tetras(InputMesh.points,tetras)
 # initial input points. Pout changes over time
 Pout_ij =InputMesh.points
 
-for g0 in np.arange(g0start,g0end,g0step):
+for g0 in g0range:
     
     print("Current g0"+"{0:0.2f}".format(g0))
 
@@ -127,7 +125,7 @@ for g0 in np.arange(g0start,g0end,g0step):
     r0_ij=np.concatenate((InteriorBondRestLengths,EdgeBondRestLengths))
 
     #energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
-    Pout_ij = opt.minimize(energy3D, Pout_ij.ravel()
+    Pout_ij = opt.minimize(Numbaenergy3D, Pout_ij.ravel()
                             ,options={'gtol':1e-02,'disp': True}  
                             ,args=(bonds
                                   ,orientedboundarytris
