@@ -116,6 +116,19 @@ TargetVolumes=Volume3D_tetras(InputMesh.points,tetras)
 # initial input points. Pout changes over time
 Pout_ij =InputMesh.points
 
+ # this is some crazy stuff to make sure that numba understands the types of these guys, 
+ # apparently it cant work it out
+Pout_ij=np.zeros((InputMesh.points.shape[0],InputMesh.points.shape[1]), dtype=np.float64)
+for i in range(InputMesh.points.shape[0]):
+    for j in range(InputMesh.points.shape[1]):
+        Pout_ij[i,j]=InputMesh.points[i,j]
+
+newtetras=np.zeros((tetras.shape[0],tetras.shape[1]), dtype=np.int32)
+for i in range(tetras.shape[0]):
+    for j in range(tetras.shape[1]):
+        newtetras[i,j]=tetras[i,j]
+tetras=newtetras
+
 for g0 in g0range:
     
     print("Current g0"+"{0:0.2f}".format(g0))
