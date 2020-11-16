@@ -552,7 +552,9 @@ def Numbaenergy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,
     VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum()
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
-def  Output3D(DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
+
+
+def  Output3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
     
     # from the bond list, work out what the current bond lengths are:
     AB=P_ij[bondlist]
@@ -595,5 +597,77 @@ def  Output3D(DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotid
     OutputMesh.cell_data['SpringEnergy']=[SpringEnergy,trizeros,tetrazeros]
     OutputMesh.cell_data['BendingEnergy']=[np.concatenate(( interiorbondzeros,BendingEnergyvar )),trizeros,tetrazeros]
     
-    OutputMesh.write(DataFolder+"g0_"+"{0:0.2f}".format(g0)+".vtk",binary=True)  
+    OutputMesh.write(DataFolder+Name,binary=True)  
+
+    
+
+
+################### FUNCTIONS FOR CALIBRATING THE ELASTIC MODULII ######################
+@jit(nopython=True)
+def SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E):
+    TopEnergy=0
+    for pidx in TopLayer:
+        TopEnergy+=E*(P_ij[pidx,2]-z0)**2
+    BottomEnergy=0
+    for pidx in BottomLayer:
+        BottomEnergy+=E*(P_ij[pidx,2])**2
+        
+    return TopEnergy+BottomEnergy  
+
+
+@jit(nopython=True)
+def ModuliiEnergy(P,TopLayer,BottomLayer,bondlist,tetras,r0_ij,z0,khook,B,E,MatNon,TargetVolumes):     
+    # We convert it to a matrix here.
+    P_ij = P.reshape((-1, 3))
+    r_ij=NumbaMakeBondLengths(P_ij,bondlist)
+    # NeoHookean Spring bond energies
+    SpringEnergy = NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon).sum()   
+    # Energetic penalty on volume change
+    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum()
+    # top and bottom constraints:
+    SurfaceConstraintEnergyvar =SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E)
+    return SpringEnergy+VolumeConstraintEnergy+SurfaceConstraintEnergyvar
+
+
+def CalibrationOutput3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,tetras,r0_ij,khook,B,MatNon,TargetVolumes,z0,TopLayer,BottomLayer,E):    
+    # from the bond list, work out what the current bond lengths are:
+    AB=P_ij[bondlist]
+    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    r_ij=np.linalg.norm(t1,axis=1)
+    # NeoHookean Spring bond energies
+    SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook,MatNon)   
+    # Energetic penalty on volume change
+    VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2)
+
+    # write summary stats
+    TVolume=Volume3D_tetras(P_ij,tetras).sum()
+    TVolumeConstraint=VolumeConstraintEnergy.sum()
+    TSpringEnergy=SpringEnergy.sum()
+    TSurfaceEnergy=SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E)
+    TEnergy=SpringEnergy.sum()+VolumeConstraintEnergy.sum()+TSurfaceEnergy
+
+    filepath=DataFolder+"OutputSummary.log"
+    f=open(filepath,"a")
+    if os.stat(filepath).st_size == 0:
+        f.write('z0 Volume VolumeConstraint SurfaceConstraint SpringEnergy TotalEnergy \n')
+
+    outputlist=["{:0.5f}".format(x) for x in [z0,TVolume,TVolumeConstraint,TSurfaceEnergy,TSpringEnergy,TEnergy]] 
+    outputlist.append("\n") 
+    f.write(" ".join(outputlist))
+    f.close()
+
+    # write point data to the meshio object
+    OutputMesh.points= P_ij
+
+    #write cell data
+    bondzeros=np.zeros(len(bondlist))
+    tetrazeros=np.zeros(len(tetras))
+    trizeros=np.zeros(len(orientedboundarytris))
+
+    OutputMesh.cell_data['VolumeEnergy']=[bondzeros,trizeros,VolumeConstraintEnergy]
+    OutputMesh.cell_data['SpringEnergy']=[SpringEnergy,trizeros,tetrazeros]
+
+    OutputMesh.write(DataFolder+Name,binary=True)  
+    
+    
     
