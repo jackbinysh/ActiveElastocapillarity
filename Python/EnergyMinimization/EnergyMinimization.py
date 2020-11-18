@@ -258,6 +258,16 @@ def NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon):
     V_ij=kneo_ij*(  ((1-MatNon)/2)*((2/lam_ij) + lam_ij**2)+ (MatNon/2)*((1/lam_ij)**2 + 2*lam_ij)  )
     return V_ij
 
+# same as above, but shifted to put the energy minimum at 0
+@jit(nopython=True)
+def NeoHookeanShifted(r_ij,r0_ij,khook,MatNon):
+    kneo_ij = (r0_ij**2)*khook/3  
+    lam_ij=r_ij/r0_ij
+    V_ij=kneo_ij*(  ((1-MatNon)/2)*((2/lam_ij) + lam_ij**2)+ (MatNon/2)*((1/lam_ij)**2 + 2*lam_ij)  )
+    # shift so zero extension is 0 energy
+    V_ij = V_ij -1.5*kneo_ij
+    return V_ij
+
 # Here I implement the bending energy found in, e.g.:
 # "Spectrin-Level modelling of the cytoskeleton and optical tweezers stretching of the Erythrocyte", Li, Dao, Lim, Suresh 2005.
 # and references therin, in particular:
@@ -603,6 +613,16 @@ def  Output3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidx
 
 
 ################### FUNCTIONS FOR CALIBRATING THE ELASTIC MODULII ######################
+
+@jit(nopython=True)
+def zavg(Pout_ij,Layer):
+    Zavg=0
+    for pidx in Layer:
+        Zavg+=Pout_ij[pidx,2]
+    Zavg/= len(Layer)
+    return Zavg
+
+
 @jit(nopython=True)
 def SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E):
     TopEnergy=0
@@ -614,28 +634,41 @@ def SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E):
         
     return TopEnergy+BottomEnergy  
 
+# apply a linear potential, i.e. constant force, to top and bottom layers.
+@jit(nopython=True)
+def SurfaceForceEnergy(P_ij,TopLayer,BottomLayer,Fz,Topz0=0,Bottomz0=0):
+    TopEnergy=0
+    for pidx in TopLayer:
+        TopEnergy+=-Fz*(P_ij[pidx,2]-Topz0)
+    BottomEnergy=0
+    for pidx in BottomLayer:
+        BottomEnergy+=Fz*(P_ij[pidx,2]-Bottomz0)
+        
+    return TopEnergy+BottomEnergy  
+
 
 @jit(nopython=True)
-def ModuliiEnergy(P,TopLayer,BottomLayer,bondlist,tetras,r0_ij,z0,khook,B,E,MatNon,TargetVolumes):     
+def ModuliiEnergy(P,TopLayer,BottomLayer,bondlist,tetras,r0_ij,khook,B,E,MatNon,TargetVolumes):     
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
     r_ij=NumbaMakeBondLengths(P_ij,bondlist)
     # NeoHookean Spring bond energies
-    SpringEnergy = NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon).sum()   
+    SpringEnergy = NeoHookeanShifted(r_ij,r0_ij,khook,MatNon).sum()   
     # Energetic penalty on volume change
     VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum()
     # top and bottom constraints:
-    SurfaceConstraintEnergyvar =SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E)
+    #SurfaceConstraintEnergyvar =SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E)
+    SurfaceConstraintEnergyvar =SurfaceForceEnergy(P_ij,TopLayer,BottomLayer,E)
     return SpringEnergy+VolumeConstraintEnergy+SurfaceConstraintEnergyvar
 
 
-def CalibrationOutput3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,tetras,r0_ij,khook,B,MatNon,TargetVolumes,z0,TopLayer,BottomLayer,E):    
+def CalibrationOutput3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,tetras,r0_ij,khook,B,MatNon,TargetVolumes,TopLayer,BottomLayer,Fz):    
     # from the bond list, work out what the current bond lengths are:
     AB=P_ij[bondlist]
     t1 = np.subtract(AB[:,0,:],AB[:,1,:])
     r_ij=np.linalg.norm(t1,axis=1)
     # NeoHookean Spring bond energies
-    SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook,MatNon)   
+    SpringEnergy = NeoHookeanShifted(r_ij,r0_ij,khook,MatNon)   
     # Energetic penalty on volume change
     VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2)
 
@@ -643,15 +676,18 @@ def CalibrationOutput3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundar
     TVolume=Volume3D_tetras(P_ij,tetras).sum()
     TVolumeConstraint=VolumeConstraintEnergy.sum()
     TSpringEnergy=SpringEnergy.sum()
-    TSurfaceEnergy=SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E)
-    TEnergy=SpringEnergy.sum()+VolumeConstraintEnergy.sum()+TSurfaceEnergy
-
+       
+    topZavg=zavg(P_ij,TopLayer)
+    bottomZavg=zavg(P_ij,BottomLayer)
+    lam0=1
+    lam=(topZavg-bottomZavg)/lam0
+   
     filepath=DataFolder+"OutputSummary.log"
     f=open(filepath,"a")
     if os.stat(filepath).st_size == 0:
-        f.write('z0 Volume VolumeConstraint SurfaceConstraint SpringEnergy TotalEnergy \n')
+        f.write('Fz Volume VolumeConstraint lambda SpringEnergy \n')
 
-    outputlist=["{:0.5f}".format(x) for x in [z0,TVolume,TVolumeConstraint,TSurfaceEnergy,TSpringEnergy,TEnergy]] 
+    outputlist=["{:0.5f}".format(x) for x in [Fz,TVolume,TVolumeConstraint,lam,TSpringEnergy]] 
     outputlist.append("\n") 
     f.write(" ".join(outputlist))
     f.close()
