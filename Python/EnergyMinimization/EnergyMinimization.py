@@ -646,9 +646,8 @@ def SurfaceForceEnergy(P_ij,TopLayer,BottomLayer,Fz,Topz0=0,Bottomz0=0):
         
     return TopEnergy+BottomEnergy  
 
-
 @jit(nopython=True)
-def ModuliiEnergy(P,TopLayer,BottomLayer,bondlist,tetras,r0_ij,khook,B,E,MatNon,TargetVolumes):     
+def ModuliiEnergyDisplacement(P,TopLayer,BottomLayer,bondlist,tetras,r0_ij,khook,B,MatNon,TargetVolumes,z0,E):     
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
     r_ij=NumbaMakeBondLengths(P_ij,bondlist)
@@ -657,12 +656,24 @@ def ModuliiEnergy(P,TopLayer,BottomLayer,bondlist,tetras,r0_ij,khook,B,E,MatNon,
     # Energetic penalty on volume change
     VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum()
     # top and bottom constraints:
-    #SurfaceConstraintEnergyvar =SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E)
-    SurfaceConstraintEnergyvar =SurfaceForceEnergy(P_ij,TopLayer,BottomLayer,E)
+    SurfaceConstraintEnergyvar =SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E)
+    return SpringEnergy+VolumeConstraintEnergy+SurfaceConstraintEnergyvar
+
+@jit(nopython=True)
+def ModuliiEnergyForce(P,TopLayer,BottomLayer,bondlist,tetras,r0_ij,khook,B,MatNon,TargetVolumes,Fz):     
+    # We convert it to a matrix here.
+    P_ij = P.reshape((-1, 3))
+    r_ij=NumbaMakeBondLengths(P_ij,bondlist)
+    # NeoHookean Spring bond energies
+    SpringEnergy = NeoHookeanShifted(r_ij,r0_ij,khook,MatNon).sum()   
+    # Energetic penalty on volume change
+    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum()
+    # top and bottom constraints:
+    SurfaceConstraintEnergyvar =SurfaceForceEnergy(P_ij,TopLayer,BottomLayer,Fz)
     return SpringEnergy+VolumeConstraintEnergy+SurfaceConstraintEnergyvar
 
 
-def CalibrationOutput3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,tetras,r0_ij,khook,B,MatNon,TargetVolumes,TopLayer,BottomLayer,Fz):    
+def CalibrationOutput3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,tetras,r0_ij,khook,B,MatNon,TargetVolumes,TopLayer,BottomLayer,z0=None,E=None,Fz=None):    
     # from the bond list, work out what the current bond lengths are:
     AB=P_ij[bondlist]
     t1 = np.subtract(AB[:,0,:],AB[:,1,:])
@@ -672,26 +683,7 @@ def CalibrationOutput3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundar
     # Energetic penalty on volume change
     VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2)
 
-    # write summary stats
-    TVolume=Volume3D_tetras(P_ij,tetras).sum()
-    TVolumeConstraint=VolumeConstraintEnergy.sum()
-    TSpringEnergy=SpringEnergy.sum()
-       
-    topZavg=zavg(P_ij,TopLayer)
-    bottomZavg=zavg(P_ij,BottomLayer)
-    lam0=1
-    lam=(topZavg-bottomZavg)/lam0
-   
-    filepath=DataFolder+"OutputSummary.log"
-    f=open(filepath,"a")
-    if os.stat(filepath).st_size == 0:
-        f.write('Fz Volume VolumeConstraint lambda SpringEnergy \n')
-
-    outputlist=["{:0.5f}".format(x) for x in [Fz,TVolume,TVolumeConstraint,lam,TSpringEnergy]] 
-    outputlist.append("\n") 
-    f.write(" ".join(outputlist))
-    f.close()
-
+    
     # write point data to the meshio object
     OutputMesh.points= P_ij
 
@@ -703,7 +695,40 @@ def CalibrationOutput3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundar
     OutputMesh.cell_data['VolumeEnergy']=[bondzeros,trizeros,VolumeConstraintEnergy]
     OutputMesh.cell_data['SpringEnergy']=[SpringEnergy,trizeros,tetrazeros]
 
-    OutputMesh.write(DataFolder+Name,binary=True)  
+    OutputMesh.write(DataFolder+Name,binary=True) 
+
+    # write summary stats.
+    TVolume=Volume3D_tetras(P_ij,tetras).sum()
+    TVolumeConstraint=VolumeConstraintEnergy.sum()
+    TSpringEnergy=SpringEnergy.sum()
+    TSurfaceConstraint =SurfaceConstraintEnergy(P_ij,TopLayer,BottomLayer,z0,E)
+       
+    topZavg=zavg(P_ij,TopLayer)
+    bottomZavg=zavg(P_ij,BottomLayer)
+    lam0=1
+    lam=(topZavg-bottomZavg)/lam0
+   
+    filepath=DataFolder+"OutputSummary.log"
+    f=open(filepath,"a")
+    
+    if z0!=None:
+        if os.stat(filepath).st_size == 0:
+            f.write('z0 Volume VolumeConstraint SurfaceConstraint lambda SpringEnergy \n')
+
+        outputlist=["{:0.5f}".format(x) for x in [z0,TVolume,TVolumeConstraint,TSurfaceConstraint, lam,TSpringEnergy]] 
+        outputlist.append("\n") 
+        f.write(" ".join(outputlist))
+    else:
+        if os.stat(filepath).st_size == 0:
+            f.write('Fz Volume VolumeConstraint lambda SpringEnergy \n')
+
+        outputlist=["{:0.5f}".format(x) for x in [Fz,TVolume,TVolumeConstraint,lam,TSpringEnergy]] 
+        outputlist.append("\n") 
+        f.write(" ".join(outputlist))
+    
+    f.close()
+
+ 
     
     
     
