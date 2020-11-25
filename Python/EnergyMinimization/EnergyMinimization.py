@@ -1,12 +1,13 @@
 import meshio
-import pygalmesh
+#import pygalmesh
 import numpy as np
 import copy
-from mshr import *
-from dolfin import *
+#from mshr import *
+#from dolfin import *
 from collections import Counter
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import os
+import sys
 import json
 import shutil
 import scipy.optimize as opt
