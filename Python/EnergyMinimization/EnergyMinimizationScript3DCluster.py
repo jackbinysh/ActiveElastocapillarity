@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 import meshio
+import pygmsh
 import numpy as np
 import copy
 import glob
@@ -31,7 +32,7 @@ B=100000
 MatNon=float(parameters[1])
 # the spring prestress values 
 g0coarse=np.arange(1,1.9,0.1)
-g0fine=np.arange(1.81,2.11,0.01)
+g0fine=np.arange(1.81,2.4,0.005)
 g0range=np.concatenate((g0coarse,g0fine))
 
 # The microscopic values
@@ -40,10 +41,14 @@ khook = mu
 theta0=0
 
 # root folder for data
-DataFolder='/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2020-10-23-EnergyMinimization/'+"kc_"+"{0:0.1f}".format(kc)+"_alpha_"+"{0:0.2f}".format(MatNon)+"/"
+#DataFolder='/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2020-10-23-EnergyMinimization/'+"kc_"+"{0:0.1f}".format(kc)+"_alpha_"+"{0:0.2f}".format(MatNon)+"/"
+DataFolder="/home/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
+
 
 # Name of the current file
 ScriptName="EnergyMinimizationScript3DCluster.py"
+# Name of the file of functions used for this run
+FunctionFileName="EnergyMinimization.py"
 
 try:
     os.mkdir(DataFolder)
@@ -75,11 +80,18 @@ datadict= {
 json.dump(datadict,f)
 f.close()
 
-# and for good measure, dump a copy of this code into the data file too
+# Dump an exact copy of this code into the data file
 shutil.copyfile(ScriptName,DataFolder+ScriptName)
+shutil.copyfile(FunctionFileName,DataFolder+FunctionFileName)
 
 # Read in the Mesh
-InputMesh=meshio.read("InputMesh.vtk")
+#InputMesh=meshio.read("InputMesh.vtk")
+
+# Make the Mesh
+with pygmsh.occ.Geometry() as geom:
+    geom.characteristic_length_max = target_a
+    ellipsoid = geom.add_ball([0.0, 0.0, 0.0], 1)
+    InputMesh = geom.generate_mesh()
 
 #Make the bond lists, make the oriented boundary triangles list, make the mapping from bonds to boundary triangles
 interiorbonds,edgebonds,boundarytris, bidxTotidx, tetras= MakeMeshData3D(InputMesh)
@@ -131,7 +143,7 @@ tetras=newtetras
 
 for g0 in g0range:
     
-    print("Current g0"+"{0:0.2f}".format(g0))
+    print("Current g0"+"{0:0.4f}".format(g0))
 
     # the important bit! Giving it the prestress
     EdgeBondRestLengths= g0*InitialEdgeBondRestLengths
@@ -152,7 +164,22 @@ for g0 in g0range:
                                   ,MatNon
                                   ,TargetVolumes)
                            ).x.reshape((-1, 3))
-   
-
-            Output3D(DataFolder,OutputMesh,Pout_ij,bonds,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0)
+    
+    Name="g0_"+"{0:0.4f}".format(g0)+".vtk"
+    Output3D(Name
+             ,DataFolder
+             ,OutputMesh
+             ,Pout_ij
+             ,bonds
+             ,orientedboundarytris
+             ,bidxTotidx
+             ,tetras
+             ,r0_ij
+             ,khook
+             ,kbend
+             ,theta0
+             ,B
+             ,MatNon
+             ,TargetVolumes
+             ,g0)
  
