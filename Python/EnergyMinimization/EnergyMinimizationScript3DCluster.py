@@ -149,6 +149,10 @@ for g0 in g0range:
     EdgeBondRestLengths= g0*InitialEdgeBondRestLengths
     r0_ij=np.concatenate((InteriorBondRestLengths,EdgeBondRestLengths))
 
+    # Make the vector of material Nonlinearity values. Here we trial alpha in the middle, 0 on the surface
+    MatNonvec = np.concatenate((np.repeat(MatNon,len(interiorbonds)), np.repeat(0,len(edgebonds))))
+
+
     #energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
     Pout_ij = opt.minimize(Numbaenergy3D, Pout_ij.ravel()
                             ,options={'gtol':1e-02,'disp': True}  
@@ -161,7 +165,7 @@ for g0 in g0range:
                                   ,kbend
                                   ,theta0
                                   ,B
-                                  ,MatNon
+                                  ,MatNonvec
                                   ,TargetVolumes)
                            ).x.reshape((-1, 3))
     
@@ -179,7 +183,7 @@ for g0 in g0range:
              ,kbend
              ,theta0
              ,B
-             ,MatNon
+             ,MatNonvec
              ,TargetVolumes
              ,g0)
  
