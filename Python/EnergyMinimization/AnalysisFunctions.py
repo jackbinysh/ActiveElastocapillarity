@@ -1,6 +1,7 @@
 from numpy.linalg import eig, inv, svd
 from math import atan2
 import numpy as np
+import scipy.optimize as opt
 
 def BoundingEllipseOfBestFit(mesh):
     # get the edge bonds
@@ -165,5 +166,84 @@ def ls_ellipsoid(xx,yy,zz):
 
     inve=inv(ec) #inverse is actually the transpose here
     return (center,axes,ec,inve,vec)
+
+
+### Functions for comparison to the analytic predictions ###
+
+
+def FTot(lam,MatNon,gamma,kappa):
+    e=np.lib.scimath.sqrt(1-(1/lam**3))
+    Area = (2*np.pi/lam)*( 1+(lam**(3/2)/e)*np.arcsin(e) )  
+    Fel=(4/3)*np.pi*(  ((1-MatNon)/2)*((2/lam) + lam**2)+ (MatNon/2)*((1/lam)**2 + 2*lam)  )
+    Fbend=(2/3)*np.pi*kappa*(7+(2/lam**3)+3*lam**3*np.arctanh(np.lib.scimath.sqrt(1-lam**3))/np.lib.scimath.sqrt(1-lam**3))
+  
+    return np.real(Fel+gamma*Area+Fbend)
+
+def FindGlobalMinimum(alpha,gamma,kappa,leftstart,rightstart):
+    
+    minima=np.zeros(4)
+    values=np.zeros(4)
+    
+    args=(alpha,gamma,kappa)
+    
+    minima[0]= opt.minimize(FTot,leftstart,args=args).x[0]
+    values[0]= opt.minimize(FTot,leftstart,args=args).fun
+    
+    
+    minima[1]= opt.minimize(FTot,rightstart,args=args).x[0]
+    values[1]= opt.minimize(FTot,rightstart,args=args).fun
+    
+    minima[2]= opt.minimize(FTot,1.05,args=args).x[0]
+    values[2]= opt.minimize(FTot,1.05,args=args).fun
+    
+    
+    minima[3]= opt.minimize(FTot,0.95,args=args).x[0]
+    values[3]= opt.minimize(FTot,0.95,args=args).fun
+    
+    sort=np.argsort(values)
+    
+    values=values[sort]
+    minima=minima[sort]
+    
+    return minima,values
+
+
+def FLandau(epsilon,DeltaAlpha,DeltaGamma,kappa0):
+    
+    eps2=(8/5)*np.pi*DeltaGamma
+    eps3=(1/105)*np.pi*(-140*DeltaAlpha - 208*DeltaGamma)
+    eps4=(1/105)*np.pi*(45+210*DeltaAlpha+220*DeltaGamma+504*kappa0)
+    
+    return eps2*epsilon**2+eps3*epsilon**3+eps4*epsilon**4
+
+
+def FindGlobalMinimumLandau(DeltaAlpha,DeltaGamma,kappa0,leftstart,rightstart):
+    
+    minima=np.zeros(4)
+    values=np.zeros(4)
+    
+    args=(DeltaAlpha,DeltaGamma,kappa0)
+    
+    minima[0]= opt.minimize(FLandau,leftstart,args=args).x[0]
+    values[0]= opt.minimize(FLandau,leftstart,args=args).fun
+    
+    
+    minima[1]= opt.minimize(FLandau,rightstart,args=args).x[0]
+    values[1]= opt.minimize(FLandau,rightstart,args=args).fun
+    
+    minima[2]= opt.minimize(FLandau,0.05,args=args).x[0]
+    values[2]= opt.minimize(FLandau,0.05,args=args).fun
+    
+    
+    minima[3]= opt.minimize(FLandau,-0.05,args=args).x[0]
+    values[3]= opt.minimize(FLandau,-0.05,args=args).fun
+    
+    sort=np.argsort(values)
+    
+    values=values[sort]
+    minima=minima[sort]
+    
+    return minima,values
+
 
 
