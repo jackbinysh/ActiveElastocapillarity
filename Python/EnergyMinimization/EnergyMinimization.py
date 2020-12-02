@@ -262,6 +262,11 @@ def NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon):
     V_ij = V_ij -1.5*kneo_ij
     return V_ij
 
+@jit(nopython=True)
+def NumbaSurfaceEnergy3D(r_ij,gamma):
+
+    ksurf = 1/(2*np.sqrt(3))*gamma
+    return ksurf*r_ij**2
 
 # Here I implement the bending energy found in, e.g.:
 # "Spectrin-Level modelling of the cytoskeleton and optical tweezers stretching of the Erythrocyte", Li, Dao, Lim, Suresh 2005.
@@ -545,17 +550,25 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
 @jit(nopython=True)
-def Numbaenergy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes):     
+def Numbaenergy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,khook,kbend,gamma,theta0,B,MatNon,TargetVolumes):     
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
-    r_ij=NumbaMakeBondLengths(P_ij,bondlist)
-    # NeoHookean Spring bond energies
-    SpringEnergy = NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon).sum()   
+
+    # Do the interior bonds, Neo Hookean elasticity
+    rinterior_ij=NumbaMakeBondLengths(P_ij,InteriorBonds)
+    InteriorSpringEnergy = NumbaNeoHookean3D(rinterior_ij,rinterior0_ij,khook,MatNon).sum()   
+
+    # Do the surface
+    rsurface_ij=NumbaMakeBondLengths(P_ij,SurfaceBonds)
+    SurfaceSpringEnergy=NumbaSurfaceEnergy3D(rsurface_ij,gamma).sum()
+
     #bond bending energy
     BendingEnergyvar = NumbaBendingEnergy_2(P_ij,orientedboundarytris,bidxTotidx,kbend).sum()
+
     # Energetic penalty on volume change
-    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum()
-    return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
+    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum() 
+
+    return InteriorSpringEnergy+SurfaceSpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
 
 
