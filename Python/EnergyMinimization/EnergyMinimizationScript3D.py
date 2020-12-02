@@ -31,9 +31,10 @@ B=100000
 # The Material Nonlinearity parameter, between 0 and 1. READ IN FROM COMMAND LINE
 MatNon=float(parameters[1])
 # the spring prestress values 
-g0coarse=np.arange(1,1.9,0.1)
-g0fine=np.arange(1.81,2.4,0.005)
-g0range=np.concatenate((g0coarse,g0fine))
+#g0coarse=np.arange(1,1.9,0.1)
+#g0fine=np.arange(1.81,2.4,0.005)
+#g0range=np.concatenate((g0coarse,g0fine))
+g0range=np.arange(0,-1,-0.1)
 
 # The microscopic values
 kbend=kc/target_a
@@ -46,7 +47,7 @@ DataFolder="/home/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimizat
 
 
 # Name of the current file
-ScriptName="EnergyMinimizationScript3DCluster.py"
+ScriptName="EnergyMinimizationScript3D.py"
 # Name of the file of functions used for this run
 FunctionFileName="EnergyMinimization.py"
 
@@ -157,8 +158,8 @@ for g0 in g0range:
     #def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,khook,kbend,gamma,theta0,B,MatNon,TargetVolumes):     
     Pout_ij = opt.minimize(Numbaenergy3D, Pout_ij.ravel()
                             ,options={'gtol':1e-02,'disp': True}  
-                            ,args=(interiorBonds
-                                  ,edgeBonds
+                            ,args=(interiorbonds
+                                  ,edgebonds
                                   ,orientedboundarytris
                                   ,bidxTotidx
                                   ,tetras
