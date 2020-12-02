@@ -145,7 +145,7 @@ tetras=newtetras
 for g0 in g0range:
     
     print("Current g0"+"{0:0.4f}".format(g0))
-    r0interior0_ij=InteriorBondRestLengths
+    rinterior0_ij=InteriorBondRestLengths
 
     # the important bit! Giving it the prestress
     #EdgeBondRestLengths= g0*InitialEdgeBondRestLengths
