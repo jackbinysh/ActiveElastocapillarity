@@ -144,28 +144,31 @@ tetras=newtetras
 for g0 in g0range:
     
     print("Current g0"+"{0:0.4f}".format(g0))
+    r0interior0_ij=InteriorBondRestLengths
 
     # the important bit! Giving it the prestress
-    EdgeBondRestLengths= g0*InitialEdgeBondRestLengths
-    r0_ij=np.concatenate((InteriorBondRestLengths,EdgeBondRestLengths))
+    #EdgeBondRestLengths= g0*InitialEdgeBondRestLengths
+    #r0_ij=np.concatenate((InteriorBondRestLengths,EdgeBondRestLengths))
 
     # Make the vector of material Nonlinearity values. Here we trial alpha in the middle, 0 on the surface
-    MatNonvec = np.concatenate((np.repeat(MatNon,len(interiorbonds)), np.repeat(0,len(edgebonds))))
+    #MatNonvec = np.concatenate((np.repeat(MatNon,len(interiorbonds)), np.repeat(0,len(edgebonds))))
 
 
-    #energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
+    #def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,khook,kbend,gamma,theta0,B,MatNon,TargetVolumes):     
     Pout_ij = opt.minimize(Numbaenergy3D, Pout_ij.ravel()
                             ,options={'gtol':1e-02,'disp': True}  
-                            ,args=(bonds
+                            ,args=(interiorBonds
+                                  ,edgeBonds
                                   ,orientedboundarytris
                                   ,bidxTotidx
                                   ,tetras
-                                  ,r0_ij
+                                  ,rinterior0_ij
                                   ,khook
                                   ,kbend
+                                  ,g0
                                   ,theta0
                                   ,B
-                                  ,MatNonvec
+                                  ,MatNon
                                   ,TargetVolumes)
                            ).x.reshape((-1, 3))
     

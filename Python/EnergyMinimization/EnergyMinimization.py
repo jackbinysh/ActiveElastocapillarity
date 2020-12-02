@@ -550,7 +550,7 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
 @jit(nopython=True)
-def Numbaenergy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,khook,kbend,gamma,theta0,B,MatNon,TargetVolumes):     
+def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,khook,kbend,gamma,theta0,B,MatNon,TargetVolumes):     
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
 
