@@ -263,10 +263,23 @@ def NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon):
     return V_ij
 
 @jit(nopython=True)
-def NumbaSurfaceEnergy3D(r_ij,gamma):
+def NumbaSurfaceEnergy3D(r_ij,r0_ij,khook,MatNon,gamma):
 
-    ksurf = 1/(2*np.sqrt(3))*gamma
-    return ksurf*r_ij**2
+    # the surface bonds have a prestretch by a factor gamma:
+    r0_ij=gamma*r0_ij
+
+    kneo_ij = (r0_ij**2)*khook/3  
+    lam_ij=r_ij/r0_ij
+    V_ij=kneo_ij*(  ((1-MatNon)/2)*((2/lam_ij) + lam_ij**2)+ (MatNon/2)*((1/lam_ij)**2 + 2*lam_ij)  )
+    # shift so zero extension is 0 energy
+    V_ij = V_ij -1.5*kneo_ij
+    return V_ij
+
+#@jit(nopython=True)
+#def NumbaSurfaceEnergy3D(r_ij,gamma):
+#
+#    ksurf = 1/(2*np.sqrt(3))*gamma
+#    return ksurf*r_ij**2
 
 # Here I implement the bending energy found in, e.g.:
 # "Spectrin-Level modelling of the cytoskeleton and optical tweezers stretching of the Erythrocyte", Li, Dao, Lim, Suresh 2005.
@@ -422,6 +435,64 @@ def NumbaBendingEnergy_2(P,boundarytris,bidxTotidx,kbend):
         
     return kbend*(1-costheta_ab)   
 
+@jit(nopython=True)
+def NumbaBendingEnergy_theta0(P,boundarytris,bidxTotidx,kbend,theta0):
+    
+    # first, compute list of normals to the triangles:     
+    normals=np.zeros( (len(boundarytris),3) )
+    # triangle barycentres
+    barys=np.zeros( (len(boundarytris),3) )
+
+    for i in range(len(boundarytris)):
+        
+        P0=P[boundarytris[i,0]]
+        P1=P[boundarytris[i,1]]
+        P2=P[boundarytris[i,2]]
+
+        barys[i,:]= (P0+P1+P2)/3
+        
+        t0x=P1[0]-P0[0]
+        t0y=P1[1]-P0[1]
+        t0z=P1[2]-P0[2]
+        
+        t1x=P2[0]-P0[0]
+        t1y=P2[1]-P0[1]
+        t1z=P2[2]-P0[2]
+        
+        nx = t0y*t1z- t0z*t1y
+        ny = t0z*t1x- t0x*t1z
+        nz = t0x*t1y- t0y*t1x
+        
+        size=np.sqrt(nx*nx+ny*ny+nz*nz)
+        
+        normals[i,0]=(nx/size)
+        normals[i,1]=(ny/size)
+        normals[i,2]=(nz/size)
+        
+   
+    # now loop over the bonds, getting cos(theta-theta0)
+    cosdeltatheta_ab=np.zeros(len(bidxTotidx))
+    for i in range(len(bidxTotidx)):
+        n_a=normals[bidxTotidx[i,0]]
+        n_b=normals[bidxTotidx[i,1]]
+        x_a=barys[bidxTotidx[i,0]]
+        x_b=barys[bidxTotidx[i,1]]
+
+        # cosines
+        costheta_ab=n_a[0]*n_b[0]+n_a[1]*n_b[1]+n_a[2]*n_b[2]
+        # unsignedd sines
+        sintheta_ab_unsigned= np.linalg.norm(np.cross(n_a,n_b) ,axis=1)
+        # sines, signed accoring to (x_a-x_b).(n_a-n_b)
+        signs= np.multiply((n_a-n_b), (x_a-x_b)).sum(axis=1)>0
+        # turn it from 0's and 1's to -1's and 1's
+        signs = 2*(signs-0.5)
+        sintheta_ab = signs*sintheta_ab_unsigned
+
+        cosdeltatheta_ab[i]=costheta_ab*costheta_0[i]+sintheta_ab*sintheta0[i]
+    
+    return kbend*(1-cosdeltatheta_ab)
+        
+
 # use the divergence theorem
 def Volume3D(P,boundarytris,bidxTotidx):
     
@@ -533,6 +604,15 @@ def vTotalArea3D(pts,tri):
     t2 = np.subtract(BC[:,0,:],BC[:,1,:])
     return np.linalg.norm(0.5*np.cross(t1,t2),axis=1).sum()
 
+@jit(nopython=True)
+def PointConstraintEnergy(P_ij,P0_ij,pidx,E):
+    Energy=0
+    for p in pidx:
+        Energy+=E*((P_ij[p,0]-P0_ij[p,0])**2)
+        Energy+=E*((P_ij[p,1]-P0_ij[p,1])**2)
+        Energy+=E*((P_ij[p,2]-P0_ij[p,2])**2)
+    return Energy  
+
 def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes): 
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
@@ -549,8 +629,15 @@ def energy3D(P,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend
     VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2).sum()
     return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
-@jit(nopython=True)
-def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,khook,kbend,gamma,theta0,B,MatNon,TargetVolumes):     
+#P - array of points
+# InteriorBonds, SurfaceBonds - lists of bonds on the interior/surface of the objects
+# orientedboundarytris - list of (i,j,k) tuples for surface triangles, correctly oriented.
+# bidxTotidx - which surface bonds belong to which triangle
+# tetras - (i,j,k,l) list of the tetrahedra in the mesh
+# rinterior0_ij - list of initial lengths of the interior bonds. 
+# rsurface0_ij - list of initial lengths of the surface bonds. 
+#@jit(nopython=True)
+def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,rsurface0_ij,khook,kbend,gamma,theta0,B,MatNon,TargetVolumes,ConstraintPidx,P0_ij):     
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
 
@@ -560,7 +647,7 @@ def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,t
 
     # Do the surface
     rsurface_ij=NumbaMakeBondLengths(P_ij,SurfaceBonds)
-    SurfaceSpringEnergy=NumbaSurfaceEnergy3D(rsurface_ij,gamma).sum()
+    SurfaceSpringEnergy=NumbaSurfaceEnergy3D(rsurface_ij,rsurface0_ij,khook,MatNon,gamma).sum()
 
     #bond bending energy
     BendingEnergyvar = NumbaBendingEnergy_2(P_ij,orientedboundarytris,bidxTotidx,kbend).sum()
@@ -568,8 +655,31 @@ def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,t
     # Energetic penalty on volume change
     VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum() 
 
-    return InteriorSpringEnergy+SurfaceSpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
+    #If we are fixing some points in 3D space, apply our constaint
+    PointConstraintEnergyvar=PointConstraintEnergy(P_ij,P0_ij,ConstraintPidx,0.01*B)
 
+    return InteriorSpringEnergy+SurfaceSpringEnergy+BendingEnergyvar+VolumeConstraintEnergy+PointConstraintEnergyvar
+
+#@jit(nopython=True)
+#def Numbaenergy3D(P,Bonds,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes):     
+#    # We convert it to a matrix here.
+#    P_ij = P.reshape((-1, 3))
+#
+#    # Do the interior bonds, Neo Hookean elasticity
+#    r_ij=NumbaMakeBondLengths(P_ij,Bonds)
+#    SpringEnergy = NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon).sum()   
+#
+#    # Do the surface
+#    #rsurface_ij=NumbaMakeBondLengths(P_ij,SurfaceBonds)
+#    #SurfaceSpringEnergy=NumbaSurfaceEnergy3D(rsurface_ij,rsurface0_ij,khook,MatNon,gamma).sum()
+#
+#    #bond bending energy
+#    BendingEnergyvar = NumbaBendingEnergy_2(P_ij,orientedboundarytris,bidxTotidx,kbend).sum()
+#
+#    # Energetic penalty on volume change
+#    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum() 
+#
+#    return SpringEnergy+BendingEnergyvar+VolumeConstraintEnergy
 
 
 def  Output3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
