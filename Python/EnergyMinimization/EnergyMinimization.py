@@ -103,6 +103,15 @@ def OrientTriangles(points, boundarytris,interiorpoint):
     return orientedboundarytris
     
 @jit(nopython=True)
+def NumbaNeoHookean3D(r_ij,r0_ij,khook,MatNon):
+    kneo_ij = (r0_ij**2)*khook/3  
+    lam_ij=r_ij/r0_ij
+    V_ij=kneo_ij*(  ((1-MatNon)/2)*((2/lam_ij) + lam_ij**2)+ (MatNon/2)*((1/lam_ij)**2 + 2*lam_ij)  )
+    # shift so zero extension is 0 energy
+    V_ij = V_ij -1.5*kneo_ij
+    return V_ij
+
+@jit(nopython=True)
 def NumbaSurfaceEnergy3D(r_ij,r0_ij,khook,MatNon,gamma):
 
     # the surface bonds have a prestretch by a factor gamma:
