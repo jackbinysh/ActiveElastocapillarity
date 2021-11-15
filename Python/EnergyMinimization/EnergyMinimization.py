@@ -222,9 +222,11 @@ def getCosSintheta(P,boundarytris,bidxTotidx):
         P0=P[boundarytris[i,0]]
         P1=P[boundarytris[i,1]]
         P2=P[boundarytris[i,2]]
-
-        barys[i,:]= (P0+P1+P2)/3
         
+        barys[i,0]=(P0[0]+P1[0]+P2[0])/3
+        barys[i,1]=(P0[1]+P1[1]+P2[1])/3
+        barys[i,2]=(P0[2]+P1[2]+P2[2])/3
+
         t0x=P1[0]-P0[0]
         t0y=P1[1]-P0[1]
         t0z=P1[2]-P0[2]
@@ -255,14 +257,83 @@ def getCosSintheta(P,boundarytris,bidxTotidx):
         # cosines
         costheta_ab[i]=n_a[0]*n_b[0]+n_a[1]*n_b[1]+n_a[2]*n_b[2]
         # unsignedd sines
-        sintheta_ab_unsigned= np.linalg.norm(np.cross(n_a,n_b))
+        nacnb0=n_a[1]*n_b[2]-n_a[2]*n_b[1]
+        nacnb1=n_a[2]*n_b[0]-n_a[0]*n_b[2]
+        nacnb2=n_a[0]*n_b[1]-n_a[1]*n_b[0]
+        sintheta_ab_unsigned= np.sqrt(nacnb0*nacnb0+nacnb1*nacnb1+nacnb2*nacnb2)
+
         # sines, signed accoring to (x_a-x_b).(n_a-n_b)
-        signs= np.dot((n_a-n_b), (x_a-x_b))>0
+        dn0 = n_a[0]-n_b[0]
+        dn1 = n_a[1]-n_b[1]
+        dn2 = n_a[2]-n_b[2]
+        
+        dx0 = x_a[0]-x_b[0]
+        dx1 = x_a[1]-x_b[1]
+        dx2 = x_a[2]-x_b[2]
+        
+        #signs= np.dot((n_a-n_b), (x_a-x_b))>0
+        sign= ((dn0*dx0)+(dn1*dx1)+(dn2*dx2))>0
+        
         # turn it from 0's and 1's to -1's and 1's
-        signs = 2*(signs-0.5)
-        sintheta_ab[i] = signs*sintheta_ab_unsigned
+        sign = 2*(sign-0.5)
+        sintheta_ab[i] = sign*sintheta_ab_unsigned
 
     return costheta_ab,sintheta_ab
+
+#@jit(nopython=True)
+# return signed cosines and sines of plaquette bending angles
+#def getCosSintheta(P,boundarytris,bidxTotidx):
+#    # first, compute list of normals to the triangles:     
+#    normals=np.zeros( (len(boundarytris),3) )
+#    # triangle barycentres
+#    barys=np.zeros( (len(boundarytris),3) )
+#
+#    for i in range(len(boundarytris)):
+#        
+#        P0=P[boundarytris[i,0]]
+#        P1=P[boundarytris[i,1]]
+#        P2=P[boundarytris[i,2]]
+#
+#        barys[i,:]= (P0+P1+P2)/3
+#        
+#        t0x=P1[0]-P0[0]
+#        t0y=P1[1]-P0[1]
+#        t0z=P1[2]-P0[2]
+#        
+#        t1x=P2[0]-P0[0]
+#        t1y=P2[1]-P0[1]
+#        t1z=P2[2]-P0[2]
+#        
+#        nx = t0y*t1z- t0z*t1y
+#        ny = t0z*t1x- t0x*t1z
+#        nz = t0x*t1y- t0y*t1x
+#        
+#        size=np.sqrt(nx*nx+ny*ny+nz*nz)
+#        
+#        normals[i,0]=(nx/size)
+#        normals[i,1]=(ny/size)
+#        normals[i,2]=(nz/size)
+#        
+#    # now loop over the bonds, getting cos(theta) and sin(theta)
+#    costheta_ab=np.zeros(len(bidxTotidx))
+#    sintheta_ab=np.zeros(len(bidxTotidx))
+#    for i in range(len(bidxTotidx)):
+#        n_a=normals[bidxTotidx[i,0]]
+#        n_b=normals[bidxTotidx[i,1]]
+#        x_a=barys[bidxTotidx[i,0]]
+#        x_b=barys[bidxTotidx[i,1]]
+#
+#        # cosines
+#        costheta_ab[i]=n_a[0]*n_b[0]+n_a[1]*n_b[1]+n_a[2]*n_b[2]
+#        # unsignedd sines
+#        sintheta_ab_unsigned= np.linalg.norm(np.cross(n_a,n_b))
+#        # sines, signed accoring to (x_a-x_b).(n_a-n_b)
+#        signs= np.dot((n_a-n_b), (x_a-x_b))>0
+#        # turn it from 0's and 1's to -1's and 1's
+#        signs = 2*(signs-0.5)
+#        sintheta_ab[i] = signs*sintheta_ab_unsigned
+#
+#    return costheta_ab,sintheta_ab
 
 @jit(nopython=True)
 def NumbaBendingEnergy_theta0(P,boundarytris,bidxTotidx,kbend,costheta0,sintheta0):
@@ -341,7 +412,7 @@ def PointConstraintEnergy(P_ij,P0_ij,pidx,E):
 # rinterior0_ij - list of initial lengths of the interior bonds. 
 # rsurface0_ij - list of initial lengths of the surface bonds. 
 #@jit(nopython=True)
-def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,rsurface0_ij,costheta0,sintheta0,khook,kbend,gamma,theta0,B,MatNon,TargetVolumes,ConstraintPidx,P0_ij):     
+def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,rsurface0_ij,costheta0,sintheta0,khook,kbend,gamma,B,MatNon,TargetVolumes,ConstraintPidx,P0_ij):     
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
 
@@ -364,32 +435,51 @@ def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,t
 
     return InteriorSpringEnergy+SurfaceSpringEnergy+BendingEnergyvar+VolumeConstraintEnergy+PointConstraintEnergyvar
 
-def  Output3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidxTotidx,tetras,r0_ij,khook,kbend,theta0,B,MatNon,TargetVolumes,g0): 
-    
-    # from the bond list, work out what the current bond lengths are:
-    AB=P_ij[bondlist]
-    t1 = np.subtract(AB[:,0,:],AB[:,1,:])
-    r_ij=np.linalg.norm(t1,axis=1)
-    # NeoHookean Spring bond energies
-    SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook,MatNon)   
+def  Output3D(Name,DataFolder,OutputMesh,P_ij,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,rsurface0_ij,costheta0,sintheta0,khook,kbend,gamma,B,MatNon,TargetVolumes): 
+
+    # essentially recalculate the stuff in the energy minimisation below:
+    rinterior_ij=NumbaMakeBondLengths(P_ij,InteriorBonds)
+    InteriorSpringEnergy = NumbaNeoHookean3D(rinterior_ij,rinterior0_ij,khook,MatNon)   
+
+    # Do the surface
+    rsurface_ij=NumbaMakeBondLengths(P_ij,SurfaceBonds)
+    SurfaceSpringEnergy=NumbaSurfaceEnergy3D(rsurface_ij,rsurface0_ij,khook,MatNon,gamma)
+
+    # concatenate the two spring energies
+    SpringEnergy=np.concatenate((InteriorSpringEnergy, SurfaceSpringEnergy))
+
     #bond bending energy
-    BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend)
+    BendingEnergyvar = NumbaBendingEnergy_theta0(P_ij,orientedboundarytris,bidxTotidx,kbend,costheta0,sintheta0)
+
     # Energetic penalty on volume change
-    VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2)
+    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2) 
+
+    # from the bond list, work out what the current bond lengths are:
+    #AB=P_ij[bondlist]
+    #t1 = np.subtract(AB[:,0,:],AB[:,1,:])
+    #r_ij=np.linalg.norm(t1,axis=1)
+    # NeoHookean Spring bond energies
+    #SpringEnergy = NeoHookean3D(r_ij,r0_ij,khook,MatNon)   
+    #bond bending energy
+    #BendingEnergyvar = BendingEnergy(P_ij,orientedboundarytris,bidxTotidx,kbend)
+    # Energetic penalty on volume change
+    #VolumeConstraintEnergy = (B*(Volume3D_tetras(P_ij,tetras)-TargetVolumes)**2)
     
     # write summary stats
-    TVolume=Volume3D_tetras(P_ij,tetras).sum()
+    TVolume=NumbaVolume3D_tetras_2(P_ij,tetras).sum()
     TBending=BendingEnergyvar.sum()
     TVolumeConstraint=VolumeConstraintEnergy.sum()
-    TSpringEnergy=SpringEnergy.sum()
-    TEnergy=SpringEnergy.sum()+BendingEnergyvar.sum()+VolumeConstraintEnergy.sum()
+    TInteriorSpringEnergy=InteriorSpringEnergy.sum()
+    TSurfaceSpringEnergy=SurfaceSpringEnergy.sum()
+
+    TEnergy=InteriorSpringEnergy.sum()+SurfaceSpringEnergy.sum()+BendingEnergyvar.sum()+VolumeConstraintEnergy.sum()
         
     filepath=DataFolder+"OutputSummary.log"
     f=open(filepath,"a")
     if os.stat(filepath).st_size == 0:
-        f.write('g0 Volume VolumeConstraint Bending SpringEnergy TotalEnergy \n')
+        f.write('gamma Volume VolumeConstraint Bending InteriorSpring SurfaceSpringEnergy TotalEnergy \n')
 
-    outputlist=["{:0.5f}".format(x) for x in [g0,TVolume,TVolumeConstraint,TBending,TSpringEnergy,TEnergy]] 
+    outputlist=["{:0.5f}".format(x) for x in [gamma,TVolume,TVolumeConstraint,TBending,TInteriorSpringEnergy, TSurfaceSpringEnergy,TEnergy]] 
     outputlist.append("\n") 
     f.write(" ".join(outputlist))
     f.close()
@@ -398,8 +488,8 @@ def  Output3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidx
     OutputMesh.points= P_ij
     
     #write cell data
-    bondzeros=np.zeros(len(bondlist))
-    interiorbondzeros=np.zeros(len(bondlist)-len(bidxTotidx))
+    bondzeros=np.zeros(len(InteriorBonds)+len(SurfaceBonds))
+    interiorbondzeros=np.zeros(len(InteriorBonds))
     tetrazeros=np.zeros(len(tetras))
     trizeros=np.zeros(len(orientedboundarytris))
     
@@ -408,5 +498,3 @@ def  Output3D(Name,DataFolder,OutputMesh,P_ij,bondlist,orientedboundarytris,bidx
     OutputMesh.cell_data['BendingEnergy']=[np.concatenate(( interiorbondzeros,BendingEnergyvar )),trizeros,tetrazeros]
     
     OutputMesh.write(DataFolder+Name,binary=True)  
-
-
