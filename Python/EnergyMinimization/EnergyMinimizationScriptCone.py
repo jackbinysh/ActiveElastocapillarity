@@ -132,21 +132,20 @@ OutputMesh.write(DataFolder+"InitialMesh.vtk",binary=True)
 
 ### ENERGY MINIMIIZATION ###
 
-# make the preferred rest lengths of the interior springs
+# Make the preferred rest lengths of the interior springs
 interiorpairs=InputMesh.points[interiorbonds]
 interiorvecs = np.subtract(interiorpairs[:,0,:],interiorpairs[:,1,:])
 rinterior0_ij=np.linalg.norm(interiorvecs,axis=1)
 
-# make the preferred rest lengths of the edge springs. Initially have the at g0=1, but then
-#update them in the loop
+# Make the preferred rest lengths of the edge springs. 
 edgepairs=InputMesh.points[edgebonds]
 edgevecs = np.subtract(edgepairs[:,0,:],edgepairs[:,1,:])
 rsurface0_ij=np.linalg.norm(edgevecs,axis=1)
 
-# The volume constraint is simply that the target volume should be the initial volume
+# Make the target volumes. The constraint is simply that the target volume should be the initial volume
 TargetVolumes=NumbaVolume3D_tetras_2(InputMesh.points,tetras)
 
-# make the intial angles of the mesh
+# Make the intial angles of the mesh
 costheta0,sintheta0=getCosSintheta(InputMesh.points,boundarytris,bidxTotidx)
 
 # Make the vector of material Nonlinearity values. Here we have all zeros
@@ -158,7 +157,6 @@ P0_ij =InputMesh.points
 
 for g0 in g0range:
 
-    #def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,khook,kbend,gamma,theta0,B,MatNon,TargetVolumes):     
     Pout_ij = opt.minimize(Numbaenergy3D, Pout_ij.ravel()
                             ,callback=mycallback
                             ,options={'gtol':1e-2,'disp': True}  
