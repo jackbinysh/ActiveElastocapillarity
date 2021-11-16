@@ -1,17 +1,32 @@
 #!/usr/bin/env python
 # coding: utf-8
+import os
+import sys
+# fix the thread numbers for numba and scripy; apparently this is done before import
+#https://stackoverflow.com/questions/30791550/limit-number-of-threads-in-numpy
+nthreads=2
+os.environ["OMP_NUM_THREADS"] = str(nthreads) # export OMP_NUM_THREADS=4
+os.environ["OPENBLAS_NUM_THREADS"] = str(nthreads)  # export OPENBLAS_NUM_THREADS=4 
+os.environ["MKL_NUM_THREADS"] = str(nthreads)  # export MKL_NUM_THREADS=6
+os.environ["VECLIB_MAXIMUM_THREADS"] =str(nthreads) # export VECLIB_MAXIMUM_THREADS=4
+os.environ["NUMEXPR_NUM_THREADS"] =str(nthreads)  # export NUMEXPR_NUM_THREADS=6
+import numpy as np
+# fix the thread numbers for numba
+# https://numba.pydata.org/numba-doc/latest/user/threading-layer.html
+import numba 
+numba.set_num_threads(nthreads)
+# remainder of the imports
 import meshio
 import pygmsh
-import numpy as np
 import copy
 import glob
 from collections import Counter
-import os
-import sys
 import json
 import shutil
 import scipy.optimize as opt
 from EnergyMinimization import *
+
+### DATA READ IN ###
 
 # which line of input file defines me?
 line=int(sys.argv[1])
@@ -31,15 +46,24 @@ MatNon=0
 # the spring prestress values 
 g0range=np.arange(1,1.6,0.1)
 
-# root folder for data
-DataFolder='/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2020-10-23-EnergyMinimization/'+"kbend_"+"{0:0.1f}".format(kbend)+"/"
-#DataFolder="/home/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
+### I/O SETUP ###
 
+# root folder for data
+ExperimentFolder="/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2021-11-16-ConeEnergyMinimization/"
+#DataFolder="/home/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
+DataFolder=ExperimentFolder+"kbend_"+"{0:0.1f}".format(kbend)+"/"
 
 # Name of the current file
 ScriptName="EnergyMinimizationScriptCone.py"
 # Name of the file of functions used for this run
 FunctionFileName="EnergyMinimization.py"
+
+try:
+    os.mkdir(ExperimentFolder)
+except OSError:
+    print ("Creation of the directory %s failed" % ExperimentFolder)
+else:
+    print ("Successfully created the directory %s " % ExperimentFolder)
 
 try:
     os.mkdir(DataFolder)
@@ -63,9 +87,9 @@ for filename in glob.glob(DataFolder+'*.vtk')+glob.glob(DataFolder+'*.log'):
 f=open(DataFolder+"Parameters.log","w+")
 datadict= { 
         "a":target_a,
-        "kbend":kc, 
+        "kbend":kbend, 
         "B":B,
-        "mu":mu,
+        "khook":khook,
         "alpha": MatNon
 }
 json.dump(datadict,f)
@@ -75,13 +99,16 @@ f.close()
 shutil.copyfile(ScriptName,DataFolder+ScriptName)
 shutil.copyfile(FunctionFileName,DataFolder+FunctionFileName)
 
-# Read in the Mesh
-#InputMesh=meshio.read("InputMesh.vtk")
+#redirect stdout and stderr to a file in the output folder
+sys.stdout = open(DataFolder+"stdout.log", 'w+')
+sys.stderr = open(DataFolder+"stderr.log", 'w+')
+
+### MESH GENERATION ###
 
 # Make the Mesh
 with pygmsh.occ.Geometry() as geom:
     geom.characteristic_length_max = target_a
-    cone = geom.add_ball([0.0, 0.0, 3.0], 1,0)
+    cone = geom.add_cone([0.0, 0.0, 0.0],[0.0, 0.0, 3.0], 1,0)
     InputMesh = geom.generate_mesh()
 
 #Make the bond lists, make the oriented boundary triangles list, make the mapping from bonds to boundary triangles
@@ -127,6 +154,7 @@ MatNonvec = np.concatenate((np.repeat(MatNon,len(interiorbonds)), np.repeat(0,le
 
 # initial input points. Pout changes over time
 Pout_ij =InputMesh.points
+P0_ij =InputMesh.points
 
 for g0 in g0range:
 
@@ -176,3 +204,7 @@ for g0 in g0range:
             ,B
             ,MatNon
             ,TargetVolumes)
+
+sys.stdout.close()
+sys.stderr.close()
+reader.close()
