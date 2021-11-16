@@ -20,6 +20,7 @@ line=int(sys.argv[1])
 reader=open("Parameters.txt","r")
 parameters=reader.readlines()[line].split()
 
+target_a=0.1
 # discrete bending modulus: READ IN FROM COMMAND LINE
 kbend=float(parameters[0])
 # hookean spring constant:
@@ -31,7 +32,7 @@ MatNon=0
 g0range=np.arange(1,1.6,0.1)
 
 # root folder for data
-DataFolder='/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2020-10-23-EnergyMinimization/'+"kbend_"+"{0:0.1f}".format(kc)+"/"
+DataFolder='/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2020-10-23-EnergyMinimization/'+"kbend_"+"{0:0.1f}".format(kbend)+"/"
 #DataFolder="/home/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
 
 
