@@ -47,6 +47,7 @@ z_thresh=0.01 #Below this z plane, we constrain the points to not move
 
 ### define the minimizer parameters
 gtol=1e-2 # When the minimizer should stop
+print_interval=100 # how often to print data
 
 ### define the run parameters ### 
 kbend=float(parameters[0]) # discrete bending modulus: READ IN FROM COMMAND LINE
@@ -58,7 +59,7 @@ g0range=np.arange(1,2.2,0.2) # the spring prestress values
 
 ### IO names ###
 #ExperimentFolder="/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2021-11-16-ConeEnergyMinimization/" # root folder for data
-ExperimentFolder="Data/Scratch/"
+ExperimentFolder="/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
 DataFolder=ExperimentFolder+"kbend_"+"{0:0.1f}".format(kbend)+"/"
 ScriptName="EnergyMinimizationScriptCone.py" # Name of the current file
 FunctionFileName="EnergyMinimization.py" # Name of the file of functions used for this run
@@ -107,8 +108,8 @@ shutil.copyfile(ScriptName,DataFolder+ScriptName)
 shutil.copyfile(FunctionFileName,DataFolder+FunctionFileName)
 
 #redirect stdout and stderr to a file in the output folder
-#sys.stdout = open(DataFolder+"stdout.log", 'w+')
-#sys.stderr = open(DataFolder+"stderr.log", 'w+')
+sys.stdout = open(DataFolder+"stdout.log", 'w+')
+sys.stderr = open(DataFolder+"stderr.log", 'w+')
 
 ### MESH GENERATION ###
 
@@ -165,11 +166,10 @@ P0_ij =InputMesh.points
 # define a callback function
 def StatusUpdate(xi):
     
-    interval=100         
     counter=len(history)
     history.append(counter)
   
-    if(0==(counter%interval)):
+    if(0==(counter%print_interval)):
         print("iteration:"+"{0:0.1f}".format(counter))
         tempP = xi.reshape((-1, 3))
         VolumeDeviation = (NumbaVolume3D_tetras_2(tempP,tetras)-TargetVolumes).sum()/(TargetVolumes.sum())
