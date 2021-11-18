@@ -45,6 +45,9 @@ topradius=0
 interiorpoint=np.array([0,0,0.1]) # needed to orient the mesh below
 z_thresh=0.01 #Below this z plane, we constrain the points to not move
 
+### define the minimizer parameters
+gtol=1e-2 # When the minimizer should stop
+
 ### define the run parameters ### 
 kbend=float(parameters[0]) # discrete bending modulus: READ IN FROM COMMAND LINE
 khook=1 # hookean spring constant:
@@ -181,7 +184,7 @@ for g0 in g0range:
     history=[]
     Pout_ij = opt.minimize(Numbaenergy3D, Pout_ij.ravel()
                             ,callback=StatusUpdate
-                            ,options={'gtol':1e-2,'disp': True}  
+                            ,options={'gtol':gtol,'disp': True}  
                             ,args=(interiorbonds
                                   ,edgebonds
                                   ,orientedboundarytris
