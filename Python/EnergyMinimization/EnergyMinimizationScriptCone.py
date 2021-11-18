@@ -37,24 +37,25 @@ parameters=reader.readlines()[line].split()
 ### SETTING ALL PARAMETERS. NO MORE HARD CODED NUMBERS AFTER THIS
 
 ###  Define the cone geometry ###
-target_a=float(parameters[0])
+target_a=float(parameters[1])
 cone_base=[0,0,0]
 cone_tip=[0,0,3]
 bottomradius=1
 topradius=0
 interiorpoint=np.array([0,0,0.1]) # needed to orient the mesh below
-z_thresh=0.01 #Below this z plane, we constaint the points to not move
+z_thresh=0.01 #Below this z plane, we constrain the points to not move
 
 ### define the run parameters ### 
 kbend=float(parameters[0]) # discrete bending modulus: READ IN FROM COMMAND LINE
 khook=1 # hookean spring constant:
-B=100000 # Energetic penalty for volume change 
+B=10000 # Energetic penalty for volume change 
+EConstraint=0.01*B #the energy for constraining some subset of vertices
 MatNon=0 # Material Nonlinearity
-g0range=np.arange(1,1.6,0.1) # the spring prestress values 
+g0range=np.arange(1,2.2,0.2) # the spring prestress values 
 
 ### IO names ###
-ExperimentFolder="/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2021-11-16-ConeEnergyMinimization/" # root folder for data
-#DataFolder="/home/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
+#ExperimentFolder="/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2021-11-16-ConeEnergyMinimization/" # root folder for data
+ExperimentFolder="Data/Scratch/"
 DataFolder=ExperimentFolder+"kbend_"+"{0:0.1f}".format(kbend)+"/"
 ScriptName="EnergyMinimizationScriptCone.py" # Name of the current file
 FunctionFileName="EnergyMinimization.py" # Name of the file of functions used for this run
@@ -103,8 +104,8 @@ shutil.copyfile(ScriptName,DataFolder+ScriptName)
 shutil.copyfile(FunctionFileName,DataFolder+FunctionFileName)
 
 #redirect stdout and stderr to a file in the output folder
-sys.stdout = open(DataFolder+"stdout.log", 'w+')
-sys.stderr = open(DataFolder+"stderr.log", 'w+')
+#sys.stdout = open(DataFolder+"stdout.log", 'w+')
+#sys.stderr = open(DataFolder+"stderr.log", 'w+')
 
 ### MESH GENERATION ###
 
@@ -117,7 +118,7 @@ with pygmsh.occ.Geometry() as geom:
 #Make the bond lists, make the oriented boundary triangles list, make the mapping from bonds to boundary triangles
 interiorbonds,edgebonds,boundarytris, bidxTotidx, tetras= MakeMeshData3D(InputMesh)
 bonds=np.concatenate((interiorbonds,edgebonds))
-orientedboundarytris=OrientTriangles(InputMesh.points,boundarytris,)
+orientedboundarytris=OrientTriangles(InputMesh.points,boundarytris,interiorpoint)
 boundarytris=orientedboundarytris
 
 # For the cone, the bottom layer is constrained not to move
@@ -158,10 +159,28 @@ MatNonvec = np.concatenate((np.repeat(MatNon,len(interiorbonds)), np.repeat(0,le
 Pout_ij =InputMesh.points
 P0_ij =InputMesh.points
 
+# define a callback function
+def StatusUpdate(xi):
+    
+    interval=100         
+    counter=len(history)
+    history.append(counter)
+  
+    if(0==(counter%interval)):
+        print("iteration:"+"{0:0.1f}".format(counter))
+        tempP = xi.reshape((-1, 3))
+        VolumeDeviation = (NumbaVolume3D_tetras_2(tempP,tetras)-TargetVolumes).sum()/(TargetVolumes.sum())
+        print(VolumeDeviation)  
+
+        #output for visualisation
+        OutputMesh.points = tempP           
+        OutputMesh.write(DataFolder+"TempOutput"+"Output"+"{0:0.2f}".format(g0)+"_"+str(counter)+".vtk",binary=True)
+
 for g0 in g0range:
 
+    history=[]
     Pout_ij = opt.minimize(Numbaenergy3D, Pout_ij.ravel()
-                            ,callback=mycallback
+                            ,callback=StatusUpdate
                             ,options={'gtol':1e-2,'disp': True}  
                             ,args=(interiorbonds
                                   ,edgebonds
@@ -179,7 +198,8 @@ for g0 in g0range:
                                   ,MatNon
                                   ,TargetVolumes
                                   ,ConstrainedPidx
-                                  ,P0_ij)
+                                  ,P0_ij
+                                  , EConstraint)
                            ).x.reshape((-1, 3))
 
 

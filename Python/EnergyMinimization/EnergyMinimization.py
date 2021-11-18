@@ -412,7 +412,7 @@ def PointConstraintEnergy(P_ij,P0_ij,pidx,E):
 # rinterior0_ij - list of initial lengths of the interior bonds. 
 # rsurface0_ij - list of initial lengths of the surface bonds. 
 #@jit(nopython=True)
-def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,rsurface0_ij,costheta0,sintheta0,khook,kbend,gamma,B,MatNon,TargetVolumes,ConstraintPidx,P0_ij,EConstrant):     
+def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,tetras,rinterior0_ij,rsurface0_ij,costheta0,sintheta0,khook,kbend,gamma,B,MatNon,TargetVolumes,ConstraintPidx,P0_ij,EConstraint):     
     # We convert it to a matrix here.
     P_ij = P.reshape((-1, 3))
 
