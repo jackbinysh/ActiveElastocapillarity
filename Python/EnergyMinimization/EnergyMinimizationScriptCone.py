@@ -30,33 +30,36 @@ from EnergyMinimization import *
 
 # which line of input file defines me?
 line=int(sys.argv[1])
-
 # read in arguments from file
 reader=open("Parameters.txt","r")
 parameters=reader.readlines()[line].split()
 
-target_a=0.1
-# discrete bending modulus: READ IN FROM COMMAND LINE
-kbend=float(parameters[0])
-# hookean spring constant:
-khook=1
-# Energetic penalty for volume change 
-B=100000
-MatNon=0
-# the spring prestress values 
-g0range=np.arange(1,1.6,0.1)
+### SETTING ALL PARAMETERS. NO MORE HARD CODED NUMBERS AFTER THIS
 
-### I/O SETUP ###
+###  Define the cone geometry ###
+target_a=float(parameters[0])
+cone_base=[0,0,0]
+cone_tip=[0,0,3]
+bottomradius=1
+topradius=0
+interiorpoint=np.array([0,0,0.1]) # needed to orient the mesh below
+z_thresh=0.01 #Below this z plane, we constaint the points to not move
 
-# root folder for data
-ExperimentFolder="/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2021-11-16-ConeEnergyMinimization/"
+### define the run parameters ### 
+kbend=float(parameters[0]) # discrete bending modulus: READ IN FROM COMMAND LINE
+khook=1 # hookean spring constant:
+B=100000 # Energetic penalty for volume change 
+MatNon=0 # Material Nonlinearity
+g0range=np.arange(1,1.6,0.1) # the spring prestress values 
+
+### IO names ###
+ExperimentFolder="/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2021-11-16-ConeEnergyMinimization/" # root folder for data
 #DataFolder="/home/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
 DataFolder=ExperimentFolder+"kbend_"+"{0:0.1f}".format(kbend)+"/"
+ScriptName="EnergyMinimizationScriptCone.py" # Name of the current file
+FunctionFileName="EnergyMinimization.py" # Name of the file of functions used for this run
 
-# Name of the current file
-ScriptName="EnergyMinimizationScriptCone.py"
-# Name of the file of functions used for this run
-FunctionFileName="EnergyMinimization.py"
+### I/O SETUP ###
 
 try:
     os.mkdir(ExperimentFolder)
@@ -108,17 +111,17 @@ sys.stderr = open(DataFolder+"stderr.log", 'w+')
 # Make the Mesh
 with pygmsh.occ.Geometry() as geom:
     geom.characteristic_length_max = target_a
-    cone = geom.add_cone([0.0, 0.0, 0.0],[0.0, 0.0, 3.0], 1,0)
+    cone = geom.add_cone(cone_base,cone_tip, bottomradius,topradius)
     InputMesh = geom.generate_mesh()
 
 #Make the bond lists, make the oriented boundary triangles list, make the mapping from bonds to boundary triangles
 interiorbonds,edgebonds,boundarytris, bidxTotidx, tetras= MakeMeshData3D(InputMesh)
 bonds=np.concatenate((interiorbonds,edgebonds))
-orientedboundarytris=OrientTriangles(InputMesh.points,boundarytris,np.array([0,0,0]))
+orientedboundarytris=OrientTriangles(InputMesh.points,boundarytris,)
 boundarytris=orientedboundarytris
 
 # For the cone, the bottom layer is constrained not to move
-ConstrainedPidx=(InputMesh.points[:,2]<0.01).nonzero()[0]
+ConstrainedPidx=(InputMesh.points[:,2]<z_thresh).nonzero()[0]
 
 # Write a copy of the input Mesh, for visualisation
 cells=[ ("line", bonds ), ("triangle",boundarytris ), ("tetra",tetras)]
