@@ -26,6 +26,9 @@ import shutil
 import scipy.optimize as opt
 from EnergyMinimization import *
 
+### A FEW SIMULATION SETTINGS ###
+redirect_std = False
+
 ### DATA READ IN ###
 
 # which line of input file defines me?
@@ -47,7 +50,7 @@ z_thresh=0.01 #Below this z plane, we constrain the points to not move
 
 ### define the minimizer parameters
 gtol=1e-2 # When the minimizer should stop
-print_interval=100 # how often to print data
+print_interval=1 # how often to print data
 
 ### define the run parameters ### 
 kbend=float(parameters[0]) # discrete bending modulus: READ IN FROM COMMAND LINE
@@ -108,8 +111,9 @@ shutil.copyfile(ScriptName,DataFolder+ScriptName)
 shutil.copyfile(FunctionFileName,DataFolder+FunctionFileName)
 
 #redirect stdout and stderr to a file in the output folder
-sys.stdout = open(DataFolder+"stdout.log", 'w+')
-sys.stderr = open(DataFolder+"stderr.log", 'w+')
+if redirect_std is True:
+    sys.stdout = open(DataFolder+"stdout.log", 'w+')
+    sys.stderr = open(DataFolder+"stderr.log", 'w+')
 
 ### MESH GENERATION ###
 
@@ -170,14 +174,38 @@ def StatusUpdate(xi):
     history.append(counter)
   
     if(0==(counter%print_interval)):
+        ### print stuff to stdout, make sure to flush it
         print("iteration:"+"{0:0.1f}".format(counter))
         tempP = xi.reshape((-1, 3))
         VolumeDeviation = (NumbaVolume3D_tetras_2(tempP,tetras)-TargetVolumes).sum()/(TargetVolumes.sum())
         print(VolumeDeviation)  
+        sys.stdout.flush()
 
         #output for visualisation
         OutputMesh.points = tempP           
-        OutputMesh.write(DataFolder+"TempOutput"+"Output"+"{0:0.2f}".format(g0)+"_"+str(counter)+".vtk",binary=True)
+
+        # output the resulting shape
+        Name="TempOutput_"+"{0:0.4f}".format(g0)+"_"+str(counter)+".vtk"
+        r0_ij=np.concatenate((rinterior0_ij,g0*rsurface0_ij))
+        Output3D(Name
+                ,DataFolder
+                ,OutputMesh
+                ,tempP
+                ,interiorbonds
+                ,edgebonds
+                ,orientedboundarytris
+                ,bidxTotidx
+                ,tetras
+                ,rinterior0_ij
+                ,rsurface0_ij
+                ,costheta0
+                ,sintheta0
+                ,khook
+                ,kbend
+                ,g0
+                ,B
+                ,MatNon
+                ,TargetVolumes)
 
 for g0 in g0range:
 
