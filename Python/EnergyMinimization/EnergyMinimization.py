@@ -404,6 +404,11 @@ def PointConstraintEnergy(P_ij,P0_ij,pidx,E):
         Energy+=E*((P_ij[p,2]-P0_ij[p,2])**2)
     return Energy  
 
+@jit(nopython=True)
+def NumbaVolumeConstraintEnergy(P_ij,tetras,TargetVolumes,B):
+        VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum() 
+        return VolumeConstraintEnergy
+
 #P - array of points
 # InteriorBonds, SurfaceBonds - lists of bonds on the interior/surface of the objects
 # orientedboundarytris - list of (i,j,k) tuples for surface triangles, correctly oriented.
@@ -428,7 +433,7 @@ def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,t
     BendingEnergyvar = NumbaBendingEnergy_theta0(P_ij,orientedboundarytris,bidxTotidx,kbend,costheta0,sintheta0).sum()
 
     # Energetic penalty on volume change
-    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum() 
+    VolumeConstraintEnergy = NumbaVolumeConstraintEnergy(P_ij,tetras,TargetVolumes,B)
 
     #If we are fixing some points in 3D space, apply our constaint
     PointConstraintEnergyvar=PointConstraintEnergy(P_ij,P0_ij,ConstraintPidx,EConstraint)
@@ -452,7 +457,7 @@ def  Output3D(Name,DataFolder,OutputMesh,P_ij,InteriorBonds,SurfaceBonds,oriente
     BendingEnergyvar = NumbaBendingEnergy_theta0(P_ij,orientedboundarytris,bidxTotidx,kbend,costheta0,sintheta0)
 
     # Energetic penalty on volume change
-    VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2) 
+    VolumeConstraintEnergy = NumbaVolumeConstraintEnergy(P_ij,tetras,TargetVolumes,B)
 
     # from the bond list, work out what the current bond lengths are:
     #AB=P_ij[bondlist]
