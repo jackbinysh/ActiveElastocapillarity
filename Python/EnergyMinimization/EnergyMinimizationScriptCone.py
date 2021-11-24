@@ -26,21 +26,27 @@ import shutil
 import scipy.optimize as opt
 from EnergyMinimization import *
 
-### A FEW SIMULATION SETTINGS ###
-redirect_std = False
-
 ### DATA READ IN ###
-
 # which line of input file defines me?
 line=int(sys.argv[1])
 # read in arguments from file
 reader=open("Parameters.txt","r")
 parameters=reader.readlines()[line].split()
+kbend=float(parameters[0]) # discrete bending modulus: READ IN FROM FILE
+target_a=float(parameters[1]) #target for mesh spacing: READ IN FROM FILE
+B=float(parameters[1]) #target for Bulk Modulus: READ IN FROM FILE
+
+### A FEW SIMULATION SETTINGS ###
+redirect_std = False
+#ExperimentFolder="/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2021-11-16-ConeEnergyMinimization/" # root folder for data
+ExperimentFolder="/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
+DataFolder=ExperimentFolder+"kbend_"+"{0:0.1f}".format(kbend)+"/"
+ScriptName="EnergyMinimizationScriptCone.py" # Name of the current file
+FunctionFileName="EnergyMinimization.py" # Name of the file of functions used for this run
 
 ### SETTING ALL PARAMETERS. NO MORE HARD CODED NUMBERS AFTER THIS
 
 ###  Define the cone geometry ###
-target_a=float(parameters[1])
 cone_base=[0,0,0]
 cone_tip=[0,0,3]
 bottomradius=1
@@ -51,21 +57,15 @@ z_thresh=0.01 #Below this z plane, we constrain the points to not move
 ### define the minimizer parameters
 gtol=1e-2 # When the minimizer should stop
 print_interval=1 # how often to print data
+g0range=np.arange(1,2.2,0.2) # the spring prestress values 
 
-### define the run parameters ### 
-kbend=float(parameters[0]) # discrete bending modulus: READ IN FROM COMMAND LINE
+### define the microscopic run parameters ### 
 khook=1 # hookean spring constant:
 B=10000 # Energetic penalty for volume change 
 EConstraint=0.01*B #the energy for constraining some subset of vertices
 MatNon=0 # Material Nonlinearity
-g0range=np.arange(1,2.2,0.2) # the spring prestress values 
 
-### IO names ###
-#ExperimentFolder="/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2021-11-16-ConeEnergyMinimization/" # root folder for data
-ExperimentFolder="/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
-DataFolder=ExperimentFolder+"kbend_"+"{0:0.1f}".format(kbend)+"/"
-ScriptName="EnergyMinimizationScriptCone.py" # Name of the current file
-FunctionFileName="EnergyMinimization.py" # Name of the file of functions used for this run
+### END OF HARD CODED PARAMETERS ### 
 
 ### I/O SETUP ###
 
