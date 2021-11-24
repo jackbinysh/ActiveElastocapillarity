@@ -406,7 +406,7 @@ def PointConstraintEnergy(P_ij,P0_ij,pidx,E):
 
 @jit(nopython=True)
 def NumbaVolumeConstraintEnergy(P_ij,tetras,TargetVolumes,B):
-        VolumeConstraintEnergy = (B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2).sum() 
+        VolumeConstraintEnergy = B*(NumbaVolume3D_tetras_2(P_ij,tetras)-TargetVolumes)**2 
         return VolumeConstraintEnergy
 
 #P - array of points
@@ -433,7 +433,7 @@ def Numbaenergy3D(P,InteriorBonds,SurfaceBonds,orientedboundarytris,bidxTotidx,t
     BendingEnergyvar = NumbaBendingEnergy_theta0(P_ij,orientedboundarytris,bidxTotidx,kbend,costheta0,sintheta0).sum()
 
     # Energetic penalty on volume change
-    VolumeConstraintEnergy = NumbaVolumeConstraintEnergy(P_ij,tetras,TargetVolumes,B)
+    VolumeConstraintEnergy = NumbaVolumeConstraintEnergy(P_ij,tetras,TargetVolumes,B).sum()
 
     #If we are fixing some points in 3D space, apply our constaint
     PointConstraintEnergyvar=PointConstraintEnergy(P_ij,P0_ij,ConstraintPidx,EConstraint)
