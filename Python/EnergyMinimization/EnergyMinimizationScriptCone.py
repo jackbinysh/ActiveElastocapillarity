@@ -27,24 +27,34 @@ import scipy.optimize as opt
 from EnergyMinimization import *
 
 ### DATA READ IN ###
-# which line of input file defines me?
-line=int(sys.argv[1])
+index=int(sys.argv[1]) # index the json arrays by this index to get my param values
 # read in arguments from file
-reader=open("Parameters.txt","r")
-parameters=reader.readlines()[line].split()
-kbend=float(parameters[0]) # discrete bending modulus: READ IN FROM FILE
-target_a=float(parameters[1]) #target for mesh spacing: READ IN FROM FILE
-B=float(parameters[1]) #target for Bulk Modulus: READ IN FROM FILE
+with open('ConeConfig.json', 'r') as c:
+       parameters = json.load(c) # parameters from json file 
 
-### A FEW SIMULATION SETTINGS ###
-redirect_std = False
-#ExperimentFolder="/mnt/jacb23-XDrive/Physics/ResearchProjects/ASouslov/RC-PH1229/ActiveElastocapillarity/2021-11-16-ConeEnergyMinimization/" # root folder for data
-ExperimentFolder="/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Scratch/"
-DataFolder=ExperimentFolder+"kbend_"+"{0:0.1f}".format(kbend)+"/"
+### SIMULATION PARAMETER READ IN ###
+kbend=parameters["kbend"][index] # discrete bending modulus: READ IN FROM FILE
+target_a=parameters["target_a"][index] # discrete bending modulus: READ IN FROM FILE
+B=parameters["B"] #target for Bulk Modulus: READ IN FROM FILE
+khook=parameters["khook"] # hookean spring constant:
+gtol=parameters["gtol"] # When the minimizer should stop
+
+### SIMULATION SETTINGS ###
+redirect_std = parameters["redirect_std"]
+ExperimentFolder=parameters["ExperimentFolder"]
+DataFolder=ExperimentFolder+"RunIndex_"+"{}".format(index)+"/"
 ScriptName="EnergyMinimizationScriptCone.py" # Name of the current file
 FunctionFileName="EnergyMinimization.py" # Name of the file of functions used for this run
 
-### SETTING ALL PARAMETERS. NO MORE HARD CODED NUMBERS AFTER THIS
+### define the minimizer parameters
+print_interval=parameters["printinterval"] # how often to print data
+g0range=np.arange(parameters["g0min"],parameters["g0max"],parameters["g0interval"]) # the spring prestress values 
+
+### A FEW HARD CODED NUMBERS WE DONT TOUCH ###
+
+### define the microscopic run parameters ### 
+EConstraint=0.01*B #the energy for constraining some subset of vertices
+MatNon=0 # Material Nonlinearity
 
 ###  Define the cone geometry ###
 cone_base=[0,0,0]
@@ -53,17 +63,6 @@ bottomradius=1
 topradius=0
 interiorpoint=np.array([0,0,0.1]) # needed to orient the mesh below
 z_thresh=0.01 #Below this z plane, we constrain the points to not move
-
-### define the minimizer parameters
-gtol=1e-2 # When the minimizer should stop
-print_interval=1 # how often to print data
-g0range=np.arange(1,2.2,0.2) # the spring prestress values 
-
-### define the microscopic run parameters ### 
-khook=1 # hookean spring constant:
-B=10000 # Energetic penalty for volume change 
-EConstraint=0.01*B #the energy for constraining some subset of vertices
-MatNon=0 # Material Nonlinearity
 
 ### END OF HARD CODED PARAMETERS ### 
 
