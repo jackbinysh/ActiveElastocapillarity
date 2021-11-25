@@ -54,7 +54,7 @@ g0range=np.arange(parameters["g0min"],parameters["g0max"],parameters["g0interval
 ### A FEW HARD CODED NUMBERS WE DONT TOUCH ###
 
 ### define the microscopic run parameters ### 
-EConstraint=parameters["ConstrantEnergy"] #the energy for constraining some subset of vertices
+EConstraint=parameters["ConstraintEnergy"] #the energy for constraining some subset of vertices
 MatNon=0 # Material Nonlinearity
 
 ###  Define the cone geometry ###
