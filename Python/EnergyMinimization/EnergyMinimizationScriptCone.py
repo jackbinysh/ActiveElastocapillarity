@@ -45,6 +45,7 @@ ExperimentFolder=parameters["ExperimentFolder"]
 DataFolder=ExperimentFolder+"RunIndex_"+"{}".format(index)+"/"
 ScriptName="EnergyMinimizationScriptCone.py" # Name of the current file
 FunctionFileName="EnergyMinimization.py" # Name of the file of functions used for this run
+ConfigFileName="ConeConfig.json" # Name of the config file
 
 ### define the minimizer parameters
 print_interval=parameters["printinterval"] # how often to print data
@@ -53,7 +54,7 @@ g0range=np.arange(parameters["g0min"],parameters["g0max"],parameters["g0interval
 ### A FEW HARD CODED NUMBERS WE DONT TOUCH ###
 
 ### define the microscopic run parameters ### 
-EConstraint=0.01*B #the energy for constraining some subset of vertices
+EConstraint=parameters["ConstrantEnergy"] #the energy for constraining some subset of vertices
 MatNon=0 # Material Nonlinearity
 
 ###  Define the cone geometry ###
@@ -108,9 +109,10 @@ f.close()
 # Dump an exact copy of this code into the data file
 shutil.copyfile(ScriptName,DataFolder+ScriptName)
 shutil.copyfile(FunctionFileName,DataFolder+FunctionFileName)
+shutil.copyfile(ConfigFileName,DataFolder+ConfigFileName)
 
 #redirect stdout and stderr to a file in the output folder
-if redirect_std is True:
+if 1==redirect_std:
     sys.stdout = open(DataFolder+"stdout.log", 'w+')
     sys.stderr = open(DataFolder+"stderr.log", 'w+')
 

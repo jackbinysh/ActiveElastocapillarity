@@ -1,13 +1,14 @@
 {
-  "ExperimentFolder":"/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/Test/",
+  "ExperimentFolder":"/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/NoConstraint25-11/",
   "B": 100000,
+  "ConstraintEnergy": 100000,
   "khook": 1,
-  "kbend":[0.1,0.2,0.3],
-  "target_a":[0.15,0.15,0.15],
+  "kbend":[0.5],
+  "target_a":[0.15],
   "gtol":5e-3,
   "g0min":1,
   "g0max":2,
   "g0interval":0.1,
-  "printinterval":10,
-  "redirect_std":0
+  "printinterval":50,
+  "redirect_std":1
 }
