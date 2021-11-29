@@ -43,6 +43,8 @@ gtol=parameters["gtol"] # When the minimizer should stop
 redirect_std = parameters["redirect_std"]
 ExperimentFolder=parameters["ExperimentFolder"]
 DataFolder=ExperimentFolder+"RunIndex_"+"{}".format(index)+"/"
+ReadIn=parameters["ReadIn"] # Do we read in a mesh, or generate one?
+InputMeshName=parameters["InputMeshName"] # If we are reading the mesh in, whats its name?
 ScriptName="EnergyMinimizationScriptCone.py" # Name of the current file
 FunctionFileName="EnergyMinimization.py" # Name of the file of functions used for this run
 ConfigFileName="ConeConfig.json" # Name of the config file
@@ -83,8 +85,8 @@ except OSError:
 else:
     print ("Successfully created the directory %s " % DataFolder)
     
-# try and clear out the folder of vtk files and log files, if there was a previous run in it
-for filename in glob.glob(DataFolder+'*.vtk')+glob.glob(DataFolder+'*.log'):
+# try and clear out the folder of vtu files and log files, if there was a previous run in it
+for filename in glob.glob(DataFolder+'*.vtu')+glob.glob(DataFolder+'*.log'):
     file_path = os.path.join(DataFolder, filename)
     try:
         if os.path.isfile(file_path) or os.path.islink(file_path):
@@ -118,11 +120,14 @@ if 1==redirect_std:
 
 ### MESH GENERATION ###
 
-# Make the Mesh
-with pygmsh.occ.Geometry() as geom:
-    geom.characteristic_length_max = target_a
-    cone = geom.add_cone(cone_base,cone_tip, bottomradius,topradius)
-    InputMesh = geom.generate_mesh()
+# Make the Mesh, or read it in 
+if 0==ReadIn:
+    with pygmsh.occ.Geometry() as geom:
+        geom.characteristic_length_max = target_a
+        cone = geom.add_cone(cone_base,cone_tip, bottomradius,topradius)
+        InputMesh = geom.generate_mesh()
+else:
+    InputMesh=meshio.read(InputMeshName)
 
 #Make the bond lists, make the oriented boundary triangles list, make the mapping from bonds to boundary triangles
 interiorbonds,edgebonds,boundarytris, bidxTotidx, tetras= MakeMeshData3D(InputMesh)
@@ -141,7 +146,7 @@ CellDataDict={'isedgebond':[isedgebond,np.zeros(len(boundarytris)),np.zeros(len(
               ,'isbond':[isbond,np.zeros(len(boundarytris)),np.zeros(len(tetras))]}
 
 OutputMesh=meshio.Mesh(InputMesh.points, cells, {},CellDataDict)
-OutputMesh.write(DataFolder+"InitialMesh.vtk",binary=True)
+OutputMesh.write(DataFolder+"InitialMesh.vtu",binary=True)
 
 ### ENERGY MINIMIIZATION ###
 
@@ -186,7 +191,7 @@ def StatusUpdate(xi):
         OutputMesh.points = tempP           
 
         # output the resulting shape
-        Name="TempOutput_"+"{0:0.4f}".format(g0)+"_"+str(counter)+".vtk"
+        Name="TempOutput_"+"{0:0.4f}".format(g0)+"_"+str(counter)+".vtu"
         r0_ij=np.concatenate((rinterior0_ij,g0*rsurface0_ij))
         Output3D(Name
                 ,DataFolder
@@ -236,7 +241,7 @@ for g0 in g0range:
 
 
     # output the resulting shape
-    Name="g0_"+"{0:0.4f}".format(g0)+".vtk"
+    Name="g0_"+"{0:0.4f}".format(g0)+".vtu"
     r0_ij=np.concatenate((rinterior0_ij,g0*rsurface0_ij))
     Output3D(Name
              ,DataFolder
