@@ -61,9 +61,9 @@ MatNon=0 # Material Nonlinearity
 
 ###  Define the cone geometry ###
 cone_base=[0,0,0]
-cone_tip=[0,0,3]
-bottomradius=1
-topradius=0
+cone_tip=[0,0,parameters["ConeZTop"]]
+topradius=parameters["ConeRTop"]
+bottomradius=parameters["ConeRBottom"]
 interiorpoint=np.array([0,0,0.1]) # needed to orient the mesh below
 z_thresh=0.01 #Below this z plane, we constrain the points to not move
 

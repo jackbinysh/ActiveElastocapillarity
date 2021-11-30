@@ -1,5 +1,5 @@
 {
-  "ExperimentFolder":"/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/30-11-NarrowCone-CG/",
+  "ExperimentFolder":"/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/30-11-NarrowCone-2/",
   "B": 1000000,
   "ConstraintEnergy": 1000,
   "khook": 1,
@@ -10,6 +10,9 @@
   "g0max":1.4,
   "g0interval":0.1,
   "printinterval":10,
+  "ConeZTop":6,
+  "ConeRTop":0.1,
+  "ConeRBottom":1,
   "redirect_std":0,
   "ReadIn":0,
   "InputMeshName":"InputMesh.vtu"
