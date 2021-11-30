@@ -1,14 +1,16 @@
 {
-  "ExperimentFolder":"/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/NoConstraint25-11/",
-  "B": 100000,
-  "ConstraintEnergy": 100000,
+  "ExperimentFolder":"/Users/jackbinysh/Code/ActiveElastocapillarity/Python/EnergyMinimization/Data/30-11-NarrowCone-CG/",
+  "B": 1000000,
+  "ConstraintEnergy": 1000,
   "khook": 1,
   "kbend":[0.5],
   "target_a":[0.15],
   "gtol":5e-3,
-  "g0min":1,
-  "g0max":2,
+  "g0min":1.0,
+  "g0max":1.4,
   "g0interval":0.1,
-  "printinterval":50,
-  "redirect_std":1
+  "printinterval":10,
+  "redirect_std":0,
+  "ReadIn":0,
+  "InputMeshName":"InputMesh.vtu"
 }
